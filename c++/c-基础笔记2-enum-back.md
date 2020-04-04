@@ -1,0 +1,32 @@
+---
+title: c++基础笔记2 - enum back
+mathjax: true
+categories:
+  - c++笔记
+  - c++基础笔记
+tags:
+  - c++笔记
+  - c++基础笔记
+keywords:
+  - c++笔记
+  - c++基础笔记
+abbrlink: 7f4794d9
+date: 2020-03-13 15:40:28
+---
+
+# enum back
+&emsp;&emsp; 这是这篇博文的重点，enum back 是一个很实用的编程技术，很多人都会用到它，更进一步，enum back技术是模版元编程的基本技术
+&emsp;&emsp;
+```cpp
+#include <iostream>
+using namespace std;
+class my_class {
+  enum { size = 10 };
+  int data[size];
+};
+
+int main() {}
+```
+
+&emsp;&emsp; 这里其实我们也可以用static const size = 10;来实现，但是这不影响enum是一个好方法，enum不会导致额外的内存分配。
+

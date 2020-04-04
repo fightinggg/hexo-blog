@@ -1,0 +1,72 @@
+---
+title: linux指令学习10-搜索查找
+mathjax: true
+categories:
+  - linux指令学习
+tags:
+  - linux指令学习
+keywords:
+  - linux指令学习
+abbrlink: c97401ca
+date: 2020-03-27 13:45:24
+---
+
+# find
+
+&emsp;&emsp; 在用户文件夹下找名为.vimrc的文件
+```
+find ~ -name .vimrc
+```
+&emsp;&emsp; 在用户文件夹下找名为.vimrc属于用户s的文件
+
+```
+find ~ -user s -name .vimrc
+```
+
+<!---more-->
+&emsp;&emsp; 在用户文件夹下找大于100M的文件
+```
+find ~ -size +100M
+```
+&emsp;&emsp; 在用户文件夹下找小于100M的文件
+```
+find ~ -size -100M
+```
+&emsp;&emsp; 在用户文件夹下找等于100M的文件
+```
+find ~ -size 100M
+```
+&emsp;&emsp; 通配符
+```
+find ~ -name *.txt
+```
+
+
+# locate
+&emsp;&emsp; 根据数据库快速定位文件的位置，
+更新数据库
+```
+updatedb
+```
+根据数据库快速定位a.txt
+```
+locate a.txt 
+```
+
+# 管道
+&emsp;&emsp; 将前一个指令的输出传递给后一个指令处理
+```
+|
+```
+
+# grep
+
+&emsp;&emsp; 寻找let，并输出行号和行数据，-n表示输出行号，-i表示不区分大小写，
+```
+grep -n -i let ~/.vimrc
+```
+&emsp;&emsp; 通过管道将cat的结果传递给grep，同上
+```
+cat ~/.vimrc | grep -ni let
+```
+

@@ -1,0 +1,25 @@
+---
+title: Java基础1-Automic
+mathjax: true
+categories:
+  - Java
+  - Java基础
+tags:
+  - Java
+  - Java基础
+keywords:
+  - Java
+  - Java基础
+abbrlink: e0cf3938
+date: 2020-03-31 23:19:56
+---
+
+# Automic 
+&emsp;&emsp;是一个原子类型包,其中包含了AtomicBoolean,AtomicInteger,AtomicLong等， 原子操作说是这样说的，然而并不是所有的物理机器都支持原子指令，所以不能保证不被阻塞，一般而言，采用的CAS+volatile+native的方法，避免synchronized的使用，如果不支持CAS那就上自旋锁了
+
+# 接口
+&emsp;&emsp; 我上图好不好，不想搞了
+![](/images/Automic/type.png)
+![](/images/Automic/Boolean.png)
+![](/images/Automic/Integer.png)
+

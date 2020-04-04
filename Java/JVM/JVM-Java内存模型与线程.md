@@ -1,0 +1,45 @@
+---
+title: understanding the JVM - Java内存模型与线程
+mathjax: true
+categories:
+  - java
+  - understanding the JVM
+tags:
+  - java
+  - understanding the JVM
+keywords:
+  - java
+  - understanding the JVM
+abbrlink: bf0c1b8b
+date: 2020-02-15 19:09:56
+---
+
+
+
+### 硬件间速度的差距
+&emsp;&emsp;因为计算机各种硬件之间速度的差距实在是太大了，这严重地影响了计算机的整体效率，很多时候软件并不能够充分地利用计算机的资源，让处理器去等待内存，一种解决方案就是在内存和处理器之间引入一个缓存，来尽量减轻这个速度的差距。在多处理器系统中，往往对应着多个缓存。
+### 缓存一致性
+&emsp;&emsp;往往这些缓存都储存着和内存一样的数据，他们互为拷贝，我们必须保证他们的数据是同步修改的。这有很多种协议来维护。
+### 乱序执行
+&emsp;&emsp;为了更好的利用处理器的运算单元，处理器可能会对输入的代码片段进行乱序执行优化，Java虚拟机也是如此。
+<!---more-->
+### Java内存模型
+&emsp;&emsp;Java内存模型中有两种内存，第一种是一个主内存，第二种是多个线程工作内存，线程私有。
+### 内存间的互相操作
+&emsp;&emsp;Java内存模型有8种原子操作
+&emsp;&emsp;lock:作用与主内存中的变量，让其变为线程独占
+&emsp;&emsp;unlock:和lock相反
+&emsp;&emsp;read:把主内存中的变量传输到工作内存，准备load
+&emsp;&emsp;load:把read的值放入线程工作内存的变量副本中
+&emsp;&emsp;use:把线程工作内存中的值拿到执行引擎中
+&emsp;&emsp;assign:从执行引擎中获得值写入工作内存
+&emsp;&emsp;store:把工作内存中的变量传输到主内存，准备write
+&emsp;&emsp;write:把store得到的值写入主内存。
+&emsp;&emsp;这些操作的相互执行关系很复杂，但都能推导出，这里不赘述
+&emsp;&emsp;long和double是64位数据，Java内存模型不强制但推荐把他们也实现为原子操作
+### volatile型变量
+&emsp;&emsp;volatile类型有两种特点，第一是保证对所有线程的可见行，即所有线程使用其前都要在工作内存中刷新他的值，但是这些操作并非原子性，所以不能保证并发安全。第二是禁止语义重排。他前面的代码不能排到他后面去，他后面的代码不能重排到他前面。
+### Java线程调度
+&emsp;&emsp;Java有10种优先级，但是操作系统却不一定是10种，若&lt;10则导致Java线程某些级别无差距，若&gt;10则导致有些系统线程优先级无法使用。
+### Java线程状态
+&emsp;&emsp;新建、运行、无限期等待(不能主动苏醒，能被唤醒)、期限等待、阻塞、结束

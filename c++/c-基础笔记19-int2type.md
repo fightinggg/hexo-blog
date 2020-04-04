@@ -1,0 +1,44 @@
+---
+title: c++基础笔记19 - int2type
+mathjax: true
+categories:
+  - c++笔记
+  - c++基础笔记
+tags:
+  - c++笔记
+  - c++基础笔记
+keywords:
+  - c++笔记
+  - c++基础笔记
+abbrlink: 49a66f07
+date: 2020-03-15 23:12:40
+---
+
+# int2type
+&emsp;&emsp; int2type是一种技术，他把int映射为一个类型，从而能够让他对函数去实现重载，下面的程序就是一个很好的例子，注意我们的主函数里面用的是int2type&lt;2&gt;如果把2换成1，是无法编译的，因为int没有clone这个函数。
+&emsp;&emsp; 如果我们不使用这种技术，而是在运行期使用if else来判断，这不可能，你无法通过编译，这事只能在编译器做。
+```cpp
+namespace trick {
+template <int v>
+struct int2type {
+  enum { value = v };
+};
+}  // namespace trick
+using namespace trick;
+
+template <class T>
+class node {
+  T *p;
+
+ public:
+  void f(T x, int2type<1>) { p->clone(); }
+
+  void f(T x, int2type<2>) {}
+
+  void f(T x, int2type<3>) {}
+};
+int main() {
+  node<int> a;
+  a.f(1, int2type<2>());
+}
+```

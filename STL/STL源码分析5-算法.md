@@ -1,0 +1,33 @@
+---
+title: STL源码分析5-算法
+mathjax: true
+categories:
+  - c++笔记
+  - STL源码分析
+tags:
+  - c++笔记
+  - STL源码分析
+keywords:
+  - c++笔记
+  - STL源码分析
+abbrlink: 7a1b3de4
+date: 2020-03-24 21:43:25
+---
+
+# 算法
+&emsp;&emsp; 分为质变算法和非质变算法，一个会改变操作对象，另一个不会。
+
+# accumulate
+&emsp;&emsp; 这个强，accmulate(first,last,init),将[first,last)的值累加到init上
+&emsp;&emsp; accmulate(first,last,init,binary op),将[first,last)从左到右二元操作(init,*)到init上
+
+# adjacent_difference
+&emsp;&emsp; 666666666，adjacent_difference(first,last,result)差分都来了[first,last)差分到[result,*)
+&emsp;&emsp; 6666666,自己定义的差分adjacent_difference(first,last,result,binary_op); 这个能自定定义减法，
+&emsp;&emsp; 注意可以result设为first
+
+# inner_product
+&emsp;&emsp; 内积，inner_product(first1,last1,first2,init),加到init上然后返回。
+&emsp;&emsp; 参数在加上一个binary_op1和binary_op2,init=binary_op1(init,binary_op2(eme1,eme2))
+
+# 太强了，佩服的五体投地，明天继续学,看java去
