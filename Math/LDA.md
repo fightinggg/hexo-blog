@@ -20,9 +20,9 @@ date: 2020-02-18 14:47:04
 # LDA
 ### 算法输入与目的
 有很多有标签的高纬数据,他们的格式为列向量：
-$$ x = [x_1,x_2,x_3...]^T$$
+$$ x = [x_1,x_2,x_3...]^T $$
 我们想要找到一个高纬空间到一维空间的映射,其中$w$是一个列向量
-$$y=w^Tx$$
+$$ y=w^T x $$
 使得我们在这个新的维度上，能够完成分类，类内紧凑，类间松散
 
 <!---more-->
@@ -51,7 +51,8 @@ $$D_i = \{x_1,x_2,x_3...\}$$
 $$m_i=\frac{1}{n_i}\sum_{x\in D_i}x$$
 则映射后的期望为
 $$
-\tilde{m_i}=\frac{1}{n_i}\sum_{y\in Y_i}y=\frac{1}{n_i}\sum_{x\in D_i}w^Tx=w^T\frac{1}{n_i}\sum_{x\in D_i}x=w^Tm_i$$
+\tilde{m_i}=\frac{1}{n_i}\sum_{y\in Y_i}y=\frac{1}{n_i}\sum_{x\in D_i}w^Tx=w^T\frac{1}{n_i}\sum_{x\in D_i}x=w^Tm_i
+$$
 令
 $$S_i = \sum_{x \in D_i}(x-m_i)(x-m_i)^T$$
 则映射后的方差
@@ -64,6 +65,7 @@ $$
 \\&=w^TS_iw
 \end{aligned}
 $$
+
 模型
 $$
 \tilde{m}=\frac{1}{n}\sum n_i*\tilde{m_i}=w^T\frac{1}{n}\sum n_i*m_i=w^Tm
