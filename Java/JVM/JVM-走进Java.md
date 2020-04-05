@@ -2,13 +2,13 @@
 title: understanding the JVM - 走进Java
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: a521a4f8
 date: 2020-02-12 09:38:37

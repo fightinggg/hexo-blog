@@ -2,13 +2,13 @@
 title: understanding the JVM - 早期(编译期)优化
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: b43b650
 date: 2020-02-17 13:09:29

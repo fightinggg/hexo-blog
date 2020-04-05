@@ -2,13 +2,13 @@
 title: understanding the JVM - 垃圾收集器与内存分配策略
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: d471c147
 date: 2020-02-12 14:52:48

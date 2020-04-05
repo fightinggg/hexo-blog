@@ -2,13 +2,13 @@
 title: understanding the JVM - 晚期(运行期)优化
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: 8cc56320
 date: 2020-02-18 18:46:13

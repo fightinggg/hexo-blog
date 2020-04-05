@@ -2,13 +2,13 @@
 title: understanding the JVM - Java内存区域于内存溢出异常
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: 981eb13a
 date: 2020-02-12 12:11:54

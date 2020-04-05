@@ -2,17 +2,19 @@
 title: spring学习1 - spring入门
 mathjax: true
 categories:
-  - java
+  - Java
   - spring
 tags:
-  - java
+  - Java
   - spring
 keywords:
-  - java
+  - Java
   - spring
 abbrlink: 17fa7f3a
 date: 2020-03-24 23:10:36
 ---
+
+[学习](https://www.bilibili.com/video/BV1Sb411s7vP?p=59)
 
 # spring 是一个轻量级框架
 &emsp;&emsp; 他最重要的地方时AOP和IOC，他的目的是降低耦合度，减少代码量

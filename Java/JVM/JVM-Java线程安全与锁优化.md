@@ -2,13 +2,13 @@
 title: understanding the JVM - Java线程安全与锁优化
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: 320c62b
 date: 2020-02-16 20:07:39

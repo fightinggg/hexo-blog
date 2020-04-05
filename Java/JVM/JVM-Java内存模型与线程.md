@@ -2,13 +2,13 @@
 title: understanding the JVM - Java内存模型与线程
 mathjax: true
 categories:
-  - java
+  - Java
   - understanding the JVM
 tags:
-  - java
+  - Java
   - understanding the JVM
 keywords:
-  - java
+  - Java
   - understanding the JVM
 abbrlink: bf0c1b8b
 date: 2020-02-15 19:09:56

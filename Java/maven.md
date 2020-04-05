@@ -3,9 +3,9 @@ title: maven
 mathjax: true
 abbrlink: c6e613d8
 date: 2020-04-02 22:13:25
-categories: [java,maven]
-tags: [java,maven]
-keywords: [java,maven]
+categories: [Java,maven]
+tags: [Java,maven]
+keywords: [Java,maven]
 ---
 
 # maven依赖管理
