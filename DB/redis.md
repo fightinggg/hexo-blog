@@ -2,13 +2,16 @@
 title: redis
 mathjax: true
 categories:
+  - DB
   - redis
 tags:
+  - DB
   - redis
 keywords:
+  - DB
   - redis
 abbrlink: 7b25d017
-date: 2020-03-24 14:22:39
+date: 2020-04-07 14:22:39
 ---
 
 # nosql
@@ -33,3 +36,40 @@ date: 2020-03-24 14:22:39
 # redis哨兵模式
 &emsp;&emsp; 当主机挂了以后，通过投票在从机中选出新的主机
 
+# 缓存雪崩
+&emsp;&emsp; 大量的缓存同时失效，导致原本应该访问缓存的请求由于找不到数据，都去查询数据库，造成数据库CPU和内存巨大的压力
+&emsp;&emsp; 解决方案：对数据库加锁，或者让缓存失效时间分散开
+
+# 缓存穿透
+&emsp;&emsp; 查询数据库中没有的数据，导致每次都要进入数据库查询
+&emsp;&emsp; 解决方案： 布隆过滤器，或者把数据库中不存在的数据也存入缓存设为空
+
+## 布隆过滤器
+&emsp;&emsp; 引入多个相互独立的哈希函数，对数据库中的数据进行哈希，然后存入位图中，这里的多个确保了精度
+
+# 缓存击穿
+&emsp;&emsp; 由于缓存中某条热点数据过期，导致大量高并发的请求击穿缓存进入数据库，导致数据库巨大的压力
+&emsp;&emsp; 解决方案: 热点数据永不过期或者访问数据库前加互斥锁， 这里为什么不是依靠数据库自己的锁呢，我认为能早处理的话就早处理，不要给数据库加压。
+
+# 缓存预热
+&emsp;&emsp; 系统上线以后，将某些相关的缓存数据之间加入到缓存系统中
+
+# 缓存更新
+&emsp;&emsp; 根据具体业务需求去自定义缓存淘汰机制，定期清理或者当请求来临的时候更新
+
+# 缓存降级
+&emsp;&emsp; 当访问量增大，非核心服务影响核心服务的性能时，自动或者人工地让缓存尽量少查询数据库，尽管这可能导致少量的错误，但是我们的目标时系统的高可用性。
+
+# memcache、mongoDB、redis
+&emsp;&emsp; 性能都高，但是redis和memcache比mongodb强一点点
+&emsp;&emsp; memcache只能是字符串，mongodb更加类似与关系型数据库，redis支持丰富的数据类型
+&emsp;&emsp; redis用主从一致、哨兵机制保护数据，memcache没有冗余数据，mongoDB有主从一致、内部选举、auto sharding保护数据
+&emsp;&emsp; redis支持rdb和aof，memcache没有持久化，mongodb用binlog
+&emsp;&emsp; Memcache用cas保存一致性，redis事务性较差，mongodb没有事务
+
+
+
+# 参考资料
+[redis面试题](https://blog.csdn.net/Butterfly_resting/article/details/89668661)
+[缓存穿透、缓存击穿、缓存雪崩区别和解决方案](https://blog.csdn.net/kongtiao5/article/details/82771694)
+[Redis与Memcached的区别](https://blog.51cto.com/250688049/1132097)
