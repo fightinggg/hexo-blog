@@ -1,0 +1,41 @@
+---
+title: java并发编程1-进程与线程
+mathjax: true
+abbrlink: 11091
+date: 2020-04-09 19:49:50
+categories:
+ - Java
+ - Java并发
+tags:
+ - Java
+ - Java并发
+keywords:
+ - Java
+ - Java并发
+---
+
+# Where from
+&emsp;&emsp; [快来点我](https://www.bilibili.com/video/BV1z7411H7zd?p=5)
+
+# 进程
+&emsp;&emsp; 一个活动的程序，是程序的实例，大部分程序可以运行多个实例，有的程序只可以运行一个实例
+
+# 线程
+&emsp;&emsp; 一个进程可以有多个线程，线程是最小的调度单位，进程是资源分配的最小单位，
+
+# 进程与线程
+&emsp;&emsp; 进程互相独立，线程是进程的子集
+&emsp;&emsp; 进程拥有共享的资源，供其内部的线程共享
+&emsp;&emsp; 进程通信较为复杂，同一台计算机之间的进程通信叫做IPC，不同的计算机之间需要通过网络协议
+&emsp;&emsp; 线程的通信相对简单，他们共享进程的内存，
+&emsp;&emsp; 线程更加轻量，他们上下文切换的成本更低
+
+# 并行与并发
+&emsp;&emsp; 单核CPU的线程都是串行，这就叫并发concurrent
+&emsp;&emsp; 多核CPU能够达到并行,一些代码同时执行，但是更多情况下，我们的计算机是并发+并行
+&emsp;&emsp; 并发concurrent是同一时间应对dealing with多件事情的能力，并行parallel是同一时间动手做doing多件事情的能力
+  
+
+# 同步和异步
+&emsp;&emsp; 比如我们有个视频转换转换格式非常耗时间，我们让新的线程去做处理，避免主线程被阻塞
+
