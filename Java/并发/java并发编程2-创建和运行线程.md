@@ -40,6 +40,7 @@ public class ThreadTest {
     }
 }
 ```
+<!-- more -->
 &emsp;&emsp; 得到输出
 ```output
 13:23:33.225 [t1] DEBUG com.wsx.test.ThreadTest - running

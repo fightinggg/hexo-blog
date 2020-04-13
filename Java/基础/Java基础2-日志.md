@@ -28,6 +28,8 @@ keywords:
 ```properties
 log4j.rootLogger=all, stdout, logfile
 
+<!--more-->
+
 #日志输出位置为控制台
 #（ConsoleAppender）控制台
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
