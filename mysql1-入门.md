@@ -1,0 +1,32 @@
+---
+title: mysql1-入门
+mathjax: true
+abbrlink: 24764
+date: 2020-04-13 13:40:43
+categories:
+- DB
+- mysql
+tags:
+- DB
+- mysql
+keywords:
+- DB
+- mysql
+---
+
+# DB
+&emsp;&emsp; Database 数据库
+# DBMS
+&emsp;&emsp; DatabaseManagementSystem 数据库管理系统
+# SQL
+&emsp;&emsp; Sturcture Query Language 结构化查询语言
+## SQL语言
+&emsp;&emsp; 不是某个特定数据库供应商专有的语言，DBMS都支持SQL
+# MySQL 安装
+# MySQL 卸载
+# MySQL 配置
+> my.ini
+- port 是端口
+- datadir 是文件系统路径
+- default-storage-engin 是数据库默认引擎
+&emsp;&emsp; 注意要重启服务才能生效
