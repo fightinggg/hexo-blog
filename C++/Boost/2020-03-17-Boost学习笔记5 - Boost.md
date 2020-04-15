@@ -1,0 +1,181 @@
+
+# StringAlgorithms
+&emsp;&emsp; 我终于找到一个暂时没有被编入C++17的库了，听说在C++20中他也没进，哈哈哈。
+# 大小写转化
+&emsp;&emsp; 首先上来的肯定就是大小写转化啦，使用函数to_upper_copy(string)就可以了。
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "abcdefgABCDEFG";
+  std::cout << boost::algorithm::to_upper_copy(s) << std::endl;
+  std::cout << boost::algorithm::to_lower_copy(s) << std::endl;
+}
+```
+
+<!---more-->
+
+# 删除子串
+&emsp;&emsp; erase_all_copy就是说先copy一份，然后再将子串全部删除，如果不带copy就是说直接操作穿进去的母串。下面的代码都可以去掉_copy,erase_first指的是删除第一次出现的，last指的是删除最后一次出现的，nth指的是删除第n次出现的，n从0开始,erase_head值的是删除前n个字符，erase_tail指的是删除后n个字符。
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "000111000111ababab000111000111";
+  std::cout << s << std::endl;
+
+  // boost::algorithm::erase_all(s,"ab");
+  std::cout << boost::algorithm::erase_all_copy(s, "ab") << std::endl;
+  std::cout << boost::algorithm::erase_first_copy(s, "111") << std::endl;
+  std::cout << boost::algorithm::erase_last_copy(s, "111") << std::endl;
+  std::cout << boost::algorithm::erase_nth_copy(s, "111",0) << std::endl;
+  std::cout << boost::algorithm::erase_nth_copy(s, "111",100) << std::endl;
+  std::cout << boost::algorithm::erase_head_copy(s, 4) << std::endl;
+  std::cout << boost::algorithm::erase_tail_copy(s, 4) << std::endl;
+}
+```
+
+# 查找子串
+&emsp;&emsp; find一类的函数，同上,他将返回一个iterator_range的迭代器。这个迭代器可以操作子串。注意子串和母串共享空间。
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "000111000111ababab000111000111";
+  std::cout << s << std::endl;
+  auto x = boost::algorithm::find_first(s,"000");
+  x[0] = '2';
+  std::cout << s << std::endl;
+  //std::cout << boost::algorithm::find_last(s, "111") << std::endl;
+}
+```
+&emsp;&emsp; 又是一套代码下来了
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "000111000111ababab000111000111";
+  std::cout << s << std::endl;
+  auto x = boost::algorithm::find_first(s,"000");
+  x = boost::algorithm::find_last(s,"1");
+  x = boost::algorithm::find_nth(s,"1",3);
+  x = boost::algorithm::find_tail(s,3);
+  x = boost::algorithm::find_head(s,3);
+  std::cout << s << std::endl;
+  //std::cout << boost::algorithm::find_last(s, "111") << std::endl;
+}
+```
+
+# 替换子串
+&emsp;&emsp; replace又是一套如下
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "000111000111ababab000111000111";
+  std::cout << s << std::endl;
+
+  // boost::algorithm::replace_all(s,"ab");
+  std::cout << boost::algorithm::replace_all_copy(s, "ab","all") << std::endl;
+  std::cout << boost::algorithm::replace_first_copy(s, "111","first") << std::endl;
+  std::cout << boost::algorithm::replace_last_copy(s, "111","last") << std::endl;
+  std::cout << boost::algorithm::replace_nth_copy(s, "111", 0,"nth") << std::endl;
+  std::cout << boost::algorithm::replace_nth_copy(s, "111", 100,"nth") << std::endl;
+  std::cout << boost::algorithm::replace_head_copy(s, 2,"Head") << std::endl;
+  std::cout << boost::algorithm::replace_tail_copy(s, 2,"Tail") << std::endl;
+}
+```
+
+# 修剪字符串
+&emsp;&emsp; trim_left_copy 指的是从左边开始修建，删掉空字符等，trim_right_copy是从右边开始修建，trim_copy是两边一起修剪。
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "\t  ab  d d  d d d \t";
+  std::cout << "|" << s << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_left_copy(s) << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_right_copy(s) << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_copy(s) << "|" << std::endl;
+}
+```
+&emsp;&emsp; 这个代码输出了
+```
+|	  ab  d d  d d d 	|
+|ab  d d  d d d 	|
+|	  ab  d d  d d d|
+|ab  d d  d d d|
+```
+
+&emsp;&emsp; 我们还可以通过指定谓词来修剪使用trim_left_copy_if
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = " 01 0 1 000ab  d d  d d d 11111111";
+  std::cout << "|" << s << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_left_copy_if(s,boost::algorithm::is_any_of(" 01")) << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_right_copy_if(s,boost::algorithm::is_any_of(" 01")) << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_copy_if(s,boost::algorithm::is_any_of(" 01")) << "|" << std::endl;
+}
+```
+&emsp;&emsp; 更多的谓词,我们还有is_lower、is_upper、is_space等谓词。
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = " 01 0 1 000ab  d d  d d d 11111111";
+  std::cout << "|" << s << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_copy_if(s,boost::algorithm::is_space()) << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_copy_if(s,boost::algorithm::is_digit()) << "|" << std::endl<<std::endl;
+  s = "aaaBBBaBBaaa";
+  std::cout << "|" << s << "|" << std::endl;
+  std::cout << "|" << boost::algorithm::trim_copy_if(s,boost::algorithm::is_lower()) << "|" << std::endl;
+
+
+}
+```
+
+# 字符串比较
+&emsp;&emsp; starts_with(s,t)判断s是否以t开头，类似的有ends_with,contains,lexicographical_compare分别表示s是否以t结尾，s是否包含t，s与t的字典序比较。
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::cout << boost::algorithm::starts_with("abcde", "abc") << std::endl;
+  std::cout << boost::algorithm::ends_with("abcde", "cde") << std::endl;
+  std::cout << boost::algorithm::contains("abcde", "cde") << std::endl;
+  std::cout << boost::algorithm::lexicographical_compare("abcde", "cde") << std::endl;
+  std::cout << boost::algorithm::lexicographical_compare("abcde", "abcde") << std::endl;
+  std::cout << boost::algorithm::lexicographical_compare("cde", "abcde") << std::endl;
+}
+```
+# 字符串分割
+&emsp;&emsp; 这个就简单多了，直接split+谓词函数就行了
+```cpp
+#include <boost/algorithm/string.hpp>
+#include <iostream>
+
+int main() {
+  std::string s = "abc abc abc * abc ( abc )";
+  std::vector<std::string> v;
+  boost::algorithm::split(v, s, boost::algorithm::is_any_of(" *()"));
+  for (auto x : v) std::cout << x << ".";
+  std::cout << std::endl;
+}
+```
+输出
+```
+abc.abc.abc...abc...abc...
+```
+
+我们注意看有些函数前面有个i，比如ierase_all, 这个说的是忽略大小写。

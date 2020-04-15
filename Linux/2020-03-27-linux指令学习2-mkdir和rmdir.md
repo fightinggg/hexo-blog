@@ -1,0 +1,23 @@
+
+# mkdir
+
+&emsp;&emsp; 在用户文件夹下创建hello
+```
+mkdir ~/hello 
+```
+&emsp;&emsp; 多级目录需要加上-p参数
+```
+mkdir ~/h/h/h
+```
+<!---more-->
+
+# rmdir
+&emsp;&emsp; 删除空文件夹
+```
+rmdir ~/hello
+```
+&emsp;&emsp; 删除非空文件夹
+```
+rm -rf
+```
+

@@ -1,0 +1,55 @@
+
+# Boost::Variant
+&emsp;&emsp; boost::variant和any很像，variant和any一样在C++17中被编入STL
+&emsp;&emsp; variant可以指定一部分数据类型，你可以在这一部分中随便赋值，就像下面写到的一样，另外和any的any_cast不一样的是variant使用get&lt;T&gt;来获得内容。
+
+```cpp
+#include <boost/variant.hpp>
+#include <iostream>
+#include <string>
+
+int main() {
+  boost::variant<double, char, std::string> v;
+  v = 3.14;
+  std::cout << boost::get<double>(v) << std::endl;
+  v = 'A';
+  // std::cout << boost::get<double>(v) << std::endl; 这句现在会报错
+  std::cout << boost::get<char>(v) << std::endl;
+  v = "Hello, world!";
+  std::cout << boost::get<std::string>(v) << std::endl;
+}
+```
+
+# 访问者模式
+&emsp;&emsp; variant允许我们使用访问者模式来访问其内部的成员，使用函数boost::apply_visitor来实现，访问者模式使用的时候重载仿函数。仿函数记得继承static_visitor即可。
+```cpp
+#include <boost/variant.hpp>
+#include <iostream>
+#include <string>
+
+struct visit : public boost::static_visitor<> {
+  void operator()(double &d) const { std::cout << "double" << std::endl; }
+  void operator()(char &c) const { std::cout << "char" << std::endl; }
+  void operator()(std::string &s) const { std::cout << "string" << std::endl; }
+};
+
+int main() {
+  boost::variant<double, char, std::string> v;
+  v = 3.14;
+  boost::apply_visitor(visit(), v);
+  v = 'A';
+  boost::apply_visitor(visit(), v);
+  v = "Hello, world!";
+  boost::apply_visitor(visit(), v);
+}
+```
+输出
+```
+double
+char
+string
+```
+
+
+
+
