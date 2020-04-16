@@ -1,7 +1,0 @@
-
-# SpringBoot与Web
-&emsp;&emsp; 先在idea中选择场景
-&emsp;&emsp; springboot已经默认将这些常见配置好了，我们只需要在配置文件中指定少量配置就可以运行起来
-&emsp;&emsp; 然后我们可以开始编写业务代码了
-
-
