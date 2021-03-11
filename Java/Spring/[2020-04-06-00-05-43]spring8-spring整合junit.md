@@ -5,9 +5,9 @@ mathjax: true
 
 # spring整合junit
 ## @RunWith
-&emsp;&emsp; 我们需要切换junit的main
+ 我们需要切换junit的main
 ## @ContextConfiguration
-&emsp;&emsp; 指定配置类或者配置文件
+ 指定配置类或者配置文件
 ```xml
 <dependency>
     <groupId>org.springframework</groupId>
