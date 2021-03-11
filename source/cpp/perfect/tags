@@ -1,0 +1,1296 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CMD_LEN	third_lib/libsvm-3.24/matlab/svmpredict.c	/^#define CMD_LEN /;"	d	file:
+CMD_LEN	third_lib/libsvm-3.24/matlab/svmtrain.c	/^#define CMD_LEN /;"	d	file:
+C_SVC	third_lib/libsvm-3.24/svm.h	/^enum { C_SVC, NU_SVC, ONE_CLASS, EPSILON_SVR, NU_SVR };	\/* svm_type *\/$/;"	e	enum:__anon2
+C_SVC	third_lib/libsvm-3.24/python/svm.py	/^C_SVC = 0$/;"	v
+Cache	third_lib/libsvm-3.24/svm.cpp	/^class Cache$/;"	c	file:
+Cache	third_lib/libsvm-3.24/svm.cpp	/^Cache::Cache(int l_,long int size_):l(l_),size(size_)$/;"	f	class:Cache
+C	third_lib/libsvm-3.24/svm.h	/^	double C;	\/* for C_SVC, EPSILON_SVR and NU_SVR *\/$/;"	m	struct:svm_parameter
+Cn	third_lib/libsvm-3.24/svm.cpp	/^	double Cp,Cn;$/;"	m	class:Solver	file:
+CompiledTimeCheck	trick/static_check.h	/^  CompiledTimeCheck(...){};$/;"	f	struct:trick::CompiledTimeCheck
+CompiledTimeCheck	trick/static_check.h	/^struct CompiledTimeCheck {$/;"	s	namespace:trick
+CompiledTimeCheck	trick/static_check.h	/^struct CompiledTimeCheck<false> {};$/;"	s	namespace:trick
+CompiledTimeError	trick/static_check.h	/^struct CompiledTimeError<true> {};$/;"	s	namespace:trick
+Cp	third_lib/libsvm-3.24/svm.cpp	/^	double Cp,Cn;$/;"	m	class:Solver	file:
+DEFAULT_PARAM	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^#define DEFAULT_PARAM /;"	d	file:
+DEFAULT_PARAM	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^#define DEFAULT_PARAM /;"	d	file:
+DrawLine	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^#define DrawLine(/;"	d	file:
+EPSILON_SVR	third_lib/libsvm-3.24/svm.h	/^enum { C_SVC, NU_SVC, ONE_CLASS, EPSILON_SVR, NU_SVR };	\/* svm_type *\/$/;"	e	enum:__anon2
+EPSILON_SVR	third_lib/libsvm-3.24/python/svm.py	/^EPSILON_SVR = 3$/;"	v
+E	math/math_function.h	/^const double E = 2.71828182845904553488;$/;"	m	namespace:math
+FREE	third_lib/libsvm-3.24/svm.cpp	/^	enum { LOWER_BOUND, UPPER_BOUND, FREE };$/;"	e	enum:Solver::__anon5	file:
+FSCANF	third_lib/libsvm-3.24/svm.cpp	/^#define FSCANF(/;"	d	file:
+G_bar	third_lib/libsvm-3.24/svm.cpp	/^	double *G_bar;		\/\/ gradient, if we treat free variables as 0$/;"	m	class:Solver	file:
+G	third_lib/libsvm-3.24/svm.cpp	/^	double *G;		\/\/ gradient of objective function$/;"	m	class:Solver	file:
+GridOption	third_lib/libsvm-3.24/tools/grid.py	/^class GridOption:$/;"	c
+ID_BUTTON_CHANGE	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	ID_BUTTON_CHANGE, ID_BUTTON_RUN, ID_BUTTON_CLEAR,$/;"	e	enum:__anon4	file:
+ID_BUTTON_CLEAR	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	ID_BUTTON_CHANGE, ID_BUTTON_RUN, ID_BUTTON_CLEAR,$/;"	e	enum:__anon4	file:
+ID_BUTTON_LOAD	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	ID_BUTTON_LOAD, ID_BUTTON_SAVE, ID_EDIT$/;"	e	enum:__anon4	file:
+ID_BUTTON_RUN	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	ID_BUTTON_CHANGE, ID_BUTTON_RUN, ID_BUTTON_CLEAR,$/;"	e	enum:__anon4	file:
+ID_BUTTON_SAVE	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	ID_BUTTON_LOAD, ID_BUTTON_SAVE, ID_EDIT$/;"	e	enum:__anon4	file:
+ID_EDIT	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	ID_BUTTON_LOAD, ID_BUTTON_SAVE, ID_EDIT$/;"	e	enum:__anon4	file:
+INF	third_lib/libsvm-3.24/svm.cpp	/^#define INF /;"	d	file:
+Kernel	third_lib/libsvm-3.24/svm.cpp	/^class Kernel: public QMatrix {$/;"	c	file:
+Kernel	third_lib/libsvm-3.24/svm.cpp	/^Kernel::Kernel(int l, svm_node * const * x_, const svm_parameter& param)$/;"	f	class:Kernel
+LDA	machine_learning/reduce_dimension/LDA.h	/^Eigen::MatrixXd LDA(const Eigen::MatrixXd& input, std::vector<int> tag,$/;"	f
+LIBSVM_VERSION	third_lib/libsvm-3.24/svm.h	/^#define LIBSVM_VERSION /;"	d
+LINEAR	third_lib/libsvm-3.24/svm.h	/^enum { LINEAR, POLY, RBF, SIGMOID, PRECOMPUTED }; \/* kernel_type *\/$/;"	e	enum:__anon3
+LINEAR	third_lib/libsvm-3.24/python/svm.py	/^LINEAR = 0$/;"	v
+LOWER_BOUND	third_lib/libsvm-3.24/svm.cpp	/^	enum { LOWER_BOUND, UPPER_BOUND, FREE };$/;"	e	enum:Solver::__anon5	file:
+LocalWorker	third_lib/libsvm-3.24/tools/grid.py	/^class LocalWorker(Worker):$/;"	c
+Malloc	third_lib/libsvm-3.24/matlab/svm_model_matlab.c	/^#define Malloc(/;"	d	file:
+Malloc	third_lib/libsvm-3.24/matlab/svmtrain.c	/^#define Malloc(/;"	d	file:
+Malloc	third_lib/libsvm-3.24/svm-train.c	/^#define Malloc(/;"	d	file:
+Malloc	third_lib/libsvm-3.24/svm.cpp	/^#define Malloc(/;"	d	file:
+NUM_OF_RETURN_FIELD	third_lib/libsvm-3.24/matlab/svm_model_matlab.c	/^#define NUM_OF_RETURN_FIELD /;"	d	file:
+NU_SVC	third_lib/libsvm-3.24/svm.h	/^enum { C_SVC, NU_SVC, ONE_CLASS, EPSILON_SVR, NU_SVR };	\/* svm_type *\/$/;"	e	enum:__anon2
+NU_SVC	third_lib/libsvm-3.24/python/svm.py	/^NU_SVC = 1$/;"	v
+NU_SVR	third_lib/libsvm-3.24/svm.h	/^enum { C_SVC, NU_SVC, ONE_CLASS, EPSILON_SVR, NU_SVR };	\/* svm_type *\/$/;"	e	enum:__anon2
+NU_SVR	third_lib/libsvm-3.24/python/svm.py	/^NU_SVR = 4$/;"	v
+ONE_CLASS_Q	third_lib/libsvm-3.24/svm.cpp	/^class ONE_CLASS_Q: public Kernel$/;"	c	file:
+ONE_CLASS_Q	third_lib/libsvm-3.24/svm.cpp	/^	ONE_CLASS_Q(const svm_problem& prob, const svm_parameter& param)$/;"	f	class:ONE_CLASS_Q
+ONE_CLASS	third_lib/libsvm-3.24/svm.h	/^enum { C_SVC, NU_SVC, ONE_CLASS, EPSILON_SVR, NU_SVR };	\/* svm_type *\/$/;"	e	enum:__anon2
+ONE_CLASS	third_lib/libsvm-3.24/python/svm.py	/^ONE_CLASS = 2$/;"	v
+PCA	machine_learning/reduce_dimension/PCA.h	/^Eigen::MatrixXd PCA(Eigen::MatrixXd input, const int ntop) {$/;"	f
+PI	math/math_function.h	/^const double PI = 3.1415926535897;$/;"	m	namespace:math
+POLY	third_lib/libsvm-3.24/svm.h	/^enum { LINEAR, POLY, RBF, SIGMOID, PRECOMPUTED }; \/* kernel_type *\/$/;"	e	enum:__anon3
+POLY	third_lib/libsvm-3.24/python/svm.py	/^POLY = 1$/;"	v
+PRECOMPUTED	third_lib/libsvm-3.24/svm.h	/^enum { LINEAR, POLY, RBF, SIGMOID, PRECOMPUTED }; \/* kernel_type *\/$/;"	e	enum:__anon3
+PRECOMPUTED	third_lib/libsvm-3.24/python/svm.py	/^PRECOMPUTED = 4$/;"	v
+PRINT_STRING_FUN	third_lib/libsvm-3.24/python/svm.py	/^PRINT_STRING_FUN = CFUNCTYPE(None, c_char_p)$/;"	v
+QD	third_lib/libsvm-3.24/svm.cpp	/^	const double *QD;$/;"	m	class:Solver	file:
+QD	third_lib/libsvm-3.24/svm.cpp	/^	double *QD;$/;"	m	class:ONE_CLASS_Q	file:
+QD	third_lib/libsvm-3.24/svm.cpp	/^	double *QD;$/;"	m	class:SVC_Q	file:
+QD	third_lib/libsvm-3.24/svm.cpp	/^	double *QD;$/;"	m	class:SVR_Q	file:
+QMatrix	third_lib/libsvm-3.24/svm.cpp	/^class QMatrix {$/;"	c	file:
+QR_decomposition	math/matrix.h	/^  void QR_decomposition(matrix<T>& Q, matrix<T>& R, const T& eps) {$/;"	f	class:matrix
+Qfloat	third_lib/libsvm-3.24/svm.cpp	/^typedef float Qfloat;$/;"	t	file:
+Q	third_lib/libsvm-3.24/svm.cpp	/^	const QMatrix *Q;$/;"	m	class:Solver	file:
+Queue	third_lib/libsvm-3.24/tools/grid.py	/^	from Queue import Queue$/;"	i
+Queue	third_lib/libsvm-3.24/tools/grid.py	/^	from queue import Queue$/;"	i
+RBF	third_lib/libsvm-3.24/svm.h	/^enum { LINEAR, POLY, RBF, SIGMOID, PRECOMPUTED }; \/* kernel_type *\/$/;"	e	enum:__anon3
+RBF	third_lib/libsvm-3.24/python/svm.py	/^RBF = 2$/;"	v
+SIGMOID	third_lib/libsvm-3.24/svm.h	/^enum { LINEAR, POLY, RBF, SIGMOID, PRECOMPUTED }; \/* kernel_type *\/$/;"	e	enum:__anon3
+SIGMOID	third_lib/libsvm-3.24/python/svm.py	/^SIGMOID = 3$/;"	v
+SKIP_ELEMENT	third_lib/libsvm-3.24/svm-scale.c	/^#define SKIP_ELEMENT\\/;"	d	file:
+SKIP_TARGET	third_lib/libsvm-3.24/svm-scale.c	/^#define SKIP_TARGET\\/;"	d	file:
+SSHWorker	third_lib/libsvm-3.24/tools/grid.py	/^class SSHWorker(Worker):$/;"	c
+STATIC_CHECK_1	trick/static_check.h	/^#define STATIC_CHECK_1(/;"	d
+STATIC_CHECK	trick/static_check.h	/^#define STATIC_CHECK(/;"	d
+SVC_Q	third_lib/libsvm-3.24/svm.cpp	/^class SVC_Q: public Kernel$/;"	c	file:
+SVC_Q	third_lib/libsvm-3.24/svm.cpp	/^	SVC_Q(const svm_problem& prob, const svm_parameter& param, const schar *y_)$/;"	f	class:SVC_Q
+SVR_Q	third_lib/libsvm-3.24/svm.cpp	/^class SVR_Q: public Kernel$/;"	c	file:
+SVR_Q	third_lib/libsvm-3.24/svm.cpp	/^	SVR_Q(const svm_problem& prob, const svm_parameter& param)$/;"	f	class:SVR_Q
+SV	third_lib/libsvm-3.24/svm.h	/^	struct svm_node **SV;		\/* SVs (SV[l]) *\/$/;"	m	struct:svm_model	typeref:struct:svm_model::svm_node
+SolutionInfo	third_lib/libsvm-3.24/svm.cpp	/^	struct SolutionInfo {$/;"	s	class:Solver	file:
+Solve	third_lib/libsvm-3.24/svm.cpp	/^	void Solve(int l, const QMatrix& Q, const double *p, const schar *y,$/;"	f	class:Solver_NU
+Solve	third_lib/libsvm-3.24/svm.cpp	/^void Solver::Solve(int l, const QMatrix& Q, const double *p_, const schar *y_,$/;"	f	class:Solver
+Solver_NU	third_lib/libsvm-3.24/svm.cpp	/^class Solver_NU: public Solver$/;"	c	file:
+Solver_NU	third_lib/libsvm-3.24/svm.cpp	/^	Solver_NU() {}$/;"	f	class:Solver_NU
+Solver	third_lib/libsvm-3.24/svm.cpp	/^class Solver {$/;"	c	file:
+Solver	third_lib/libsvm-3.24/svm.cpp	/^	Solver() {};$/;"	f	class:Solver
+SvmToyWindow	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^class SvmToyWindow : public QWidget$/;"	c	file:
+SvmToyWindow	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^SvmToyWindow::SvmToyWindow()$/;"	f	class:SvmToyWindow
+TAU	third_lib/libsvm-3.24/svm.cpp	/^#define TAU /;"	d	file:
+TelnetWorker	third_lib/libsvm-3.24/tools/grid.py	/^class TelnetWorker(Worker):$/;"	c
+Thread	third_lib/libsvm-3.24/tools/grid.py	/^from threading import Thread$/;"	i
+UPPER_BOUND	third_lib/libsvm-3.24/svm.cpp	/^	enum { LOWER_BOUND, UPPER_BOUND, FREE };$/;"	e	enum:Solver::__anon5	file:
+WinMain	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,$/;"	f
+WndProc	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)$/;"	f
+WorkerStopToken	third_lib/libsvm-3.24/tools/grid.py	/^class WorkerStopToken:  # used to notify the worker to stop or if a worker is dead$/;"	c
+Worker	third_lib/libsvm-3.24/tools/grid.py	/^class Worker(Thread):$/;"	c
+XLEN	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^#define XLEN /;"	d	file:
+XLEN	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^#define XLEN /;"	d	file:
+YLEN	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^#define YLEN /;"	d	file:
+YLEN	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^#define YLEN /;"	d	file:
+_LIBSVM_H	third_lib/libsvm-3.24/svm.h	/^#define _LIBSVM_H$/;"	d
+___k1	algorithm/random.h	/^unsigned long long ___k1=9527, ___k2=7259;$/;"	m	namespace:algorithm
+___k2	algorithm/random.h	/^unsigned long long ___k1=9527, ___k2=7259;$/;"	m	namespace:algorithm
+__all__	third_lib/libsvm-3.24/python/commonutil.py	/^__all__ = ['svm_read_problem', 'evaluations', 'csr_find_scale_param', 'csr_scale']$/;"	v
+__all__	third_lib/libsvm-3.24/python/svm.py	/^__all__ = ['libsvm', 'svm_problem', 'svm_parameter',$/;"	v
+__all__	third_lib/libsvm-3.24/python/svmutil.py	/^__all__ = ['svm_load_model', 'svm_predict', 'svm_save_model', 'svm_train'] + svm_all + common_all$/;"	v
+__all__	third_lib/libsvm-3.24/tools/grid.py	/^__all__ = ['find_parameters']$/;"	v
+__del__	third_lib/libsvm-3.24/python/svm.py	/^	def __del__(self):$/;"	m	class:svm_model	file:
+__init__	third_lib/libsvm-3.24/python/svm.py	/^	def __init__(self):$/;"	m	class:svm_model
+__init__	third_lib/libsvm-3.24/python/svm.py	/^	def __init__(self, index=-1, value=0):$/;"	m	class:svm_node
+__init__	third_lib/libsvm-3.24/python/svm.py	/^	def __init__(self, options = None):$/;"	m	class:svm_parameter
+__init__	third_lib/libsvm-3.24/python/svm.py	/^	def __init__(self, y, x, isKernel=False):$/;"	m	class:svm_problem
+__init__	third_lib/libsvm-3.24/tools/grid.py	/^	def __init__(self, dataset_pathname, options):$/;"	m	class:GridOption
+__init__	third_lib/libsvm-3.24/tools/grid.py	/^	def __init__(self,name,job_queue,result_queue,host,options):$/;"	m	class:SSHWorker
+__init__	third_lib/libsvm-3.24/tools/grid.py	/^	def __init__(self,name,job_queue,result_queue,host,username,password,options):$/;"	m	class:TelnetWorker
+__init__	third_lib/libsvm-3.24/tools/grid.py	/^	def __init__(self,name,job_queue,result_queue,options):$/;"	m	class:Worker
+__str__	third_lib/libsvm-3.24/python/svm.py	/^	def __str__(self):$/;"	m	class:svm_node	file:
+__str__	third_lib/libsvm-3.24/python/svm.py	/^	def __str__(self):$/;"	m	class:svm_parameter	file:
+_cstr	third_lib/libsvm-3.24/python/svmutil.py	/^	_cstr = lambda s: bytes(s, "utf-8")        $/;"	v
+_cstr	third_lib/libsvm-3.24/python/svmutil.py	/^	_cstr = lambda s: s.encode("utf-8") if isinstance(s,unicode) else str(s)$/;"	v
+_data	data_structure/string.h	/^  vector<char> _data;$/;"	m	class:data_structure::string
+_data	data_structure/vector.h	/^  T* _data;$/;"	m	class:data_structure::vector
+_fields_	third_lib/libsvm-3.24/python/svm.py	/^	_fields_ = genFields(_names, _types)$/;"	v	class:svm_model
+_fields_	third_lib/libsvm-3.24/python/svm.py	/^	_fields_ = genFields(_names, _types)$/;"	v	class:svm_node
+_fields_	third_lib/libsvm-3.24/python/svm.py	/^	_fields_ = genFields(_names, _types)$/;"	v	class:svm_parameter
+_fields_	third_lib/libsvm-3.24/python/svm.py	/^	_fields_ = genFields(_names, _types)$/;"	v	class:svm_problem
+_mp	data_structure/string.h	/^  static bool _mp[256];$/;"	m	class:data_structure::string
+_mp	data_structure/string.h	/^bool string::_mp[256] = {};$/;"	m	class:data_structure::string
+_names	third_lib/libsvm-3.24/python/svm.py	/^	_names = ["index", "value"]$/;"	v	class:svm_node
+_names	third_lib/libsvm-3.24/python/svm.py	/^	_names = ["l", "y", "x"]$/;"	v	class:svm_problem
+_names	third_lib/libsvm-3.24/python/svm.py	/^	_names = ["svm_type", "kernel_type", "degree", "gamma", "coef0",$/;"	v	class:svm_parameter
+_names	third_lib/libsvm-3.24/python/svm.py	/^	_names = ['param', 'nr_class', 'l', 'SV', 'sv_coef', 'rho',$/;"	v	class:svm_model
+_types	third_lib/libsvm-3.24/python/svm.py	/^	_types = [c_int, POINTER(c_double), POINTER(POINTER(svm_node))]$/;"	v	class:svm_problem
+_types	third_lib/libsvm-3.24/python/svm.py	/^	_types = [c_int, c_double]$/;"	v	class:svm_node
+_types	third_lib/libsvm-3.24/python/svm.py	/^	_types = [c_int, c_int, c_int, c_double, c_double,$/;"	v	class:svm_parameter
+_types	third_lib/libsvm-3.24/python/svm.py	/^	_types = [svm_parameter, c_int, c_int, POINTER(POINTER(svm_node)),$/;"	v	class:svm_model
+a_tag_use_to_mid_search	test.cpp	/^int a_tag_use_to_mid_search;$/;"	v
+aa_tree	data_structure/aa_tree.h	/^class aa_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+aa_tree	data_structure/aa_tree.h	/^  aa_tree() { root = nullptr; }$/;"	f	class:data_structure::aa_tree
+aa_tree	data_structure/aa_tree.h	/^  aa_tree(const aa_tree<T>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::aa_tree
+abs	algorithm/general.h	/^T abs(const T& a) {$/;"	f	namespace:algorithm
+abs	math/math_function.h	/^T abs(const T& a) {$/;"	f	namespace:math
+active_set	third_lib/libsvm-3.24/svm.cpp	/^	int *active_set;$/;"	m	class:Solver	file:
+active_size	third_lib/libsvm-3.24/svm.cpp	/^	int active_size;$/;"	m	class:Solver	file:
+algorithm	algorithm/general.h	/^namespace algorithm {$/;"	n
+algorithm	algorithm/random.h	/^namespace algorithm {$/;"	n
+algorithm	algorithm/sort.h	/^namespace algorithm {$/;"	n
+algorithm	algorithm/sorted_container_operating.h	/^namespace algorithm {$/;"	n
+alpha_status	third_lib/libsvm-3.24/svm.cpp	/^	char *alpha_status;	\/\/ LOWER_BOUND, UPPER_BOUND, FREE$/;"	m	class:Solver	file:
+alpha	data_structure/scapegoat_tree.h	/^  static const double alpha;$/;"	m	class:data_structure::scapegoat_tree
+alpha	data_structure/scapegoat_tree.h	/^const double scapegoat_tree<T>::alpha = 0.7;$/;"	m	class:data_structure::scapegoat_tree
+alpha	third_lib/libsvm-3.24/svm.cpp	/^	double *alpha;$/;"	m	class:Solver	file:
+alpha	third_lib/libsvm-3.24/svm.cpp	/^	double *alpha;$/;"	m	struct:decision_function	file:
+argv	third_lib/libsvm-3.24/tools/checkdata.py	/^from sys import argv, exit$/;"	i
+array	third_lib/libsvm-3.24/python/commonutil.py	/^from array import array$/;"	i
+avl_tree	data_structure/avl_tree.h	/^class avl_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+avl_tree	data_structure/avl_tree.h	/^  avl_tree() { root = nullptr; }$/;"	f	class:data_structure::avl_tree
+avl_tree	data_structure/avl_tree.h	/^  avl_tree(const avl_tree<T>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::avl_tree
+b_plus_tree	data_structure/b_plus_tree.h	/^class b_plus_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+b_plus_tree	data_structure/b_plus_tree.h	/^  b_plus_tree() { root = nullptr; }$/;"	f	class:data_structure::b_plus_tree
+b_plus_tree	data_structure/b_plus_tree.h	/^  b_plus_tree(const b_plus_tree<T, N>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::b_plus_tree
+b_tree	data_structure/b_tree.h	/^class b_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+b_tree	data_structure/b_tree.h	/^  b_tree() { root = nullptr; }$/;"	f	class:data_structure::b_tree
+b_tree	data_structure/b_tree.h	/^  b_tree(const b_tree<T, N>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::b_tree
+back	data_structure/string.h	/^  char& back() const { return _data[size() - 1]; }$/;"	f	class:data_structure::string
+back	data_structure/t_tree.h	/^    T back() { return key.back(); }$/;"	f	struct:data_structure::t_tree::node
+back	data_structure/vector.h	/^  T& back() const { return _data[top - 1]; }$/;"	f	class:data_structure::vector
+base_solve	math/matrix.h	/^  matrix<T> base_solve(const T& eps) {$/;"	f	class:matrix
+bayes_classification	machine_learning/classification/bayes.h	/^class bayes_classification {$/;"	c	namespace:machine_learning
+be_shrunk	third_lib/libsvm-3.24/svm.cpp	/^bool Solver::be_shrunk(int i, double Gmax1, double Gmax2)$/;"	f	class:Solver
+be_shrunk	third_lib/libsvm-3.24/svm.cpp	/^bool Solver_NU::be_shrunk(int i, double Gmax1, double Gmax2, double Gmax3, double Gmax4)$/;"	f	class:Solver_NU
+begin	data_structure/string.h	/^  char* begin() const { return _data.begin(); }$/;"	f	class:data_structure::string
+begin	data_structure/vector.h	/^  T* begin() const { return _data; }$/;"	f	class:data_structure::vector
+binary_heap	data_structure/binary_heap.h	/^class binary_heap : public heap<T> {$/;"	c	namespace:data_structure
+binary_heap	data_structure/binary_heap.h	/^  binary_heap() { data.push_back(T()); }$/;"	f	class:data_structure::binary_heap
+binary_search_tree	data_structure/binary_search_tree.h	/^class binary_search_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+binary_search_tree	data_structure/binary_search_tree.h	/^  binary_search_tree() { root = nullptr; }$/;"	f	class:data_structure::binary_search_tree
+binary_search_tree	data_structure/binary_search_tree.h	/^  binary_search_tree(const binary_search_tree<T>& rhs) {$/;"	f	class:data_structure::binary_search_tree
+binomial_heap	data_structure/binomial_heap.h	/^class binomial_heap : public heap<T> {$/;"	c	namespace:data_structure
+black	data_structure/left_leaning_red_black_tree.h	/^  enum colortype { red, black };$/;"	e	enum:data_structure::left_leaning_red_black_tree::colortype
+black	data_structure/red_black_tree.h	/^  enum colortype { red, black };$/;"	e	enum:data_structure::red_black_tree::colortype
+brush1	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HBRUSH brush1, brush2, brush3;$/;"	v
+brush2	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HBRUSH brush1, brush2, brush3;$/;"	v
+brush3	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HBRUSH brush1, brush2, brush3;$/;"	v
+bubblesort	algorithm/sort.h	/^void bubblesort(int *a, int *b) {$/;"	f	namespace:algorithm
+bucketsort	algorithm/sort.h	/^void bucketsort(int *a, int *b) {$/;"	f	namespace:algorithm
+buffer_dc	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HDC buffer_dc;$/;"	v
+buffer_painter	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPainter buffer_painter;$/;"	m	class:SvmToyWindow	file:
+buffer	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPixmap buffer;$/;"	m	class:SvmToyWindow	file:
+buffer	third_lib/libsvm-3.24/svm.cpp	/^	Qfloat *buffer[2];$/;"	m	class:SVR_Q	file:
+buffer	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HBITMAP buffer;$/;"	v
+build_dfs	data_structure/scapegoat_tree.h	/^  void build_dfs(node*& rt, vector<node*>& array, int l, int r) {$/;"	f	class:data_structure::scapegoat_tree
+button_change_icon_clicked	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void button_change_icon_clicked()$/;"	f	class:SvmToyWindow	file:
+button_change_icon	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPushButton button_change_icon;$/;"	m	class:SvmToyWindow	file:
+button_clear_clicked	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void button_clear_clicked()$/;"	f	class:SvmToyWindow	file:
+button_clear	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPushButton button_clear;$/;"	m	class:SvmToyWindow	file:
+button_load_clicked	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void button_load_clicked()$/;"	f	class:SvmToyWindow	file:
+button_load	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPushButton button_load;$/;"	m	class:SvmToyWindow	file:
+button_run_clicked	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void button_run_clicked()$/;"	f	class:SvmToyWindow	file:
+button_run_clicked	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^void button_run_clicked()$/;"	f
+button_run	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPushButton button_run;$/;"	m	class:SvmToyWindow	file:
+button_save_clicked	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void button_save_clicked()$/;"	f	class:SvmToyWindow	file:
+button_save	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPushButton button_save;$/;"	m	class:SvmToyWindow	file:
+cache_size	third_lib/libsvm-3.24/svm.h	/^	double cache_size; \/* in MB *\/$/;"	m	struct:svm_parameter
+cache	third_lib/libsvm-3.24/svm.cpp	/^	Cache *cache;$/;"	m	class:ONE_CLASS_Q	file:
+cache	third_lib/libsvm-3.24/svm.cpp	/^	Cache *cache;$/;"	m	class:SVC_Q	file:
+cache	third_lib/libsvm-3.24/svm.cpp	/^	Cache *cache;$/;"	m	class:SVR_Q	file:
+calculate_jobs	third_lib/libsvm-3.24/tools/grid.py	/^def calculate_jobs(options):$/;"	f
+calculate_rho	third_lib/libsvm-3.24/svm.cpp	/^double Solver::calculate_rho()$/;"	f	class:Solver
+calculate_rho	third_lib/libsvm-3.24/svm.cpp	/^double Solver_NU::calculate_rho()$/;"	f	class:Solver_NU
+cap	data_structure/vector.h	/^  int top, cap;$/;"	m	class:data_structure::vector
+ch	data_structure/left_leaning_red_black_tree.h	/^    node *ch[2], *fa;$/;"	m	struct:data_structure::left_leaning_red_black_tree::node
+ch	data_structure/red_black_tree.h	/^    node *ch[2], *fa;$/;"	m	struct:data_structure::red_black_tree::node
+ch	data_structure/splay_tree.h	/^    node *ch[2], *fa;$/;"	m	struct:data_structure::splay_tree::node
+choose_brush	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HBRUSH choose_brush(int v)$/;"	f
+choose_icon	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	const QPixmap& choose_icon(int v)$/;"	f	class:SvmToyWindow	file:
+clean_up	third_lib/libsvm-3.24/svm-scale.c	/^int clean_up(FILE *fp_restore, FILE *fp, const char* msg)$/;"	f
+clear_all	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void clear_all()$/;"	f	class:SvmToyWindow	file:
+clear_all	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^void clear_all()$/;"	f
+clear	data_structure/vector.h	/^  void clear() { top = 0; }$/;"	f	class:data_structure::vector
+clone	third_lib/libsvm-3.24/svm.cpp	/^template <class S, class T> static inline void clone(T*& dst, S* src, int n)$/;"	f	file:
+cmd	third_lib/libsvm-3.24/tools/easy.py	/^	cmd = '{0} "{1}" "{2}" "{3}"'.format(svmpredict_exe, scaled_test_file, model_file, predict_test_file)$/;"	v
+cmd	third_lib/libsvm-3.24/tools/easy.py	/^	cmd = '{0} -r "{1}" "{2}" > "{3}"'.format(svmscale_exe, range_file, test_pathname, scaled_test_file)$/;"	v
+cmd	third_lib/libsvm-3.24/tools/easy.py	/^cmd = '{0} -c {1} -g {2} "{3}" "{4}"'.format(svmtrain_exe,c,g,scaled_file,model_file)$/;"	v
+cmd	third_lib/libsvm-3.24/tools/easy.py	/^cmd = '{0} -s "{1}" "{2}" > "{3}"'.format(svmscale_exe, range_file, train_pathname, scaled_file)$/;"	v
+cmd	third_lib/libsvm-3.24/tools/easy.py	/^cmd = '{0} -svmtrain "{1}" -gnuplot "{2}" "{3}"'.format(grid_py, svmtrain_exe, gnuplot_exe, scaled_file)$/;"	v
+c	math/matrix.h	/^  int r, c;$/;"	m	class:matrix
+cnt	memery_management/memery_pool.h	/^int cnt, new_cnt;$/;"	m	namespace:memery
+coef0	third_lib/libsvm-3.24/svm.cpp	/^	const double coef0;$/;"	m	class:Kernel	file:
+coef0	third_lib/libsvm-3.24/svm.h	/^	double coef0;	\/* for poly\/sigmoid *\/$/;"	m	struct:svm_parameter
+color	data_structure/left_leaning_red_black_tree.h	/^    colortype color;$/;"	m	struct:data_structure::left_leaning_red_black_tree::node
+color	data_structure/red_black_tree.h	/^    colortype color;$/;"	m	struct:data_structure::red_black_tree::node
+colortype	data_structure/left_leaning_red_black_tree.h	/^  enum colortype { red, black };$/;"	g	class:data_structure::left_leaning_red_black_tree
+colortype	data_structure/red_black_tree.h	/^  enum colortype { red, black };$/;"	g	class:data_structure::red_black_tree
+common_all	third_lib/libsvm-3.24/python/svmutil.py	/^from commonutil import __all__ as common_all$/;"	i
+copy_self	data_structure/aa_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::aa_tree
+copy_self	data_structure/avl_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::avl_tree
+copy_self	data_structure/b_plus_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::b_plus_tree
+copy_self	data_structure/b_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::b_tree
+copy_self	data_structure/binary_search_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::binary_search_tree
+copy_self	data_structure/fibonacci_heap.h	/^  void copy_self(node*& p, node* p2) {$/;"	f	class:data_structure::fibonacci_heap
+copy_self	data_structure/left_leaning_red_black_tree.h	/^  void copy_self(node*& rt, node* fa, node* cp) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+copy_self	data_structure/no_rotate_treap.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::no_rotate_treap
+copy_self	data_structure/red_black_tree.h	/^  void copy_self(node*& rt, node* fa, node* cp) {$/;"	f	class:data_structure::red_black_tree
+copy_self	data_structure/scapegoat_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::scapegoat_tree
+copy_self	data_structure/splay_tree.h	/^  void copy_self(node*& rt, node* fa, node* cp) {$/;"	f	class:data_structure::splay_tree
+copy_self	data_structure/t_tree.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::t_tree
+copy_self	data_structure/treap.h	/^  void copy_self(node*& rt, node* cp) {$/;"	f	class:data_structure::treap
+cos	math/math_function.h	/^T cos(T x, const int& cnt) {$/;"	f	namespace:math
+countingsort	algorithm/sort.h	/^void countingsort(int *a, int *b) {$/;"	f	namespace:algorithm
+count	data_structure/handle.h	/^  int* count;  \/\/ 句柄引用计数器$/;"	m	class:data_structure::handle
+cross_validation	third_lib/libsvm-3.24/matlab/svmtrain.c	/^int cross_validation;$/;"	v
+cross_validation	third_lib/libsvm-3.24/svm-train.c	/^int cross_validation;$/;"	v
+csr_find_scale_param	third_lib/libsvm-3.24/python/commonutil.py	/^def csr_find_scale_param(x, lower=-1, upper=1):$/;"	f
+csr_scale	third_lib/libsvm-3.24/python/commonutil.py	/^def csr_scale(x, scale_param):$/;"	f
+csr_to_problem_jit	third_lib/libsvm-3.24/python/svm.py	/^def csr_to_problem_jit(l, x_val, x_ind, x_rowptr, prob_val, prob_ind, prob_rowptr, indx_start):$/;"	f
+csr_to_problem_nojit	third_lib/libsvm-3.24/python/svm.py	/^def csr_to_problem_nojit(l, x_val, x_ind, x_rowptr, prob_val, prob_ind, prob_rowptr, indx_start):$/;"	f
+csr_to_problem	third_lib/libsvm-3.24/python/svm.py	/^def csr_to_problem(x, prob, isKernel):$/;"	f
+current_value	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	int current_value;$/;"	m	class:SvmToyWindow	file:
+current_value	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^int current_value = 1;$/;"	v
+data_bound	test.cpp	/^int data_bound = 100000;$/;"	v
+data_structure	data_structure/aa_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/avl_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/b_plus_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/b_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/binary_heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/binary_search_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/binomial_heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/fibonacci_heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/handle.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/left_leaning_red_black_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/leftist_heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/no_rotate_treap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/pairing_heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/red_black_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/scapegoat_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/search_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/skew_heap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/splay_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/string.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/t_tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/treap.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/tree.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/trie.h	/^namespace data_structure {$/;"	n
+data_structure	data_structure/vector.h	/^namespace data_structure {$/;"	n
+data	data_structure/string.h	/^  char* data() const { return _data.data(); }$/;"	f	class:data_structure::string
+data	data_structure/vector.h	/^  T* data() const { return _data; }$/;"	f	class:data_structure::vector
+data	data_structure/binary_heap.h	/^  vector<T> data;$/;"	m	class:data_structure::binary_heap
+data	math/matrix.h	/^  T* data;$/;"	m	class:matrix
+data	third_lib/libsvm-3.24/svm.cpp	/^		Qfloat *data;$/;"	m	struct:Cache::head_t	file:
+dataset_pathname	third_lib/libsvm-3.24/tools/grid.py	/^	dataset_pathname = sys.argv[-1]$/;"	v
+debug	test.cpp	/^int debug = 0;$/;"	v
+debug	test_heap.cpp	/^int debug = 0;$/;"	v
+decision_function	third_lib/libsvm-3.24/svm.cpp	/^struct decision_function$/;"	s	file:
+defaultdict	third_lib/libsvm-3.24/tools/subset.py	/^from collections import defaultdict$/;"	i
+deg	data_structure/fibonacci_heap.h	/^    int deg;$/;"	m	struct:data_structure::fibonacci_heap::node
+degree	third_lib/libsvm-3.24/svm.cpp	/^	const int degree;$/;"	m	class:Kernel	file:
+degree	third_lib/libsvm-3.24/svm.h	/^	int degree;	\/* for poly *\/$/;"	m	struct:svm_parameter
+delete_self	data_structure/aa_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::aa_tree
+delete_self	data_structure/avl_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::avl_tree
+delete_self	data_structure/b_plus_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::b_plus_tree
+delete_self	data_structure/b_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::b_tree
+delete_self	data_structure/binary_search_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::binary_search_tree
+delete_self	data_structure/fibonacci_heap.h	/^  void delete_self(node*& p) {$/;"	f	class:data_structure::fibonacci_heap
+delete_self	data_structure/left_leaning_red_black_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+delete_self	data_structure/no_rotate_treap.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::no_rotate_treap
+delete_self	data_structure/red_black_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::red_black_tree
+delete_self	data_structure/scapegoat_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::scapegoat_tree
+delete_self	data_structure/splay_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::splay_tree
+delete_self	data_structure/t_tree.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::t_tree
+delete_self	data_structure/treap.h	/^  void delete_self(node* rt) {$/;"	f	class:data_structure::treap
+diag_to_col	math/matrix.h	/^  matrix<T> diag_to_col() {$/;"	f	class:matrix
+diag_to_row	math/matrix.h	/^  matrix<T> diag_to_row() {$/;"	f	class:matrix
+dirname	third_lib/libsvm-3.24/python/svm.py	/^	dirname = path.dirname(path.abspath(__file__))$/;"	v
+dist	data_structure/leftist_heap.h	/^    int dist;$/;"	m	struct:data_structure::leftist_heap::node
+do_cross_validation	third_lib/libsvm-3.24/matlab/svmtrain.c	/^double do_cross_validation()$/;"	f
+do_cross_validation	third_lib/libsvm-3.24/svm-train.c	/^void do_cross_validation()$/;"	f
+do_shrinking	third_lib/libsvm-3.24/svm.cpp	/^void Solver::do_shrinking()$/;"	f	class:Solver
+do_shrinking	third_lib/libsvm-3.24/svm.cpp	/^void Solver_NU::do_shrinking()$/;"	f	class:Solver_NU
+dot	math/matrix.h	/^  inline T dot(const matrix<T>& rhs) { return (transpose() * rhs)[0][0]; }$/;"	f	class:matrix
+dot	third_lib/libsvm-3.24/svm.cpp	/^double Kernel::dot(const svm_node *px, const svm_node *py)$/;"	f	class:Kernel
+double_black	data_structure/left_leaning_red_black_tree.h	/^  void double_black(node* rt) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+double_black	data_structure/red_black_tree.h	/^  void double_black(node* rt) {$/;"	f	class:data_structure::red_black_tree
+draw_all_points	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void draw_all_points()$/;"	f	class:SvmToyWindow	file:
+draw_all_points	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^void draw_all_points()$/;"	f
+draw_point	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	void draw_point(const point& p)$/;"	f	class:SvmToyWindow	file:
+draw_point	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^void draw_point(const point & p)$/;"	f
+edit	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HWND edit;$/;"	v
+empty	data_structure/vector.h	/^  bool empty() const { return top == 0; }$/;"	f	class:data_structure::vector
+end	data_structure/string.h	/^  char* end() const { return _data.end() - 1; }$/;"	f	class:data_structure::string
+end	data_structure/vector.h	/^  T* end() const { return _data + top; }$/;"	f	class:data_structure::vector
+eps	third_lib/libsvm-3.24/svm.cpp	/^	double eps;$/;"	m	class:Solver	file:
+eps	third_lib/libsvm-3.24/svm.h	/^	double eps;	\/* stopping criteria *\/$/;"	m	struct:svm_parameter
+erase_array	memery_management/memery_pool.h	/^  void erase_array(T* p, int x) {$/;"	f	class:memery_pool
+erase_maintain	data_structure/treap.h	/^  node* erase_maintain(node* rt) {$/;"	f	class:data_structure::treap
+erase	data_structure/aa_tree.h	/^  node* erase(node* rt, const T& w) {$/;"	f	class:data_structure::aa_tree
+erase	data_structure/aa_tree.h	/^  void erase(const T& w) { root = erase(root, w); }$/;"	f	class:data_structure::aa_tree
+erase	data_structure/avl_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::avl_tree
+erase	data_structure/avl_tree.h	/^  void erase(node*& rt, const T& w) {$/;"	f	class:data_structure::avl_tree
+erase	data_structure/b_plus_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::b_plus_tree
+erase	data_structure/b_plus_tree.h	/^  void erase(node*& rt, const T& w, node* fa = nullptr, int fap = 0) {$/;"	f	class:data_structure::b_plus_tree
+erase	data_structure/b_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::b_tree
+erase	data_structure/b_tree.h	/^  void erase(node*& rt, const T& w, node* fa = nullptr, int fap = 0) {$/;"	f	class:data_structure::b_tree
+erase	data_structure/binary_search_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::binary_search_tree
+erase	data_structure/binary_search_tree.h	/^  void erase(node*& rt, const T& w) {$/;"	f	class:data_structure::binary_search_tree
+erase	data_structure/left_leaning_red_black_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+erase	data_structure/left_leaning_red_black_tree.h	/^  void erase(node*& rt, const T& w) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+erase	data_structure/no_rotate_treap.h	/^  node* erase(node* rt, const T& w) {$/;"	f	class:data_structure::no_rotate_treap
+erase	data_structure/no_rotate_treap.h	/^  void erase(const T& w) { root = erase(root, w); }$/;"	f	class:data_structure::no_rotate_treap
+erase	data_structure/red_black_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::red_black_tree
+erase	data_structure/red_black_tree.h	/^  void erase(node*& rt, const T& w) {$/;"	f	class:data_structure::red_black_tree
+erase	data_structure/scapegoat_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::scapegoat_tree
+erase	data_structure/scapegoat_tree.h	/^  void erase(node*& rt, const T& w) {$/;"	f	class:data_structure::scapegoat_tree
+erase	data_structure/splay_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::splay_tree
+erase	data_structure/splay_tree.h	/^  void erase(node* rt, const T& w) {$/;"	f	class:data_structure::splay_tree
+erase	data_structure/t_tree.h	/^    void erase(const T& w) {$/;"	f	struct:data_structure::t_tree::node
+erase	data_structure/t_tree.h	/^  void erase(const T& w) { erase(root, w); }$/;"	f	class:data_structure::t_tree
+erase	data_structure/t_tree.h	/^  void erase(node*& rt, const T& w) {$/;"	f	class:data_structure::t_tree
+erase	data_structure/treap.h	/^  node* erase(node* rt, const T& w) {$/;"	f	class:data_structure::treap
+erase	data_structure/treap.h	/^  void erase(const T& w) { root = erase(root, w); }$/;"	f	class:data_structure::treap
+erase	data_structure/vector.h	/^  vector<T> erase(const T& w) {$/;"	f	class:data_structure::vector
+erase	data_structure/vector.h	/^  void erase(T* a, T* b) {  \/\/ [a,b)$/;"	f	class:data_structure::vector
+erase	data_structure/vector.h	/^  void erase(T* p) { erase(p, p + 1); }$/;"	f	class:data_structure::vector
+erase	memery_management/memery_pool.h	/^  void erase(T* p) {$/;"	f	class:memery_pool
+err	third_lib/libsvm-3.24/tools/checkdata.py	/^def err(line_no, msg):$/;"	f
+evaluations_scipy	third_lib/libsvm-3.24/python/commonutil.py	/^def evaluations_scipy(ty, pv):$/;"	f
+evaluations	third_lib/libsvm-3.24/python/commonutil.py	/^def evaluations(ty, pv, useScipy = True):$/;"	f
+exit_input_error	third_lib/libsvm-3.24/svm-predict.c	/^void exit_input_error(int line_num)$/;"	f
+exit_input_error	third_lib/libsvm-3.24/svm-train.c	/^void exit_input_error(int line_num)$/;"	f
+exit_with_help	third_lib/libsvm-3.24/matlab/libsvmread.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/matlab/libsvmwrite.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/matlab/svmpredict.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/matlab/svmtrain.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/svm-predict.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/svm-scale.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/svm-train.c	/^void exit_with_help()$/;"	f
+exit_with_help	third_lib/libsvm-3.24/tools/grid.py	/^	def exit_with_help():$/;"	f	function:find_parameters
+exit_with_help	third_lib/libsvm-3.24/tools/subset.py	/^def exit_with_help(argv):$/;"	f
+exit	third_lib/libsvm-3.24/tools/checkdata.py	/^from sys import argv, exit$/;"	i
+eye	math/matrix.h	/^  static inline matrix<T> eye(int n) {$/;"	f	class:matrix
+fake_answer	third_lib/libsvm-3.24/matlab/libsvmread.c	/^static void fake_answer(int nlhs, mxArray *plhs[])$/;"	f	file:
+fake_answer	third_lib/libsvm-3.24/matlab/libsvmwrite.c	/^static void fake_answer(int nlhs, mxArray *plhs[])$/;"	f	file:
+fake_answer	third_lib/libsvm-3.24/matlab/svmpredict.c	/^static void fake_answer(int nlhs, mxArray *plhs[])$/;"	f	file:
+fake_answer	third_lib/libsvm-3.24/matlab/svmtrain.c	/^static void fake_answer(int nlhs, mxArray *plhs[])$/;"	f	file:
+fa	data_structure/left_leaning_red_black_tree.h	/^    node *ch[2], *fa;$/;"	m	struct:data_structure::left_leaning_red_black_tree::node
+fa	data_structure/red_black_tree.h	/^    node *ch[2], *fa;$/;"	m	struct:data_structure::red_black_tree::node
+fa	data_structure/splay_tree.h	/^    node *ch[2], *fa;$/;"	m	struct:data_structure::splay_tree::node
+feature_QR	math/matrix.h	/^  void feature_QR(matrix<complex<T>>& val, matrix<complex<T>>& vec,$/;"	f	class:matrix
+feature_max	third_lib/libsvm-3.24/svm-scale.c	/^double *feature_max;$/;"	v
+feature_min	third_lib/libsvm-3.24/svm-scale.c	/^double *feature_min;$/;"	v
+feature_value_QR	math/matrix.h	/^  vector<T> feature_value_QR(const T& eps) {$/;"	f	class:matrix
+feature_value_power	math/matrix.h	/^  T feature_value_power(const T& eps) {$/;"	f	class:matrix
+feature_vector_jacobi	math/matrix.h	/^  matrix<T> feature_vector_jacobi(const T& eps) {$/;"	f	class:matrix
+feature_vector	math/matrix.h	/^  matrix<T> feature_vector(const T& feature_value, const T& eps) {$/;"	f	class:matrix
+fibonacci_heap	data_structure/fibonacci_heap.h	/^class fibonacci_heap : public heap<T> {$/;"	c	namespace:data_structure
+fibonacci_heap	data_structure/fibonacci_heap.h	/^  fibonacci_heap() { root = tail = minp = nullptr; }$/;"	f	class:data_structure::fibonacci_heap
+fibonacci_heap	data_structure/fibonacci_heap.h	/^  fibonacci_heap(const fibonacci_heap<T>& rhs) { *this = rhs; }  \/\/ 深复制$/;"	f	class:data_structure::fibonacci_heap
+field_names	third_lib/libsvm-3.24/matlab/svm_model_matlab.c	/^static const char *field_names[] = {$/;"	v	file:
+file_name	third_lib/libsvm-3.24/tools/easy.py	/^	file_name = os.path.split(test_pathname)[1]$/;"	v
+file_name	third_lib/libsvm-3.24/tools/easy.py	/^file_name = os.path.split(train_pathname)[1]$/;"	v
+file_size	io/binary_io.h	/^int file_size(const char* filename) {$/;"	f	namespace:io
+fillprototype	third_lib/libsvm-3.24/python/svm.py	/^def fillprototype(f, restype, argtypes):$/;"	f
+find_library	third_lib/libsvm-3.24/python/svm.py	/^from ctypes.util import find_library$/;"	i
+find_parameters	third_lib/libsvm-3.24/tools/grid.py	/^def find_parameters(dataset_pathname, options=''):$/;"	f
+fit	machine_learning/classification/bayes.h	/^  void fit(const data_structure::vector<data_structure::vector<int>>& train,$/;"	f	class:machine_learning::bayes_classification
+free_sv	third_lib/libsvm-3.24/svm.h	/^	int free_sv;		\/* 1 if svm_model is created by svm_load_model*\/$/;"	m	struct:svm_model
+front	data_structure/string.h	/^  char& front() const { return _data.front(); }$/;"	f	class:data_structure::string
+front	data_structure/t_tree.h	/^    T front() { return key.front(); }$/;"	f	struct:data_structure::t_tree::node
+front	data_structure/vector.h	/^  T& front() const { return _data[0]; }$/;"	f	class:data_structure::vector
+f	third_lib/libsvm-3.24/tools/easy.py	/^f = Popen(cmd, shell = True, stdout = PIPE).stdout$/;"	v
+gamma	third_lib/libsvm-3.24/svm.cpp	/^	const double gamma;$/;"	m	class:Kernel	file:
+gamma	third_lib/libsvm-3.24/svm.h	/^	double gamma;	\/* for poly\/rbf\/sigmoid *\/$/;"	m	struct:svm_parameter
+genFields	third_lib/libsvm-3.24/python/svm.py	/^def genFields(names, types):$/;"	f
+gen_svm_nodearray	third_lib/libsvm-3.24/python/svm.py	/^def gen_svm_nodearray(xi, feature_max=None, isKernel=False):$/;"	f
+get_C	third_lib/libsvm-3.24/svm.cpp	/^	double get_C(int i)$/;"	f	class:Solver
+get_QD	third_lib/libsvm-3.24/svm.cpp	/^	double *get_QD() const$/;"	f	class:ONE_CLASS_Q
+get_QD	third_lib/libsvm-3.24/svm.cpp	/^	double *get_QD() const$/;"	f	class:SVC_Q
+get_QD	third_lib/libsvm-3.24/svm.cpp	/^	double *get_QD() const$/;"	f	class:SVR_Q
+get_Q	third_lib/libsvm-3.24/svm.cpp	/^	Qfloat *get_Q(int i, int len) const$/;"	f	class:ONE_CLASS_Q
+get_Q	third_lib/libsvm-3.24/svm.cpp	/^	Qfloat *get_Q(int i, int len) const$/;"	f	class:SVC_Q
+get_Q	third_lib/libsvm-3.24/svm.cpp	/^	Qfloat *get_Q(int i, int len) const$/;"	f	class:SVR_Q
+get_SV	third_lib/libsvm-3.24/python/svm.py	/^	def get_SV(self):$/;"	m	class:svm_model
+get_array	memery_management/memery_pool.h	/^  T* get_array(int x) {$/;"	f	class:memery_pool
+get_cmd	third_lib/libsvm-3.24/tools/grid.py	/^	def get_cmd(self,c,g):$/;"	m	class:Worker
+get_data	third_lib/libsvm-3.24/svm.cpp	/^int Cache::get_data(const int index, Qfloat **data, int len)$/;"	f	class:Cache
+get_dist	data_structure/leftist_heap.h	/^  int get_dist(node* a) {$/;"	f	class:data_structure::leftist_heap
+get_labels	third_lib/libsvm-3.24/python/svm.py	/^	def get_labels(self):$/;"	m	class:svm_model
+get_max_node	data_structure/binomial_heap.h	/^  int get_max_node() {$/;"	f	class:data_structure::binomial_heap
+get_nr_class	third_lib/libsvm-3.24/python/svm.py	/^	def get_nr_class(self):$/;"	m	class:svm_model
+get_nr_sv	third_lib/libsvm-3.24/python/svm.py	/^	def get_nr_sv(self):$/;"	m	class:svm_model
+get_sv_coef	third_lib/libsvm-3.24/python/svm.py	/^	def get_sv_coef(self):$/;"	m	class:svm_model
+get_sv_indices	third_lib/libsvm-3.24/python/svm.py	/^	def get_sv_indices(self):$/;"	m	class:svm_model
+get_svm_type	third_lib/libsvm-3.24/python/svm.py	/^	def get_svm_type(self):$/;"	m	class:svm_model
+get_svr_probability	third_lib/libsvm-3.24/python/svm.py	/^	def get_svr_probability(self):$/;"	m	class:svm_model
+getdis	data_structure/avl_tree.h	/^  inline int getdis(node*& rt) { return getlh(rt) - getrh(rt); }$/;"	f	class:data_structure::avl_tree
+getdis	data_structure/t_tree.h	/^  inline int getdis(node*& rt) { return getlh(rt) - getrh(rt); }$/;"	f	class:data_structure::t_tree
+getfilename	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^int getfilename( HWND hWnd , char *filename, int len, int save)$/;"	f
+get	memery_management/memery_pool.h	/^  T* get() {$/;"	f	class:memery_pool
+getlh	data_structure/avl_tree.h	/^  inline int getlh(node*& rt) { return rt->ls == nullptr ? 0 : rt->ls->hight; }$/;"	f	class:data_structure::avl_tree
+getlh	data_structure/t_tree.h	/^  inline int getlh(node*& rt) { return rt->ls == nullptr ? 0 : rt->ls->hight; }$/;"	f	class:data_structure::t_tree
+getpass	third_lib/libsvm-3.24/tools/grid.py	/^import os, sys, traceback, getpass, time, re$/;"	i
+getrh	data_structure/avl_tree.h	/^  inline int getrh(node*& rt) { return rt->rs == nullptr ? 0 : rt->rs->hight; }$/;"	f	class:data_structure::avl_tree
+getrh	data_structure/t_tree.h	/^  inline int getrh(node*& rt) { return rt->rs == nullptr ? 0 : rt->rs->hight; }$/;"	f	class:data_structure::t_tree
+gnuplot_exe	third_lib/libsvm-3.24/tools/easy.py	/^	gnuplot_exe = "\/usr\/bin\/gnuplot"$/;"	v
+gnuplot_exe	third_lib/libsvm-3.24/tools/easy.py	/^	gnuplot_exe = r"c:\\tmp\\gnuplot\\binary\\pgnuplot.exe"$/;"	v
+gram_schmidt	math/matrix.h	/^  matrix<T> gram_schmidt(const T& eps) {$/;"	f	class:matrix
+grid_py	third_lib/libsvm-3.24/tools/easy.py	/^	grid_py = ".\/grid.py"$/;"	v
+grid_py	third_lib/libsvm-3.24/tools/easy.py	/^	grid_py = r".\\grid.py"$/;"	v
+handle	data_structure/handle.h	/^class handle {$/;"	c	namespace:data_structure
+handle	data_structure/handle.h	/^  handle(T* ptr) : ptr(ptr), count(new int(1)) {}$/;"	f	class:data_structure::handle
+handle	data_structure/handle.h	/^  handle(const handle<T>& rhs) : ptr(rhs.ptr), count(&++*rhs.count) {}$/;"	f	class:data_structure::handle
+head_t	third_lib/libsvm-3.24/svm.cpp	/^	struct head_t$/;"	s	class:Cache	file:
+head	third_lib/libsvm-3.24/svm.cpp	/^	head_t *head;$/;"	m	class:Cache	file:
+heap	data_structure/heap.h	/^class heap {$/;"	c	namespace:data_structure
+heapsort	algorithm/sort.h	/^void heapsort(int *a, int *b) {$/;"	f	namespace:algorithm
+help_me_matrix_feature	help_me.h	/^void help_me_matrix_feature(T* a, int r, int c, complex<T>* val,$/;"	f
+help_me_matrix_inv	help_me.h	/^void help_me_matrix_inv(T* a, int r, int c, T* inv) {$/;"	f
+help_me_matrix_mul	help_me.h	/^void help_me_matrix_mul(T*a,int ar,int ac,T*b,int br,int bc,T*c){$/;"	f
+hight	data_structure/left_leaning_red_black_tree.h	/^  int hight() { return hight(root); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+hight	data_structure/left_leaning_red_black_tree.h	/^  int hight(node* rt) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+hight	data_structure/red_black_tree.h	/^  int hight() { return hight(root); }$/;"	f	class:data_structure::red_black_tree
+hight	data_structure/red_black_tree.h	/^  int hight(node* rt) {$/;"	f	class:data_structure::red_black_tree
+hight	data_structure/splay_tree.h	/^  int hight() { return hight(root); }$/;"	f	class:data_structure::splay_tree
+hight	data_structure/splay_tree.h	/^  int hight(node* rt) {$/;"	f	class:data_structure::splay_tree
+hight	data_structure/tree.h	/^  virtual int hight() { return 0; }$/;"	f	class:data_structure::tree
+hight	data_structure/avl_tree.h	/^    int hight;$/;"	m	struct:data_structure::avl_tree::node
+hight	data_structure/t_tree.h	/^    int hight;$/;"	m	struct:data_structure::t_tree::node
+h	data_structure/aa_tree.h	/^    int h;$/;"	m	struct:data_structure::aa_tree::node
+host	debug.py	/^host = "eaw3p1.coding-pages.com"$/;"	v
+http_request	debug.py	/^http_request = "GET \/ HTTP\/1.1\\r\\nhost:{}\\r\\n\\r\\n".format(host)$/;"	v
+icon1	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPixmap icon1;$/;"	m	class:SvmToyWindow	file:
+icon2	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPixmap icon2;$/;"	m	class:SvmToyWindow	file:
+icon3	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QPixmap icon3;$/;"	m	class:SvmToyWindow	file:
+index	third_lib/libsvm-3.24/svm.cpp	/^	int *index;$/;"	m	class:SVR_Q	file:
+index	third_lib/libsvm-3.24/svm.h	/^	int index;$/;"	m	struct:svm_node
+info	third_lib/libsvm-3.24/python/svmutil.py	/^	def info(s):$/;"	f	function:svm_predict
+info	third_lib/libsvm-3.24/svm.cpp	/^static void info(const char *fmt,...) {}$/;"	f	file:
+info	third_lib/libsvm-3.24/svm.cpp	/^static void info(const char *fmt,...)$/;"	f	file:
+info	third_lib/libsvm-3.24/matlab/svmpredict.c	/^int (*info)(const char *fmt,...) = &mexPrintf;$/;"	v
+info	third_lib/libsvm-3.24/svm-predict.c	/^static int (*info)(const char *fmt,...) = &printf;$/;"	v	file:
+inner	data_structure/b_plus_tree.h	/^      vector<node*> inner;$/;"	m	union:data_structure::b_plus_tree::node::son
+input_line	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	QLineEdit input_line;$/;"	m	class:SvmToyWindow	file:
+insert_adjust	data_structure/left_leaning_red_black_tree.h	/^  void insert_adjust(node* son) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+insert_adjust	data_structure/red_black_tree.h	/^  void insert_adjust(node* son) {$/;"	f	class:data_structure::red_black_tree
+insert	data_structure/aa_tree.h	/^  node* insert(node* rt, const T& w) {$/;"	f	class:data_structure::aa_tree
+insert	data_structure/aa_tree.h	/^  void insert(const T& w) { root = insert(root, w); }$/;"	f	class:data_structure::aa_tree
+insert	data_structure/avl_tree.h	/^  void insert(const T& w) { insert(root, w); }$/;"	f	class:data_structure::avl_tree
+insert	data_structure/avl_tree.h	/^  void insert(node*& rt, const T& w) {$/;"	f	class:data_structure::avl_tree
+insert	data_structure/b_plus_tree.h	/^  void insert(const T& w) { insert(root, w); }$/;"	f	class:data_structure::b_plus_tree
+insert	data_structure/b_plus_tree.h	/^  void insert(node*& rt, const T& w, node* fa = nullptr, int fap = 0) {$/;"	f	class:data_structure::b_plus_tree
+insert	data_structure/b_tree.h	/^  void insert(const T& w) { insert(root, w); }$/;"	f	class:data_structure::b_tree
+insert	data_structure/b_tree.h	/^  void insert(node*& rt, const T& w, node* fa = nullptr, int fap = 0) {$/;"	f	class:data_structure::b_tree
+insert	data_structure/binary_search_tree.h	/^  void insert(const T& w) { insert(root, w); }$/;"	f	class:data_structure::binary_search_tree
+insert	data_structure/binary_search_tree.h	/^  void insert(node*& rt, const T& w) {$/;"	f	class:data_structure::binary_search_tree
+insert	data_structure/left_leaning_red_black_tree.h	/^  void insert(const T& w) { insert(root, w, nullptr); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+insert	data_structure/left_leaning_red_black_tree.h	/^  void insert(node*& rt, const T& w, node* fa) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+insert	data_structure/no_rotate_treap.h	/^  node* insert(node* rt, const T& w) {$/;"	f	class:data_structure::no_rotate_treap
+insert	data_structure/no_rotate_treap.h	/^  void insert(const T& w) { root = insert(root, w); }$/;"	f	class:data_structure::no_rotate_treap
+insert	data_structure/red_black_tree.h	/^  void insert(const T& w) { insert(root, w, nullptr); }$/;"	f	class:data_structure::red_black_tree
+insert	data_structure/red_black_tree.h	/^  void insert(node*& rt, const T& w, node* fa) {$/;"	f	class:data_structure::red_black_tree
+insert	data_structure/scapegoat_tree.h	/^  void insert(const T& w) { insert(root, w); }$/;"	f	class:data_structure::scapegoat_tree
+insert	data_structure/scapegoat_tree.h	/^  void insert(node*& rt, const T& w) {$/;"	f	class:data_structure::scapegoat_tree
+insert	data_structure/splay_tree.h	/^  void insert(const T& w) { insert(root, w, nullptr); }$/;"	f	class:data_structure::splay_tree
+insert	data_structure/splay_tree.h	/^  void insert(node*& rt, const T& w, node* fa) {$/;"	f	class:data_structure::splay_tree
+insert	data_structure/t_tree.h	/^    void insert(const T& w) {$/;"	f	struct:data_structure::t_tree::node
+insert	data_structure/t_tree.h	/^  void insert(const T& w) { insert(root, w); }$/;"	f	class:data_structure::t_tree
+insert	data_structure/t_tree.h	/^  void insert(node*& rt, const T& w) {$/;"	f	class:data_structure::t_tree
+insert	data_structure/treap.h	/^  node* insert(node* rt, const T& w) {$/;"	f	class:data_structure::treap
+insert	data_structure/treap.h	/^  void insert(const T& w) { root = insert(root, w); }$/;"	f	class:data_structure::treap
+insert	data_structure/vector.h	/^  void insert(T* p, const T& w) { insert(p, &w, &w + 1); }$/;"	f	class:data_structure::vector
+insert	data_structure/vector.h	/^  void insert(T* p, const T* l, const T* r) {$/;"	f	class:data_structure::vector
+insertionsort	algorithm/sort.h	/^void insertionsort(int *a, int *b) {$/;"	f	namespace:algorithm
+int2type	trick/int2type.h	/^struct int2type {$/;"	s	namespace:trick
+inv_using_Gauss	math/matrix.h	/^  matrix<T> inv_using_Gauss(T eps) {$/;"	f	class:matrix
+io	io/binary_io.h	/^namespace io {$/;"	n
+io	io/data_structure_io.h	/^namespace io {$/;"	n
+io	io/general.h	/^namespace io {$/;"	n
+is_free	third_lib/libsvm-3.24/svm.cpp	/^	bool is_free(int i) { return alpha_status[i] == FREE; }$/;"	f	class:Solver
+is_lower_bound	third_lib/libsvm-3.24/svm.cpp	/^	bool is_lower_bound(int i) { return alpha_status[i] == LOWER_BOUND; }$/;"	f	class:Solver
+is_probability_model	third_lib/libsvm-3.24/python/svm.py	/^	def is_probability_model(self):$/;"	m	class:svm_model
+is_upper_bound	third_lib/libsvm-3.24/svm.cpp	/^	bool is_upper_bound(int i) { return alpha_status[i] == UPPER_BOUND; }$/;"	f	class:Solver
+is_win32	third_lib/libsvm-3.24/tools/easy.py	/^is_win32 = (sys.platform == 'win32')$/;"	v
+jit_enabled	third_lib/libsvm-3.24/python/svm.py	/^	jit_enabled = False$/;"	v
+jit_enabled	third_lib/libsvm-3.24/python/svm.py	/^	jit_enabled = True$/;"	v
+jit	third_lib/libsvm-3.24/python/svm.py	/^	from numba import jit$/;"	i
+jit	third_lib/libsvm-3.24/python/svm.py	/^	jit = lambda x: x$/;"	v
+k_function	third_lib/libsvm-3.24/svm.cpp	/^double Kernel::k_function(const svm_node *x, const svm_node *y,$/;"	f	class:Kernel
+kernel_function	third_lib/libsvm-3.24/svm.cpp	/^	double (Kernel::*kernel_function)(int i, int j) const;$/;"	m	class:Kernel	file:
+kernel_linear	third_lib/libsvm-3.24/svm.cpp	/^	double kernel_linear(int i, int j) const$/;"	f	class:Kernel	file:
+kernel_poly	third_lib/libsvm-3.24/svm.cpp	/^	double kernel_poly(int i, int j) const$/;"	f	class:Kernel	file:
+kernel_precomputed	third_lib/libsvm-3.24/svm.cpp	/^	double kernel_precomputed(int i, int j) const$/;"	f	class:Kernel	file:
+kernel_rbf	third_lib/libsvm-3.24/svm.cpp	/^	double kernel_rbf(int i, int j) const$/;"	f	class:Kernel	file:
+kernel_sigmoid	third_lib/libsvm-3.24/svm.cpp	/^	double kernel_sigmoid(int i, int j) const$/;"	f	class:Kernel	file:
+kernel_type_table	third_lib/libsvm-3.24/svm.cpp	/^static const char *kernel_type_table[]=$/;"	v	file:
+kernel_type	third_lib/libsvm-3.24/svm.cpp	/^	const int kernel_type;$/;"	m	class:Kernel	file:
+kernel_type	third_lib/libsvm-3.24/svm.h	/^	int kernel_type;$/;"	m	struct:svm_parameter
+key	data_structure/aa_tree.h	/^    T key;$/;"	m	struct:data_structure::aa_tree::node
+key	data_structure/avl_tree.h	/^    T key;$/;"	m	struct:data_structure::avl_tree::node
+key	data_structure/b_plus_tree.h	/^    vector<T*> key;$/;"	m	struct:data_structure::b_plus_tree::node
+key	data_structure/b_tree.h	/^    vector<T> key;$/;"	m	struct:data_structure::b_tree::node
+key	data_structure/binary_search_tree.h	/^    T key;$/;"	m	struct:data_structure::binary_search_tree::node
+key	data_structure/left_leaning_red_black_tree.h	/^    T key;$/;"	m	struct:data_structure::left_leaning_red_black_tree::node
+key	data_structure/no_rotate_treap.h	/^    T key;$/;"	m	struct:data_structure::no_rotate_treap::node
+key	data_structure/red_black_tree.h	/^    T key;$/;"	m	struct:data_structure::red_black_tree::node
+key	data_structure/scapegoat_tree.h	/^    T key;$/;"	m	struct:data_structure::scapegoat_tree::node
+key	data_structure/splay_tree.h	/^    T key;$/;"	m	struct:data_structure::splay_tree::node
+key	data_structure/t_tree.h	/^    vector<T> key;$/;"	m	struct:data_structure::t_tree::node
+key	data_structure/treap.h	/^    T key;$/;"	m	struct:data_structure::treap::node
+label	third_lib/libsvm-3.24/svm.h	/^	int *label;		\/* label of each class (label[k]) *\/$/;"	m	struct:svm_model
+last_line	third_lib/libsvm-3.24/tools/easy.py	/^	last_line = line$/;"	v
+leaf	data_structure/b_plus_tree.h	/^  bool leaf(node*& rt) { return rt->son.empty(); }$/;"	f	class:data_structure::b_plus_tree
+leaf	data_structure/b_tree.h	/^  bool leaf(node*& rt) { return rt->son.empty(); }$/;"	f	class:data_structure::b_tree
+leaf	data_structure/b_plus_tree.h	/^      vector<vector<T>*> leaf;$/;"	m	union:data_structure::b_plus_tree::node::son
+left_leaning_red_black_tree	data_structure/left_leaning_red_black_tree.h	/^class left_leaning_red_black_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+left_leaning_red_black_tree	data_structure/left_leaning_red_black_tree.h	/^  left_leaning_red_black_tree() { root = nullptr; }$/;"	f	class:data_structure::left_leaning_red_black_tree
+left_leaning_red_black_tree	data_structure/left_leaning_red_black_tree.h	/^  left_leaning_red_black_tree(const left_leaning_red_black_tree<T>& rhs) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+left_leaning	data_structure/left_leaning_red_black_tree.h	/^  void left_leaning(node* rt) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+leftist_heap	data_structure/leftist_heap.h	/^class leftist_heap : public heap<T> {$/;"	c	namespace:data_structure
+len	third_lib/libsvm-3.24/svm.cpp	/^		int len;		\/\/ data[0,len) is cached in this entry$/;"	m	struct:Cache::head_t	file:
+libsvm_version	third_lib/libsvm-3.24/svm.cpp	/^int libsvm_version = LIBSVM_VERSION;$/;"	v
+libsvm	third_lib/libsvm-3.24/python/svm.py	/^		libsvm = CDLL(find_library('libsvm'))$/;"	v
+libsvm	third_lib/libsvm-3.24/python/svm.py	/^		libsvm = CDLL(find_library('svm'))$/;"	v
+libsvm	third_lib/libsvm-3.24/python/svm.py	/^		libsvm = CDLL(path.join(dirname, '..\/libsvm.so.2'))$/;"	v
+libsvm	third_lib/libsvm-3.24/python/svm.py	/^		libsvm = CDLL(path.join(dirname, r'..\\windows\\libsvm.dll'))$/;"	v
+libsvmwrite	third_lib/libsvm-3.24/matlab/libsvmwrite.c	/^void libsvmwrite(const char *filename, const mxArray *label_vec, const mxArray *instance_mat)$/;"	f
+likeihood1	machine_learning/classification/bayes.h	/^  data_structure::vector<double> likeihood1, likeihood2;$/;"	m	class:machine_learning::bayes_classification
+likeihood2	machine_learning/classification/bayes.h	/^  data_structure::vector<double> likeihood1, likeihood2;$/;"	m	class:machine_learning::bayes_classification
+line_add	math/matrix.h	/^  void line_add(int a, T k, int b) {$/;"	f	class:matrix
+line_div	math/matrix.h	/^  void line_div(int a, T k) {$/;"	f	class:matrix
+line_mul	math/matrix.h	/^  void line_mul(int a, T k) {$/;"	f	class:matrix
+line_swap	math/matrix.h	/^  void line_swap(int a, int b) {$/;"	f	class:matrix
+line	third_lib/libsvm-3.24/matlab/libsvmread.c	/^static char *line;$/;"	v	file:
+line	third_lib/libsvm-3.24/svm-predict.c	/^static char *line = NULL;$/;"	v	file:
+line	third_lib/libsvm-3.24/svm-scale.c	/^char *line = NULL;$/;"	v
+line	third_lib/libsvm-3.24/svm-train.c	/^static char *line = NULL;$/;"	v	file:
+line	third_lib/libsvm-3.24/svm.cpp	/^static char *line = NULL;$/;"	v	file:
+line	third_lib/libsvm-3.24/tools/easy.py	/^	line = f.readline()$/;"	v
+line	third_lib/libsvm-3.24/tools/easy.py	/^line = ''$/;"	v
+l	data_structure/aa_tree.h	/^    node *l, *r;$/;"	m	struct:data_structure::aa_tree::node
+l	data_structure/leftist_heap.h	/^    node *l, *r;$/;"	m	struct:data_structure::leftist_heap::node
+l	data_structure/skew_heap.h	/^    node *l, *r;$/;"	m	struct:data_structure::skew_heap::node
+l	third_lib/libsvm-3.24/svm.cpp	/^	int l;$/;"	m	class:Cache	file:
+l	third_lib/libsvm-3.24/svm.cpp	/^	int l;$/;"	m	class:SVR_Q	file:
+l	third_lib/libsvm-3.24/svm.cpp	/^	int l;$/;"	m	class:Solver	file:
+l	third_lib/libsvm-3.24/svm.h	/^	int l;			\/* total #SV *\/$/;"	m	struct:svm_model
+l	third_lib/libsvm-3.24/svm.h	/^	int l;$/;"	m	struct:svm_problem
+lower_bound	algorithm/sorted_container_operating.h	/^T *lower_bound(T *a, T *b, const T &rhs) {$/;"	f	namespace:algorithm
+lower	data_structure/string.h	/^  string lower() const {$/;"	f	class:data_structure::string
+lower	third_lib/libsvm-3.24/svm-scale.c	/^double lower=-1.0,upper=1.0,y_lower,y_upper;$/;"	v
+lru_delete	third_lib/libsvm-3.24/svm.cpp	/^void Cache::lru_delete(head_t *h)$/;"	f	class:Cache
+lru_head	third_lib/libsvm-3.24/svm.cpp	/^	head_t lru_head;$/;"	m	class:Cache	file:
+lru_insert	third_lib/libsvm-3.24/svm.cpp	/^void Cache::lru_insert(head_t *h)$/;"	f	class:Cache
+ls	data_structure/avl_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::avl_tree::node
+ls	data_structure/binary_search_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::binary_search_tree::node
+ls	data_structure/no_rotate_treap.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::no_rotate_treap::node
+ls	data_structure/scapegoat_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::scapegoat_tree::node
+ls	data_structure/t_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::t_tree::node
+ls	data_structure/treap.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::treap::node
+machine_learning	machine_learning/classification/bayes.h	/^namespace machine_learning {$/;"	n
+machine_learning	machine_learning/general.h	/^namespace machine_learning {$/;"	n
+main_window	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HWND main_window;$/;"	v
+main	debug.cpp	/^int main(int argc, char** argv)$/;"	f
+main	test.cpp	/^int main() {$/;"	f
+main	test_heap.cpp	/^int main() {$/;"	f
+main	third_lib/libsvm-3.24/svm-predict.c	/^int main(int argc, char **argv)$/;"	f
+main	third_lib/libsvm-3.24/svm-scale.c	/^int main(int argc,char **argv)$/;"	f
+main	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^int main( int argc, char* argv[] )$/;"	f
+main	third_lib/libsvm-3.24/svm-train.c	/^int main(int argc, char **argv)$/;"	f
+main	third_lib/libsvm-3.24/tools/checkdata.py	/^def main():$/;"	f
+main	third_lib/libsvm-3.24/tools/subset.py	/^def main(argv=sys.argv):$/;"	f
+maintain	data_structure/avl_tree.h	/^  void maintain(node*& rt) {$/;"	f	class:data_structure::avl_tree
+maintain	data_structure/scapegoat_tree.h	/^  void maintain(node*& rt) {$/;"	f	class:data_structure::scapegoat_tree
+maintain	data_structure/t_tree.h	/^  void maintain(node*& rt) {$/;"	f	class:data_structure::t_tree
+make_list	data_structure/scapegoat_tree.h	/^  void make_list(node* rt, vector<node*>& array) {$/;"	f	class:data_structure::scapegoat_tree
+make	third_lib/libsvm-3.24/matlab/make.m	/^function make()$/;"	f
+math	third_lib/libsvm-3.24/tools/subset.py	/^import os, sys, math, random$/;"	i
+math	math/math_function.h	/^namespace math {$/;"	n
+matlab_matrix_to_model	third_lib/libsvm-3.24/matlab/svm_model_matlab.c	/^struct svm_model *matlab_matrix_to_model(const mxArray *matlab_struct, const char **msg)$/;"	f
+matrix	math/matrix.h	/^class matrix {$/;"	c
+matrix	math/matrix.h	/^  matrix() {$/;"	f	class:matrix
+matrix	math/matrix.h	/^  matrix(const matrix<T>& rhs) : r(rhs.r), c(rhs.c) {$/;"	f	class:matrix
+matrix	math/matrix.h	/^  matrix(const vector<matrix<T>>& rhs) : r(0), c(0) {$/;"	f	class:matrix
+matrix	math/matrix.h	/^  matrix(const vector<vector<T>>& rhs) {$/;"	f	class:matrix
+matrix	math/matrix.h	/^  matrix(int r, int c) : r(r), c(c) {$/;"	f	class:matrix
+max_index	third_lib/libsvm-3.24/svm-scale.c	/^int max_index;$/;"	v
+max_line_len	third_lib/libsvm-3.24/matlab/libsvmread.c	/^static int max_line_len;$/;"	v	file:
+max_line_len	third_lib/libsvm-3.24/svm-predict.c	/^static int max_line_len;$/;"	v	file:
+max_line_len	third_lib/libsvm-3.24/svm-scale.c	/^int max_line_len = 1024;$/;"	v
+max_line_len	third_lib/libsvm-3.24/svm-train.c	/^static int max_line_len;$/;"	v	file:
+max_line_len	third_lib/libsvm-3.24/svm.cpp	/^static int max_line_len;$/;"	v	file:
+max_nr_attr	third_lib/libsvm-3.24/svm-predict.c	/^int max_nr_attr = 64;$/;"	v
+max	third_lib/libsvm-3.24/matlab/libsvmread.c	/^#define max(/;"	d	file:
+max	third_lib/libsvm-3.24/svm-scale.c	/^#define max(/;"	d	file:
+max	algorithm/general.h	/^T max(const T& a, const T& b) {$/;"	f	namespace:algorithm
+max	data_structure/avl_tree.h	/^  inline int max(int a, int b) { return a < b ? b : a; }$/;"	f	class:data_structure::avl_tree
+max	data_structure/t_tree.h	/^  inline static int max(int a, int b) { return a > b ? a : b; }$/;"	f	class:data_structure::t_tree
+max	math/math_function.h	/^T max(const T& a, const T& b) {$/;"	f	namespace:math
+max	third_lib/libsvm-3.24/svm.cpp	/^template <class T> static inline T max(T x,T y) { return (x>y)?x:y; }$/;"	f	file:
+mean	math/matrix.h	/^  inline matrix<T> mean(int op) {$/;"	f	class:matrix
+memcpy	algorithm/general.h	/^void memcpy(T* s1_, T* s2_, int n) {$/;"	f	namespace:algorithm
+memery_pool	memery_management/memery_pool.h	/^class memery_pool {$/;"	c
+memery_pool	memery_management/memery_pool.h	/^  memery_pool() {$/;"	f	class:memery_pool
+memery	memery_management/memery_pool.h	/^namespace memery {$/;"	n
+memset	algorithm/general.h	/^void memset(T* s1_, char s, int n) {$/;"	f	namespace:algorithm
+merge	data_structure/b_plus_tree.h	/^  void merge(node* rt, int l, int r) {$/;"	f	class:data_structure::b_plus_tree
+merge	data_structure/b_tree.h	/^  void merge(node* rt, int l, int r) {$/;"	f	class:data_structure::b_tree
+merge	data_structure/binary_heap.h	/^  void merge(binary_heap<T>& rhs) {$/;"	f	class:data_structure::binary_heap
+merge	data_structure/binomial_heap.h	/^  node* merge(node* a, node* b) {$/;"	f	class:data_structure::binomial_heap
+merge	data_structure/binomial_heap.h	/^  void merge(binomial_heap<T>& rhs) {$/;"	f	class:data_structure::binomial_heap
+merge	data_structure/fibonacci_heap.h	/^  void merge(fibonacci_heap<T>& rhs) {$/;"	f	class:data_structure::fibonacci_heap
+merge	data_structure/leftist_heap.h	/^  node* merge(node* a, node* b) {$/;"	f	class:data_structure::leftist_heap
+merge	data_structure/leftist_heap.h	/^  void merge(leftist_heap<T>& rhs) {$/;"	f	class:data_structure::leftist_heap
+merge	data_structure/no_rotate_treap.h	/^  node* merge(node* l, node* r) {$/;"	f	class:data_structure::no_rotate_treap
+merge	data_structure/pairing_heap.h	/^  node* merge(node* a, node* b) {$/;"	f	class:data_structure::pairing_heap
+merge	data_structure/pairing_heap.h	/^  void merge(pairing_heap<T>& rhs) {$/;"	f	class:data_structure::pairing_heap
+merge	data_structure/skew_heap.h	/^  node* merge(node* a, node* b) {$/;"	f	class:data_structure::skew_heap
+merge	data_structure/skew_heap.h	/^  void merge(skew_heap<T>& rhs) {$/;"	f	class:data_structure::skew_heap
+merges	data_structure/pairing_heap.h	/^  node* merges(node* a) {$/;"	f	class:data_structure::pairing_heap
+mergesort	algorithm/sort.h	/^void mergesort(int *a, int *b) {$/;"	f	namespace:algorithm
+mexFunction	third_lib/libsvm-3.24/matlab/libsvmread.c	/^void mexFunction( int nlhs, mxArray *plhs[],$/;"	f
+mexFunction	third_lib/libsvm-3.24/matlab/libsvmwrite.c	/^void mexFunction( int nlhs, mxArray *plhs[],$/;"	f
+mexFunction	third_lib/libsvm-3.24/matlab/svmpredict.c	/^void mexFunction( int nlhs, mxArray *plhs[],$/;"	f
+mexFunction	third_lib/libsvm-3.24/matlab/svmtrain.c	/^void mexFunction( int nlhs, mxArray *plhs[],$/;"	f
+midorder	data_structure/aa_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::aa_tree
+midorder	data_structure/aa_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::aa_tree
+midorder	data_structure/avl_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::avl_tree
+midorder	data_structure/avl_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::avl_tree
+midorder	data_structure/b_plus_tree.h	/^  void midorder(node*& rt, void (*f)(const T&), int x = 0) {$/;"	f	class:data_structure::b_plus_tree
+midorder	data_structure/b_plus_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::b_plus_tree
+midorder	data_structure/b_tree.h	/^  void midorder(node*& rt, void (*f)(const T&), int x = 0) {$/;"	f	class:data_structure::b_tree
+midorder	data_structure/b_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::b_tree
+midorder	data_structure/binary_search_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::binary_search_tree
+midorder	data_structure/binary_search_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::binary_search_tree
+midorder	data_structure/left_leaning_red_black_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+midorder	data_structure/left_leaning_red_black_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+midorder	data_structure/no_rotate_treap.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::no_rotate_treap
+midorder	data_structure/no_rotate_treap.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::no_rotate_treap
+midorder	data_structure/red_black_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::red_black_tree
+midorder	data_structure/red_black_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::red_black_tree
+midorder	data_structure/scapegoat_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::scapegoat_tree
+midorder	data_structure/scapegoat_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::scapegoat_tree
+midorder	data_structure/splay_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::splay_tree
+midorder	data_structure/splay_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::splay_tree
+midorder	data_structure/t_tree.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::t_tree
+midorder	data_structure/t_tree.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::t_tree
+midorder	data_structure/treap.h	/^  void midorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::treap
+midorder	data_structure/treap.h	/^  void midorder(void (*f)(const T&)) { midorder(root, f); }$/;"	f	class:data_structure::treap
+min_index	third_lib/libsvm-3.24/svm-scale.c	/^int min_index;$/;"	v
+min	third_lib/libsvm-3.24/matlab/libsvmread.c	/^#define min(/;"	d	file:
+min	third_lib/libsvm-3.24/svm-scale.c	/^#define min(/;"	d	file:
+min	algorithm/general.h	/^T min(const T& a, const T& b) {$/;"	f	namespace:algorithm
+min	math/math_function.h	/^T min(const T& a, const T& b) {$/;"	f	namespace:math
+min	third_lib/libsvm-3.24/svm.cpp	/^template <class T> static inline T min(T x,T y) { return (x<y)?x:y; }$/;"	f	file:
+minp	data_structure/fibonacci_heap.h	/^  node *root, *tail, *minp;$/;"	m	class:data_structure::fibonacci_heap
+model_file	third_lib/libsvm-3.24/tools/easy.py	/^model_file = file_name + ".model"$/;"	v
+model_to_matlab_structure	third_lib/libsvm-3.24/matlab/svm_model_matlab.c	/^const char *model_to_matlab_structure(mxArray *plhs[], int num_of_feature, struct svm_model *model)$/;"	f
+model	third_lib/libsvm-3.24/matlab/svmtrain.c	/^struct svm_model *model;$/;"	v	typeref:struct:svm_model
+model	third_lib/libsvm-3.24/svm-predict.c	/^struct svm_model* model;$/;"	v	typeref:struct:svm_model
+model	third_lib/libsvm-3.24/svm-train.c	/^struct svm_model *model;$/;"	v	typeref:struct:svm_model
+mousePressEvent	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^void SvmToyWindow::mousePressEvent( QMouseEvent* event )$/;"	f	class:SvmToyWindow
+mp	data_structure/string.h	/^  static bool* mp;$/;"	m	class:data_structure::string
+mp	data_structure/string.h	/^bool* string::mp = string::_mp + 128;$/;"	m	class:data_structure::string
+multiclass_probability	third_lib/libsvm-3.24/svm.cpp	/^static void multiclass_probability(int k, double **r, double *p)$/;"	f	file:
+mwIndex	third_lib/libsvm-3.24/matlab/libsvmread.c	/^typedef int mwIndex;$/;"	t	file:
+mwIndex	third_lib/libsvm-3.24/matlab/libsvmwrite.c	/^typedef int mwIndex;$/;"	t	file:
+mwIndex	third_lib/libsvm-3.24/matlab/svm_model_matlab.c	/^typedef int mwIndex;$/;"	t	file:
+mwIndex	third_lib/libsvm-3.24/matlab/svmpredict.c	/^typedef int mwIndex;$/;"	t	file:
+mwIndex	third_lib/libsvm-3.24/matlab/svmtrain.c	/^typedef int mwIndex;$/;"	t	file:
+my_float	third_lib/libsvm-3.24/tools/checkdata.py	/^def my_float(x):$/;"	f
+nSV	third_lib/libsvm-3.24/svm.h	/^	int *nSV;		\/* number of SVs for each class (nSV[k]) *\/$/;"	m	struct:svm_model
+name	test.cpp	/^vector<std::string> name;$/;"	v
+new_cnt	memery_management/memery_pool.h	/^int cnt, new_cnt;$/;"	m	namespace:memery
+new_num_nonzeros	third_lib/libsvm-3.24/svm-scale.c	/^long int new_num_nonzeros = 0;$/;"	v
+newnode	data_structure/aa_tree.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::aa_tree
+newnode	data_structure/avl_tree.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::avl_tree
+newnode	data_structure/binary_search_tree.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::binary_search_tree
+newnode	data_structure/left_leaning_red_black_tree.h	/^  node* newnode(const T& w, node* fa) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+newnode	data_structure/no_rotate_treap.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::no_rotate_treap
+newnode	data_structure/red_black_tree.h	/^  node* newnode(const T& w, node* fa) {$/;"	f	class:data_structure::red_black_tree
+newnode	data_structure/scapegoat_tree.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::scapegoat_tree
+newnode	data_structure/splay_tree.h	/^  node* newnode(const T& w, node* fa) {$/;"	f	class:data_structure::splay_tree
+newnode	data_structure/t_tree.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::t_tree
+newnode	data_structure/treap.h	/^  node* newnode(const T& w) {$/;"	f	class:data_structure::treap
+newton_log	math/math_function.h	/^double newton_log(double c) {$/;"	f	namespace:math
+newton_sqrt	math/math_function.h	/^T newton_sqrt(const T& x, const double& eps) {$/;"	f	namespace:math
+next_buffer	third_lib/libsvm-3.24/svm.cpp	/^	mutable int next_buffer;$/;"	m	class:SVR_Q	file:
+next	third_lib/libsvm-3.24/svm.cpp	/^		head_t *prev, *next;	\/\/ a circular list$/;"	m	struct:Cache::head_t	file:
+no_rotate_treap	data_structure/no_rotate_treap.h	/^class no_rotate_treap : public search_tree<T> {$/;"	c	namespace:data_structure
+no_rotate_treap	data_structure/no_rotate_treap.h	/^  no_rotate_treap() { root = nullptr; }$/;"	f	class:data_structure::no_rotate_treap
+no_rotate_treap	data_structure/no_rotate_treap.h	/^  no_rotate_treap(const no_rotate_treap<T>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::no_rotate_treap
+node	data_structure/aa_tree.h	/^  struct node {$/;"	s	class:data_structure::aa_tree
+node	data_structure/avl_tree.h	/^  struct node {$/;"	s	class:data_structure::avl_tree
+node	data_structure/b_plus_tree.h	/^  struct node {$/;"	s	class:data_structure::b_plus_tree
+node	data_structure/b_tree.h	/^  struct node {$/;"	s	class:data_structure::b_tree
+node	data_structure/binary_search_tree.h	/^  struct node {$/;"	s	class:data_structure::binary_search_tree
+node	data_structure/binomial_heap.h	/^  struct node {$/;"	s	class:data_structure::binomial_heap
+node	data_structure/fibonacci_heap.h	/^  struct node {$/;"	s	class:data_structure::fibonacci_heap
+node	data_structure/left_leaning_red_black_tree.h	/^  struct node {$/;"	s	class:data_structure::left_leaning_red_black_tree
+node	data_structure/leftist_heap.h	/^  struct node {$/;"	s	class:data_structure::leftist_heap
+node	data_structure/no_rotate_treap.h	/^  struct node {$/;"	s	class:data_structure::no_rotate_treap
+node	data_structure/pairing_heap.h	/^  struct node {$/;"	s	class:data_structure::pairing_heap
+node	data_structure/red_black_tree.h	/^  struct node {$/;"	s	class:data_structure::red_black_tree
+node	data_structure/scapegoat_tree.h	/^  struct node {$/;"	s	class:data_structure::scapegoat_tree
+node	data_structure/skew_heap.h	/^  struct node {$/;"	s	class:data_structure::skew_heap
+node	data_structure/splay_tree.h	/^  struct node {$/;"	s	class:data_structure::splay_tree
+node	data_structure/t_tree.h	/^  struct node {$/;"	s	class:data_structure::t_tree
+node	data_structure/treap.h	/^  struct node {$/;"	s	class:data_structure::treap
+norm1	math/matrix.h	/^  inline T norm1(const T& eps) {$/;"	f	class:matrix
+norm2	math/matrix.h	/^  inline T norm2() {$/;"	f	class:matrix
+norm_inf	math/matrix.h	/^  inline T norm_inf() {$/;"	f	class:matrix
+nr_class	third_lib/libsvm-3.24/svm.h	/^	int nr_class;		\/* number of classes, = 2 in regression\/one class svm *\/$/;"	m	struct:svm_model
+nr_fold	third_lib/libsvm-3.24/matlab/svmtrain.c	/^int nr_fold;$/;"	v
+nr_fold	third_lib/libsvm-3.24/svm-train.c	/^int nr_fold;$/;"	v
+nr_local_worker	third_lib/libsvm-3.24/tools/grid.py	/^nr_local_worker = 1$/;"	v
+nr_weight	third_lib/libsvm-3.24/svm.h	/^	int nr_weight;		\/* for C_SVC *\/$/;"	m	struct:svm_parameter
+num_nonzeros	third_lib/libsvm-3.24/svm-scale.c	/^long int num_nonzeros = 0;$/;"	v
+nu	third_lib/libsvm-3.24/svm.h	/^	double nu;	\/* for NU_SVC, ONE_CLASS, and NU_SVR *\/$/;"	m	struct:svm_parameter
+obj	third_lib/libsvm-3.24/svm.cpp	/^		double obj;$/;"	m	struct:Solver::SolutionInfo	file:
+operator !=	data_structure/string.h	/^  bool operator!=(const string& s) const { return _data != s._data; }$/;"	f	class:data_structure::string
+operator !=	data_structure/vector.h	/^  bool operator!=(const vector<T>& rhs) const { return !(*this == rhs); }$/;"	f	class:data_structure::vector
+operator *=	math/matrix.h	/^  inline friend matrix<T> operator*=(matrix<T>& rhs, const T2& k) {$/;"	f	class:matrix
+operator *=	math/matrix.h	/^  inline matrix<T> operator*=(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator *	data_structure/handle.h	/^  T& operator*() { return *ptr; }$/;"	f	class:data_structure::handle
+operator *	data_structure/handle.h	/^  const T& operator*() const { return *ptr; }$/;"	f	class:data_structure::handle
+operator *	math/matrix.h	/^  inline friend matrix<T> operator*(const T2& k, const matrix<T>& rhs) {$/;"	f	class:matrix
+operator *	math/matrix.h	/^  inline friend matrix<T> operator*(const matrix<T>& rhs, const T2& k) {$/;"	f	class:matrix
+operator *	math/matrix.h	/^  inline matrix<T> operator*(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator +=	data_structure/string.h	/^  string operator+=(const string& ch) { return *this = *this + ch; }$/;"	f	class:data_structure::string
+operator +=	math/matrix.h	/^  inline matrix<T> operator+=(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator +	data_structure/string.h	/^  string operator+(const string& ch) {$/;"	f	class:data_structure::string
+operator +	math/matrix.h	/^  inline matrix<T> operator+(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator -=	math/matrix.h	/^  inline matrix<T> operator-=(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator ->	data_structure/handle.h	/^  T* operator->() { return ptr; }$/;"	f	class:data_structure::handle
+operator ->	data_structure/handle.h	/^  const T* operator->() const { return ptr; }$/;"	f	class:data_structure::handle
+operator -	math/matrix.h	/^  inline matrix<T> operator-(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator /=	math/matrix.h	/^  inline friend matrix<T> operator\/=(matrix<T>& rhs, const T2& k) {$/;"	f	class:matrix
+operator /	math/matrix.h	/^  inline friend matrix<T> operator\/(const matrix<T>& rhs, const T2& k) {$/;"	f	class:matrix
+operator <	data_structure/string.h	/^  bool operator<(const string& s) const { return _data < s._data; }$/;"	f	class:data_structure::string
+operator <	data_structure/vector.h	/^  bool operator<(const vector<T>& rhs) const {$/;"	f	class:data_structure::vector
+operator ==	data_structure/string.h	/^  bool operator==(const string& s) const { return _data == s._data; }$/;"	f	class:data_structure::string
+operator ==	data_structure/vector.h	/^  bool operator==(const vector<T>& rhs) const {$/;"	f	class:data_structure::vector
+operator =	data_structure/aa_tree.h	/^  aa_tree<T> operator=(const aa_tree<T>& rhs) {$/;"	f	class:data_structure::aa_tree
+operator =	data_structure/avl_tree.h	/^  avl_tree<T> operator=(const avl_tree<T>& rhs) {$/;"	f	class:data_structure::avl_tree
+operator =	data_structure/b_plus_tree.h	/^  b_plus_tree<T, N> operator=(const b_plus_tree<T, N>& rhs) {$/;"	f	class:data_structure::b_plus_tree
+operator =	data_structure/b_tree.h	/^  b_tree<T, N> operator=(const b_tree<T, N>& rhs) {$/;"	f	class:data_structure::b_tree
+operator =	data_structure/binary_search_tree.h	/^  binary_search_tree<T> operator=(const binary_search_tree<T>& rhs) {$/;"	f	class:data_structure::binary_search_tree
+operator =	data_structure/fibonacci_heap.h	/^  fibonacci_heap<T> operator=(const fibonacci_heap<T>& rhs) {$/;"	f	class:data_structure::fibonacci_heap
+operator =	data_structure/handle.h	/^  const handle<T>& operator=(const handle<T>& rhs) {$/;"	f	class:data_structure::handle
+operator =	data_structure/left_leaning_red_black_tree.h	/^  left_leaning_red_black_tree<T> operator=($/;"	f	class:data_structure::left_leaning_red_black_tree
+operator =	data_structure/no_rotate_treap.h	/^  no_rotate_treap<T> operator=(const no_rotate_treap<T>& rhs) {$/;"	f	class:data_structure::no_rotate_treap
+operator =	data_structure/red_black_tree.h	/^  red_black_tree<T> operator=(const red_black_tree<T>& rhs) {$/;"	f	class:data_structure::red_black_tree
+operator =	data_structure/scapegoat_tree.h	/^  scapegoat_tree<T> operator=(const scapegoat_tree<T>& rhs) {$/;"	f	class:data_structure::scapegoat_tree
+operator =	data_structure/splay_tree.h	/^  splay_tree<T> operator=(const splay_tree<T>& rhs) {$/;"	f	class:data_structure::splay_tree
+operator =	data_structure/t_tree.h	/^  t_tree<T, N> operator=(const t_tree<T, N>& rhs) {$/;"	f	class:data_structure::t_tree
+operator =	data_structure/treap.h	/^  treap<T> operator=(const treap<T>& rhs) {$/;"	f	class:data_structure::treap
+operator =	data_structure/vector.h	/^  vector<T> operator=(const vector<T>& rhs) {$/;"	f	class:data_structure::vector
+operator =	math/matrix.h	/^  matrix<T>& operator=(const matrix<T>& rhs) {$/;"	f	class:matrix
+operator []	data_structure/string.h	/^  char& operator[](int x) const { return _data[x]; }$/;"	f	class:data_structure::string
+operator []	data_structure/vector.h	/^  T& operator[](int x) const {$/;"	f	class:data_structure::vector
+operator []	math/matrix.h	/^  inline T* operator[](int x) const { return data + x * c; }$/;"	f	class:matrix
+options	third_lib/libsvm-3.24/tools/grid.py	/^	options = sys.argv[1:-1]$/;"	v
+orignal_type	trick/type2type.h	/^  typedef T orignal_type;$/;"	t	struct:trick::type2type
+os	third_lib/libsvm-3.24/python/svmutil.py	/^import os, sys$/;"	i
+os	third_lib/libsvm-3.24/tools/checkdata.py	/^import os.path$/;"	i
+os	third_lib/libsvm-3.24/tools/easy.py	/^import os$/;"	i
+os	third_lib/libsvm-3.24/tools/grid.py	/^import os, sys, traceback, getpass, time, re$/;"	i
+os	third_lib/libsvm-3.24/tools/subset.py	/^import os, sys, math, random$/;"	i
+output_target	third_lib/libsvm-3.24/svm-scale.c	/^void output_target(double value)$/;"	f
+output	third_lib/libsvm-3.24/svm-scale.c	/^void output(int index, double value)$/;"	f
+output	test.cpp	/^int output = 1;$/;"	v
+paintEvent	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^void SvmToyWindow::paintEvent( QPaintEvent* )$/;"	f	class:SvmToyWindow
+pairing_heap	data_structure/pairing_heap.h	/^class pairing_heap : public heap<T> {$/;"	c	namespace:data_structure
+param	third_lib/libsvm-3.24/svm.h	/^	struct svm_parameter param;	\/* parameter *\/$/;"	m	struct:svm_model	typeref:struct:svm_model::svm_parameter
+param	third_lib/libsvm-3.24/matlab/svmtrain.c	/^struct svm_parameter param;		\/\/ set by parse_command_line$/;"	v	typeref:struct:svm_parameter
+param	third_lib/libsvm-3.24/svm-train.c	/^struct svm_parameter param;		\/\/ set by parse_command_line$/;"	v	typeref:struct:svm_parameter
+parse_command_line	third_lib/libsvm-3.24/matlab/svmtrain.c	/^int parse_command_line(int nrhs, const mxArray *prhs[], char *model_file_name)$/;"	f
+parse_command_line	third_lib/libsvm-3.24/svm-train.c	/^void parse_command_line(int argc, char **argv, char *input_file_name, char *model_file_name)$/;"	f
+parse_options	third_lib/libsvm-3.24/python/svm.py	/^	def parse_options(self, options):$/;"	m	class:svm_parameter
+parse_options	third_lib/libsvm-3.24/tools/grid.py	/^	def parse_options(self, options):$/;"	m	class:GridOption
+path	third_lib/libsvm-3.24/python/svm.py	/^from os import path$/;"	i
+path	third_lib/libsvm-3.24/tools/checkdata.py	/^import os.path$/;"	i
+permute_sequence	third_lib/libsvm-3.24/tools/grid.py	/^	def permute_sequence(seq):$/;"	f	function:calculate_jobs
+p	third_lib/libsvm-3.24/svm.cpp	/^	double *p;$/;"	m	class:Solver	file:
+p	third_lib/libsvm-3.24/svm.h	/^	double p;	\/* for EPSILON_SVR *\/$/;"	m	struct:svm_parameter
+point_list	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	list<point> point_list;$/;"	m	class:SvmToyWindow	file:
+point_list	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^list<point> point_list;$/;"	v
+point	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^	struct point {$/;"	s	class:SvmToyWindow	file:
+point	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^struct point {$/;"	s	file:
+pool	data_structure/aa_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::aa_tree
+pool	data_structure/avl_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::avl_tree
+pool	data_structure/b_plus_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::b_plus_tree
+pool	data_structure/b_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::b_tree
+pool	data_structure/binary_search_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::binary_search_tree
+pool	data_structure/binomial_heap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::binomial_heap
+pool	data_structure/fibonacci_heap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::fibonacci_heap
+pool	data_structure/left_leaning_red_black_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::left_leaning_red_black_tree
+pool	data_structure/leftist_heap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::leftist_heap
+pool	data_structure/no_rotate_treap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::no_rotate_treap
+pool	data_structure/pairing_heap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::pairing_heap
+pool	data_structure/red_black_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::red_black_tree
+pool	data_structure/scapegoat_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::scapegoat_tree
+pool	data_structure/skew_heap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::skew_heap
+pool	data_structure/splay_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::splay_tree
+pool	data_structure/t_tree.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::t_tree
+pool	data_structure/treap.h	/^  memery_pool<node> pool;$/;"	m	class:data_structure::treap
+pool	data_structure/vector.h	/^  memery_pool<T> pool;$/;"	m	class:data_structure::vector
+pool	math/matrix.h	/^  memery_pool<T> pool;$/;"	m	class:matrix
+pop_adjust	data_structure/fibonacci_heap.h	/^  void pop_adjust(vector<node*>& vec, node* p) {$/;"	f	class:data_structure::fibonacci_heap
+pop_back	data_structure/string.h	/^  void pop_back() {$/;"	f	class:data_structure::string
+pop_back	data_structure/vector.h	/^  void pop_back() { --top; }$/;"	f	class:data_structure::vector
+pop	data_structure/binary_heap.h	/^  void pop() {$/;"	f	class:data_structure::binary_heap
+pop	data_structure/binomial_heap.h	/^  void pop() {$/;"	f	class:data_structure::binomial_heap
+pop	data_structure/fibonacci_heap.h	/^  void pop() {$/;"	f	class:data_structure::fibonacci_heap
+pop	data_structure/leftist_heap.h	/^  void pop() {$/;"	f	class:data_structure::leftist_heap
+pop	data_structure/pairing_heap.h	/^  void pop() {$/;"	f	class:data_structure::pairing_heap
+pop	data_structure/skew_heap.h	/^  void pop() {$/;"	f	class:data_structure::skew_heap
+port	debug.py	/^port = 80$/;"	v
+powi	third_lib/libsvm-3.24/svm.cpp	/^static inline double powi(double base, int times)$/;"	f	file:
+pre_p1	machine_learning/classification/bayes.h	/^  double pre_p1, pre_p2;$/;"	m	class:machine_learning::bayes_classification
+pre_p2	machine_learning/classification/bayes.h	/^  double pre_p1, pre_p2;$/;"	m	class:machine_learning::bayes_classification
+predict_probability	third_lib/libsvm-3.24/svm-predict.c	/^int predict_probability=0;$/;"	v
+predict_test_file	third_lib/libsvm-3.24/tools/easy.py	/^	predict_test_file = file_name + ".predict"$/;"	v
+predict	machine_learning/classification/bayes.h	/^  data_structure::vector<int> predict($/;"	f	class:machine_learning::bayes_classification
+predict	third_lib/libsvm-3.24/matlab/svmpredict.c	/^void predict(int nlhs, mxArray *plhs[], const mxArray *prhs[], struct svm_model *model, const int predict_probability)$/;"	f
+predict	third_lib/libsvm-3.24/svm-predict.c	/^void predict(FILE *input, FILE *output)$/;"	f
+preorder	data_structure/aa_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::aa_tree
+preorder	data_structure/aa_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::aa_tree
+preorder	data_structure/avl_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::avl_tree
+preorder	data_structure/avl_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::avl_tree
+preorder	data_structure/b_plus_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::b_plus_tree
+preorder	data_structure/b_plus_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::b_plus_tree
+preorder	data_structure/b_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::b_tree
+preorder	data_structure/b_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::b_tree
+preorder	data_structure/binary_search_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::binary_search_tree
+preorder	data_structure/binary_search_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::binary_search_tree
+preorder	data_structure/left_leaning_red_black_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+preorder	data_structure/left_leaning_red_black_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+preorder	data_structure/no_rotate_treap.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::no_rotate_treap
+preorder	data_structure/no_rotate_treap.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::no_rotate_treap
+preorder	data_structure/red_black_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::red_black_tree
+preorder	data_structure/red_black_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::red_black_tree
+preorder	data_structure/scapegoat_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::scapegoat_tree
+preorder	data_structure/scapegoat_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::scapegoat_tree
+preorder	data_structure/splay_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::splay_tree
+preorder	data_structure/splay_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::splay_tree
+preorder	data_structure/t_tree.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::t_tree
+preorder	data_structure/t_tree.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::t_tree
+preorder	data_structure/treap.h	/^  void preorder(node*& rt, void (*f)(const T&)) {$/;"	f	class:data_structure::treap
+preorder	data_structure/treap.h	/^  void preorder(void (*f)(const T&)) { preorder(root, f); }$/;"	f	class:data_structure::treap
+prev	third_lib/libsvm-3.24/svm.cpp	/^		head_t *prev, *next;	\/\/ a circular list$/;"	m	struct:Cache::head_t	file:
+print_function	third_lib/libsvm-3.24/python/commonutil.py	/^from __future__ import print_function$/;"	i
+print_null	third_lib/libsvm-3.24/matlab/svmpredict.c	/^int print_null(const char *s,...) {return 0;}$/;"	f
+print_null	third_lib/libsvm-3.24/matlab/svmtrain.c	/^void print_null(const char *s) {}$/;"	f
+print_null	third_lib/libsvm-3.24/python/svm.py	/^def print_null(s):$/;"	f
+print_null	third_lib/libsvm-3.24/svm-predict.c	/^int print_null(const char *s,...) {return 0;}$/;"	f
+print_null	third_lib/libsvm-3.24/svm-train.c	/^void print_null(const char *s) {}$/;"	f
+print_string_matlab	third_lib/libsvm-3.24/matlab/svmtrain.c	/^void print_string_matlab(const char *s) {mexPrintf(s);}$/;"	f
+print_string_stdout	third_lib/libsvm-3.24/svm.cpp	/^static void print_string_stdout(const char *s)$/;"	f	file:
+probA	third_lib/libsvm-3.24/svm.h	/^	double *probA;		\/* pariwise probability information *\/$/;"	m	struct:svm_model
+probB	third_lib/libsvm-3.24/svm.h	/^	double *probB;$/;"	m	struct:svm_model
+probability	third_lib/libsvm-3.24/svm.h	/^	int probability; \/* do probability estimates *\/$/;"	m	struct:svm_parameter
+prob	third_lib/libsvm-3.24/matlab/svmtrain.c	/^struct svm_problem prob;		\/\/ set by read_problem$/;"	v	typeref:struct:svm_problem
+prob	third_lib/libsvm-3.24/svm-train.c	/^struct svm_problem prob;		\/\/ set by read_problem$/;"	v	typeref:struct:svm_problem
+process_options	third_lib/libsvm-3.24/tools/subset.py	/^def process_options(argv):$/;"	f
+ptr	data_structure/handle.h	/^  T* ptr;      \/\/ 句柄指向的指针$/;"	m	class:data_structure::handle
+push_back	data_structure/string.h	/^  void push_back(const char& ch) {$/;"	f	class:data_structure::string
+push_back	data_structure/vector.h	/^  void push_back(const T& x) {$/;"	f	class:data_structure::vector
+push_one_heap	data_structure/fibonacci_heap.h	/^  void push_one_heap(node* p) {$/;"	f	class:data_structure::fibonacci_heap
+push	data_structure/binary_heap.h	/^  void push(const T& w) {$/;"	f	class:data_structure::binary_heap
+push	data_structure/binomial_heap.h	/^  void push(const T& w) {$/;"	f	class:data_structure::binomial_heap
+push	data_structure/binomial_heap.h	/^  void push(node* nd, int place) {$/;"	f	class:data_structure::binomial_heap
+push	data_structure/fibonacci_heap.h	/^  void push(const T& w) {$/;"	f	class:data_structure::fibonacci_heap
+push	data_structure/leftist_heap.h	/^  void push(const T& w) {$/;"	f	class:data_structure::leftist_heap
+push	data_structure/pairing_heap.h	/^  void push(const T& w) {$/;"	f	class:data_structure::pairing_heap
+push	data_structure/skew_heap.h	/^  void push(const T& w) {$/;"	f	class:data_structure::skew_heap
+pushup	data_structure/avl_tree.h	/^  inline void pushup(node*& rt) { rt->hight = max(getlh(rt), getrh(rt)) + 1; }$/;"	f	class:data_structure::avl_tree
+pushup	data_structure/t_tree.h	/^  inline void pushup(node*& rt) { rt->hight = max(getlh(rt), getrh(rt)) + 1; }$/;"	f	class:data_structure::t_tree
+quicksort	algorithm/sort.h	/^void quicksort(T *a, T *b) {  \/\/[a,b)$/;"	f	namespace:algorithm
+radixsort	algorithm/sort.h	/^void radixsort(int *a, int *b) {$/;"	f	namespace:algorithm
+rand	algorithm/random.h	/^int rand(int x, int y) { return rand() % (y - x + 1) + x; }$/;"	f	namespace:algorithm
+rand	algorithm/random.h	/^unsigned long long rand() {$/;"	f	namespace:algorithm
+random_selection	third_lib/libsvm-3.24/tools/subset.py	/^def random_selection(dataset, subset_size):$/;"	f
+random_shuffle	algorithm/random.h	/^data_structure::vector<T> random_shuffle(data_structure::vector<T> x) {$/;"	f	namespace:algorithm
+random	third_lib/libsvm-3.24/tools/subset.py	/^import os, sys, math, random$/;"	i
+range_f	third_lib/libsvm-3.24/tools/grid.py	/^	def range_f(begin,end,step):$/;"	f	function:calculate_jobs
+range_file	third_lib/libsvm-3.24/tools/easy.py	/^range_file = file_name + ".range"$/;"	v
+range	syntactic_sugar/general.h	/^data_structure::vector<int> range(int n) {$/;"	f	namespace:syntactic_sugar
+range	third_lib/libsvm-3.24/python/svm.py	/^	range = xrange$/;"	v
+range	third_lib/libsvm-3.24/python/svmutil.py	/^	range = xrange$/;"	v
+rd	data_structure/no_rotate_treap.h	/^    int rd;$/;"	m	struct:data_structure::no_rotate_treap::node
+rd	data_structure/treap.h	/^    int rd;$/;"	m	struct:data_structure::treap::node
+read_model_header	third_lib/libsvm-3.24/svm.cpp	/^bool read_model_header(FILE *fp, svm_model* model)$/;"	f
+read_problem_dense	third_lib/libsvm-3.24/matlab/svmtrain.c	/^int read_problem_dense(const mxArray *label_vec, const mxArray *instance_mat)$/;"	f
+read_problem_sparse	third_lib/libsvm-3.24/matlab/svmtrain.c	/^int read_problem_sparse(const mxArray *label_vec, const mxArray *instance_mat)$/;"	f
+read_problem	third_lib/libsvm-3.24/matlab/libsvmread.c	/^void read_problem(const char *filename, int nlhs, mxArray *plhs[])$/;"	f
+read_problem	third_lib/libsvm-3.24/svm-train.c	/^void read_problem(const char *filename)$/;"	f
+read_sparse_instance	third_lib/libsvm-3.24/matlab/svmpredict.c	/^void read_sparse_instance(const mxArray *prhs, int index, struct svm_node *x)$/;"	f
+read	io/binary_io.h	/^void read(const char* filename, int size, char* buf) {$/;"	f	namespace:io
+readline	third_lib/libsvm-3.24/matlab/libsvmread.c	/^static char* readline(FILE *input)$/;"	f	file:
+readline	third_lib/libsvm-3.24/svm-predict.c	/^static char* readline(FILE *input)$/;"	f	file:
+readline	third_lib/libsvm-3.24/svm-scale.c	/^char* readline(FILE *input)$/;"	f
+readline	third_lib/libsvm-3.24/svm-train.c	/^static char* readline(FILE *input)$/;"	f	file:
+readline	third_lib/libsvm-3.24/svm.cpp	/^static char* readline(FILE *input)$/;"	f	file:
+rebuild	data_structure/scapegoat_tree.h	/^  void rebuild(node*& rt) {$/;"	f	class:data_structure::scapegoat_tree
+reconstruct_gradient	third_lib/libsvm-3.24/svm.cpp	/^void Solver::reconstruct_gradient()$/;"	f	class:Solver
+red_black_tree	data_structure/red_black_tree.h	/^class red_black_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+red_black_tree	data_structure/red_black_tree.h	/^  red_black_tree() { root = nullptr; }$/;"	f	class:data_structure::red_black_tree
+red_black_tree	data_structure/red_black_tree.h	/^  red_black_tree(const red_black_tree<T>& rhs) {$/;"	f	class:data_structure::red_black_tree
+red	data_structure/left_leaning_red_black_tree.h	/^  enum colortype { red, black };$/;"	e	enum:data_structure::left_leaning_red_black_tree::colortype
+red	data_structure/red_black_tree.h	/^  enum colortype { red, black };$/;"	e	enum:data_structure::red_black_tree::colortype
+redraw	third_lib/libsvm-3.24/tools/grid.py	/^def redraw(db,best_param,gnuplot,options,tofile=False):$/;"	f
+re	third_lib/libsvm-3.24/tools/grid.py	/^import os, sys, traceback, getpass, time, re$/;"	i
+replace	data_structure/splay_tree.h	/^  void replace(node* a, node* b) {$/;"	f	class:data_structure::splay_tree
+replace	data_structure/string.h	/^  string replace(const string& s, const char& t) const {$/;"	f	class:data_structure::string
+request	debug.py	/^request = http_request.encode('utf-8')$/;"	v
+reserve	data_structure/vector.h	/^  void reserve(int x) {$/;"	f	class:data_structure::vector
+response	debug.py	/^response = s.recv(1000000000)$/;"	v
+reverse	data_structure/vector.h	/^  void reverse() {$/;"	f	class:data_structure::vector
+rho	third_lib/libsvm-3.24/svm.cpp	/^		double rho;$/;"	m	struct:Solver::SolutionInfo	file:
+rho	third_lib/libsvm-3.24/svm.cpp	/^	double rho;$/;"	m	struct:decision_function	file:
+rho	third_lib/libsvm-3.24/svm.h	/^	double *rho;		\/* constants in decision functions (rho[k*(k-1)\/2]) *\/$/;"	m	struct:svm_model
+r	data_structure/aa_tree.h	/^    node *l, *r;$/;"	m	struct:data_structure::aa_tree::node
+r	data_structure/binomial_heap.h	/^    node *r, *son;$/;"	m	struct:data_structure::binomial_heap::node
+r	data_structure/fibonacci_heap.h	/^    node *r, *son;  \/\/ 作循环链表不做双向循环$/;"	m	struct:data_structure::fibonacci_heap::node
+r	data_structure/leftist_heap.h	/^    node *l, *r;$/;"	m	struct:data_structure::leftist_heap::node
+r	data_structure/pairing_heap.h	/^    node *r, *son;$/;"	m	struct:data_structure::pairing_heap::node
+r	data_structure/skew_heap.h	/^    node *l, *r;$/;"	m	struct:data_structure::skew_heap::node
+r	math/matrix.h	/^  int r, c;$/;"	m	class:matrix
+r	third_lib/libsvm-3.24/svm.cpp	/^		double r;	\/\/ for Solver_NU$/;"	m	struct:Solver::SolutionInfo	file:
+root	data_structure/aa_tree.h	/^  node* root;$/;"	m	class:data_structure::aa_tree
+root	data_structure/avl_tree.h	/^  node* root = nullptr;$/;"	m	class:data_structure::avl_tree
+root	data_structure/b_plus_tree.h	/^  node* root = nullptr;$/;"	m	class:data_structure::b_plus_tree
+root	data_structure/b_tree.h	/^  node* root = nullptr;$/;"	m	class:data_structure::b_tree
+root	data_structure/binary_search_tree.h	/^  node* root = nullptr;$/;"	m	class:data_structure::binary_search_tree
+root	data_structure/binomial_heap.h	/^  vector<node*> root;$/;"	m	class:data_structure::binomial_heap
+root	data_structure/fibonacci_heap.h	/^  node *root, *tail, *minp;$/;"	m	class:data_structure::fibonacci_heap
+root	data_structure/left_leaning_red_black_tree.h	/^  node* root;$/;"	m	class:data_structure::left_leaning_red_black_tree
+root	data_structure/leftist_heap.h	/^  node* root = nullptr;$/;"	m	class:data_structure::leftist_heap
+root	data_structure/no_rotate_treap.h	/^  node* root = nullptr;$/;"	m	class:data_structure::no_rotate_treap
+root	data_structure/pairing_heap.h	/^  node* root = nullptr;$/;"	m	class:data_structure::pairing_heap
+root	data_structure/red_black_tree.h	/^  node* root;$/;"	m	class:data_structure::red_black_tree
+root	data_structure/scapegoat_tree.h	/^  node* root = nullptr;$/;"	m	class:data_structure::scapegoat_tree
+root	data_structure/skew_heap.h	/^  node* root = nullptr;$/;"	m	class:data_structure::skew_heap
+root	data_structure/splay_tree.h	/^  node* root;$/;"	m	class:data_structure::splay_tree
+root	data_structure/t_tree.h	/^  node* root = nullptr;$/;"	m	class:data_structure::t_tree
+root	data_structure/treap.h	/^  node* root = nullptr;$/;"	m	class:data_structure::treap
+rotate	data_structure/avl_tree.h	/^  void rotate(node*& rt, int l) {$/;"	f	class:data_structure::avl_tree
+rotate	data_structure/left_leaning_red_black_tree.h	/^  void rotate(node* son) {  \/\/ 把son旋转成为根$/;"	f	class:data_structure::left_leaning_red_black_tree
+rotate	data_structure/red_black_tree.h	/^  void rotate(node* son) {  \/\/ 把son旋转成为根$/;"	f	class:data_structure::red_black_tree
+rotate	data_structure/splay_tree.h	/^  void rotate(node* son) {  \/\/ 把son旋转成为根$/;"	f	class:data_structure::splay_tree
+rotate	data_structure/t_tree.h	/^  void rotate(node*& rt, int l) {$/;"	f	class:data_structure::t_tree
+rs	data_structure/avl_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::avl_tree::node
+rs	data_structure/binary_search_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::binary_search_tree::node
+rs	data_structure/no_rotate_treap.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::no_rotate_treap::node
+rs	data_structure/scapegoat_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::scapegoat_tree::node
+rs	data_structure/t_tree.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::t_tree::node
+rs	data_structure/treap.h	/^    node *ls, *rs;$/;"	m	struct:data_structure::treap::node
+run_one	third_lib/libsvm-3.24/tools/grid.py	/^	def run_one(self,c,g):$/;"	m	class:LocalWorker
+run_one	third_lib/libsvm-3.24/tools/grid.py	/^	def run_one(self,c,g):$/;"	m	class:SSHWorker
+run_one	third_lib/libsvm-3.24/tools/grid.py	/^	def run_one(self,c,g):$/;"	m	class:TelnetWorker
+run	third_lib/libsvm-3.24/tools/grid.py	/^	def run(self):$/;"	m	class:TelnetWorker
+run	third_lib/libsvm-3.24/tools/grid.py	/^	def run(self):$/;"	m	class:Worker
+scaled_file	third_lib/libsvm-3.24/tools/easy.py	/^scaled_file = file_name + ".scale"$/;"	v
+scaled_test_file	third_lib/libsvm-3.24/tools/easy.py	/^	scaled_test_file = file_name + ".scale"$/;"	v
+scapegoat_tree	data_structure/scapegoat_tree.h	/^class scapegoat_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+scapegoat_tree	data_structure/scapegoat_tree.h	/^  scapegoat_tree() { root = nullptr; }$/;"	f	class:data_structure::scapegoat_tree
+scapegoat_tree	data_structure/scapegoat_tree.h	/^  scapegoat_tree(const scapegoat_tree<T>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::scapegoat_tree
+scapegoat	data_structure/scapegoat_tree.h	/^    int siz, scapegoat;$/;"	m	struct:data_structure::scapegoat_tree::node
+schar	third_lib/libsvm-3.24/svm.cpp	/^typedef signed char schar;$/;"	t	file:
+scipy	third_lib/libsvm-3.24/python/commonutil.py	/^	import scipy$/;"	i
+scipy	third_lib/libsvm-3.24/python/svm.py	/^	import scipy$/;"	i
+scipy	third_lib/libsvm-3.24/python/svmutil.py	/^from svm import scipy, sparse$/;"	i
+scipy	third_lib/libsvm-3.24/python/commonutil.py	/^	scipy = None$/;"	v
+scipy	third_lib/libsvm-3.24/python/svm.py	/^	scipy = None$/;"	v
+search_tree	data_structure/search_tree.h	/^class search_tree : public tree<T> {};$/;"	c	namespace:data_structure
+search	data_structure/aa_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::aa_tree
+search	data_structure/aa_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::aa_tree
+search	data_structure/avl_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::avl_tree
+search	data_structure/avl_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::avl_tree
+search	data_structure/b_plus_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::b_plus_tree
+search	data_structure/b_plus_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::b_plus_tree
+search	data_structure/b_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::b_tree
+search	data_structure/b_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::b_tree
+search	data_structure/binary_search_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::binary_search_tree
+search	data_structure/binary_search_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::binary_search_tree
+search	data_structure/left_leaning_red_black_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+search	data_structure/left_leaning_red_black_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::left_leaning_red_black_tree
+search	data_structure/no_rotate_treap.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::no_rotate_treap
+search	data_structure/no_rotate_treap.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::no_rotate_treap
+search	data_structure/red_black_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::red_black_tree
+search	data_structure/red_black_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::red_black_tree
+search	data_structure/scapegoat_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::scapegoat_tree
+search	data_structure/scapegoat_tree.h	/^  node*& search(node*& rt, const T& w) {}$/;"	f	class:data_structure::scapegoat_tree
+search	data_structure/splay_tree.h	/^  node* search(node* rt, const T& w) {$/;"	f	class:data_structure::splay_tree
+search	data_structure/splay_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::splay_tree
+search	data_structure/t_tree.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::t_tree
+search	data_structure/t_tree.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::t_tree
+search	data_structure/treap.h	/^  node*& search(const T& w) { return search(root, w); }$/;"	f	class:data_structure::treap
+search	data_structure/treap.h	/^  node*& search(node*& rt, const T& w) {$/;"	f	class:data_structure::treap
+select_working_set	third_lib/libsvm-3.24/svm.cpp	/^int Solver::select_working_set(int &out_i, int &out_j)$/;"	f	class:Solver
+select_working_set	third_lib/libsvm-3.24/svm.cpp	/^int Solver_NU::select_working_set(int &out_i, int &out_j)$/;"	f	class:Solver_NU
+selectsort	algorithm/sort.h	/^void selectsort(int *a, int *b) {$/;"	f	namespace:algorithm
+set_sub_matrix	math/matrix.h	/^  void set_sub_matrix(int r1, int r2, int c1, int c2, const matrix<T>& rhs) {$/;"	f	class:matrix
+set_to_default_values	third_lib/libsvm-3.24/python/svm.py	/^	def set_to_default_values(self):$/;"	m	class:svm_parameter
+shellsort	algorithm/sort.h	/^void shellsort(int *a, int *b) {$/;"	f	namespace:algorithm
+show	data_structure/vector.h	/^  void show() {$/;"	f	class:data_structure::vector
+show	io/data_structure_io.h	/^void show(const data_structure::string& data, const int& x = 20) {$/;"	f	namespace:io
+show	io/data_structure_io.h	/^void show(const data_structure::vector<T>& v) {$/;"	f	namespace:io
+show	io/general.h	/^void show(const char x) {$/;"	f	namespace:io
+show	io/general.h	/^void show(const double x) {$/;"	f	namespace:io
+show	io/general.h	/^void show(const float x) {$/;"	f	namespace:io
+show	io/general.h	/^void show(const int x) {$/;"	f	namespace:io
+show	io/general.h	/^void show(const long x) {$/;"	f	namespace:io
+show	math/matrix.h	/^  void show() const {$/;"	f	class:matrix
+shrinking	third_lib/libsvm-3.24/svm.h	/^	int shrinking;	\/* use the shrinking heuristics *\/$/;"	m	struct:svm_parameter
+sigmoid_predict	third_lib/libsvm-3.24/svm.cpp	/^static double sigmoid_predict(double decision_value, double A, double B)$/;"	f	file:
+sigmoid_train	third_lib/libsvm-3.24/svm.cpp	/^static void sigmoid_train($/;"	f	file:
+sign	third_lib/libsvm-3.24/svm.cpp	/^	schar *sign;$/;"	m	class:SVR_Q	file:
+si	third_lib/libsvm-3.24/svm.cpp	/^	SolutionInfo *si;$/;"	m	class:Solver_NU	file:
+sin	math/math_function.h	/^T sin(T x, const int& cnt) {$/;"	f	namespace:math
+size	data_structure/string.h	/^  int size() const { return _data.size() - 1; }$/;"	f	class:data_structure::string
+size	data_structure/t_tree.h	/^    int size() { return key.size(); }$/;"	f	struct:data_structure::t_tree::node
+size	data_structure/vector.h	/^  int size() const { return top; }$/;"	f	class:data_structure::vector
+size	third_lib/libsvm-3.24/svm.cpp	/^	long int size;$/;"	m	class:Cache	file:
+siz	data_structure/scapegoat_tree.h	/^    int siz, scapegoat;$/;"	m	struct:data_structure::scapegoat_tree::node
+skew_heap	data_structure/skew_heap.h	/^class skew_heap : public heap<T> {$/;"	c	namespace:data_structure
+skew	data_structure/aa_tree.h	/^  node* skew(node* rt) {$/;"	f	class:data_structure::aa_tree
+socket	debug.py	/^import socket$/;"	i
+solve_c_svc	third_lib/libsvm-3.24/svm.cpp	/^static void solve_c_svc($/;"	f	file:
+solve_epsilon_svr	third_lib/libsvm-3.24/svm.cpp	/^static void solve_epsilon_svr($/;"	f	file:
+solve_nu_svc	third_lib/libsvm-3.24/svm.cpp	/^static void solve_nu_svc($/;"	f	file:
+solve_nu_svr	third_lib/libsvm-3.24/svm.cpp	/^static void solve_nu_svr($/;"	f	file:
+solve_one_class	third_lib/libsvm-3.24/svm.cpp	/^static void solve_one_class($/;"	f	file:
+son	data_structure/b_tree.h	/^    vector<node*> son;$/;"	m	struct:data_structure::b_tree::node
+son	data_structure/binomial_heap.h	/^    node *r, *son;$/;"	m	struct:data_structure::binomial_heap::node
+son	data_structure/fibonacci_heap.h	/^    node *r, *son;  \/\/ 作循环链表不做双向循环$/;"	m	struct:data_structure::fibonacci_heap::node
+son	data_structure/pairing_heap.h	/^    node *r, *son;$/;"	m	struct:data_structure::pairing_heap::node
+son	data_structure/b_plus_tree.h	/^    union son {$/;"	u	struct:data_structure::b_plus_tree::node
+sparse	third_lib/libsvm-3.24/python/commonutil.py	/^	from scipy import sparse$/;"	i
+sparse	third_lib/libsvm-3.24/python/svm.py	/^	from scipy import sparse$/;"	i
+sparse	third_lib/libsvm-3.24/python/svmutil.py	/^from svm import scipy, sparse$/;"	i
+sparse	third_lib/libsvm-3.24/python/commonutil.py	/^	sparse = None$/;"	v
+sparse	third_lib/libsvm-3.24/python/svm.py	/^	sparse = None$/;"	v
+splay_tree	data_structure/splay_tree.h	/^class splay_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+splay_tree	data_structure/splay_tree.h	/^  splay_tree() { root = nullptr; }$/;"	f	class:data_structure::splay_tree
+splay_tree	data_structure/splay_tree.h	/^  splay_tree(const splay_tree<T>& rhs) { copy_self(root, nullptr, rhs.root); }$/;"	f	class:data_structure::splay_tree
+splay	data_structure/splay_tree.h	/^  void splay(node* rt) {$/;"	f	class:data_structure::splay_tree
+split_to_col_matrix	math/matrix.h	/^  vector<matrix<T>> split_to_col_matrix() {$/;"	f	class:matrix
+split_to_train_test	machine_learning/general.h	/^void split_to_train_test(data_structure::vector<T>& v,$/;"	f	namespace:machine_learning
+split	data_structure/aa_tree.h	/^  node* split(node* rt) {$/;"	f	class:data_structure::aa_tree
+split	data_structure/no_rotate_treap.h	/^  void split(node* rt, const T& w, node*& l, node*& r) {$/;"	f	class:data_structure::no_rotate_treap
+split	data_structure/string.h	/^  vector<string> split(const string& s = " ") const {$/;"	f	class:data_structure::string
+srand	algorithm/random.h	/^void srand(int x) {$/;"	f	namespace:algorithm
+ssh_workers	third_lib/libsvm-3.24/tools/grid.py	/^ssh_workers = []$/;"	v
+stratified_selection	third_lib/libsvm-3.24/tools/subset.py	/^def stratified_selection(dataset, subset_size):$/;"	f
+string	data_structure/string.h	/^class string {$/;"	c	namespace:data_structure
+string	data_structure/string.h	/^  string() : _data(1, 0) {}$/;"	f	class:data_structure::string
+string	data_structure/string.h	/^  string(const char* s) {$/;"	f	class:data_structure::string
+string	data_structure/string.h	/^  string(const int& n, const char& ch = ' ') : _data(n, ch) {$/;"	f	class:data_structure::string
+sub_matrix	math/matrix.h	/^  matrix<T> sub_matrix(int r1, int r2, int c1, int c2) {$/;"	f	class:matrix
+sv_coef	third_lib/libsvm-3.24/svm.h	/^	double **sv_coef;	\/* coefficients for SVs in decision functions (sv_coef[k-1][l]) *\/$/;"	m	struct:svm_model
+sv_indices	third_lib/libsvm-3.24/svm.h	/^	int *sv_indices;        \/* sv_indices[0,...,nSV-1] are values in [1,...,num_traning_data] to indicate SVs in the training set *\/$/;"	m	struct:svm_model
+s	debug.py	/^s = socket.socket()$/;"	v
+svm_all	third_lib/libsvm-3.24/python/svmutil.py	/^from svm import __all__ as svm_all$/;"	i
+svm_binary_svc_probability	third_lib/libsvm-3.24/svm.cpp	/^static void svm_binary_svc_probability($/;"	f	file:
+svm_check_parameter	third_lib/libsvm-3.24/svm.cpp	/^const char *svm_check_parameter(const svm_problem *prob, const svm_parameter *param)$/;"	f
+svm_check_probability_model	third_lib/libsvm-3.24/svm.cpp	/^int svm_check_probability_model(const svm_model *model)$/;"	f
+svm_cross_validation	third_lib/libsvm-3.24/svm.cpp	/^void svm_cross_validation(const svm_problem *prob, const svm_parameter *param, int nr_fold, double *target)$/;"	f
+svm_destroy_param	third_lib/libsvm-3.24/svm.cpp	/^void svm_destroy_param(svm_parameter* param)$/;"	f
+svm_free_and_destroy_model	third_lib/libsvm-3.24/svm.cpp	/^void svm_free_and_destroy_model(svm_model** model_ptr_ptr)$/;"	f
+svm_free_model_content	third_lib/libsvm-3.24/svm.cpp	/^void svm_free_model_content(svm_model* model_ptr)$/;"	f
+svm_get_labels	third_lib/libsvm-3.24/svm.cpp	/^void svm_get_labels(const svm_model *model, int* label)$/;"	f
+svm_get_nr_class	third_lib/libsvm-3.24/svm.cpp	/^int svm_get_nr_class(const svm_model *model)$/;"	f
+svm_get_nr_sv	third_lib/libsvm-3.24/svm.cpp	/^int svm_get_nr_sv(const svm_model *model)$/;"	f
+svm_get_sv_indices	third_lib/libsvm-3.24/svm.cpp	/^void svm_get_sv_indices(const svm_model *model, int* indices)$/;"	f
+svm_get_svm_type	third_lib/libsvm-3.24/svm.cpp	/^int svm_get_svm_type(const svm_model *model)$/;"	f
+svm_get_svr_probability	third_lib/libsvm-3.24/svm.cpp	/^double svm_get_svr_probability(const svm_model *model)$/;"	f
+svm_group_classes	third_lib/libsvm-3.24/svm.cpp	/^static void svm_group_classes(const svm_problem *prob, int *nr_class_ret, int **label_ret, int **start_ret, int **count_ret, int *perm)$/;"	f	file:
+svm_load_model	third_lib/libsvm-3.24/python/svmutil.py	/^def svm_load_model(model_file_name):$/;"	f
+svm_load_model	third_lib/libsvm-3.24/svm.cpp	/^svm_model *svm_load_model(const char *model_file_name)$/;"	f
+svm_model	third_lib/libsvm-3.24/python/svm.py	/^class svm_model(Structure):$/;"	c
+svm_model	third_lib/libsvm-3.24/svm.h	/^struct svm_model$/;"	s
+svm_node	third_lib/libsvm-3.24/python/svm.py	/^class svm_node(Structure):$/;"	c
+svm_node	third_lib/libsvm-3.24/svm.h	/^struct svm_node$/;"	s
+svm_parameter	third_lib/libsvm-3.24/python/svm.py	/^class svm_parameter(Structure):$/;"	c
+svm_parameter	third_lib/libsvm-3.24/svm.h	/^struct svm_parameter$/;"	s
+svm_predict_probability	third_lib/libsvm-3.24/svm.cpp	/^double svm_predict_probability($/;"	f
+svm_predict_values	third_lib/libsvm-3.24/svm.cpp	/^double svm_predict_values(const svm_model *model, const svm_node *x, double* dec_values)$/;"	f
+svm_predict	third_lib/libsvm-3.24/python/svmutil.py	/^def svm_predict(y, x, m, options=""):$/;"	f
+svm_predict	third_lib/libsvm-3.24/svm.cpp	/^double svm_predict(const svm_model *model, const svm_node *x)$/;"	f
+svm_print_string	third_lib/libsvm-3.24/svm.cpp	/^static void (*svm_print_string) (const char *) = &print_string_stdout;$/;"	v	file:
+svm_problem	third_lib/libsvm-3.24/python/svm.py	/^class svm_problem(Structure):$/;"	c
+svm_problem	third_lib/libsvm-3.24/svm.h	/^struct svm_problem$/;"	s
+svm_read_problem	third_lib/libsvm-3.24/python/commonutil.py	/^def svm_read_problem(data_file_name, return_scipy=False):$/;"	f
+svm_save_model	third_lib/libsvm-3.24/python/svmutil.py	/^def svm_save_model(model_file_name, model):$/;"	f
+svm_save_model	third_lib/libsvm-3.24/svm.cpp	/^int svm_save_model(const char *model_file_name, const svm_model *model)$/;"	f
+svm_set_print_string_function	third_lib/libsvm-3.24/svm.cpp	/^void svm_set_print_string_function(void (*print_func)(const char *))$/;"	f
+svm_svr_probability	third_lib/libsvm-3.24/svm.cpp	/^static double svm_svr_probability($/;"	f	file:
+svm_train_one	third_lib/libsvm-3.24/svm.cpp	/^static decision_function svm_train_one($/;"	f	file:
+svm_train	third_lib/libsvm-3.24/python/svmutil.py	/^def svm_train(arg1, arg2=None, arg3=None):$/;"	f
+svm_train	third_lib/libsvm-3.24/svm.cpp	/^svm_model *svm_train(const svm_problem *prob, const svm_parameter *param)$/;"	f
+svm_type_table	third_lib/libsvm-3.24/svm.cpp	/^static const char *svm_type_table[] =$/;"	v	file:
+svm_type	third_lib/libsvm-3.24/svm.h	/^	int svm_type;$/;"	m	struct:svm_parameter
+svmpredict_exe	third_lib/libsvm-3.24/tools/easy.py	/^	svmpredict_exe = "..\/svm-predict"$/;"	v
+svmpredict_exe	third_lib/libsvm-3.24/tools/easy.py	/^	svmpredict_exe = r"..\\windows\\svm-predict.exe"$/;"	v
+svmscale_exe	third_lib/libsvm-3.24/tools/easy.py	/^	svmscale_exe = "..\/svm-scale"$/;"	v
+svmscale_exe	third_lib/libsvm-3.24/tools/easy.py	/^	svmscale_exe = r"..\\windows\\svm-scale.exe"$/;"	v
+svmtrain_exe	third_lib/libsvm-3.24/tools/easy.py	/^	svmtrain_exe = "..\/svm-train"$/;"	v
+svmtrain_exe	third_lib/libsvm-3.24/tools/easy.py	/^	svmtrain_exe = r"..\\windows\\svm-train.exe"$/;"	v
+swap_index	third_lib/libsvm-3.24/svm.cpp	/^	virtual void swap_index(int i, int j) const	\/\/ no so const...$/;"	f	class:Kernel
+swap_index	third_lib/libsvm-3.24/svm.cpp	/^	void swap_index(int i, int j) const$/;"	f	class:ONE_CLASS_Q
+swap_index	third_lib/libsvm-3.24/svm.cpp	/^	void swap_index(int i, int j) const$/;"	f	class:SVC_Q
+swap_index	third_lib/libsvm-3.24/svm.cpp	/^	void swap_index(int i, int j) const$/;"	f	class:SVR_Q
+swap_index	third_lib/libsvm-3.24/svm.cpp	/^void Cache::swap_index(int i, int j)$/;"	f	class:Cache
+swap_index	third_lib/libsvm-3.24/svm.cpp	/^void Solver::swap_index(int i, int j)$/;"	f	class:Solver
+swap	algorithm/general.h	/^void swap(T& a, T& b) {$/;"	f	namespace:algorithm
+swap	third_lib/libsvm-3.24/svm.cpp	/^template <class T> static inline void swap(T& x, T& y) { T t=x; x=y; y=t; }$/;"	f	file:
+syntactic_sugar	syntactic_sugar/general.h	/^namespace syntactic_sugar {$/;"	n
+sys	third_lib/libsvm-3.24/python/commonutil.py	/^import sys$/;"	i
+sys	third_lib/libsvm-3.24/python/svm.py	/^import sys$/;"	i
+sys	third_lib/libsvm-3.24/python/svmutil.py	/^import os, sys$/;"	i
+sys	third_lib/libsvm-3.24/tools/easy.py	/^import sys$/;"	i
+sys	third_lib/libsvm-3.24/tools/grid.py	/^import os, sys, traceback, getpass, time, re$/;"	i
+sys	third_lib/libsvm-3.24/tools/subset.py	/^import os, sys, math, random$/;"	i
+t_tree	data_structure/t_tree.h	/^class t_tree : public search_tree<T> {$/;"	c	namespace:data_structure
+t_tree	data_structure/t_tree.h	/^  t_tree() { root = nullptr; }$/;"	f	class:data_structure::t_tree
+t_tree	data_structure/t_tree.h	/^  t_tree(const t_tree<T, N>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::t_tree
+tail	data_structure/fibonacci_heap.h	/^  node *root, *tail, *minp;$/;"	m	class:data_structure::fibonacci_heap
+taylor_exp	math/math_function.h	/^double taylor_exp(const double& x) {$/;"	f	namespace:math
+telnet_workers	third_lib/libsvm-3.24/tools/grid.py	/^telnet_workers = []$/;"	v
+telnetlib	third_lib/libsvm-3.24/tools/grid.py	/^		import telnetlib$/;"	i
+test_cnt	test.cpp	/^int test_cnt = data_bound * 3;$/;"	v
+test_copy	test.cpp	/^void test_copy(T a) {$/;"	f
+test_pathname	third_lib/libsvm-3.24/tools/easy.py	/^	test_pathname = sys.argv[2]$/;"	v
+test	data_structure/aa_tree.h	/^  void test() { test(root); }$/;"	f	class:data_structure::aa_tree
+test	data_structure/aa_tree.h	/^  void test(node* rt) {$/;"	f	class:data_structure::aa_tree
+test	data_structure/no_rotate_treap.h	/^  void test() { test(root); }$/;"	f	class:data_structure::no_rotate_treap
+test	data_structure/no_rotate_treap.h	/^  void test(node* rt) {$/;"	f	class:data_structure::no_rotate_treap
+test	data_structure/treap.h	/^  void test() { test(root); }$/;"	f	class:data_structure::treap
+test	data_structure/treap.h	/^  void test(node* rt) {$/;"	f	class:data_structure::treap
+test	data_structure/tree.h	/^  virtual void test() {}$/;"	f	class:data_structure::tree
+time	third_lib/libsvm-3.24/tools/grid.py	/^import os, sys, traceback, getpass, time, re$/;"	i
+toPyModel	third_lib/libsvm-3.24/python/svm.py	/^def toPyModel(model_ptr):$/;"	f
+to_ladder	math/matrix.h	/^  matrix<T> to_ladder(vector<int>& zero_col, vector<int>& non_zero_col,$/;"	f	class:matrix
+top	data_structure/binary_heap.h	/^  const T& top() { return data[1]; }$/;"	f	class:data_structure::binary_heap
+top	data_structure/binomial_heap.h	/^  const T& top() { return root[get_max_node()]->value; }$/;"	f	class:data_structure::binomial_heap
+top	data_structure/fibonacci_heap.h	/^  const T& top() { return minp->value; }$/;"	f	class:data_structure::fibonacci_heap
+top	data_structure/leftist_heap.h	/^  const T& top() { return root->value; }$/;"	f	class:data_structure::leftist_heap
+top	data_structure/pairing_heap.h	/^  const T& top() { return root->value; }$/;"	f	class:data_structure::pairing_heap
+top	data_structure/skew_heap.h	/^  const T& top() { return root->value; }$/;"	f	class:data_structure::skew_heap
+top	data_structure/vector.h	/^  int top, cap;$/;"	m	class:data_structure::vector
+traceback	third_lib/libsvm-3.24/tools/grid.py	/^import os, sys, traceback, getpass, time, re$/;"	i
+train_pathname	third_lib/libsvm-3.24/tools/easy.py	/^train_pathname = sys.argv[1]$/;"	v
+transpose	math/matrix.h	/^  inline matrix<T> transpose() {$/;"	f	class:matrix
+treap	data_structure/treap.h	/^class treap : public search_tree<T> {$/;"	c	namespace:data_structure
+treap	data_structure/treap.h	/^  treap() { root = nullptr; }$/;"	f	class:data_structure::treap
+treap	data_structure/treap.h	/^  treap(const treap<T>& rhs) { copy_self(root, rhs.root); }$/;"	f	class:data_structure::treap
+tree	data_structure/tree.h	/^class tree {$/;"	c	namespace:data_structure
+trick	trick/int2type.h	/^namespace trick {$/;"	n
+trick	trick/static_check.h	/^namespace trick {$/;"	n
+trick	trick/type2type.h	/^namespace trick {$/;"	n
+trick	trick/type_chose.h	/^namespace trick {$/;"	n
+trie	data_structure/trie.h	/^class trie : public tree<T> {};$/;"	c	namespace:data_structure
+type2type	trick/type2type.h	/^struct type2type {$/;"	s	namespace:trick
+type_chose	trick/type_chose.h	/^struct type_chose {$/;"	s	namespace:trick
+type_chose	trick/type_chose.h	/^struct type_chose<false, T, S> {$/;"	s	namespace:trick
+type	trick/type_chose.h	/^  typedef S type;$/;"	t	struct:trick::type_chose
+type	trick/type_chose.h	/^  typedef T type;$/;"	t	struct:trick::type_chose
+unique	algorithm/sorted_container_operating.h	/^T *unique(T *a, T *b) {$/;"	f	namespace:algorithm
+unshrink	third_lib/libsvm-3.24/svm.cpp	/^	bool unshrink;	\/\/ XXX$/;"	m	class:Solver	file:
+update_alpha_status	third_lib/libsvm-3.24/svm.cpp	/^	void update_alpha_status(int i)$/;"	f	class:Solver
+update_param	third_lib/libsvm-3.24/tools/grid.py	/^	def update_param(c,g,rate,best_c,best_g,best_rate,worker,resumed):$/;"	f	function:find_parameters
+upper_bound_n	third_lib/libsvm-3.24/svm.cpp	/^		double upper_bound_n;$/;"	m	struct:Solver::SolutionInfo	file:
+upper_bound_p	third_lib/libsvm-3.24/svm.cpp	/^		double upper_bound_p;$/;"	m	struct:Solver::SolutionInfo	file:
+upper	third_lib/libsvm-3.24/svm-scale.c	/^double lower=-1.0,upper=1.0,y_lower,y_upper;$/;"	v
+value	trick/int2type.h	/^  enum { value = v };$/;"	e	enum:trick::int2type::__anon1
+value	data_structure/binomial_heap.h	/^    T value;$/;"	m	struct:data_structure::binomial_heap::node
+value	data_structure/fibonacci_heap.h	/^    T value;  \/\/ 我们暂时不支持erase和decrease$/;"	m	struct:data_structure::fibonacci_heap::node
+value	data_structure/leftist_heap.h	/^    T value;$/;"	m	struct:data_structure::leftist_heap::node
+value	data_structure/pairing_heap.h	/^    T value;$/;"	m	struct:data_structure::pairing_heap::node
+value	data_structure/skew_heap.h	/^    T value;$/;"	m	struct:data_structure::skew_heap::node
+value	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^		signed char value;$/;"	m	struct:SvmToyWindow::point	file:
+value	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	signed char value;$/;"	m	struct:point	file:
+value	third_lib/libsvm-3.24/svm.h	/^	double value;$/;"	m	struct:svm_node
+vector	data_structure/vector.h	/^class vector {$/;"	c	namespace:data_structure
+vector	data_structure/vector.h	/^  vector(const vector<T>& rhs) : top(rhs.top), cap(rhs.cap) {$/;"	f	class:data_structure::vector
+vector	data_structure/vector.h	/^  vector(int x = 0) : top(x), cap(x * 2 + 1) {$/;"	f	class:data_structure::vector
+vector	data_structure/vector.h	/^  vector(int x, const T& rhs) : top(x), cap(x) {$/;"	f	class:data_structure::vector
+vec	test.cpp	/^vector<vector<int>> vec;$/;"	v
+weight_label	third_lib/libsvm-3.24/svm.h	/^	int *weight_label;	\/* for C_SVC *\/$/;"	m	struct:svm_parameter
+weight	third_lib/libsvm-3.24/svm.h	/^	double* weight;		\/* for C_SVC *\/$/;"	m	struct:svm_parameter
+which_son	data_structure/splay_tree.h	/^  int which_son(node* rt) { return rt == rt->fa->ch[1]; }$/;"	f	class:data_structure::splay_tree
+window_dc	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^HDC window_dc;$/;"	v
+x_space	third_lib/libsvm-3.24/matlab/svmtrain.c	/^struct svm_node *x_space;$/;"	v	typeref:struct:svm_node
+x_space	third_lib/libsvm-3.24/svm-train.c	/^struct svm_node *x_space;$/;"	v	typeref:struct:svm_node
+x_square	third_lib/libsvm-3.24/svm.cpp	/^	double *x_square;$/;"	m	class:Kernel	file:
+x	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^		double x, y;$/;"	m	struct:SvmToyWindow::point	file:
+x	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	double x, y;$/;"	m	struct:point	file:
+x	third_lib/libsvm-3.24/svm.cpp	/^	const svm_node **x;$/;"	m	class:Kernel	file:
+x	third_lib/libsvm-3.24/svm.h	/^	struct svm_node **x;$/;"	m	struct:svm_problem	typeref:struct:svm_problem::svm_node
+xrange	third_lib/libsvm-3.24/tools/subset.py	/^	xrange = range$/;"	v
+x	third_lib/libsvm-3.24/svm-predict.c	/^struct svm_node *x;$/;"	v	typeref:struct:svm_node
+y_lower	third_lib/libsvm-3.24/svm-scale.c	/^double lower=-1.0,upper=1.0,y_lower,y_upper;$/;"	v
+y_max	third_lib/libsvm-3.24/svm-scale.c	/^double y_max = -DBL_MAX;$/;"	v
+y_min	third_lib/libsvm-3.24/svm-scale.c	/^double y_min = DBL_MAX;$/;"	v
+y_scaling	third_lib/libsvm-3.24/svm-scale.c	/^int y_scaling = 0;$/;"	v
+y_upper	third_lib/libsvm-3.24/svm-scale.c	/^double lower=-1.0,upper=1.0,y_lower,y_upper;$/;"	v
+y	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^		double x, y;$/;"	m	struct:SvmToyWindow::point	file:
+y	third_lib/libsvm-3.24/svm-toy/windows/svm-toy.cpp	/^	double x, y;$/;"	m	struct:point	file:
+y	third_lib/libsvm-3.24/svm.cpp	/^	schar *y;$/;"	m	class:SVC_Q	file:
+y	third_lib/libsvm-3.24/svm.cpp	/^	schar *y;$/;"	m	class:Solver	file:
+y	third_lib/libsvm-3.24/svm.h	/^	double *y;$/;"	m	struct:svm_problem
+zag	data_structure/aa_tree.h	/^  node* zag(node* rt) {$/;"	f	class:data_structure::aa_tree
+zag	data_structure/treap.h	/^  node* zag(node* rt) {$/;"	f	class:data_structure::treap
+zig	data_structure/aa_tree.h	/^  node* zig(node* rt) {$/;"	f	class:data_structure::aa_tree
+zig	data_structure/treap.h	/^  node* zig(node* rt) {$/;"	f	class:data_structure::treap
+zip	third_lib/libsvm-3.24/python/svm.py	/^	from itertools import izip as zip$/;"	i
+zip	third_lib/libsvm-3.24/python/svmutil.py	/^	from itertools import izip as zip$/;"	i
+~Cache	third_lib/libsvm-3.24/svm.cpp	/^Cache::~Cache()$/;"	f	class:Cache
+~Kernel	third_lib/libsvm-3.24/svm.cpp	/^Kernel::~Kernel()$/;"	f	class:Kernel
+~ONE_CLASS_Q	third_lib/libsvm-3.24/svm.cpp	/^	~ONE_CLASS_Q()$/;"	f	class:ONE_CLASS_Q
+~QMatrix	third_lib/libsvm-3.24/svm.cpp	/^	virtual ~QMatrix() {}$/;"	f	class:QMatrix
+~SVC_Q	third_lib/libsvm-3.24/svm.cpp	/^	~SVC_Q()$/;"	f	class:SVC_Q
+~SVR_Q	third_lib/libsvm-3.24/svm.cpp	/^	~SVR_Q()$/;"	f	class:SVR_Q
+~Solver	third_lib/libsvm-3.24/svm.cpp	/^	virtual ~Solver() {};$/;"	f	class:Solver
+~SvmToyWindow	third_lib/libsvm-3.24/svm-toy/qt/svm-toy.cpp	/^SvmToyWindow::~SvmToyWindow()$/;"	f	class:SvmToyWindow
+~aa_tree	data_structure/aa_tree.h	/^  ~aa_tree() { delete_self(root); }$/;"	f	class:data_structure::aa_tree
+~avl_tree	data_structure/avl_tree.h	/^  ~avl_tree() { delete_self(root); }$/;"	f	class:data_structure::avl_tree
+~b_plus_tree	data_structure/b_plus_tree.h	/^  ~b_plus_tree() { delete_self(root); }$/;"	f	class:data_structure::b_plus_tree
+~b_tree	data_structure/b_tree.h	/^  ~b_tree() { delete_self(root); }$/;"	f	class:data_structure::b_tree
+~binary_search_tree	data_structure/binary_search_tree.h	/^  ~binary_search_tree() { delete_self(root); }$/;"	f	class:data_structure::binary_search_tree
+~fibonacci_heap	data_structure/fibonacci_heap.h	/^  ~fibonacci_heap() { delete_self(root); }$/;"	f	class:data_structure::fibonacci_heap
+~handle	data_structure/handle.h	/^  ~handle() {$/;"	f	class:data_structure::handle
+~heap	data_structure/heap.h	/^  virtual ~heap() {}$/;"	f	class:data_structure::heap
+~left_leaning_red_black_tree	data_structure/left_leaning_red_black_tree.h	/^  ~left_leaning_red_black_tree() { delete_self(root); }$/;"	f	class:data_structure::left_leaning_red_black_tree
+~matrix	math/matrix.h	/^  ~matrix() { pool.erase_array(data, r * c); }$/;"	f	class:matrix
+~memery_pool	memery_management/memery_pool.h	/^  ~memery_pool() {$/;"	f	class:memery_pool
+~no_rotate_treap	data_structure/no_rotate_treap.h	/^  ~no_rotate_treap() { delete_self(root); }$/;"	f	class:data_structure::no_rotate_treap
+~red_black_tree	data_structure/red_black_tree.h	/^  ~red_black_tree() { delete_self(root); }$/;"	f	class:data_structure::red_black_tree
+~scapegoat_tree	data_structure/scapegoat_tree.h	/^  ~scapegoat_tree() { delete_self(root); }$/;"	f	class:data_structure::scapegoat_tree
+~splay_tree	data_structure/splay_tree.h	/^  ~splay_tree() { delete_self(root); }$/;"	f	class:data_structure::splay_tree
+~t_tree	data_structure/t_tree.h	/^  ~t_tree() { delete_self(root); }$/;"	f	class:data_structure::t_tree
+~treap	data_structure/treap.h	/^  ~treap() { delete_self(root); }$/;"	f	class:data_structure::treap
+~tree	data_structure/tree.h	/^  virtual ~tree() {}$/;"	f	class:data_structure::tree
+~vector	data_structure/vector.h	/^  ~vector() { pool.erase_array(_data, cap); }$/;"	f	class:data_structure::vector

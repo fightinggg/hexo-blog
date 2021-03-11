@@ -1,0 +1,216 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+
+# Site
+title: Believe it
+subtitle: "相信不屈不挠的努力,相信战胜死亡的年轻"
+description: O ever youthful, O ever weeping
+keywords:
+author: fightinggg
+language: zh-CN
+timezone: ''
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://eaw3p1.coding-pages.com
+root: /
+permalink: :abbrlink.html   
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: ./
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace: ''
+  wrap: true
+  hljs: false
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## Use post's date for updated date unless set in front-matter
+use_date_for_updated: false
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 1000
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+- hexo-generator-baidu-sitemap
+- hexo-generator-sitemap
+
+baidusitemap:
+    path: baidusitemap.xml
+sitemap:
+    path: sitemap.xml
+baidu_url_submit:
+  count: 10000 ## 比如3，代表提交最新的三个链接
+  host: http://eaw3p1.coding-pages.com ## 在百度站长平台中注册的域名
+  token: e2sgSK99VXdpyZgS ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+- type: git
+  repo:
+    coding1: git@e.coding.net:fightinggg/hexoblog.git
+    coding2: git@e.coding.net:fightinggg-01/fightinggg/fightinggg.git
+    github0: git@github.com:fightinggg/fightinggg.github.io.git
+  branch: master
+- type: baidu_url_submitter
+
+
+
+# Security
+##
+encrypt:
+    enable: true
+    abstract: 有东西被加密了, 请输入密码查看.
+    message: 您好, 这里需要密码, 如果您发现enter键无效, 请尝试使用https协议访问本站，而不是http.
+    wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+    wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
+
+
+math:
+  engine: 'mathjax' 
+  mathjax: true
+# math
+mathjax:
+    enable: true
+
+# hexo-tag-cloud
+tag_cloud:
+    textFont: Trebuchet MS, Helvetica
+    textColor: '#333'
+    textHeight: 12
+    outlineColor: '#E2E1D1'
+    maxSpeed: 0.1
+    pauseOnSelected: false # true 意味着当选中对应 tag 时,停止转动
+
+# hexo-generator-search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+
+# hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/jquery.fancybox.pack.js'
+    - '**/index.js'  
+
+
+# tags and keywords
+# keywords: HTML, JavaScript, Hexo
+tags: C++, Boost, STL, \
+      Java, Spring, SpringBoot, SpringMVC, SpringCloud, Maven, JVM, MyBatis, JPA \
+      Python, 爬虫, \
+      大数据, 并发, 集群, 分布式,Hadoop,Zookeeper,Kafka, \
+      SQL, 数据库, redis, \
+      codeforces, hdu, bzoj, uoj,牛客, \
+      数据结构,线段树,主席树, 平衡树, 字典树, 前缀树,tree,heap,trie, \
+      算法, hash, 二分, 倍增, \
+      数学, \
+      字符串, 自动机, \
+      dp, euler, datastructure,dsu, \
+      图论, 最短路, 最小生成树, 生成树, 最大团, 最大独立集, \ 
+      字符串, KMP, Manacher, 后缀数组, 字符串Hash, 后缀自动机, 回文树, \
+      位运算, xor, \
+      区间, 区间问题, \
+      线性基, \
+      计算几何, \
+      Stern, Brocot, \
+      linux, git, \
+      vim, \
+      hexo, kernel, LDA, kernel, \
+      functions, k子段和, k短路, lct,  lis, machine, \
+      learning, math, mathematics, matrix, metric_space, min25筛, myself_library, mysql, \
+      pollard, rho, supervised, learning, \
+      两分数间分母最小的分数, 中国剩余定理, 二分图匹配, 二次剩余, \
+      凸壳, 分数二分, 前缀线性基, 后缀自动机, 启发式查询, \
+      图连通性, 序列自动机, 操作系统, 支配树, \
+      数据结构, 数论, 斐波那契, 斜率, 最大流最小割, 最小字典序, 最小表示法, 最短路, 有向图判环, \
+      期望, 期望复杂度, 杜教筛, 构造, 树链剖分, 欧几里得算法, \
+      珂朵莉树, 生成树, 积性函数, 笛卡尔树, 等比数列, 算法复杂度分析, \
+      类欧几里得算法, 素数,  虚树, 计算机网络, 记忆化, \
+      设计模式, 费用流, 软件测试, 软件需求, 霍尔定理, \ 
+      实习, 腾讯, 阿里, 字节, 网易, 美团

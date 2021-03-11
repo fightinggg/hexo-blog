@@ -1,0 +1,7 @@
+syn keyword CTagsImport defaultdict math exit svm_all path scipy telnetlib random zip jit argv find_library print_function Thread sparse socket sys re getpass array os time traceback common_all Queue
+syn keyword CTagsMember set_to_default_values get_nr_class is_probability_model get_SV get_cmd __str__ get_svr_probability parse_options run get_svm_type run_one get_sv_coef get_nr_sv __del__ __init__ get_sv_indices get_labels
+syn keyword CTagsGlobalVariable LINEAR range _types C_SVC nr_local_worker response jit_enabled scaled_file svmpredict_exe port _fields_ gnuplot_exe scaled_test_file train_pathname telnet_workers libsvm options _names NU_SVC PRINT_STRING_FUN scipy cmd is_win32 range_file model_file svmtrain_exe xrange RBF test_pathname jit dirname POLY file_name http_request __all__ sparse _cstr request ssh_workers svmscale_exe SIGMOID ONE_CLASS s EPSILON_SVR f line PRECOMPUTED dataset_pathname last_line grid_py NU_SVR
+syn keyword CTagsGlobalVariable predict_test_file host
+syn keyword CTagsFunction exit_with_help update_param csr_to_problem evaluations csr_to_problem_nojit csr_to_problem_jit main range_f redraw toPyModel svm_read_problem fillprototype svm_predict svm_train csr_scale csr_find_scale_param calculate_jobs my_float err random_selection print_null info evaluations_scipy genFields gen_svm_nodearray permute_sequence stratified_selection find_parameters process_options svm_save_model svm_load_model
+syn keyword CTagsClass svm_problem SSHWorker WorkerStopToken TelnetWorker GridOption svm_model svm_parameter Worker LocalWorker svm_node
+
