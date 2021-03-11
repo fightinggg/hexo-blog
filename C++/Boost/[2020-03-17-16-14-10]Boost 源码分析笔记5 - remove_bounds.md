@@ -3,7 +3,7 @@ mathjax: true
 ---
 
 # remove_bounds
-&emsp;&emsp; 这个模版元我还真没猜出他的功能，话说怎么可能有人想得到这个bounds指的是数组的bounds呢？这个模版元的功能是传入一个数组，传出他的内容，即将T[]映射为T。注意： remove_bounds就是remove_extent。
+ 这个模版元我还真没猜出他的功能，话说怎么可能有人想得到这个bounds指的是数组的bounds呢？这个模版元的功能是传入一个数组，传出他的内容，即将T[]映射为T。注意： remove_bounds就是remove_extent。
 ```cpp
 template <class T> struct remove_extent{ typedef T type; };
 
@@ -21,4 +21,4 @@ template <typename T> struct remove_extent<T const volatile[]> { typedef T const
 #endif
 
 ```
-&emsp;&emsp; 还是老样子，数组就特判掉，然后返回其头，否则就返回他的本身。
+ 还是老样子，数组就特判掉，然后返回其头，否则就返回他的本身。

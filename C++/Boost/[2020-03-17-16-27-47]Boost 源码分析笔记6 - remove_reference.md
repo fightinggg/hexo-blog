@@ -3,8 +3,8 @@ mathjax: true
 ---
 
 # remove_reference 
-&emsp;&emsp;这个名字就很棒，就是移除引用的意思。同样他也是模版元技术，他先将所有的类型映射为自己，然后通过模版偏特化的方式将那些引用映射为本身。这里有一个c++的特性即下面代码
-&emsp;&emsp; 这个代码看懂的人应该不多了。
+这个名字就很棒，就是移除引用的意思。同样他也是模版元技术，他先将所有的类型映射为自己，然后通过模版偏特化的方式将那些引用映射为本身。这里有一个c++的特性即下面代码
+ 这个代码看懂的人应该不多了。
 ```cpp
 #include <iostream>
 
@@ -24,7 +24,7 @@ int main() {
 }
 ```
 <!---more-->
-&emsp;&emsp; 这里的&&就是右值引用的意思，所以输出是
+ 这里的&&就是右值引用的意思，所以输出是
 ```
 &
 &
@@ -70,4 +70,4 @@ template <class T> struct remove_reference<T&volatile>{ typedef T type; };
 template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 #endif
 ```
-&emsp;&emsp;同样的我们使用模版元技术，将引用就消除了。
+同样的我们使用模版元技术，将引用就消除了。
