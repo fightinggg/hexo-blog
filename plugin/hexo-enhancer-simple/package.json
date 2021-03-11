@@ -1,0 +1,7 @@
+{
+  "name": "hexo-enhancer-simple",
+  "dependencies": {
+    "moment-timezone": "^0.5.23"
+  },
+  "version": "1.0.0"
+}
