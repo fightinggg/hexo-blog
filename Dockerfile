@@ -11,9 +11,9 @@ WORKDIR /app
 EXPOSE 4000
 
 CMD \
-  cp -r /data /app && \
+  cp -r /data/hexo-blog/* /app && \
   npm install && \
-  cp -r /app/.ssh ~/ && \
+  cp -r /data/.ssh ~/ && \
   chmod 600 ~/.ssh/id_rsa && \
   chmod 600 ~/.ssh/id_rsa.pub && \
   chmod 700 ~/.ssh && \

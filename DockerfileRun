@@ -1,7 +1,5 @@
-sudo docker run -it --rm --name=hexoblog -v /src/blog:/data -p 4000:4000 hexo
+sudo docker run -it --rm --name=hexoblog -v /src/hexo-blog:/data/hexo-blog -v /root/.ssh:/data/.ssh -p 4000:4000 hexo
 
 sudo docker build -t hexo .
-
-sudo docker logs hexoblog -f
 
 sudo docker rm -f hexoblog
