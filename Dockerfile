@@ -11,6 +11,7 @@ WORKDIR /app
 EXPOSE 4000
 
 CMD \
+  cp -r /data /app && \
   npm install && \
   cp -r /app/.ssh ~/ && \
   chmod 600 ~/.ssh/id_rsa && \
