@@ -15,14 +15,8 @@ function filterPost(log, data) {
     let metadata = util.parseSource(data.source);
 
     data.title = metadata.title;
-    // log.i("Generate title [%s] for post [%s]", metadata.title, data.source);
 
-    data.date = metadata.date;
-    // log.i("Generate date [%s] for post [%s]", metadata.date, data.source);
-
-    data.abbrlink = metadata.abbrlink;
-    // data.abbrlink = util.crc32(data.title);
-    // log.i("Generate abbrlink [%s] for post [%s]", data.abbrlink, data.source);
+    data.abbrlink = (data.date.valueOf() / 1000).toString(36).toUpperCase();
 
     if (metadata.categories.length) {
         let categories = metadata.categories;
@@ -35,7 +29,6 @@ function filterPost(log, data) {
         });
         categories.reverse();
         data.setCategories(categories);
-        // log.i("Generate categories [%s] for post [%s]", categories, data.source);
     }
 
     if (tags.length) {
@@ -47,10 +40,8 @@ function filterPost(log, data) {
                 }
             });
             data.setTags(matchedTags);
-            // log.i("Generate tags [%s] for post [%s]", matchedTags, data.source);
         }
     }
-    log.i("Generate [%s] [%s] [%s]", data.date, data.abbrlink, data.title);
 }
 
 hexo.extend.filter.register('before_post_render', function (data) {
