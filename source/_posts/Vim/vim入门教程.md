@@ -2,21 +2,23 @@
 date: 2020-03-07 12:28:32
 updated: 2020-03-07 12:28:32
 mathjax: true
+typora-root-url: ..\..
 ---
 
 # vim
  vim是一款强大的文本编辑器,如果配置到位，真的真的非常漂亮，如下图violet主题的浅色和深色
-![](/images/vim学习/violet_light.png)
+
+![img](/images/violet_light.png) 
 
 <!---more-->
-![](/images/vim学习/violet_dark.png)
+![](/images/violet_dark.png)
  还有经典的molokai配色主题
  还有c++高亮配色
-![](/images/vim学习/c++高亮.png)
+![](/images/c++高亮.png)
  c++补全
-![](/images/vim学习/c++补全.png)
+![](/images/c++补全.png)
  多行编辑
-![](/images/vim学习/多行编辑.png)
+![](/images/多行编辑.png)
 
 
 

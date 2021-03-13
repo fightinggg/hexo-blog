@@ -1,6 +1,6 @@
 ---
 date: 2020-04-28 23:07:03
-updated: 2020-04-28 23:07:03
+updated: 2021-03-13 19:21:00
 mathjax: true
 ---
 
@@ -198,3 +198,18 @@ wsx.hello.prefix=hello prefix
 wsx.hello.suffix=hello suffix
 ```
 测试即可
+
+
+
+
+@ConfigurationProperties 不能缺少下面这个依赖，否则不会自动处理配置的提示
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+    <scope>compile</scope>
+</dependency>
+```
+

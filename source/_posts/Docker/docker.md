@@ -1,6 +1,6 @@
 ---
-date: 2021-03-11 22:45:00
-updated: 2021-03-11 22:45:00
+date: 2020-10-05 00:00:00
+updated: 2020-10-05 00:00:00
 mathjax: true
 ---
 
@@ -20,7 +20,7 @@ mathjax: true
 ```
 -v /root/.m2:/root/.m2
 ```
-
+<!-- more -->
 # 安装docker
 
 ```sh
