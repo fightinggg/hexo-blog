@@ -18,6 +18,4 @@ CMD \
   chmod 600 ~/.ssh/id_rsa.pub && \
   chmod 700 ~/.ssh && \
   cat ~/.ssh/id_rsa.pub && \
-  for file in $(find source/_posts/ -name "*.png"); do mv "$file" source/img/; done && \
-  for file in $(find source/_posts/ -name "*.pdf"); do mv "$file" source/pdf/; done && \
   hexo s
