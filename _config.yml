@@ -14,7 +14,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://eaw3p1.coding-pages.com
+url: https://fightinggg.gitee.io
 root: /
 permalink: :abbrlink.html   
 permalink_defaults:
@@ -31,6 +31,8 @@ category_dir: categories
 code_dir: ./
 i18n_dir: :lang
 skip_render:
+  - ".github/**/*"
+  - "*.html"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -87,7 +89,8 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
-include:
+include: 
+  - ".github/**/*"
 exclude:
 ignore:
 
@@ -101,7 +104,7 @@ sitemap:
     path: sitemap.xml
 baidu_url_submit:
   count: 10000 ## 比如3，代表提交最新的三个链接
-  host: http://eaw3p1.coding-pages.com ## 在百度站长平台中注册的域名
+  host: https://fightinggg.gitee.io ## 在百度站长平台中注册的域名
   token: e2sgSK99VXdpyZgS ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
   path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
 ## Plugins: https://hexo.io/plugins/
@@ -112,10 +115,11 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
+  ignore_hidden: false # gitee 部署
   repo:
-    coding1: git@e.coding.net:fightinggg/hexoblog.git
-    coding2: git@e.coding.net:fightinggg-01/fightinggg/fightinggg.git
-    github0: git@github.com:fightinggg/fightinggg.github.io.git
+    coding: git@e.coding.net:fightinggg/hexoblog.git
+    github: git@github.com:fightinggg/fightinggg.github.io.git
+    gitee: git@gitee.com:fightinggg/fightinggg.git
   branch: master
 - type: baidu_url_submitter
 
