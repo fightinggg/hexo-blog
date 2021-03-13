@@ -18,4 +18,4 @@ CMD \
   chmod 600 ~/.ssh/id_rsa.pub && \
   chmod 700 ~/.ssh && \
   cat ~/.ssh/id_rsa.pub && \
-  hexo s
+  hexo clean && hexo s
