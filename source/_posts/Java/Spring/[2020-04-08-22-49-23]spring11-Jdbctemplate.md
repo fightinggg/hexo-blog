@@ -19,6 +19,3 @@ List<Account> account = jt.query("select * from account where money>?",new BeanP
 ```
 ## DAO中的JdbcTemplate
  上面的代码实际上只能用于简单的测试，我们正确的做法应该还是使用DAO实现，注意到使用DAO实现的时候肯定要在类中创建jdbcTemplate，如果我们有多个DAO就会导致份重复的代码，这时可以让他们继承一个JdbcDaoSupport来实现，而这个类spring又恰好为我们提供了。但是只能通过xml注入，你想要用注解注入的话就只能自己写一个。
-
-
-

@@ -30,4 +30,3 @@ more ~/.vimrc
 ```
 less ~/.vimrc
 ```
-

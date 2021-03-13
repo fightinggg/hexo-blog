@@ -121,4 +121,3 @@ Zookeeper4_1  | 2020-04-18 09:53:02,056 [myid:4] - INFO  [QuorumPeer[myid=4](pla
 Zookeeper3_1  | 2020-04-18 09:53:02,063 [myid:3] - INFO  [QuorumPeer[myid=3](plain=0.0.0.0:2181)(secure=disabled):QuorumPeer@863] - Peer state changed: following - broadcast
 Zookeeper2_1  | 2020-04-18 09:53:02,068 [myid:2] - INFO  [QuorumPeer[myid=2](plain=0.0.0.0:2181)(secure=disabled):QuorumPeer@863] - Peer state changed: following - broadcast
 ```
-
