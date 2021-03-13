@@ -1,3 +1,7 @@
+---
+mathjax: true
+---
+
 # 创建工作目录
 ```sh
 mkdir ~/DockerDesktop

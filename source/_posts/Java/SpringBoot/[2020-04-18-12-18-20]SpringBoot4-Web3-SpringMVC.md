@@ -1,3 +1,7 @@
+---
+mathjax: true
+---
+
 
 ## 扩展SpringMVC
 ```xml
