@@ -105,3 +105,4 @@ if __name__ == "__main__":
     dfs("source/_posts")
     randomBlog("csdn", 10)
     randomBlog("juejin", 50)
+    randomBlog("zhihu", 2)
