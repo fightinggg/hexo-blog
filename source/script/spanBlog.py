@@ -38,16 +38,7 @@ def converting(source_num, source_hex, target_hex):
 
 
 def buildHead(urlPath):
-    gitee = "https://fightinggg.gitee.io"+urlPath;
-    github = "https://fightinggg.github.io"+urlPath;
-    coding = "https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com"+urlPath;
-    
-    
-    return "![-](http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640)\n" \
-        + "# fightinggg的个人博客，转载请注明出处\n" \
-        + "- gitee: [点击进入gitee镜像地址]("+gitee+")\n" \
-        + "- github: [点击进入github镜像地址]("+github+")\n" \
-        + "- coding: [点击进入coding镜像地址]("+coding+")\n";
+    return "转载自 [link](https://fightinggg.github.io"+urlPath+")\n"
             
 
 def linkHead(date):

@@ -179,8 +179,15 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
-  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  GitHub: https://github.com/fightinggg || fab fa-github
+  CSDN: https://blog.csdn.net/qq_41157212  || fab fa-cuttlefish
+  简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
+  知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-zhihu
+  GitHubBlog: https://fightinggg.github.io || fas fa-blog
+  CodingBlog: https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
+  GiteeBlog: https://fightinggg.gitee.io || fas fa-blog
+  ACMBlog: https://fightinggg.github.io/ACM || far fa-lightbulb
+  # E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -1003,18 +1010,6 @@ images: images
 
 
 mylinks:
-  - nickname: 我的coding博客
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
-    site: https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com
-  - nickname: 我的github博客
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
-    site: https://fightinggg.github.io/
-  - nickname: 我的gitee博客
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
-    site: https://fightinggg.gitee.io/
-  - nickname: 我的老ACM博客
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
-    site: https://fightinggg.github.io/ACM/
   - nickname: yg大神
     avatar: http://q1.qlogo.cn/g?b=qq&nk=1356931781&s=640
     site: https://me.csdn.net/weixin_41863129

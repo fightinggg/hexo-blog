@@ -21,3 +21,6 @@ CMD \
   git config --global user.email "246553278@qq.com" && \
   git config --global user.name "wsx" && \
   hexo clean && hexo s
+
+
+# unalias cp && cp -rf /data/hexo-blog/* /app && hexo s
