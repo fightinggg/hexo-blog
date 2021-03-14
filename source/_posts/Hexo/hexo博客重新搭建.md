@@ -1,7 +1,8 @@
 ---
 date: 2020-04-05 14:37:59
-updated: 2020-04-05 14:37:59
+updated: 2021-03-14 15:34:00
 mathjax: true
+typora-root-url: ..\..
 ---
 
 # 博客崩溃了
@@ -659,3 +660,138 @@ mylinks:
     site: https://leafjame.github.io
     info: Java狮 北漂男 摄影 旅行 赚钱
 ```
+
+
+
+# 增加站点访问量
+
+next主题配置文件中，注意到数字可能很大，但是不用担心，deploy之后就正常了
+
+```yml
+busuanzi_count:
+  enable: ture
+  total_visitors: true
+  total_visitors_icon: fa fa-user
+  total_views: true
+  total_views_icon: fa fa-eye
+  post_views: true
+  post_views_icon: fa fa-eye
+```
+
+![image-20210314153159462](/images/image-20210314153159462.png)
+
+
+
+# 版权申明
+
+next主题配置文件中
+
+```yml
+creative_commons:
+  license: by-nc-sa
+  sidebar: false
+  post: true
+  language: zh-CN
+```
+
+![image-20210314153108100](images\image-20210314153108100.png)
+
+
+
+# 图片点击放大
+
+修改配置文件
+
+```yml
+# FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
+# For more information: https://fancyapps.com/fancybox
+fancybox: true
+```
+
+
+
+# 给文章增加结束语
+
+新增文件 themes/next/layout/_macro/passage-end-tag.swig
+
+```swig
+<div>
+    <div>
+        {% if not is_index %}
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">本文结束</span><i class="fa fa-paw"></i><span style="margin: 0 10px;">感谢您的阅读</span>-----------------------</div>
+        {% endif %}
+    </div>
+</div>
+```
+
+修改themes/next/layout/_macro/post.swig
+
+![image-20210314160247164](/images/image-20210314160247164.png)
+
+增加主题配置文件配置项
+
+```yml
+passage_end_tag: 
+  enabled: true
+```
+
+
+
+![image-20210314160407308](/images/image-20210314160407308.png)
+
+
+
+效果
+
+![image-20210314160604068](/images/image-20210314160604068.png)
+
+
+
+# 热度榜单
+
+```sh
+hexo n page hot
+```
+
+*注意修改appid和appkey*
+
+```js
+<div id="hot"></div>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script>AV.initialize("xxxxxxx", "xxxxxxx");</script>
+<script type="text/javascript">
+  var time=0
+  var title=""
+  var url=""
+  var query = new AV.Query('Counter');
+  query.notEqualTo('id',0);
+  query.descending('time');
+  query.limit(1000);
+  query.find().then(function (todo) {
+    for (var i=0;i<10;i++){
+      var result=todo[i].attributes;
+      time=result.time;
+      title=result.title;
+      url=result.url;
+      var content="<p>"+"<font color='#1C1C1C'>"+"【文章热度:"+time+"℃】"+"</font>"+"<a href='"+url+"'>"+title+"</a>"+"</p>";
+      document.getElementById("hot").innerHTML+=content
+    }
+  }, function (error) {
+    console.log("error");
+  });
+</script>
+```
+
+主题配置文件修改
+
+```yml
+hot: /hot/ || fa fa-signal
+```
+
+![image-20210314162656483](/images/image-20210314162656483.png)
+
+
+
+增加中文**hexo/theme/next/languages/zh-Cn.yml**
+
+![image-20210314162816972](/images/image-20210314162816972.png)

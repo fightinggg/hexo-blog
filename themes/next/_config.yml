@@ -88,8 +88,8 @@ footer:
 creative_commons:
   license: by-nc-sa
   sidebar: false
-  post: false
-  language:
+  post: true
+  language: zh-CN
 
 
 # ---------------------------------------------------------------
@@ -124,7 +124,7 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   links: /links/ || fa fa-link
-  hot: /hot/ || signal
+  hot: /hot/ || fa fa-signal
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -519,7 +519,7 @@ pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
-fancybox: false
+fancybox: true
 
 # A JavaScript library for zooming images like Medium.
 # Do not enable both `fancybox` and `mediumzoom`.
@@ -1043,3 +1043,6 @@ mylinks:
   #   site: https://leafjame.github.io
   #   info: Java狮 北漂男 摄影 旅行 赚钱
 
+
+passage_end_tag: 
+  enabled: true
