@@ -1,7 +1,6 @@
 import os
 from shutil import copyfile
 import random
-import shutil
 import datetime
 import time
 
@@ -37,14 +36,27 @@ def converting(source_num, source_hex, target_hex):
     return result
 
 
+
+def buildHead(urlPath):
+    gitee = "https://fightinggg.gitee.io"+urlPath;
+    github = "https://fightinggg.github.io"+urlPath;
+    coding = "https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com"+urlPath;
+    
+    
+    return "![-](http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640)\n" \
+        + "# fightinggg的个人博客，转载请注明出处\n" \
+        + "- gitee: [点击进入gitee镜像地址]("+gitee+")\n" \
+        + "- github: [点击进入github镜像地址]("+github+")\n" \
+        + "- coding: [点击进入coding镜像地址]("+coding+")\n";
+            
+
 def linkHead(date):
     if(date == ""):
-        return "# [<span style=\"color:red\">博客源地址</span>](https://fightinggg.gitee.io/404.html)\n\n"
+        return buildHead("/404.html");
     timeArray = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
     timestamp = int(time.mktime(timeArray.timetuple()))
-
     url = converting(timestamp, 10, 36)
-    return "# [<span style=\"color:red\">博客源地址</span>](https://fightinggg.gitee.io/"+url+".html)\n\n"
+    return buildHead("/"+url+".html");
 
 
 def copyfileAndAddLink(src, dst):
@@ -106,3 +118,5 @@ if __name__ == "__main__":
     randomBlog("csdn", 10)
     randomBlog("juejin", 50)
     randomBlog("zhihu", 2)
+    randomBlog("jianshu", 2)
+    randomBlog("kaiyuanzhongguo", 0) # bug
