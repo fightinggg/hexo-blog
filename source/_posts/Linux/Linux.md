@@ -20,6 +20,7 @@ sudo dpkg --remove --force-remove-reinstreq google-chrome-stable
 apt-get install firefox
 ```
 <!-- more -->
+
 ## XXD
 
 这是一个16进制查看工具
@@ -31,6 +32,28 @@ xxd -h
 # 查看文件前100个字节
 xxd -l 100 file.bin
 ```
+
+
+
+## 磁盘管理
+
+### 查看磁盘使用情况
+
+```sh
+df
+```
+
+第一列是文件系统， 一般是虚拟磁盘和物理磁盘，我们一般只用关心物理磁盘
+
+### 查看文件夹使用情况
+
+```sh
+du -sh *
+```
+
+
+
+
 
 
 
@@ -119,19 +142,19 @@ docker run -it --rm \
 ### 源码安装
 
 ```sh
-wget https://github.com/git/git/archive/v2.29.2.tar.gz; \
-tar -zxf v2.29.2.tar.gz; \
-rm v2.29.2.tar.gz; \
-cd /git-2.29.2; \
+gitVersion=2.29.2
 yum install -y curl-devel expat-devel gettext-devel \
-    openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker; \
+    openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker \
+    autoconf automake make libtool wget;\
+wget https://github.com/git/git/archive/v$gitVersion.tar.gz; \
+tar -zxf v$gitVersion.tar.gz; \
+cd /git-$gitVersion; \
 make prefix=/usr/local/git all; \
 make prefix=/usr/local/git install; \
 echo "GIT_HOME=/usr/local/git" >> ~/.bashrc; \
 echo "PATH=\$GIT_HOME/bin:\$PATH" >> ~/.bashrc; \
 source ~/.bashrc; \
-git --version; 
-
+git --version;   
 ```
 
 修改Git默认编辑器

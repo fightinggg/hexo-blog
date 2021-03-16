@@ -13,6 +13,9 @@ mathjax: true
 ## SQL语言
  不是某个特定数据库供应商专有的语言，DBMS都支持SQL
 # MySQL 安装
+
+
+
 # MySQL 卸载
 # MySQL 配置
 > my.ini

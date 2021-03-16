@@ -86,7 +86,7 @@ service docker restart
 # --link myng:myng
 将另一个容器储存为域名，其实是在/etc/hosts中加入了一行映射
 # 复杂的Docker
-比方你有一个nginx服务，php服务，mysq服务，nginx依赖php，php依赖mysql，这个依赖关系导致我们需要先创建mysq，然后创建pho。这就很麻烦，部署、重启啊很麻烦的。
+比方你有一个nginx服务，php服务，mysql服务，nginx依赖php，php依赖mysql，这个依赖关系导致我们需要先创建mysq，然后创建php。这就很麻烦，部署、重启啊很麻烦的。
 # docker-compose
 ```sh
 vim docker-compose.yml
@@ -133,7 +133,38 @@ docker-compose up -d
 `sudo firewall-cmd --reload`
 
 
+
+如果有一天发现docker把空间占满了，我们可以先暂停docker，然后使用软连接将/var/lib/docker放置到其他地方
+
+# 管理Docker
+
+systemctl start docker
+
+systemctl stop docker
+
+
+
+
+
+# Docker临时容器妙用
+
+```sh
+docker run -it --rm --net=host centos:centos8 bash
+yum install vim wget lrzsz -y
+
+
+
+```
+
+
+
+# Docker的坑
+
+千万不要在docker启动以后重启防火墙！！！！！！
+
+
 # 参考
 
 [10分钟，快速学会docker](https://www.bilibili.com/video/av58402749)
+
 [实战~如何组织一个多容器项目docker-compose](https://www.bilibili.com/video/BV1Wt411w72h?from=search&seid=8050868676251482351)

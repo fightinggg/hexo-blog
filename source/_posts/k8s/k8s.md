@@ -266,3 +266,45 @@ kubectl apply -f ${javaApp}-service.yaml
 cd ..
 ```
 
+
+
+## k8s重启pod
+
+```sh
+ kubectl replace --force -f xxx.yaml
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
