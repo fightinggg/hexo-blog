@@ -27,6 +27,10 @@ mathjax: true
 # 配置yum
 curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
 
+# 删除旧版本
+yum remove docker docker-client docker-client-latest docker-common \
+    docker-latest docker-latest-logrotate docker-logrotate docker-engine
+
 # 安装yum-utils
 echo " === install yum-utils === "
 yum install -y yum-utils
@@ -35,20 +39,34 @@ yum install -y yum-utils
 yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
-    
-# 安装containerd.io
-echo " === install containerd.io === "
-yum install -y https://mirrors.aliyun.com/docker-ce/linux/centos/7/x86_64/edge/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
-
-# 安装docker
-echo " === install docker === "
-yum install -y docker-ce-3:19.03.13-3.el8
-sed -i 's/^ExecStart=\/usr\/bin\/dockerd/ExecStart=\/usr\/bin\/dockerd --exec-opt native.cgroupdriver=systemd/' /usr/lib/systemd/system/docker.service
+ 
+# docker
+yum install docker-ce docker-ce-cli containerd.io -y
 systemctl start docker.service
 systemctl enable docker.service
 docker version
 
+# 下面的指令不知道是干嘛的
+# 安装containerd.io
+#echo " === install containerd.io === "
+#yum install -y https://mirrors.aliyun.com/docker-ce/linux/centos/7/x86_64/edge/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
+
+# 安装docker
+#echo " === install docker === "
+#yum install -y docker-ce-3:19.03.13-3.el8
+#sed -i 's/^ExecStart=\/usr\/bin\/dockerd/ExecStart=\/usr\/bin\/dockerd --exec-opt native.cgroupdriver=systemd/' /usr/lib/systemd/system/docker.service
+#systemctl start docker.service
+#systemctl enable docker.service
+#docker version
+```
+
+
+
+
+
 # docker 换源
+
+```sh
 cat >>/etc/docker/daemon.json <<EOF
 {
     "registry-mirrors":[
@@ -67,7 +85,8 @@ EOF
 service docker restart
 ```
 
-
+# 启docker生效
+service docker restart
 
 # 镜像
 
@@ -136,11 +155,7 @@ docker-compose up -d
 
 如果有一天发现docker把空间占满了，我们可以先暂停docker，然后使用软连接将/var/lib/docker放置到其他地方
 
-# 管理Docker
 
-systemctl start docker
-
-systemctl stop docker
 
 
 

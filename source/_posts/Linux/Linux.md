@@ -77,6 +77,21 @@ ssh-keygen -q -N "" -t ed25519 -f /etc/ssh/ssh_host_ed25519_key; \
 /usr/sbin/sshd
 ```
 
+### Install2
+
+```sh
+# 必须安装passwd
+yum install openssh-server openssh-clients passwd  -y; \
+sed -i "s/^UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config; \
+echo 123456 | passwd root --stdin; \
+ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key; \
+ssh-keygen -q -N "" -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key; \
+ssh-keygen -q -N "" -t ed25519 -f /etc/ssh/ssh_host_ed25519_key; \
+/usr/sbin/sshd
+```
+
+
+
 ### Problem
 
 - [System is booting up. Unprivileged users are not permitted to log in yet](https://unix.stackexchange.com/questions/487742/system-is-booting-up-unprivileged-users-are-not-permitted-to-log-in-yet)
