@@ -62,7 +62,7 @@ highlight:
 index_generator:
   path: ''
   per_page: 10
-  order_by: -date
+  order_by: -updated
 
 # Category & Tag
 default_category: uncategorized
@@ -141,7 +141,7 @@ math:
   mathjax: true
 # math
 mathjax:
-    enable: true
+  enable: true
 
 # hexo-tag-cloud
 tag_cloud:
