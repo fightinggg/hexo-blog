@@ -15,12 +15,11 @@ CMD \
   npm install && \
   cp -r /data/.ssh ~/ && \
   chmod 600 ~/.ssh/id_rsa && \
-  chmod 600 ~/.ssh/id_rsa.pub && \
   chmod 700 ~/.ssh && \
-  cat ~/.ssh/id_rsa.pub && \
   git config --global user.email "246553278@qq.com" && \
   git config --global user.name "wsx" && \
   hexo clean && hexo s
 
 
-# unalias cp && cp -rf /data/hexo-blog/* /app && hexo s
+# unalias cp
+# cp -rf /data/hexo-blog/* /app && hexo s
