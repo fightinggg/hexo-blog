@@ -2,6 +2,7 @@
 date: 2020-04-19 13:32:51
 updated: 2020-04-19 13:32:51
 mathjax: true
+typora-root-url: ..\..
 ---
 
 # Kafka概述
@@ -41,7 +42,7 @@ Kafka利用Zookeeper来管理配置
 0.9后是Kafka自己储存在某个主题中(减少了消费者和zk的连接)
 
 **[我偷了个图](https://www.bilibili.com/video/BV1a4411B7V9?p=5)**
-![](http://q8awr187j.bkt.clouddn.com/Kafka%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84.png)
+![image-20200419133251000](/images/image-20200419133251000.png)
 
 # Kafka入门
 ## Kafka部署

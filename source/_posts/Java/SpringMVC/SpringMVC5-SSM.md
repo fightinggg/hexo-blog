@@ -187,7 +187,7 @@ create table `closedorder`
 </project>
 ```
 # 创建配置文件
-![](http://q8awr187j.bkt.clouddn.com/SSM%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png)
+![](/images/SSM%E6%95%B4%E5%90%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png)
 # 先配置mybatis
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -584,7 +584,7 @@ public class CustomerController {
 ```
 
 # 测试结果
-![](http://q8awr187j.bkt.clouddn.com/SSM%E6%95%88%E6%9E%9C.png)
+![](/images/SSM%E6%95%88%E6%9E%9C.png)
 
 # 参考
 [狂神说SpringMVC05：整合SSM框架](https://mp.weixin.qq.com/s/SDxqGu_il3MUCTcN1EYrng)

@@ -2,6 +2,7 @@
 date: 2020-08-30 00:00:00
 updated: 2020-08-30 00:00:00
 mathjax: true
+typora-root-url: ..\..
 ---
 
 ## Impala
@@ -46,7 +47,7 @@ impala提供对HDFS、Hbase数据的高性能、低延迟的交互式SQL查询�
 
 Impala集群有三个重要的组件，他们分别是Impala Daemon, Impala Statestore和Impala Metastore
 
-![image-20201126141624051](images/image-20201126141624051.png)
+![image-20201126141624051](/images/image-20201126141624051.png)
 
 #### Impala Daemon
 

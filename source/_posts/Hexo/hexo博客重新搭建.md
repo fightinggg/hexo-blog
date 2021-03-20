@@ -54,9 +54,9 @@ npm audit fix
 
 # 下载next主题
 [github下载地址](https://github.com/iissnan/hexo-theme-next/releases)
-![](http://q8awr187j.bkt.clouddn.com/hexo-next%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png)
+![image-20200405143759000](/images/image-20200405143759000.png)
  下载完成以后得到了这个，我们把它放到主题文件夹下
-![](http://q8awr187j.bkt.clouddn.com/hexo-next%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E7%BB%93%E6%9E%9C.png)
+![image-20200405143800000](/images/image-20200405143800000.png)
 
 # 使用next主题
 &emsp 修改主配置文件_config.yml
@@ -694,7 +694,7 @@ creative_commons:
   language: zh-CN
 ```
 
-![image-20210314153108100](images\image-20210314153108100.png)
+![image-20210314153108100](/images/image-20210314153108100.png)
 
 
 

@@ -3,10 +3,15 @@ from shutil import copyfile
 import random
 import datetime
 import time
-
+import re
 
 os.environ['TZ'] = 'Asia/Shanghai'
 time.tzset()  # Python time tzset() 根据环境变量TZ重新初始化时间相关设置。
+
+
+a = '![](/images/笛卡尔树/笛卡尔树.png)'
+print(re.sub(r'\!\[(.*)\]\((.*).png\)',
+             r'![\2](https://fightinggg.github.io\2.png)', a))
 
 
 def converting(source_num, source_hex, target_hex):
@@ -36,18 +41,24 @@ def converting(source_num, source_hex, target_hex):
     return result
 
 
-
 def buildHead(urlPath):
     return "转载自 [link](https://fightinggg.github.io"+urlPath+")\n"
-            
+
 
 def linkHead(date):
     if(date == ""):
-        return buildHead("/404.html");
+        return buildHead("/404.html")
     timeArray = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
     timestamp = int(time.mktime(timeArray.timetuple()))
     url = converting(timestamp, 10, 36)
-    return buildHead("/"+url+".html");
+    return buildHead("/"+url+".html")
+
+
+def changeImageUrl(blog):
+    blog = blog.split("\n")
+    for i in range(0, len(blog)):
+        blog[i] = re.sub(r'\!\[(.*)\]\((.*)\)', r'!\1\2', blog[i])
+    return blog
 
 
 def copyfileAndAddLink(src, dst):
@@ -82,7 +93,8 @@ def dfs(path):
         for file in files:
             if not os.path.exists(".tmp"):
                 os.makedirs(".tmp")
-            copyfileAndAddLink(root+"/"+file, ".tmp/"+file)
+            if(file[-3:] == '.md'):
+                copyfileAndAddLink(root+"/"+file, ".tmp/"+file)
 
 
 def cleanAndCreateDir(path):
@@ -110,4 +122,4 @@ if __name__ == "__main__":
     randomBlog("juejin", 50)
     randomBlog("zhihu", 2)
     randomBlog("jianshu", 2)
-    randomBlog("kaiyuanzhongguo", 0) # bug
+    randomBlog("kaiyuanzhongguo", 0)  # bug

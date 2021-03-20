@@ -136,7 +136,7 @@ nb nb nb
 坑真多，我还碰到另外一个坑了，tomcat10也太秀了，居然是他的原因，换成tomcat9就不会404，我服了
 
 还有第二个坑，我绝望了，项目名字不能叫做SpringMVC，你要是取这个名字，你的src目录就是没有颜色的，坑的一批，后面你创建多个moudle的时候，他就给你目录全搞灰色，这个问题只需要不把名字设为SpringMVC就可以了。
-![](http://q8awr187j.bkt.clouddn.com/SpringMVC_name.png)
+![](/images/SpringMVC_name.png)
 # 注解配置Controller
 这里的19行是spring中的注解扫描，21行是不去处理静态资源，23行是配置处理器的适配器
 ```xml

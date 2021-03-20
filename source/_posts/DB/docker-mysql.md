@@ -23,7 +23,7 @@ docker run --restart=always -d -e MYSQL_ROOT_PASSWORD=123456 --name mysql -v /da
 
 当我们使用docker创建了mysql服务以后，一般无法在宿主机对其进行连接，现象如下
 
-![image-20210315125400159](images/image-20210315125400159.png)
+![image-20210315125400159](/images/image-20210315125400159.png)
 
 原因是mysql连接如果不指定IP，则会使用/var/lib/mysql/mysql.sock进行连接，这时我们只需要指定ip即可
 

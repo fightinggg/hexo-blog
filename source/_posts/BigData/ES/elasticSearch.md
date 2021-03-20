@@ -2,6 +2,7 @@
 date: 2020-09-03 00:00:00
 updated: 2020-09-03 00:00:00
 mathjax: true
+typora-root-url: ..\..\..
 ---
 
 
@@ -146,7 +147,7 @@ cd ..
 
 [插件地址](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm/related)
 
-![image-20201217093657333](images/image-20201217093657333.png)
+![image-20201217093657333](/images/image-20201217093657333.png)
 
 ### Shell 连接
 
