@@ -184,6 +184,11 @@ neat_js:
     - '**/index.js'  
 
 
+# 图片懒加载
+lazyload:
+  enable: true
+
+
 # tags and keywords
 # keywords: HTML, JavaScript, Hexo
 tags: C++, Boost, STL, \
