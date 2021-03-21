@@ -70,7 +70,7 @@ function doubleWord(x) {
 
 function showButton() {//当前页数
     var tempStr = "";
-    tempStr += "<a href=\"#\" onClick=\"prePage()\">⬅️</a>&emsp;&emsp;&emsp;"
+    tempStr += "<a href=\"#\" onClick=\"prePage()\">⬅️</a>&emsp;"
     var beg = Math.max(1, currentPage - 5);
     while (beg > 1 && beg + pageSize - 1 > totalPage) {
         beg--;
@@ -82,7 +82,7 @@ function showButton() {//当前页数
             tempStr += "<a href=\"#\" onClick=\"goPage(" + beg + "," + pageSize + ")\">" + doubleWord(beg) + "</a>" + "&emsp;"
         }
     }
-    tempStr += "&emsp;&emsp;<a href=\"#\" onClick=\"nextPage()\">➡️</a>";
+    tempStr += "<a href=\"#\" onClick=\"nextPage()\">➡️</a>";
     document.getElementById("barcon").innerHTML = tempStr;
 }
 </script>
