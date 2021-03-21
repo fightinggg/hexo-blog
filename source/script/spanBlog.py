@@ -9,11 +9,6 @@ os.environ['TZ'] = 'Asia/Shanghai'
 time.tzset()  # Python time tzset() 根据环境变量TZ重新初始化时间相关设置。
 
 
-a = '![](/images/笛卡尔树/笛卡尔树.png)'
-print(re.sub(r'\!\[(.*)\]\((.*).png\)',
-             r'![\2](https://fightinggg.github.io\2.png)', a))
-
-
 def converting(source_num, source_hex, target_hex):
     # （2， 36）之间的进制转换
     if source_hex > 36 or source_hex < 2:
@@ -57,8 +52,9 @@ def linkHead(date):
 def changeImageUrl(blog):
     blog = blog.split("\n")
     for i in range(0, len(blog)):
-        blog[i] = re.sub(r'\!\[(.*)\]\((.*)\)', r'!\1\2', blog[i])
-    return blog
+        blog[i] = re.sub(r'\!\[(.*)\]\((.*)\)',
+                         r'![-\1-](https://fightinggg.github.io\2)',  blog[i])
+    return '\n'.join(blog)
 
 
 def copyfileAndAddLink(src, dst):
@@ -82,8 +78,12 @@ def copyfileAndAddLink(src, dst):
         newBlog = newBlog + blog[i] + "\n"
         i = i + 1
 
+    blog = linkHead(date)+newBlog
+
+    blog = changeImageUrl(blog)
+
     f = open(dst, 'w')
-    f.write(linkHead(date)+newBlog)
+    f.write(blog)
 
 
 def dfs(path):
