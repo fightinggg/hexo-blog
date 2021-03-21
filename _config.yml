@@ -149,7 +149,7 @@ tag_cloud:
     textColor: '#333'
     textHeight: 12
     outlineColor: '#E2E1D1'
-    maxSpeed: 0.1
+    maxSpeed: 0.08
     pauseOnSelected: false # true 意味着当选中对应 tag 时,停止转动
 
 # hexo-generator-search

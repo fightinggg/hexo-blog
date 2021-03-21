@@ -13,4 +13,6 @@
     {%- set sphere_uri = theme.vendors.canvas_sphere or next_vendors('three/canvas_sphere.min.js') %}
     <script defer src="{{ sphere_uri }}"></script>
   {%- endif %}
+    <!-- 雪花特效 -->
+    <script type="text/javascript" src="\js\snow.js"></script>
 {%- endif %}

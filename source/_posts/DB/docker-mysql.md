@@ -12,7 +12,11 @@ typora-root-url: ../..
 # mysql安装
 
 ```sh
-docker run --restart=always -d -e MYSQL_ROOT_PASSWORD=123456 --name mysql -v /data/docker/mysql/data:/var/lib/mysql -p 3306:3306 mysql
+docker run --restart=always \
+  -d -e MYSQL_ROOT_PASSWORD=123456 \
+  --name mysql \
+  -v /data/docker/mysql/data:/var/lib/mysql \
+  -p 3306:3306 mysql
 ```
 
 
