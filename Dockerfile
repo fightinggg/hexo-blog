@@ -11,6 +11,7 @@ WORKDIR /app
 EXPOSE 4000
 
 CMD \
+  unalias cp && \
   cp -r /data/hexo-blog/* /app && \
   npm install && \
   cp -r /data/.ssh ~/ && \
@@ -21,5 +22,4 @@ CMD \
   hexo clean && hexo s
 
 
-# unalias cp
 # cp -rf /data/hexo-blog/* /app && hexo s
