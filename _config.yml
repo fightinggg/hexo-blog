@@ -118,9 +118,9 @@ deploy:
   ignore_hidden: false # gitee 部署
   repo:
     cvm: root@fightinggg.top:/data/GitLibrary/hexo
-    coding: git@e.coding.net:fightinggg/hexoblog.git
     github: git@github.com:fightinggg/fightinggg.github.io.git
-    gitee: git@gitee.com:fightinggg/fightinggg.git
+    coding: git@e.coding.net:fightinggg/hexoblog.git
+    # gitee: git@gitee.com:fightinggg/fightinggg.git
   branch: master
 - type: baidu_url_submitter
 
