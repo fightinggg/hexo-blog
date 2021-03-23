@@ -5,12 +5,14 @@ date: 2021-03-14 14:58:10
 commens: false
 ---
 
-<div id="hot" class="con"></div>
+<div id="hot"></div>
 <div id="barcon" name="barcon"></div>
+
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script>AV.initialize("T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz", "oMcE8X0UKAVaDtK51UA1LuGL");</script>
 <script type="text/javascript">
+
 var rankList;
 var pageSize = 10;
 var currentPage = 1;
@@ -42,7 +44,7 @@ function nextPage() {
 
 function goPage(page, pageSize) {
     currentPage = page;
-    html = ""
+    document.getElementById("hot").innerHTML = ""
     for (var i = 0; i < pageSize; i++) {
         var index = (currentPage - 1) * pageSize + i + 1
         if (index - 1 >= rankList.length) {
@@ -53,11 +55,8 @@ function goPage(page, pageSize) {
         var title = result.title;
         var url = result.url;
         var content = "<p>" + "<font color='#1C1C1C'>" + index + ".【文章热度:" + time + "℃】" + "</font>" + "<a href='" + url + "'>" + title + "</a>" + "</p>";
-        content = "<iframe src='" + result.url + "#hexo-next-post-block', id='child" + index + "' width='300', height='400' scrolling='no' style='overflow: hidden'></iframe>"
-        content = "<div style='width=300'><a href='www.baidu.com' rel='start'>" + content + "</a></div>"
-        html += content;
+        document.getElementById("hot").innerHTML += content
     }
-    document.getElementById("hot").innerHTML = html;
     showButton();
 }
 
