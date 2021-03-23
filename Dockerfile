@@ -10,18 +10,22 @@ WORKDIR /app
 # Expose Server Port
 EXPOSE 4000
 
+COPY package.json /app
+
+RUN npm install
+
 CMD \
-  unalias cp && \
-  cp -r /data/hexo-blog/* /app && \
-  npm install && \
+  cp -rf /data/hexo-blog/* /app && \
+  # npm install && \
   cp -r /data/.ssh ~/ && \
   chmod 600 ~/.ssh/id_rsa && \
   chmod 700 ~/.ssh && \
   git config --global user.email "246553278@qq.com" && \
   git config --global user.name "wsx" && \
-  #(while(true) do cp -rf /data/hexo-blog/source/_posts/* /app/source/_posts; sleep 10s; done &) && \
   hexo clean && hexo s
 
+
+# unalias cp 
 
 # cp -rf /data/hexo-blog/* /app && hexo clean && hexo s
 
