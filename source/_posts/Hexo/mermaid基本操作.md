@@ -1,6 +1,6 @@
 ---
 date: 2020-05-01 14:18:53
-updated: 2020-05-01 14:18:53
+updated: 2021-03-24 20:15:00
 mathjax: true
 ---
 
@@ -77,3 +77,47 @@ graph LR
   b1-->b2
   end
 ```
+
+
+
+## 文字
+
+```txt
+graph LR
+  A[我是文字]
+```
+
+
+
+```mermaid
+graph LR
+  A[我是文字]
+```
+
+
+
+## 颜色
+
+```txt
+graph LR
+  A[红色]
+  style A fill: yellow
+```
+
+
+
+```mermaid
+graph LR
+  A[红色]
+  style A fill: yellow
+```
+
+
+
+
+
+
+
+## 参考
+
+[mermaid 给你的文档加层滤镜](https://zhuanlan.zhihu.com/p/166668789)
