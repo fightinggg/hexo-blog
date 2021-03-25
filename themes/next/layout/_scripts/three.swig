@@ -15,4 +15,5 @@
   {%- endif %}
     <!-- 雪花特效 -->
     <script type="text/javascript" src="\js\snow.js"></script>
+    <script type="text/javascript" src="\js\nightAuto.js"></script>
 {%- endif %}
