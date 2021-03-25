@@ -54,7 +54,7 @@ function goPage(page, pageSize) {
         var time = result.time;
         var title = result.title;
         var url = result.url;
-        var content = "<p>" + "<font color='#1C1C1C'>" + index + ".【文章热度:" + time + "℃】" + "</font>" + "<a href='" + url + "'>" + title + "</a>" + "</p>";
+        var content = "<p>" + "<font color='var(--text-color)'>" + index + ".【文章热度:" + time + "℃】" + "</font>" + "<a href='" + url + "'>" + title + "</a>" + "</p>";
         document.getElementById("hot").innerHTML += content
     }
     showButton();
@@ -77,7 +77,7 @@ function showButton() {//当前页数
     }
     for (var j = 1; j <= pageSize && beg <= totalPage; j++, beg++) {
         if (beg == currentPage) {
-            tempStr += "<a href=\"#\" onClick=\"goPage(" + beg + "," + pageSize + ")\"><span style='color:red;'>" + doubleWord(beg) + "</span></a>" + "&emsp;"
+            tempStr += "<a href=\"#\" onClick=\"goPage(" + beg + "," + pageSize + ")\"><span style='color:var(--text-color);'>" + doubleWord(beg) + "</span></a>" + "&emsp;"
         } else {
             tempStr += "<a href=\"#\" onClick=\"goPage(" + beg + "," + pageSize + ")\">" + doubleWord(beg) + "</a>" + "&emsp;"
         }

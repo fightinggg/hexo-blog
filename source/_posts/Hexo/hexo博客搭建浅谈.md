@@ -852,3 +852,108 @@ hot: /hot/ || fa fa-signal
 增加中文**hexo/theme/next/languages/zh-Cn.yml**
 
 ![image-20210314162816972](/images/image-20210314162816972.png)
+
+
+
+
+
+## 单选框
+
+```sh
+npm install hexo-renderer-marked
+```
+
+
+
+![image-20210325143858129](/images/image-20210325143858129.png)
+
+
+
+## 黑夜模式
+
+你至少需要懂一点点前端，否则很难
+
+```sh
+npm install @1v9/hexo-next-nightmode
+```
+
+然后增加个性化css（如果不知道在哪，就别折腾了）
+
+```css
+
+/* ============================================================================================= */
+/* 黑色主题 */
+.darkScheme{
+  --google-gray-50: rgb(248, 249, 250);
+  --google-gray-100: rgb(241, 243, 244);
+  --google-gray-300: rgb(218, 220, 224);
+  --google-gray-500: rgb(154, 160, 166);
+  --google-gray-600: rgb(128, 134, 139);
+  --google-gray-700: rgb(95, 99, 104);
+  --google-gray-800: rgb(60, 64, 67);
+  --google-gray-900: rgb(32, 33, 36);
+  --content-bg-color: var(--google-gray-800);
+  --body-bg-color: rgb(0,0,0);
+  --text-color: var(--google-gray-100);
+  --blockquote-color: var(--google-gray-500);
+  --btn-default-bg: var(--google-gray-800);
+}
+
+.darkScheme .posts-expand .post-meta {
+  color: var(--google-gray-500);
+}
+
+/* url颜色 */
+.darkScheme a, span.exturl {
+  color: #35e7e9;
+}
+
+/* hexo左上角名字的背景颜色 */
+.darkScheme .site-brand-container {
+  color: var(--google-gray-900);
+}
+
+.darkScheme .th, td {
+  background: var(--content-bg-color);
+  color: var(--text-color);
+}
+
+
+.darkScheme .highlight figcaption {
+  background: var(--content-bg-color);
+  color: var(--text-color);
+}
+
+.darkScheme .highlight-container .highlight .table-container{
+  background: var(--content-bg-color);
+}
+
+.darkScheme .highlight .code pre {
+  background: var(--content-bg-color);
+}
+
+.darkScheme .highlight .gutter pre {
+  background: var(--content-bg-color);
+}
+
+.darkScheme .highlight, pre {
+  color: var(--text-color);
+}
+
+
+.darkScheme img{
+  filter:brightness(80%)
+}
+/* ============================================================================================= */
+```
+
+
+
+![image-20210325144012441](/images/image-20210325144012441.png)
+
+
+
+
+
+
+

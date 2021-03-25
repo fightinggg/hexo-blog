@@ -162,7 +162,7 @@ mathjax:
 # hexo-tag-cloud
 tag_cloud:
     textFont: Trebuchet MS, Helvetica
-    textColor: '#333'
+    textColor: 'var(--link-color)'
     textHeight: 12
     outlineColor: '#E2E1D1'
     maxSpeed: 0.08

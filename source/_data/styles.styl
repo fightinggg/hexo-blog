@@ -101,11 +101,12 @@ table {
   --google-gray-700: rgb(95, 99, 104);
   --google-gray-800: rgb(60, 64, 67);
   --google-gray-900: rgb(32, 33, 36);
-  --content-bg-color: var(--google-gray-800);
-  --body-bg-color: rgb(0,0,0);
-  --text-color: var(--google-gray-100);
-  --blockquote-color: var(--google-gray-500);
-  --btn-default-bg: var(--google-gray-900);
+  --body-bg-color: rgb(0,0,0);/*背景颜色*/
+  --text-color: var(--google-gray-100); /* 文本字体颜色*/
+  --content-bg-color: var(--google-gray-800); /*文本背景颜色*/
+  --blockquote-color: var(--google-gray-500); /*引用块字体颜色*/
+  --btn-default-bg: var(--google-gray-800); /*按钮颜色*/
+  --link-color: #35e7e9  /*链接颜色*/
 }
 
 .darkScheme .posts-expand .post-meta {
@@ -114,7 +115,7 @@ table {
 
 /* url颜色 */
 .darkScheme a, span.exturl {
-  color: #35e7e9;
+  color: var(--link-color);
 }
 
 /* hexo左上角名字的背景颜色 */
@@ -145,8 +146,6 @@ table {
   background: var(--content-bg-color);
 }
 
-
-
 .darkScheme .highlight, pre {
   color: var(--text-color);
 }
@@ -154,5 +153,14 @@ table {
 
 .darkScheme img{
   filter:brightness(80%)
+}
+
+/*valine评论区评论者使用的客户端的背景颜色*/
+.darkScheme .v .vlist .vcard .vhead .vsys {
+  background: var(--google-gray-600);
+}
+/*valine评论区字体颜色*/
+.darkScheme .v * {
+  color: var(--text-color);
 }
 /* ============================================================================================= */
