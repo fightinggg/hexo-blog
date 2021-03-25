@@ -1,51 +1,47 @@
-// 添加背景图片
+/* // 添加背景图片 */
 body {
-      background: url(/images/background/snow-staggered.gif);//自己喜欢的图片地址
+      background: url(/images/background/snow-staggered.gif);
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: 50% 50%;
 }
 
-//博客内容透明化
-//文章内容的透明度设置
+/* //博客内容透明化
+//文章内容的透明度设置 */
 .content-wrap {
   opacity: 0.9;
 }
 
-//侧边框的透明度设置
+/* 侧边框的透明度设置 */
 .sidebar {
   opacity: 0.9;
   background: rgba(255,255,255,0);
 }
 
-//菜单栏的透明度设置
+/* 菜单栏的透明度设置 */
 .header-inner {
-  background: rgba(255,255,255,0.9);
-}
-
-//搜索框（local-search）的透明度设置
-.popup {
   opacity: 0.9;
 }
 
-//设置表格透明度
+
+/* 设置表格透明度 */
 table {
     opacity: 0.9;
 }
 
-//回到顶部按钮边框及透明度
+/* 回到顶部按钮边框及透明度 */
 .back-to-top.back-to-top-on {
     opacity: 0.8;
     border-radius: 15px;
 }
 
-//代码块透明度
+/* 代码块透明度 */
 .highlight-wrap {
     opacity: 0.9;
 }
 
-//版权声明透明度
+/* 版权声明透明度 */
 .post-copyright {
     opacity: 0.8;
     background: rgba(255,255,255,0.9);
@@ -54,9 +50,6 @@ table {
 .footer-inner {
     color: #FFFFFF
 }
-
-
-
 
 
 
@@ -96,3 +89,70 @@ table {
   /*background: url(../images/scrollbar_arrow.png) no-repeat 0 0;*/  /*可以添加滚动条样式*/
 }
 
+
+/* ============================================================================================= */
+/* 黑色主题 */
+.darkScheme{
+  --google-gray-50: rgb(248, 249, 250);
+  --google-gray-100: rgb(241, 243, 244);
+  --google-gray-300: rgb(218, 220, 224);
+  --google-gray-500: rgb(154, 160, 166);
+  --google-gray-600: rgb(128, 134, 139);
+  --google-gray-700: rgb(95, 99, 104);
+  --google-gray-800: rgb(60, 64, 67);
+  --google-gray-900: rgb(32, 33, 36);
+  --content-bg-color: var(--google-gray-800);
+  --body-bg-color: rgb(0,0,0);
+  --text-color: var(--google-gray-100);
+  --blockquote-color: var(--google-gray-500);
+  --btn-default-bg: var(--google-gray-900);
+}
+
+.darkScheme .posts-expand .post-meta {
+  color: var(--google-gray-500);
+}
+
+/* url颜色 */
+.darkScheme a, span.exturl {
+  color: #35e7e9;
+}
+
+/* hexo左上角名字的背景颜色 */
+.darkScheme .site-brand-container {
+  color: var(--google-gray-900);
+}
+
+.darkScheme .th, td {
+  background: var(--content-bg-color);
+  color: var(--text-color);
+}
+
+
+.darkScheme .highlight figcaption {
+  background: var(--content-bg-color);
+  color: var(--text-color);
+}
+
+.darkScheme .highlight-container .highlight .table-container{
+  background: var(--content-bg-color);
+}
+
+.darkScheme .highlight .code pre {
+  background: var(--content-bg-color);
+}
+
+.darkScheme .highlight .gutter pre {
+  background: var(--content-bg-color);
+}
+
+
+
+.darkScheme .highlight, pre {
+  color: var(--text-color);
+}
+
+
+.darkScheme img{
+  filter:brightness(80%)
+}
+/* ============================================================================================= */
