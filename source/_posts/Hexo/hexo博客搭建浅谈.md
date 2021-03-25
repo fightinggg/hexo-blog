@@ -857,7 +857,7 @@ hot: /hot/ || fa fa-signal
 
 
 
-## 单选框
+# 单选框
 
 ```sh
 npm install hexo-renderer-marked
@@ -869,7 +869,7 @@ npm install hexo-renderer-marked
 
 
 
-## 黑夜模式
+# 黑夜模式
 
 你至少需要懂一点点前端，否则很难
 
