@@ -9,3 +9,5 @@ public/
 .ssh/
 .tmp/
 .git.nosync/
+.deploy_git
+package-lock.json
