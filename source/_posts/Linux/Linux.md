@@ -11,6 +11,41 @@ mathjax: true
 
 https://zhuanlan.zhihu.com/p/61228593
 
+```sh
+sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+sudo vi /etc/apt/sources.list
+
+## 添加在最前面
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install build-essential -y
+```
+
+
+
+
+
+## 安装yum
+
+```sh
+sudo apt-get install build-essential -y
+sudo apt-get install yum -y
+```
+
+
+
 ## ele
 
 ### firefox
@@ -88,6 +123,32 @@ ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key; \
 ssh-keygen -q -N "" -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key; \
 ssh-keygen -q -N "" -t ed25519 -f /etc/ssh/ssh_host_ed25519_key; \
 /usr/sbin/sshd
+```
+
+### id_rsa
+
+```sh
+chmod 0600 id_rsa
+```
+
+```txt
+xxxx
+~~~~
+xxxx
+```
+
+### authorized_keys
+
+```txt
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxlCDiJkFEK+cI9i1RltBdzhmkpEOHxGaqJh9CXzkmWRCYE1IaqBQ3ev+kHMShMX48crpdv1mHVrMvt9Kpo7PhkZem+Pd5i+PMVw53MY3Ow0ntoaqK0nBclDieJNmb32BfdI19nm4j6bSyyh8IMmYPsBfTR5wO+5u4cZxXb4I4mocVtvQXa3g7yZHaeEAVL9WfCrWM8/tH/7sAcP3pxdIuoIht/dMBU6wbRt7oPPC7pgw4uDq6y0sHv5SR9zlrmyqusZHDkg+BUaaFnsxnwREuC5Ll1q6ufqNBoUhTETxmZTaqMiwXyKb3gIer8BVctLRoKstNxX08CBiM/1RNzFX3 1144560553@qq.com
+```
+
+
+
+### id_rsa.pub
+
+```txt
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxlCDiJkFEK+cI9i1RltBdzhmkpEOHxGaqJh9CXzkmWRCYE1IaqBQ3ev+kHMShMX48crpdv1mHVrMvt9Kpo7PhkZem+Pd5i+PMVw53MY3Ow0ntoaqK0nBclDieJNmb32BfdI19nm4j6bSyyh8IMmYPsBfTR5wO+5u4cZxXb4I4mocVtvQXa3g7yZHaeEAVL9WfCrWM8/tH/7sAcP3pxdIuoIht/dMBU6wbRt7oPPC7pgw4uDq6y0sHv5SR9zlrmyqusZHDkg+BUaaFnsxnwREuC5Ll1q6ufqNBoUhTETxmZTaqMiwXyKb3gIer8BVctLRoKstNxX08CBiM/1RNzFX3 1144560553@qq.com
 ```
 
 
