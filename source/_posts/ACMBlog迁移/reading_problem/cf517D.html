@@ -1,6 +1,6 @@
 转移自<a href='https://fightinggg.github.io/ACM/reading_problem/cf517D.html'>老blog</a>
 
-<script type="text/javascript" src="/ACM/js/web_begin.js"></script>
+<div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
     <center><h1>cf517D</h1></center>
     <div id="text">
@@ -16,4 +16,4 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贪心，改完之后肯定是至少前k个都为'a',然后我们dp[i][j]，处理出每一个起点走到每一个（i,j）的路线上最多会经过多少个'a'，然后，对于每个满足dp[i][j]+k&gt;=i+j-1的点(i,j)，构建函数f(i,j)=min(i+j-1,dp[i][j]+k),表示到达点(i,j)最长会经过的全部都是'a'的前缀的长度，取出最大的几个点，然后bfs再处理这些点到终点的的路径，取出字典序最小的，和前面的前缀组合就是答案的方案了。<br>
     </div>
 </div>
-<script type="text/javascript" src="/ACM/js/web_end.js"></script>
+<div type="text/javadiv" src="/ACM/js/web_end.js"></div>

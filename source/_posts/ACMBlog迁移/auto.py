@@ -35,6 +35,7 @@ def removeAll(path,fileName,blog):
     # blog = removeHead(blog)
     # blog = removeBody(blog)
     # blog = addHead("https://fightinggg.github.io/ACM/"+path[24:]+"/"+fileName,blog)
+    blog = blog.replace('script','div')
     return blog
 
 def dealwith(path,fileName):

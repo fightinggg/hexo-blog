@@ -1,6 +1,6 @@
 转移自<a href='https://fightinggg.github.io/ACM/problem/dp/hdu6170.html'>老blog</a>
 
-<script type="text/javascript" src="/ACM/js/web_begin.js"></script>
+<div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
     <h1>
         <center><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6170" target="_blank">hdu6170</a></center>
@@ -11,7 +11,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类似正则匹配</br>
     </div>
 
-    <script type="text/javascript" src="/ACM/js/solve_begin.js"></script>
+    <div type="text/javadiv" src="/ACM/js/solve_begin.js"></div>
     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     这个题开始的时候没有写出来，想到了状态的设法，如果设dp[i][j]代表第一个串的前i项能否匹配第二个串的前j项，状态个数很明显是n2的，然而一直苦于*符号的匹配，找不到好的转移方程，不管怎么想都是n3的转移复杂度，当s2[j]是*的时候，dp[i][j]<-dp[pre][j] 其中pre可以取的值的要求是：对于所有的pre<=k<=i   s1【k】=s1【i】
     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,9 +40,9 @@
     <br>a*b*c
     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     因为什么呢?因为”@@”居然可以和”@@a*”匹配,简直是恐怖。
-    <script type="text/javascript" src="/ACM/js/solve_end.js"></script>
+    <div type="text/javadiv" src="/ACM/js/solve_end.js"></div>
 
-    <script type="text/javascript" src="/ACM/js/code_begin.js"></script>
+    <div type="text/javadiv" src="/ACM/js/code_begin.js"></div>
     <div>
         <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -172,8 +172,8 @@
 <span class="cm"> */</span>
 </pre>
     </div>
-    <script type="text/javascript" src="/ACM/js/code_end.js"></script>
+    <div type="text/javadiv" src="/ACM/js/code_end.js"></div>
 
 
 </div>
-<script type="text/javascript" src="/ACM/js/web_end.js"></script>
+<div type="text/javadiv" src="/ACM/js/web_end.js"></div>
