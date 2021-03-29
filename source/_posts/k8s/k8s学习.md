@@ -12,4 +12,4 @@ mathjax: true
 
 [点我直接查看pdf文件](pdf/kubernetes.pdf)
 
-<iframe name="container_ifranme" id="iframeId" frameborder="no" border="0" src="pdf/kubernetes.pdf" width="100%" height="7000px" style="background-color:white" ></iframe>%
+<iframe name="container_ifranme" id="iframeId" frameborder="no" border="0" src="pdf/kubernetes.pdf" width="100%" height="3000px" style="background-color:white" ></iframe>
