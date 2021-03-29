@@ -14,7 +14,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.fightinggg.top
+url: http://fightinggg.top
 root: /
 permalink: :abbrlink.html   
 permalink_defaults:
@@ -104,7 +104,7 @@ sitemap:
     path: sitemap.xml
 baidu_url_submit:
   count: 10000 ## 比如3，代表提交最新的三个链接
-  host: http://www.fightinggg.top ## 在百度站长平台中注册的域名
+  host: http://fightinggg.top ## 在百度站长平台中注册的域名
   token: e2sgSK99VXdpyZgS ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
   path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
 ## Plugins: https://hexo.io/plugins/
@@ -253,3 +253,25 @@ tags: C++, Boost, STL, \
       类欧几里得算法, 素数,  虚树, 计算机网络, 记忆化, \
       设计模式, 费用流, 软件测试, 软件需求, 霍尔定理, \ 
       实习, 腾讯, 阿里, 字节, 网易, 美团
+
+
+
+linkable: 
+  - key: PING
+    url: /QQPNNQ.html#PING
+  - key: ICMP
+    url: /Q7FOWG.html#ICMP
+  - key: 进程
+    url: /QPI740.html#第4章-进程
+  - key: 地址转换
+    url: /QPI740.html#第15章-机制：地址转换
+  - key: 分页
+    url: /QPI740.html#第18章-分页：介绍
+  - key: 锁
+    url: /QPI740.html#第28章-锁
+  - key: 条件变量
+    url: /QPI740.html#第30章-条件变量
+  - key: 信号量
+    url: /QPI740.html#第31章-信号量
+  - key: 文件系统
+    url: /QPI740.html#第40章-文件系统实现
