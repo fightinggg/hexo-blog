@@ -275,3 +275,8 @@ linkable:
     url: /QPI740.html#第31章-信号量
   - key: 文件系统
     url: /QPI740.html#第40章-文件系统实现
+  - key: 管道
+    url: /QQPI8C.html#管道
+  - key: 共享内存
+    url: /QQPI8C.html#共享内存
+    

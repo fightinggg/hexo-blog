@@ -1,4 +1,5 @@
 const util = require("./util");
+const moment = require('moment')
 
 // prepare tags by `hexo.config.enhancer.tags` and `hexo.config.keywords`
 const tags = [];
@@ -16,7 +17,14 @@ function filterPost(log, data) {
 
     data.title = metadata.title;
 
-    data.abbrlink = (data.date.valueOf() / 1000).toString(36).toUpperCase();
+
+    if (data.source.substring(data.source.length - 5) == '.html') {
+        data.date = moment(1565018588000)
+        data.updated = moment(1565018588000)
+        data.abbrlink = data.title
+    } else {
+        data.abbrlink = (data.date.valueOf() / 1000).toString(36).toUpperCase();
+    }
 
     if (metadata.categories.length) {
         let categories = metadata.categories;
