@@ -147,7 +147,7 @@ next_nightmode:
 encrypt:
     enable: true
     abstract: 有东西被加密了, 请输入密码查看.
-    message: 您好, 这里需要密码, 如果您发现enter键无效, 请尝试使用https协议访问本站，而不是http.
+    message: 您好, 这里需要密码
     wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
     wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 
@@ -279,4 +279,8 @@ linkable:
     url: /QQPI8C.html#管道
   - key: 共享内存
     url: /QQPI8C.html#共享内存
+  - key: 变长整型
+    url: /QQRP8M.html#变长整型
+  - key: zigzag
+    url: /QQRP8M.html#zigzag
     
