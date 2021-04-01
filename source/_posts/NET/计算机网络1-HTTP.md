@@ -1,6 +1,6 @@
 ---
 date: 2020-03-18 21:23:51
-updated: 2020-03-18 21:23:51
+updated: 2021-03-31 11:54:50
 mathjax: true
 ---
 
@@ -13,6 +13,16 @@ mathjax: true
 - 链路层: 在单个链路上传输数据
 - 物理层: 传输介质等东西
 
+<!---more-->
+
+# 五层网络
+
+- 应用层： HTTP，FTP，SMTP，DNS
+- 传输层： TCP，UDP
+- 网络层： IP，ICMP，ARP，RARP，DHCP
+- 链路层：
+- 物理层：
+
 
 # UDP
 - 无连接
@@ -21,8 +31,8 @@ mathjax: true
 - UDP的包会重复, 要是有些不敬业的程序员瞎操作，为了保证数据完整性，每个包都给你发5次，就重复了
 - 无流控制
 - 无拥塞控制
--
-- <!---more-->
+
+
 
 
 # TCP
@@ -43,7 +53,7 @@ mathjax: true
  page load time ,从按下到看见页面的时间，与页面内容有关，与HTTP协议有关、与网络的RTT(Round Trip Time)和带宽有关。
 
 ## 早期的HTTP
-&emp; 早期HTTP/1.0使用单个TCP连接获取一个WEB资源，然后就断开TCP，很容易实现，但性能堪忧。
+早期HTTP/1.0使用单个TCP连接获取一个WEB资源，然后就断开TCP，很容易实现，但性能堪忧。
  尽管是访问同一个服务器的不同资源，也要串行，建立了多个TCP，断开了多个TCP，这是很耗时间的。并没有高效使用网络。
  每次TCP的连接都将导致三次握手和慢启动，在高RTT的时候，三次握手很慢，在传输大文件的时候慢启动很耗时。
 
@@ -55,8 +65,11 @@ mathjax: true
 ## HTTP1.1
 - 改进HTTP协议
 - 并行连接
-- 持久连接
+- 持久连接： 在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启长连接keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。
 - 支持range头传输，即只传输文件的某一部分
+-  支持Host域，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname），HTTP1.0没有host域。
+- 缓存处理： 在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。
+-  错误码： 在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。
 
 ## HTTPS
 - HTTPS使用CA申请证书，证书一般需要交费
@@ -108,3 +121,9 @@ graph TB
 3((3))-->6((客户端6))
 3((3))-->7((客户端7))
 ```
+
+
+
+# 参考
+
+[HTTP1.0和HTTP1.1和HTTP2.0的区别](https://blog.csdn.net/ailunlee/article/details/97831912)
