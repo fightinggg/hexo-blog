@@ -4,9 +4,11 @@ updated: 2021-04-02 09:54:00
 typora-root-url: ..\..
 ---
 
-<img src="/image-2021-04-02-09.54.31.819.png" alt="image-2021-04-02 09.54.31.819" style="zoom: 25%;" />
 
 
+# TCP-IP详解(这本书太过于细节了)
+
+<img src="/images/image-2021-04-02-09.54.31.819.png" style="zoom:25%;" />
 
 # 第二章 Internet 地址结构
 
@@ -60,11 +62,93 @@ Kleinrock和Kamoun提出使用分层路由，树形拓扑网络
 
 ## 特殊用途的地址
 
-![image-2021-04-02 15.53.58.647](/images/image-2021-04-02 15.53.58.647.png)
+![image-2021-04-02 15.53.58.647](/images/image-2021-04-02-15.53.58.647.png)
 
 
 
 ![image-2021-04-02-15.56.20.879](/images/image-2021-04-02-15.56.20.879.png)
+
+
+
+# 第四章： 地址解析协议
+
+arp协议能够把IP地址转换为物理地址。在linux上执行命令
+
+```shell
+arp
+```
+
+![image-2021-04-02 17.19.33.021](/images/image-2021-04-02-17.19.33.021.png)
+
+我们可以看到这里有5列，第一列Address即IP地址，HWtype是硬件类型，HWaddress是硬件地址，Flags是标志，包括C、M、P，C代表由arp协议动态学习，M为手动输入，P是发布（主机对ARP请求的应答），Iface是本地网络接口（网卡）
+
+我们使用docker启动一个centos8容器，安装好需要的网络工具，然后执行命令
+
+```shell
+tcpdump -vve
+```
+
+然后对这个容器再启动一个bash执行
+
+```shell
+telnet fightinggg.top 80
+```
+
+![image-2021-04-02 20.34.34.322](/images/image-2021-04-02-20.34.34.322.png)
+
+注意到有着两行出现
+
+```txt
+12:29:47.647126 02:42:ac:11:00:03 (oui Unknown) > Broadcast, ethertype ARP (0x0806), length 42: Ethernet (len 6), IPv4 (len 4), Request who-has _gateway tell 8d32dcd79d6c, length 28
+12:29:47.647154 02:42:6b:57:92:7d (oui Unknown) > 02:42:ac:11:00:03 (oui Unknown), ethertype ARP (0x0806), length 42: Ethernet (len 6), IPv4 (len 4), Reply _gateway is-at 02:42:6b:57:92:7d (oui Unknown), length 28
+```
+
+第一行的意思是mac为02:42:ac:11:00:03的主机发布了一个广播：谁知道\_gateway的mac地址，请告诉8d32dcd79d6c(docker 容器的host)
+
+第二行的意思是mac为02:42:6b:57:92:7d的主机向02:42:ac:11:00:03发送了单播：\_gateway的mac地址为02:42:6b:57:92:7d
+
+## 代理ARP
+
+> 代理ARP[RFC1027使一个系统(通常是一台专门配置的路由器)可回答不同主机的ARP请求。它使ARP请求的发送者认为做出响应的系统就是目的主机,但实际上目的主机可能在其他地方(或不存在)。ARP代理并不常见,通常应尽量避免使用它。
+
+## 免费ARP
+
+当一台主机启动的时候，他会发送一个ARP请求，寻找自己的地址，通常他不期待得到回答。
+
+这样做有两个好处：
+
+1. 确定网络中不存在另一台主机和自己的IP地址相同
+2. 如果主机已经改变了自己的MAC地址，这个ARP报文会让其他主机更新这台主机的MAC地址
+
+# 第五章：Internet协议
+
+
+
+## IP报文
+
+![image-2021-04-02 21.06.01.187](/images/image-2021-04-02-21.06.01.187.png)
+
+细节参考[这里](/QQTKJ0.html#IPv4)
+
+## IPv6头部
+
+![image-2021-04-02 21.07.00.677](/images/image-2021-04-02-21.07.00.677.png)
+
+下一个头部具体的情况
+
+
+
+![image-2021-04-02 21.11.29.802](/images/image-2021-04-02-21.11.29.802.png)
+
+
+
+这本书和我想象中的不太一样，先到这里了，不细看了
+
+
+
+
+
+
 
 
 
