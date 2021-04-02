@@ -8,7 +8,7 @@ typora-root-url: ..\..
 
 # 30天自制操作系统
 
-<img src="/images/image-20210106131017868.png" alt="image-20210106131017868" style="zoom: 33%;" />
+<img src="/images/image-2021-01-06-13.10.17.868.png" alt="image-20210106131017868" style="zoom: 33%;" />
 
 <!-- more -->
 
@@ -20,7 +20,7 @@ typora-root-url: ..\..
 
 [Bz162](https://github.com/YoungWilliamZ/30dayToMakeAnOS/tree/master/Day1)
 
-![image-20210106132504013](/images/image-20210106132504013.png)
+![image-2021-01-06-13.25.04.013](/images/image-2021-01-06-13.25.04.013.png)
 
 
 

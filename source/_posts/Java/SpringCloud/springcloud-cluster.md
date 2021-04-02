@@ -14,5 +14,5 @@ Spring Cloud Cluster提供了分布式系统中集群的特性，例如选主，
 
 以下是Spring Cloud Cluster 1.0.1的Spring Boot 自动装配流程，其中的zk模式主要用到了第三方框架[CuratorFramework](#CuratorFramework)
 
-![image-20201221142540901](/images/image-20201221142540901.png)
+![image-2020-12-21-14.25.40.901](/images/image-2020-12-21-14.25.40.901.png)
 

@@ -54,9 +54,9 @@ npm audit fix
 
 # 下载next主题
 [github下载地址](https://github.com/iissnan/hexo-theme-next/releases)
-![image-20200405143759000](/images/image-20200405143759000.png)
+![image-2020-04-05-14.37.59.000](/images/image-2020-04-05-14.37.59.000.png)
  下载完成以后得到了这个，我们把它放到主题文件夹下
-![image-20200405143800000](/images/image-20200405143800000.png)
+![image-2020-04-05-14.38.00.000](/images/image-2020-04-05-14.38.00.000.png)
 
 # 使用next主题
 &emsp 修改主配置文件_config.yml
@@ -678,7 +678,7 @@ busuanzi_count:
   post_views_icon: fa fa-eye
 ```
 
-![image-20210314153159462](/images/image-20210314153159462.png)
+![image-2021-03-14-15.31.59.462](/images/image-2021-03-14-15.31.59.462.png)
 
 
 
@@ -694,7 +694,7 @@ creative_commons:
   language: zh-CN
 ```
 
-![image-20210314153108100](/images/image-20210314153108100.png)
+![image-2021-03-14-15.31.08.100](/images/image-2021-03-14-15.31.08.100.png)
 
 
 
@@ -726,7 +726,7 @@ fancybox: true
 
 修改themes/next/layout/_macro/post.swig
 
-![image-20210314160247164](/images/image-20210314160247164.png)
+![image-2021-03-14-16.02.47.164](/images/image-2021-03-14-16.02.47.164.png)
 
 增加主题配置文件配置项
 
@@ -737,13 +737,13 @@ passage_end_tag:
 
 
 
-![image-20210314160407308](/images/image-20210314160407308.png)
+![image-2021-03-14-16.04.07.308](/images/image-2021-03-14-16.04.07.308.png)
 
 
 
 效果
 
-![image-20210314160604068](/images/image-20210314160604068.png)
+![image-2021-03-14-16.06.04.068](/images/image-2021-03-14-16.06.04.068.png)
 
 
 
@@ -845,13 +845,13 @@ function showButton() {//当前页数
 hot: /hot/ || fa fa-signal
 ```
 
-![image-20210314162656483](/images/image-20210314162656483.png)
+![image-2021-03-14-16.26.56.483](/images/image-2021-03-14-16.26.56.483.png)
 
 
 
 增加中文**hexo/theme/next/languages/zh-Cn.yml**
 
-![image-20210314162816972](/images/image-20210314162816972.png)
+![image-2021-03-14-16.28.16.972](/images/image-2021-03-14-16.28.16.972.png)
 
 
 
@@ -865,7 +865,7 @@ npm install hexo-renderer-marked
 
 
 
-![image-20210325143858129](/images/image-20210325143858129.png)
+![image-2021-03-25-14.38.58.129](/images/image-2021-03-25-14.38.58.129.png)
 
 
 
@@ -949,7 +949,7 @@ npm install @1v9/hexo-next-nightmode
 
 
 
-![image-20210325144012441](/images/image-20210325144012441.png)
+![image-2021-03-25-14.40.12.441](/images/image-2021-03-25-14.40.12.441.png)
 
 
 

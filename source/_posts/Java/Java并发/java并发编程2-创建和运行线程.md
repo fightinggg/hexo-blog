@@ -110,7 +110,7 @@ public class ThreadTest {
  可以查看java程序的pid
  jstack &lt;pid&gt; 查看某个java进程的所有线程状态,非动态
  jconsole可以查看java进程中线程的图形界面
-![image-20200410125127000](/images/image-20200410125127000.png)
+![image-2020-04-10-12.51.27.000](/images/image-2020-04-10-12.51.27.000.png)
  他还可以远程连接，注意需要在运行java程序的时候要加入一些参数，而且注意关闭防火墙
 
 

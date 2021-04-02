@@ -147,7 +147,7 @@ cd ..
 
 [插件地址](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm/related)
 
-![image-20201217093657333](/images/image-20201217093657333.png)
+![image-2020-12-17-09.36.57.333](/images/image-2020-12-17-09.36.57.333.png)
 
 ### Shell 连接
 

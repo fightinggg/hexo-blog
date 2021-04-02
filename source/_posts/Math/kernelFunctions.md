@@ -10,7 +10,7 @@ typora-root-url: ..\..
 
 ### why kernel functions
 某些在低维空间无法使用超平面分割的点集，他们被某些函数映射到高维空间以后，能够被超平面分割。并且在高维空间中计算他们的内积很容易(就是核函数)
-![image-20191213164933000](/images/image-20191213164933000.png)
+![image-2019-12-13-16.49.33.000](/images/image-2019-12-13-16.49.33.000.png)
 
 ### 应用
 >Simple Example: x = (x1, x2, x3); y = (y1, y2, y3). Then for the function f(x) = (x1x1, x1x2, x1x3, x2x1, x2x2, x2x3, x3x1, x3x2, x3x3), the kernel is K(x, y ) = (&lt;x, y&gt;)².

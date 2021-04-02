@@ -1,0 +1,209 @@
+---
+typora-root-url: ../../../source
+---
+
+
+
+
+
+OJ
+
+
+
+# 功能： 
+
+1 注册账号 
+
+2 出题
+
+3 看题
+
+4 交题
+
+
+
+# 拓展功能（创新）
+
+1 从其他OJ拉题 
+
+2 向其他OJ交题 
+
+3 集成本地IDE交题 
+
+
+
+
+
+# 数据库：
+
+
+
+![](/images/polinoj.png)
+
+用户表：
+
+用户id
+
+用户名称
+
+用户密码sha
+
+用户盐
+
+用户过题数量
+
+用户交题数量
+
+```sql
+
+create table polinoj.user
+(
+    user_id           int auto_increment
+        primary key,
+    user_name         varchar(32)  not null,
+    user_password_sha varchar(256) not null,
+    user_slat         varchar(256) not null,
+    user_ac_count     int          not null,
+    user_submit_count int          not null,
+    create_time       datetime     null,
+    create_user       int          null,
+    modify_time       datetime     null,
+    modify_user       int          null,
+    valid             tinyint(1)   null,
+    constraint user_user_name_uindex
+        unique (user_name)
+);
+```
+
+
+
+
+
+题目表：
+
+题目id
+
+出题人id
+
+题目源OJ
+
+题目源链接
+
+题目名称
+
+题目描述<MD对象>
+
+题目备注<MD对象>
+
+题目内存限制
+
+题目时间限制
+
+题目输入1<MD对象>
+
+题目输出1<MD对象>
+
+题目输入2<MD对象>
+
+题目输出2<MD对象>
+
+题目过题数量
+
+题目交题数量
+
+```sql
+create table polinoj.problem
+(
+    problem_id           int auto_increment
+        primary key,
+    problem_owner_id     int          not null,
+    problem_source_type  varchar(32)  null,
+    problem_source_uri   varchar(256) null,
+    problem_name         varchar(32)  null,
+    problem_describe     text         null,
+    problem_comment      text         null,
+    problem_time_limit   int          null,
+    problem_memery_limit int          null,
+    problem_input_one    text         null,
+    problem_output_one   text         null,
+    problem_input_two    text         null,
+    problem_output_two   text         null,
+    problem_ac_count     int          null,
+    problem_submit_count int          null,
+    create_time          datetime     null,
+    create_user          int          null,
+    modify_time          datetime     null,
+    modify_user          int          null,
+    valid                tinyint(1)   null,
+    constraint problem_problem_owner_id_uindex
+        unique (problem_owner_id),
+    constraint problem_user_user_id_fk
+        foreign key (problem_owner_id) references polinoj.user (user_id)
+);
+```
+
+
+
+
+
+题目-输入输出表：
+
+id
+
+题目id
+
+输入<MD对象>
+
+输出<MD对象>
+
+```mysql
+create table polinoj.input_output
+(
+    io_id       int auto_increment
+        primary key,
+    problem_id  int        null,
+    input       text       null,
+    output      text       null,
+    create_time datetime   null,
+    create_user int        null,
+    modify_time datetime   null,
+    modify_user int        null,
+    valid       tinyint(1) null,
+    constraint input_output_problem_problem_id_fk
+        foreign key (problem_id) references polinoj.problem (problem_id)
+);
+
+
+```
+
+
+
+用户提交记录表：
+
+id
+
+用户id
+
+题目id
+
+代码<MD对象>
+
+代码结果
+
+```mysql
+create table polinoj.submit_history
+(
+    submit_id     int auto_increment
+        primary key,
+    user_id       int                                                null,
+    problem_id    int                                                null,
+    submit_code   text                                               null,
+    submit_result enum ('ac', 'wa', 'tle', 'mle', 'ce', 're', 'ole') null,
+    create_time   datetime                                           null,
+    create_user   int                                                null,
+    modify_time   datetime                                           null,
+    modify_user   int                                                null,
+    valid         tinyint(1)                                         null
+);
+```
+

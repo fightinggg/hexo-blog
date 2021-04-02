@@ -264,15 +264,15 @@ https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSys
 
 #### HDFS读写文件
 
-![image-20201215142156156](/images/image-20201215142156156.png)
+![image-2020-12-15-14.21.56.156](/images/image-2020-12-15-14.21.56.156.png)
 
-![image-20201215142242967](/images/image-20201215142242967.png)
+![image-2020-12-15-14.22.42.967](/images/image-2020-12-15-14.22.42.967.png)
 
 #### NameNode工作机制
 
 NameNode将内存数据持久化到磁盘中，分为fsimage和edits两个文件，fsimage是老的内存镜像，edits是追加格式的日志，表示着内存的变化情况，随着NameNode工作，edits会越来越大，这时候SecondaryNameNode会协助NameNode将edits与fsimage合并为新的fsimage。 注意下图紫色部分的流程即可
 
-![image-20201215143055795](/images/image-20201215143055795.png)
+![image-2020-12-15-14.30.55.795](/images/image-2020-12-15-14.30.55.795.png)
 
 #### 集群安全模式
 
@@ -291,7 +291,7 @@ NameNode将内存数据持久化到磁盘中，分为fsimage和edits两个文件
 
 #### DataNode工作机制
 
-![image-20201216093831785](/images/image-20201216093831785.png)
+![image-2020-12-16-09.38.31.785](/images/image-2020-12-16-09.38.31.785.png)
 
 超时时间是2 \* dfs.namenode.heartbeat.recheck-interval + 10 \* dfs.hertbeat.interval
 
@@ -332,7 +332,7 @@ InputFormat是执行MapReduce的第一步，他主要用于在从HDFS文件系�
 
 
 
-![image-20201216095559712](/images/image-20201216095559712.png)
+![image-2020-12-16-09.55.59.712](/images/image-2020-12-16-09.55.59.712.png)
 
 ##### Partition
 
@@ -378,7 +378,7 @@ job.setCombinerClass(IntSumReducer.class);
 
 ##### Reduce
 
-![image-20201216132901786](/images/image-20201216132901786.png)
+![image-2020-12-16-13.29.01.786](/images/image-2020-12-16-13.29.01.786.png)
 
 
 
@@ -437,7 +437,7 @@ IO: 数据倾斜，小文件多，不可分块的超大文件多，spill次数�
 
 #### 流程
 
-![image-20201216134336961](/images/image-20201216134336961.png)
+![image-2020-12-16-13.43.36.961](/images/image-2020-12-16-13.43.36.961.png)
 
 #### 调度器
 

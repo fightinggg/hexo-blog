@@ -9,7 +9,7 @@ typora-root-url: ..\..
 ## Spring Boot Starter Webflux
 
 
-![spring-webflux-starter-自动装配](images/spring-webflux-starter-自动装配.svg)
+![spring-webflux-starter-自动装配](/images/spring-webflux-starter-自动装配.svg)
 
 <!-- more -->
 ### Spring Webflux 5.3.2
