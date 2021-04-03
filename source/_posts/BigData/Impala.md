@@ -47,7 +47,7 @@ impala提供对HDFS、Hbase数据的高性能、低延迟的交互式SQL查询�
 
 Impala集群有三个重要的组件，他们分别是Impala Daemon, Impala Statestore和Impala Metastore
 
-![image-2020-11-26-14.16.24.051](/images/image-2020-11-26-14.16.24.051.png)
+![](/images/image-2020-11-26-14.16.24.051.png)
 
 #### Impala Daemon
 

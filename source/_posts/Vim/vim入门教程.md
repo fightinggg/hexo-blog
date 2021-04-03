@@ -8,7 +8,7 @@ typora-root-url: ..\..
 # vim
  vim是一款强大的文本编辑器,如果配置到位，真的真的非常漂亮，如下图violet主题的浅色和深色
 
-![img](/images/violet_light.png) 
+![](/images/violet_light.png) 
 
 <!---more-->
 ![](/images/violet_dark.png)

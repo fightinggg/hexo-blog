@@ -27,7 +27,7 @@ docker run --restart=always \
 
 当我们使用docker创建了mysql服务以后，一般无法在宿主机对其进行连接，现象如下
 
-![image-2021-03-15-12.54.00.159](/images/image-2021-03-15-12.54.00.159.png)
+![](/images/image-2021-03-15-12.54.00.159.png)
 
 原因是mysql连接如果不指定IP，则会使用/var/lib/mysql/mysql.sock进行连接，这时我们只需要指定ip即可
 

@@ -42,7 +42,7 @@ Kafka利用Zookeeper来管理配置
 0.9后是Kafka自己储存在某个主题中(减少了消费者和zk的连接)
 
 **[我偷了个图](https://www.bilibili.com/video/BV1a4411B7V9?p=5)**
-![image-2020-04-19-13.32.51.000](/images/image-2020-04-19-13.32.51.000.png)
+![](/images/image-2020-04-19-13.32.51.000.png)
 
 # Kafka入门
 ## Kafka部署

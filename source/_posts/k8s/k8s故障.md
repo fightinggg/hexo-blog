@@ -8,7 +8,7 @@ typora-root-url: ../..
 
 # 很多POD处于evicted状态
 
-![image-2021-03-15-14.38.51.446](/images/image-2021-03-15-14.38.51.446.png)
+![](/images/image-2021-03-15-14.38.51.446.png)
 
 ```sh
 #!/bin/bash

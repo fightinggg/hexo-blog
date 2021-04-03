@@ -33,11 +33,11 @@ Address Resolution Protocol， 地址解析协议，实现IP地址到MAC地址�
 
 ARP报文
 
-![image-2021-03-29-20.00.00.000](/images/image-2021-03-29-20.00.00.000.png)
+![](/images/image-2021-03-29-20.00.00.000.png)
 
 IP报文
 
-![image-2021-03-29-20.11.46.000](/images/image-2021-03-29-20.11.46.000.png)
+![](/images/image-2021-03-29-20.11.46.000.png)
 
 > 以ARP协议为例，它的功能最终是获取到MAC信息，服务于链路层，从这点考虑，ARP是链路层协议；但是从层次来看，ARP基于Ethernet协议，IP协议基于Ethernet协议，它们在Ethernet协议里面有独立的Type类型，前者是0x0806，后者是0x0800，既然ARP和IP协议"平起平坐"，那么IP是网络层，ARP难道就不是网络层？
 
