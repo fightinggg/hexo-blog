@@ -13,9 +13,9 @@
     <!--    =\frac{1}{2^m}\sum_{i=0}^{n}\sum_{s\subseteq S} (-1)^{|s|}{(-1)^{popcount(x\&( \bigotimes_{a \in S}{a}))}}-->
 
 
-    <img src="img/2019牛客D题目.png" style="width:100%;"><br>
+    <img src="/ACM/img/2019牛客D题目.png" style="width:100%;"><br>
     简单化简一下要我们求的东西<br>
-    <img src="img/2019牛客D.png" style="width:50%;"><br>
+    <img src="/ACM/img/2019牛客D.png" style="width:50%;"><br>
     其实这个就是异或卷积fwt的定义，把前两个求和合成一个求和，用-1的|S|次方构造原数列，跑一次fwt就是答案
 
     <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>

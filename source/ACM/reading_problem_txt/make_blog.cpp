@@ -134,8 +134,6 @@ struct blog{
 
 vector<blog>myblog;
 
-
-
 void get_index1(){
     set<string> se;
     for (vector<blog>::iterator it = myblog.begin(); it != myblog.end(); ++it){
@@ -169,10 +167,6 @@ void get_index1(){
     out<<"<script type=\"text/javascript\" src=\"/ACM/js/web_end.js\"></script>"<<endl;
     out<<"</html>"<<endl;
 }
-
-
-
-
 
 
 void get_index2(){

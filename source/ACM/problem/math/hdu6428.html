@@ -55,7 +55,7 @@
         <!--\\=\sum_{d=1}^{n}(u*\phi)(d)\sum_{I=1}^{A}\sum_{j=1}^{B}\sum_{k=1}^{C}[d|I][d|j^2][d|k^3]-->
         <!--\\=\sum_{d=1}^{n}(u*\phi)(d)(\sum_{I=1}^{A}[d|I])(\sum_{j=1}^{B}[d|j^2])(\sum_{k=1}^{C}[d|k^3])-->
         先简单化简一下<br>
-        <img src="img/hdu6428-1.png" style="width: 50%;"><br>
+        <img src="/ACM/img/hdu6428-1.png" style="width: 50%;"><br>
 
         <!--\\ If\ n=\prod p_i^{x^I}-->
         <!--\\ We\ define\ f(n,k)\ =\ \prod p_i^{\left \lceil \frac{x^i}{k}\right \rceil}-->
@@ -63,11 +63,11 @@
         <!--\\ then\ \sum_{x=1}^{N}{[d|x^y]}=\sum_{x=1}^{N}{[f(d,y)|x]}=\left \lfloor \frac{N}{f(d,y)}\right \rfloor-->
 
         观察发现<br>
-        <img src="img/hdu6428-2.png" style="width: 50%;"><br>
+        <img src="/ACM/img/hdu6428-2.png" style="width: 50%;"><br>
 
         代回去<br>
         <!--\\=\sum_{d=1}^{n}(u*\phi)(d) \left \lfloor \frac{A}{f(d,1)}\right \rfloor\left \lfloor \frac{B}{f(d,2)}\right \rfloor\left \lfloor \frac{C}{f(d,3)}\right \rfloor-->
-        <img src="img/hdu6428-3.png" style="width: 50%;"><br>
+        <img src="/ACM/img/hdu6428-3.png" style="width: 50%;"><br>
 
         这些都是积性函数，直接筛就行了
 
