@@ -3,7 +3,7 @@ bzoj3923
 ####
 bzoj 主席树 2019.4.30
 ####
-https://www.lydsy.com/JudgeOnline/problem.php?id=3932
+https://acm.taifua.com/bzoj/p/3932.html
 ####
 给你很n个时间段以及这一段的权值（n<1e5），m个询问（m<1e5）询问任意时间点上，前k小的权值的和
 ####

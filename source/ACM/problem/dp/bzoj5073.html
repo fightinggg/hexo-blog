@@ -2,53 +2,52 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <script type="text/javascript" src="/ACM/js/link.js"></script>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="/ACM/js/link.js"></script>
 
-    <title>bzoj5073</title>
+        <title>bzoj5073</title>
 </head>
 <script type="text/javascript" src="/ACM/js/web_begin.js"></script>
 <div>
-    <h1>
-        <center><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=5073" target="_blank">bzoj5073</a></center>
-    </h1>
+        <h1>
+                <center><a href="https://acm.taifua.com/bzoj/p/5073.html" target="_blank">bzoj5073</a></center>
+        </h1>
 
-    <div id="text">
-        题目大意 :<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给你两个串s,t和一个数k，询问是否存在s个k个不重叠子串按原顺序排列后能匹配
-        t,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|s|<1e5,|t|<1e5,k<100,时间30s
-    </div>
+        <div id="text">
+                题目大意 :<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给你两个串s,t和一个数k，询问是否存在s个k个不重叠子串按原顺序排列后能匹配
+                t,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|s|<1e5,|t|<1e5,k<100,时间30s </div>
 
-    <script type="text/javascript" src="/ACM/js/solve_begin.js"></script>
-    <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设状态dp1[i][j]代表串s从s[1]匹配到s[i]的时候选择了k个不重叠子串后，能够匹配到t串到最远位置。设状态dp2[i][j]代表代表串s从s[1]匹配到s[i]的时候选择了k个不重叠子串且最后一个子串以s[i]结尾后，能够匹配到t串到最远位置,
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分析此状态，显然根据定义dp1[i][j]=max(dp2[t][j]) （t<=i
-        ），于是简单的写出了转移式子：dp1[i][j]=max(dp1[i-1][j],dp2[i][j]);复杂的是dp2[i][j]不好得到，根据定义，dp2[i][j]一定会选择s[i]作为结尾的，
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在分两类来讨论：
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.s[i]单独为一个子串,那么可以由dp1[i-1][j-1]转移过来，
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.s[i]可能不单独为一个子串,是跟前面的某串拼在一起的，那么可以由dp2[i-1][j]转移过来。
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;知道了转移来源，但是状态转移过来了，值要怎么更新呢？处理不好的话，更新是个麻烦事，这里我们预处理出t串里面从t[1]到t[i]中字符ch最后一次出现的位置，成为max_index_before[i][ch]
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;于是我们就有了转移式：
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp2[i][j]=max(
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_index_before[dp1[i-1][j-1]+1][s[i]],
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_index_before[dp2[i-1][j]+1][s[i]]
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后处理一下边界情况，把输入进来的s变成”@&”+s,把t变成”@”+t,k增大1，边界就简单了。最终答案在dp1[n][k]中。
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间复杂度O（nk）
+                        <script type="text/javascript" src="/ACM/js/solve_begin.js"></script>
+                        <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设状态dp1[i][j]代表串s从s[1]匹配到s[i]的时候选择了k个不重叠子串后，能够匹配到t串到最远位置。设状态dp2[i][j]代表代表串s从s[1]匹配到s[i]的时候选择了k个不重叠子串且最后一个子串以s[i]结尾后，能够匹配到t串到最远位置,
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分析此状态，显然根据定义dp1[i][j]=max(dp2[t][j])
+                                （t<=i ），于是简单的写出了转移式子：dp1[i][j]=max(dp1[i-1][j],dp2[i][j]);复杂的是dp2[i][j]不好得到，根据定义，dp2[i][j]一定会选择s[i]作为结尾的，
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在分两类来讨论：
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.s[i]单独为一个子串,那么可以由dp1[i-1][j-1]转移过来，
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.s[i]可能不单独为一个子串,是跟前面的某串拼在一起的，那么可以由dp2[i-1][j]转移过来。
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;知道了转移来源，但是状态转移过来了，值要怎么更新呢？处理不好的话，更新是个麻烦事，这里我们预处理出t串里面从t[1]到t[i]中字符ch最后一次出现的位置，成为max_index_before[i][ch]
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;于是我们就有了转移式：
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp2[i][j]=max(
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_index_before[dp1[i-1][j-1]+1][s[i]],
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_index_before[dp2[i-1][j]+1][s[i]]
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后处理一下边界情况，把输入进来的s变成”@&”+s,把t变成”@”+t,k增大1，边界就简单了。最终答案在dp1[n][k]中。
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间复杂度O（nk）
 
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;做完了之后翻了下题解，没有人用我这方法做这个题目。。。。。。
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正解如下：
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;考虑dp[i][j]就是我上文所谈到的dp1[i][j]，他没有dp2[i][j]，所以不能像我那样转移了。用到了“我为人人”的转移思路，dp[i][j]如果转移走的时候花费一次取子串，就能够转移到dp[i+len][j+1]，其中len代表lcp(s.suffix(i+1),t.suffix(dp[i][j]+1)),这个地方的lcp可以用后缀数组+rmq预处理优化为O(1)，如果不花费就转移到了dp[i+1][j]。总体上时间复杂度为O（nlogn+nk），时间复杂度较前一个做法偏高，代码也很长。
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;做完了之后翻了下题解，没有人用我这方法做这个题目。。。。。。
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正解如下：
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;考虑dp[i][j]就是我上文所谈到的dp1[i][j]，他没有dp2[i][j]，所以不能像我那样转移了。用到了“我为人人”的转移思路，dp[i][j]如果转移走的时候花费一次取子串，就能够转移到dp[i+len][j+1]，其中len代表lcp(s.suffix(i+1),t.suffix(dp[i][j]+1)),这个地方的lcp可以用后缀数组+rmq预处理优化为O(1)，如果不花费就转移到了dp[i+1][j]。总体上时间复杂度为O（nlogn+nk），时间复杂度较前一个做法偏高，代码也很长。
 
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事实也是如此
-    </div>
-    <script type="text/javascript" src="/ACM/js/solve_end.js"></script>
+                                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事实也是如此
+                        </div>
+                        <script type="text/javascript" src="/ACM/js/solve_end.js"></script>
 
 
-    <script type="text/javascript" src="/ACM/js/code_begin.js"></script>
-    <div>
-        <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
+                        <script type="text/javascript" src="/ACM/js/code_begin.js"></script>
+                        <div>
+                                <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="k">const</span> <span class="kt">int</span> <span class="n">MAXN</span><span class="o">=</span><span
@@ -187,13 +186,13 @@
 <span class="p">}</span>
 </pre>
 
-    </div>
-    <script type="text/javascript" src="/ACM/js/code_end.js"></script>
+                        </div>
+                        <script type="text/javascript" src="/ACM/js/code_end.js"></script>
 
 
-    <script type="text/javascript" src="/ACM/js/code_begin.js"></script>
-    <div>
-        <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
+                        <script type="text/javascript" src="/ACM/js/code_begin.js"></script>
+                        <div>
+                                <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="c1">//定义以s[i]开头的后缀是suf(i)</span>
@@ -562,11 +561,11 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </pre>
-    </div>
-    <script type="text/javascript" src="/ACM/js/code_end.js"></script>
+                        </div>
+                        <script type="text/javascript" src="/ACM/js/code_end.js"></script>
 
 
-</div>
-<script type="text/javascript" src="/ACM/js/web_end.js"></script>
+        </div>
+        <script type="text/javascript" src="/ACM/js/web_end.js"></script>
+
 </html>
-

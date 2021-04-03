@@ -3,7 +3,7 @@ bzoj4827
 ####
 bzoj fft 2019.4.30
 ####
-https://www.lydsy.com/JudgeOnline/problem.php?id=4827
+https://acm.taifua.com/bzoj/p/4827.html
 ####
 给两个长度为n的首尾相连的序列a,b,你可以旋转他们，可以让整个序列加上一个定值，最后要最小化sigma((ai-bi)^2)
 n<5e4,

@@ -3,7 +3,7 @@ bzoj3123
 ####
 bzoj 主席树 2019.4.30
 ####
-https://www.lydsy.com/JudgeOnline/problem.php?id=3123
+https://acm.taifua.com/bzoj/p/3123.html
 ####
 1.求森林任意路径第k大，2.森林合并，森林点个数1e5
 ####
