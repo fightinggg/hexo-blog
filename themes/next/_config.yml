@@ -188,6 +188,7 @@ social:
   镜像站1(最稳): https://fightinggg.github.io || fas fa-blog
   镜像站2: https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
   镜像站3: https://fightinggg.gitee.io || fas fa-blog
+  镜像站4: https://eaw3p1.coding-pages.com || fas fa-blog
   # E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -410,7 +411,7 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: true
+  enable: false
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host: //fonts.loli.net
@@ -423,7 +424,7 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Lato
+    family: 
     size:
 
   # Font settings for site title (.site-title).
