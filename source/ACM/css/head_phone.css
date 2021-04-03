@@ -1,0 +1,111 @@
+
+body {
+    background-color: #d5e9ef;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    color: black;
+    font-size: 25px;
+}
+
+
+#myweb {
+    width: 1000px;
+    margin: auto;
+    z-index: 1;
+    filter: alpha(Opacity=95);
+    -moz-opacity: 0.95;
+    opacity: 0.95;
+}
+
+#up {
+    background: white;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 3px black double;
+
+}
+
+#up a {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+
+#left {
+    width: 100%;
+    background-color:white;
+    margin-bottom: 20px;
+}
+
+
+#left_in {
+    background-color: white;
+    width: 980px;
+    padding: 10px  10px  10px  10px;
+    margin-bottom: 20px;
+}
+
+#text {
+    margin-bottom: 30px;
+}
+
+#index {
+    background-color: white;
+    border: 1px black dotted;
+    height: 100px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#index a {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+
+}
+
+#index a:hover {
+    color: #555;
+}
+
+
+#right {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: scroll;
+}
+
+#right_in {
+    background-color: white;
+    border: 1px black dotted;
+    width: 158px;
+    height: 450px;
+    float: right;
+    padding: 0px 10px 0px 10px;
+    margin:0px 10px 0px 10px;
+    overflow: scroll;
+}
+
+#right_in a {
+    color: black;
+    text-decoration: none;
+}
+
+#right_in a:hover {
+    color: #555;
+}
+
+
+#down{
+    width:1000px;
+    margin-bottom: 2000px;
+    background-color: white;
+    float: left;
+}

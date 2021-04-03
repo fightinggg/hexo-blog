@@ -1,4 +1,4 @@
-转移自<a href='https://fightinggg.github.io/ACM/stencil/graph_theory/网络流24题.html'>老blog</a>
+转移自<a href='/ACM/stencil/graph_theory/网络流24题.html'>老blog</a>
 
 <div id="myweb">
 
@@ -8,7 +8,9 @@
 
     <div id="left">
         <div id="left_in">
-            <center><h1>网络流24题</h1></center>
+            <center>
+                <h1>网络流24题</h1>
+            </center>
             <div id="text"></div>
             <div id="code">
 
@@ -59,113 +61,112 @@
                 </div>
                 </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 依旧是是一个最小路径覆盖的问题，我们考虑把球当作点，把盒子当成路径，那么
-                很明显，连边方式就是i->j当且仅当i<=n且j<=n且i+j=k^2.
-                </br>但是这样子做我们只能解决这样一个问题:
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                给你从1到n的n个球我们可以找到最少的盒子来装球。
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                仔细分析发现题目给的问题可以二分处理，我们二分来判断n个盒子能不能装到k个球
-                就可以了。
-                </br>
-                </br>
+                很明显，连边方式就是i->j当且仅当i<=n且j<=n且i+j=k^2. </br>但是这样子做我们只能解决这样一个问题:
+                    </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    给你从1到n的n个球我们可以找到最少的盒子来装球。
+                    </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    仔细分析发现题目给的问题可以二分处理，我们二分来判断n个盒子能不能装到k个球
+                    就可以了。
+                    </br>
+                    </br>
 
 
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/show/P3254" target="_blank">第五题： P3254 圆桌问题</a>
-                </div>
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                给m组人，每个人要分到不同的桌子上，每个桌子可以一定
-                量的人，组内的人不能坐在一个桌子上， 网络流问题，s连到
-                组，流量组内人数，桌子连到t，流量为可以坐下的人数，组与
-                桌子自由组合， 流量为1。
-                </br>
-                </br>
+                    <div class="normal_href">
+                        <a href="https://www.luogu.org/problemnew/show/P3254" target="_blank">第五题： P3254 圆桌问题</a>
+                    </div>
+                    </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    给m组人，每个人要分到不同的桌子上，每个桌子可以一定
+                    量的人，组内的人不能坐在一个桌子上， 网络流问题，s连到
+                    组，流量组内人数，桌子连到t，流量为可以坐下的人数，组与
+                    桌子自由组合， 流量为1。
+                    </br>
+                    </br>
 
 
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/show/P2766" target="_blank">第六题： P2766 最长不下降子序列问题</a>
-                </div>
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                让你求一个数列的最长不下降子序列的长度k，然后求这个序列最多可以
-                分出多少个这样的子序列，再求如果可以多次使用第一个元素和最后一个元素
-                可以分出多少个这样的子序列，
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                我们考虑到每个元素dp的值（dp[i]表示以i结尾的最长不下降子序列的长度），并以
-                次最为标准，给所有点分ans1层，并给所有第一层的点连s，所有最后一层的点连t，
-                如果i&ltj且a[i]<=a[j]我们就连一条边i-&gtj，如此如果每当从s流到t,就是一个字串,考虑到
-                一个点只能用一次,拆点限流就可以了。
-                </br>
-                </br>
+                    <div class="normal_href">
+                        <a href="https://www.luogu.org/problemnew/show/P2766" target="_blank">第六题： P2766 最长不下降子序列问题</a>
+                    </div>
+                    </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    让你求一个数列的最长不下降子序列的长度k，然后求这个序列最多可以
+                    分出多少个这样的子序列，再求如果可以多次使用第一个元素和最后一个元素
+                    可以分出多少个这样的子序列，
+                    </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    我们考虑到每个元素dp的值（dp[i]表示以i结尾的最长不下降子序列的长度），并以
+                    次最为标准，给所有点分ans1层，并给所有第一层的点连s，所有最后一层的点连t，
+                    如果i&ltj且a[i]<=a[j]我们就连一条边i-&gtj，如此如果每当从s流到t,就是一个字串,考虑到 一个点只能用一次,拆点限流就可以了。 </br>
+                        </br>
 
 
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/show/P2763" target="_blank">第七题： P2763 试题库问题</a>
-                </div>
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                给你一个试题库，告诉你每个题目的类型（一个题目可能属于多种类型），让你
-                用这些题为每个类型组一套题（告诉了你每套题包含的题数），每道题只能用一次，
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                类型在左，题目在右，s连类型，流量为该套题的题数，类型连题目流量1，题目连
-                t流量1，如果最大流不够要求的题目数量，说明无法组成套题。
-                </br>
-                </br>
+                        <div class="normal_href">
+                            <a href="https://www.luogu.org/problemnew/show/P2763" target="_blank">第七题： P2763 试题库问题</a>
+                        </div>
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        给你一个试题库，告诉你每个题目的类型（一个题目可能属于多种类型），让你
+                        用这些题为每个类型组一套题（告诉了你每套题包含的题数），每道题只能用一次，
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        类型在左，题目在右，s连类型，流量为该套题的题数，类型连题目流量1，题目连
+                        t流量1，如果最大流不够要求的题目数量，说明无法组成套题。
+                        </br>
+                        </br>
 
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/show/P2775" target="_blank">第八题： P2775 机器人路径规划问题</a>
-                </div>
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                什么怪东西，明明是深搜题
-                </br>
-                </br>
-
-
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/show/P2774" target="_blank">第九题： P2774 方格取数</a>
-                </div>
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                给你一个矩阵，每个元素一个权值，相邻的元素不能够同时取走，
-                问你最多可以取走多少权。
-                对于格子我们令k=行数加列数，对于所有的k&1==1内部，无边，
-                对于所有的k&1==0内部，无边。于是取走元素就成了：
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                拿走点，使得这些点覆盖所有边，于是剩下的点就是独立的了，
-                没有边互相连。就是我们要的答案，所以就成了
-                <a href="http://fightinggg.github.io/ACM/stencil/graph_theory/最小顶点覆盖二分图.html">
-                    最小点覆盖二分图</a>
+                        <div class="normal_href">
+                            <a href="https://www.luogu.org/problemnew/show/P2775" target="_blank">第八题： P2775
+                                机器人路径规划问题</a>
+                        </div>
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        什么怪东西，明明是深搜题
+                        </br>
+                        </br>
 
 
-                </br>
-                </br>
+                        <div class="normal_href">
+                            <a href="https://www.luogu.org/problemnew/show/P2774" target="_blank">第九题： P2774 方格取数</a>
+                        </div>
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        给你一个矩阵，每个元素一个权值，相邻的元素不能够同时取走，
+                        问你最多可以取走多少权。
+                        对于格子我们令k=行数加列数，对于所有的k&1==1内部，无边，
+                        对于所有的k&1==0内部，无边。于是取走元素就成了：
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        拿走点，使得这些点覆盖所有边，于是剩下的点就是独立的了，
+                        没有边互相连。就是我们要的答案，所以就成了
+                        <a href="/ACM/stencil/graph_theory/最小顶点覆盖二分图.html">
+                            最小点覆盖二分图</a>
 
 
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/show/P1251" target="_blank">第十题： P1251 餐巾纸计划</a>
-                </div>
+                        </br>
+                        </br>
 
 
-                <div>
-                    此处不方便证明，详情见：
-                    <a href="http://fightinggg.github.io/ACM/stencil/graph_theory/二分图最小费用固定流.html">
-                        建图与证明</a>
-                </div>
-                </br>
+                        <div class="normal_href">
+                            <a href="https://www.luogu.org/problemnew/show/P1251" target="_blank">第十题： P1251 餐巾纸计划</a>
+                        </div>
 
 
-                <div class="normal_href">
-                    <a href="https://www.luogu.org/problemnew/solution/P2770" target="_blank">
-                        第十一题： P2770 航空路线问题
-                    </a></div>
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                给你一个城市数组，这些城市从左往右分别对应从东到西，
-                要求你从最西边的城市出发，到达最东边的城市，在从最东边的城市出发，到达最西边的城市
-                除了最西边和最东边的城市以外，其他城市只能经过一次
-                让你求最多经过多少城市，
-                </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                考虑最大流，s连最西边的城市，最东边的的城市连t，容量2，对于他给的边只连从东到西的边，
-                对于一个城市只经过一次考虑拆点限流即可。
+                        <div>
+                            此处不方便证明，详情见：
+                            <a href="/ACM/stencil/graph_theory/二分图最小费用固定流.html">
+                                建图与证明</a>
+                        </div>
+                        </br>
 
 
-                </br></br></br></br></br></br></br></br>
+                        <div class="normal_href">
+                            <a href="https://www.luogu.org/problemnew/solution/P2770" target="_blank">
+                                第十一题： P2770 航空路线问题
+                            </a>
+                        </div>
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        给你一个城市数组，这些城市从左往右分别对应从东到西，
+                        要求你从最西边的城市出发，到达最东边的城市，在从最东边的城市出发，到达最西边的城市
+                        除了最西边和最东边的城市以外，其他城市只能经过一次
+                        让你求最多经过多少城市，
+                        </br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        考虑最大流，s连最西边的城市，最东边的的城市连t，容量2，对于他给的边只连从东到西的边，
+                        对于一个城市只经过一次考虑拆点限流即可。
+
+
+                        </br></br></br></br></br></br></br></br>
             </div>
 
         </div>

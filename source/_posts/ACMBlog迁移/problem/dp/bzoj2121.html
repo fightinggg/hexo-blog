@@ -1,4 +1,4 @@
-转移自<a href='https://fightinggg.github.io/ACM/problem/dp/bzoj2121.html'>老blog</a>
+转移自<a href='/ACM/problem/dp/bzoj2121.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
@@ -22,17 +22,21 @@
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置dp[i][j][k][t]代表L串的闭区间i到j，能否删除到匹配第k个串到前t个字符。
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 转移的时候，
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 若匹配成功时，考虑第j位，若还在，且有L[j]==S[k][t],则可以由dp[i][j-1][k][t-1]转移过来
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 若此为不在，肯定是消完了，则考虑枚举ij中间的d，若存在一个k’,若dp[d][j][k’][len[k’]]==true
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (len[k’]代表k’串的长度），说明存在某方法消掉区间d..j 于是dp[i][j][k][t]可以由dp[i][d-1][k][t]转移过来。
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        若此为不在，肯定是消完了，则考虑枚举ij中间的d，若存在一个k’,若dp[d][j][k’][len[k’]]==true
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (len[k’]代表k’串的长度），说明存在某方法消掉区间d..j
+        于是dp[i][j][k][t]可以由dp[i][d-1][k][t]转移过来。
 
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 综合：转移依赖于dp[i][j-1][k][t-1]、dp[d][j][k’][len[k’]]、dp[i][d-1][k][t]
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        综合：转移依赖于dp[i][j-1][k][t-1]、dp[d][j][k’][len[k’]]、dp[i][d-1][k][t]
 
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 仔细观察，区间长度是关键，这些区间长度都比区间ij小，我们只需要从小到大枚举区间长度，即可成功转移，
 
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 时间复杂度(151*151*31*21) *(151*31)
 
 
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这里转移过程时间复杂度太大了，也不利于转移，我们紧接着发现一个可以优化的地方，dp[d][j][k’][len[k’]]这里的枚举k’是可以优化的，它的本质是看看能否消掉区间d..j，我们用另外一个数组crm[][]来记录一下即可，
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        这里转移过程时间复杂度太大了，也不利于转移，我们紧接着发现一个可以优化的地方，dp[d][j][k’][len[k’]]这里的枚举k’是可以优化的，它的本质是看看能否消掉区间d..j，我们用另外一个数组crm[][]来记录一下即可，
 
         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 于是时间复杂度(151*151*31*21) *31
 

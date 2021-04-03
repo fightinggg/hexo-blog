@@ -184,7 +184,7 @@ social:
   # 简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
   # 知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-zhihu
   主站: http://www.fightinggg.top || fas fa-blog
-  老BLOG: https://fightinggg.github.io/ACM || far fa-lightbulb
+  老BLOG: /ACM || far fa-lightbulb
   镜像站1(最稳): https://fightinggg.github.io || fas fa-blog
   镜像站2: https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
   镜像站3: https://fightinggg.gitee.io || fas fa-blog

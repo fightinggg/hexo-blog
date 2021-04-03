@@ -1,4 +1,4 @@
-转移自<a href='https://fightinggg.github.io/ACM/problem/graph_theory/hdu6445.html'>老blog</a>
+转移自<a href='/ACM/problem/graph_theory/hdu6445.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
@@ -20,9 +20,11 @@
 
     <div type="text/javadiv" src="/ACM/js/solve_begin.js"></div>
     <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;化简分析,先加一个A(n,4) 然后减去对答案没有贡献以及负贡献，考虑对答案没有贡献的四元组,此四元组中存在且只存在一个点有两条边
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;化简分析,先加一个A(n,4)
+        然后减去对答案没有贡献以及负贡献，考虑对答案没有贡献的四元组,此四元组中存在且只存在一个点有两条边
         从他出发，对答案贡献-1的点，存在恰好两个点，分别有两条边从他们出发。 <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;化最后发现只和点的出度的平方或者说<span style="color: grey">(C(deg[i],2)) 因为sum(deg[i])为定值</span>有关<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;化最后发现只和点的出度的平方或者说<span style="color: grey">(C(deg[i],2))
+            因为sum(deg[i])为定值</span>有关<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;化最后可以用费用流做<br>
     </div>
     <div type="text/javadiv" src="/ACM/js/solve_end.js"></div>

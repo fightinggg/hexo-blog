@@ -46,4 +46,4 @@ start((start))--b--> 3((3))
  因为字典树的代码特别简单，我们常常直接用递归转非递归来实现。
 # 代码
  先欠着，暂时拖一个不太友好的代码在这里,这里面有一部分代码就是字典树啦。
-[代码链接](https://fightinggg.github.io/ACM/stencil/string/AC自动机.html)
+[代码链接](/ACM/stencil/string/AC自动机.html)

@@ -1,33 +1,34 @@
-转移自<a href='https://fightinggg.github.io/ACM/problem/data_struct/ACM-ICPC 2018 徐州赛区网络预赛 G Trace.html'>老blog</a>
+转移自<a href='/ACM/problem/data_struct/ACM-ICPC 2018 徐州赛区网络预赛 G Trace.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
-    <h1>
-        <center><a href="https://nanti.jisuanke.com/t/A2006" target="_blank">ACM-ICPC 2018 徐州赛区网络预赛 G. Trace</a>
-        </center>
-    </h1>
+        <h1>
+                <center><a href="https://nanti.jisuanke.com/t/A2006" target="_blank">ACM-ICPC 2018 徐州赛区网络预赛 G. Trace</a>
+                </center>
+        </h1>
 
-    <div id="text">
-        题目大意 :<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有n波海浪，每个海浪是一个以(0,0)为左下角(x,y)为右上角的长方形，每一波海浪会留下自己
-        的长方形边界为海浪残留，同时会冲刷掉长方形内部的其他海浪残留，问n波之后，留下来的海浪边界总长度为多少n<50000 <br>
-    </div>
-
-
-    <div type="text/javadiv" src="/ACM/js/solve_begin.js"></div>
-    <div>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;逆序考虑海浪，维护两个函数 col_limit(x)和row_limit(y)
-        分别表示第x列的前col_limit(x)行的残留会被后面的海浪冲刷掉，第y行的前row_limit(y)列的残留会被后面的冲刷掉。
-        我们可以根据这两个函数转移出第i个海浪对答案的贡献，然后我们考虑，如何更新出i-1下的正确col_limit函数和row_limit函数，容易发现，这是一个区间取最值操作。<br>
-
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;现在来总结一下，对于这两个函数，我们有两种操作： 区间取最值，点查询。-> 用线段树维护即可<br>
-    </div>
-    <div type="text/javadiv" src="/ACM/js/solve_end.js"></div>
+        <div id="text">
+                题目大意 :<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有n波海浪，每个海浪是一个以(0,0)为左下角(x,y)为右上角的长方形，每一波海浪会留下自己
+                的长方形边界为海浪残留，同时会冲刷掉长方形内部的其他海浪残留，问n波之后，留下来的海浪边界总长度为多少n<50000 <br>
+        </div>
 
 
-    <div type="text/javadiv" src="/ACM/js/code_begin.js"></div>
-    <div>
-        <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
+        <div type="text/javadiv" src="/ACM/js/solve_begin.js"></div>
+        <div>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;逆序考虑海浪，维护两个函数 col_limit(x)和row_limit(y)
+                分别表示第x列的前col_limit(x)行的残留会被后面的海浪冲刷掉，第y行的前row_limit(y)列的残留会被后面的冲刷掉。
+                我们可以根据这两个函数转移出第i个海浪对答案的贡献，然后我们考虑，如何更新出i-1下的正确col_limit函数和row_limit函数，容易发现，这是一个区间取最值操作。<br>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;现在来总结一下，对于这两个函数，我们有两种操作： 区间取最值，点查询。->
+                用线段树维护即可<br>
+        </div>
+        <div type="text/javadiv" src="/ACM/js/solve_end.js"></div>
+
+
+        <div type="text/javadiv" src="/ACM/js/code_begin.js"></div>
+        <div>
+                <pre><span class="cp">#include&lt;bits/stdc++.h&gt;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="cp">#define ml ((l+r)&gt;&gt;1)</span>
@@ -232,7 +233,7 @@
 <span class="p">}</span>
 </pre>
 
-    </div>
-    <div type="text/javadiv" src="/ACM/js/code_end.js"></div>
+        </div>
+        <div type="text/javadiv" src="/ACM/js/code_end.js"></div>
 </div>
 <div type="text/javadiv" src="/ACM/js/web_end.js"></div>

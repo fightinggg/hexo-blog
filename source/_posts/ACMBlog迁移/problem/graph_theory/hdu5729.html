@@ -1,4 +1,4 @@
-转移自<a href='https://fightinggg.github.io/ACM/problem/graph_theory/hdu5729.html'>老blog</a>
+转移自<a href='/ACM/problem/graph_theory/hdu5729.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
@@ -70,25 +70,25 @@
         正面难以解决，考虑反面；<br>
         <br>
         i+j个点的此二分图一共有<a href="https://www.codecogs.com/eqnedit.php?latex=3^{ij}" target="_blank"><img
-            src="https://latex.codecogs.com/gif.latex?3^{ij}" title="3^{ij}"/></a>种，从左边拿一个点出来考虑；<br>
+                src="https://latex.codecogs.com/gif.latex?3^{ij}" title="3^{ij}" /></a>种，从左边拿一个点出来考虑；<br>
         <br>
         对于此点，分类讨论 ，考虑与它联通的所有其他点的数量，设左边有x个右边有y个，剩下的其他点自由组合，<br>
         <br>
         于是 x的范围[0,i-1] y的范围[0,j];<br>
 
         这些类别全部加起来应该是全集<a href="https://www.codecogs.com/eqnedit.php?latex=3^{ij}" target="_blank"><img
-            src="https://latex.codecogs.com/gif.latex?3^{ij}" title="3^{ij}"/></a><br>
+                src="https://latex.codecogs.com/gif.latex?3^{ij}" title="3^{ij}" /></a><br>
 
         于是得到<br>
         <a href="https://www.codecogs.com/eqnedit.php?latex=3^{ij}=\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x&plus;1][y]*3^{(i-1-x)(j-y)})"
-           target="_blank"><img
+            target="_blank"><img
                 src="https://latex.codecogs.com/gif.latex?3^{ij}=\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x&plus;1][y]*3^{(i-1-x)(j-y)})"
-                title="3^{ij}=\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x+1][y]*3^{(i-1-x)(j-y)})"/></a><br>
+                title="3^{ij}=\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x+1][y]*3^{(i-1-x)(j-y)})" /></a><br>
         得到dp式子：<br>
         <a href="https://www.codecogs.com/eqnedit.php?latex=dp[i][j]=3^{ij}-\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x&plus;1][y]*3^{(i-1-x)(j-y)}"
-           target="_blank"><img
+            target="_blank"><img
                 src="https://latex.codecogs.com/gif.latex?dp[i][j]=3^{ij}-\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x&plus;1][y]*3^{(i-1-x)(j-y)}"
-                title="dp[i][j]=3^{ij}-\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x+1][y]*3^{(i-1-x)(j-y)}"/></a>当x等于i-1时y不取到j<br>
+                title="dp[i][j]=3^{ij}-\sum_{x=0}^{i-1}\sum_{y=0}^{j}(C_{i-1}^{x}*C_{j}^{y}*dp[x+1][y]*3^{(i-1-x)(j-y)}" /></a>当x等于i-1时y不取到j<br>
         <br><br><br>
 
     </div>
@@ -97,7 +97,7 @@
 
     <div type="text/javadiv" src="/ACM/js/code_begin.js"></div>
     <div>
-     					<pre><span class="cp">#include &lt;bits/stdc++.h&gt;</span>
+        <pre><span class="cp">#include &lt;bits/stdc++.h&gt;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 <span class="cp">#define ll long long</span>
 

@@ -1,8 +1,10 @@
-转移自<a href='https://fightinggg.github.io/ACM/stencil/string/后缀自动机.html'>老blog</a>
+转移自<a href='/ACM/stencil/string/后缀自动机.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
-    <center><h1>后缀自动机</h1></center>
+    <center>
+        <h1>后缀自动机</h1>
+    </center>
     <span style="float: right;">------本文来源于学习陈立杰ppt后的感悟</span><br>
     <hr>
 
@@ -11,7 +13,7 @@
     本文力争用理性分析的手段，来推测此算法发明者的思维过程， 尝试感受其在设计此算法的时所展现出的思维方式，
     力求用数学证明的手段，尽可能多的为读者证明相关结论，建议有其他自动机学习的基础，最好已经学会AC自动机和回文自动机，后缀自动机很难，他
     和其他自动机不一样，它的状态更加复杂，<span style="color: red">一个算法的创作过程很
-    复杂，学起来当然会感到很难。</span>强烈建议看陈立杰的ppt，看一遍肯定看不懂，仔细看，一遍看不懂看多遍，第一次可能只能看懂几面，第二次可
+        复杂，学起来当然会感到很难。</span>强烈建议看陈立杰的ppt，看一遍肯定看不懂，仔细看，一遍看不懂看多遍，第一次可能只能看懂几面，第二次可
     能就能看懂到十几面了，慢慢的就全懂了。
     <br>
 
@@ -55,12 +57,12 @@
     <h2>约定一些符号表示</h2>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     我们称自动机的初始状态为init，转移函数为trans(state,str),表示状态state经过字符串str的转移后得到的新的状态。<span style="color:grey">
-    因为是术语，此处暂时不对状态做定义。</span>如果某个状态为结束状态，那么我们用end(state)=true来表示。<br>
+        因为是术语，此处暂时不对状态做定义。</span>如果某个状态为结束状态，那么我们用end(state)=true来表示。<br>
 
     <h2>将状态形象化，然后造一个暴力的后缀自动机</h2>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     我们假设我们建立的后缀自动机，是一棵究极大的，n^2级别状态数量的自动机。我们先来定义此自动机的状态：<span style="color:red">某个节点
-    所代表的状态，就是母串的一个子串。</span><span style="color:grey">显然这不是一个好状态。</span>显然其中的字典树 的根节点root就是初始状态
+        所代表的状态，就是母串的一个子串。</span><span style="color:grey">显然这不是一个好状态。</span>显然其中的字典树 的根节点root就是初始状态
     。<br>
 
     <h2>想办法来优化这个暴力的自动机</h2>
@@ -94,7 +96,7 @@
     <h2>开始实现优化</h2>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     我们尝试修改状态的定义，尝试把right集合一摸一样的串用一个状态来表示。让笔者来概括一下这个新状态:<span style="color:red">我们对母串
-    的每一个子串都统计一下right集合，将子串按照right集合分类，每一类就是一个状态。</span>如无特殊声明，下文的出现的状态将不再指的是原状态
+        的每一个子串都统计一下right集合，将子串按照right集合分类，每一类就是一个状态。</span>如无特殊声明，下文的出现的状态将不再指的是原状态
     ，而是表示新状态。
 
     <h2>证明状态数是线性的</h2>
@@ -127,7 +129,7 @@
     现在我们来总结一下，从自动机SAM(str) 增量构建自动机SAM(str+x)，我们需要更改的只是trans(root，str)以及他在parent树上面的所有祖先，容易证明如果状态
     q是trans(root，str)的第一个包含字符x转移的状态，那么q的所有祖先都包含了字符x的转移。trans(root,str)到q之间(不包含q)的所有状态都不包含字符x的转移。
     可以证明:如果不包含x的转移，我们直接构建一个新的状态p表示trans(root，str+x)状态,<span style="color:grey">此处可以证明他的right集合只有一个元素，
-    就是len(str+x)。</span>那些不包含x转移的状态，可以直接转移到p，因为那样转移之后的right集合是就是p的right集合。那么我们就一直这样做即可，那么q以及q的祖先呢？他们包含了字符x的转移
+        就是len(str+x)。</span>那些不包含x转移的状态，可以直接转移到p，因为那样转移之后的right集合是就是p的right集合。那么我们就一直这样做即可，那么q以及q的祖先呢？他们包含了字符x的转移
     但是我们可以直接在那个地方设置一个结束标志吗？这不一定？为什么呢？首先，我们的状态定义是依据right集合的，也就是说right集合一摸一样的，才能用一个状态表示。
     如果我们那样做，会造成什么后果呢？节点q向x转移的状态trans(q,x)的right集合是不包含len(str+x)的，我们那样做，会导致right集合扩大。right集合扩大，可能会
     导致以前能够用trans(q,x)表示的某些串，不能用trans(q,x)表示了。<br>
@@ -153,7 +155,7 @@
 
 
     <div id="code">
-    <pre><span class="k">struct</span> <span class="n">SAM</span><span class="p">{</span><span class="c1">//下标从1开始，0作为保留位，用于做哨兵</span>
+        <pre><span class="k">struct</span> <span class="n">SAM</span><span class="p">{</span><span class="c1">//下标从1开始，0作为保留位，用于做哨兵</span>
     <span class="c1">//如果没有特殊要求，尽量选择合适的自动机，要算好内存</span>
     <span class="c1">//经过hdu1000测试，10000个map大概是10kb,对于1e6的字符串，不建议使用后缀自动机</span>
     <span class="k">typedef</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span

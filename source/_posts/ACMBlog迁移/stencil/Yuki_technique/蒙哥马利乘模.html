@@ -1,4 +1,4 @@
-转移自<a href='https://fightinggg.github.io/ACM/stencil/Yuki_technique/蒙哥马利乘模.html'>老blog</a>
+转移自<a href='/ACM/stencil/Yuki_technique/蒙哥马利乘模.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div style="overflow: scroll">
@@ -12,7 +12,7 @@
 
 
 
-	
+
 	蒙哥马利快速乘模运算<br />
 	蒙哥马利运算是一种新的运算，他把乘模简化为对进制数的除法，以及简单加法，这就使得乘模避开了大量的取模试除。<br />
 	 <br />
@@ -97,9 +97,11 @@
 	  &nbspu64&nbspget() const { return reduce(n_);&nbsp}<br />
 	直接调用削减函数，除以p（r）<br />
 	最后给出dls的代码<br />
-	<span style="color: blue;font: 20px;">typedef</span>&nbsp<span style="color: blue;font: 20px;">long&nbsplong</span>&nbspll;
+	<span style="color: blue;font: 20px;">typedef</span>&nbsp<span
+		style="color: blue;font: 20px;">long&nbsplong</span>&nbspll;
 	<br />
-	<span style="color: blue;font: 20px;">typedef</span>&nbspunsigned&nbsp<span style="color: blue;font: 20px;">long&nbsplong</span>&nbspu64;
+	<span style="color: blue;font: 20px;">typedef</span>&nbspunsigned&nbsp<span
+		style="color: blue;font: 20px;">long&nbsplong</span>&nbspu64;
 	<br />
 	<span style="color: blue;font: 20px;">typedef</span>&nbsp__int128_t&nbspi128;
 	<br />
@@ -117,13 +119,16 @@
 	<br />
 	 &nbsp &nbspMod64(u64&nbspn):n_(init(n))&nbsp{}
 	<br />
-	 &nbsp &nbsp<span style="color: blue;font: 20px;">static</span>&nbspu64&nbspinit(u64&nbspw)&nbsp{&nbsp<span style="color: blue;font: 20px;">return</span>&nbspreduce(u128(w)&nbsp*&nbspr2);&nbsp}
+	 &nbsp &nbsp<span style="color: blue;font: 20px;">static</span>&nbspu64&nbspinit(u64&nbspw)&nbsp{&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbspreduce(u128(w)&nbsp*&nbspr2);&nbsp}
 	<br />
-	 &nbsp &nbsp<span style="color: blue;font: 20px;">static</span>&nbsp<span style="color: blue;font: 20px;">void</span>&nbspset_mod(u64&nbspm)&nbsp{
+	 &nbsp &nbsp<span style="color: blue;font: 20px;">static</span>&nbsp<span
+		style="color: blue;font: 20px;">void</span>&nbspset_mod(u64&nbspm)&nbsp{
 	<br />
 	 &nbsp &nbsp &nbsp &nbspmod=m;&nbsp<span style="color: green;font: 20px;">//assert(mod&1);
-</span><br />
-	 &nbsp &nbsp &nbsp &nbspinv=m;&nbsp<span style="color: blue;font: 20px;">for</span>(<span style="color: blue;font: 20px;">int</span>&nbspi=0;i&lt5;i++)&nbspinv*=2-inv*m;
+	</span><br />
+	 &nbsp &nbsp &nbsp &nbspinv=m;&nbsp<span style="color: blue;font: 20px;">for</span>(<span
+		style="color: blue;font: 20px;">int</span>&nbspi=0;i&lt5;i++)&nbspinv*=2-inv*m;
 	<br />
 	 &nbsp &nbsp &nbsp &nbspr2=-u128(m)%m;
 	<br />
@@ -137,24 +142,37 @@
 	<br />
 	 &nbsp &nbsp}
 	<br />
-	 &nbsp &nbspMod64&&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp+=&nbsp(Mod64&nbsprhs)&nbsp{&nbspn_+=rhs.n_-mod;&nbspif&nbsp(ll(n_)&lt0)&nbspn_+=mod;&nbsp<span style="color: blue;font: 20px;">return</span>&nbsp*this;&nbsp}
+	 &nbsp &nbspMod64&&nbsp<span
+		style="color: blue;font: 20px;">operator</span>&nbsp+=&nbsp(Mod64&nbsprhs)&nbsp{&nbspn_+=rhs.n_-mod;&nbspif&nbsp(ll(n_)&lt0)&nbspn_+=mod;&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbsp*this;&nbsp}
 	<br />
-	 &nbsp &nbspMod64&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp+&nbsp(Mod64&nbsprhs)&nbsp<span style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span style="color: blue;font: 20px;">return</span>&nbspMod64(*this)+=rhs;&nbsp}
+	 &nbsp &nbspMod64&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp+&nbsp(Mod64&nbsprhs)&nbsp<span
+		style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbspMod64(*this)+=rhs;&nbsp}
 	<br />
-	 &nbsp &nbspMod64&&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp-=&nbsp(Mod64&nbsprhs)&nbsp{&nbspn_-=rhs.n_;&nbspif&nbsp(ll(n_)&lt0)&nbspn_+=mod;&nbsp<span style="color: blue;font: 20px;">return</span>&nbsp*this;&nbsp}
+	 &nbsp &nbspMod64&&nbsp<span
+		style="color: blue;font: 20px;">operator</span>&nbsp-=&nbsp(Mod64&nbsprhs)&nbsp{&nbspn_-=rhs.n_;&nbspif&nbsp(ll(n_)&lt0)&nbspn_+=mod;&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbsp*this;&nbsp}
 	<br />
-	 &nbsp &nbspMod64&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp-&nbsp(Mod64&nbsprhs)&nbsp<span style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span style="color: blue;font: 20px;">return</span>&nbspMod64(*this)-=rhs;&nbsp}
+	 &nbsp &nbspMod64&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp-&nbsp(Mod64&nbsprhs)&nbsp<span
+		style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbspMod64(*this)-=rhs;&nbsp}
 	<br />
-	 &nbsp &nbspMod64&&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp*=&nbsp(Mod64&nbsprhs)&nbsp{&nbspn_=reduce(u128(n_)*rhs.n_);&nbsp<span style="color: blue;font: 20px;">return</span>&nbsp*this;&nbsp}
+	 &nbsp &nbspMod64&&nbsp<span
+		style="color: blue;font: 20px;">operator</span>&nbsp*=&nbsp(Mod64&nbsprhs)&nbsp{&nbspn_=reduce(u128(n_)*rhs.n_);&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbsp*this;&nbsp}
 	<br />
-	 &nbsp &nbspMod64&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp*&nbsp(Mod64&nbsprhs)&nbsp<span style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span style="color: blue;font: 20px;">return</span>&nbspMod64(*this)*=rhs;&nbsp}
+	 &nbsp &nbspMod64&nbsp<span style="color: blue;font: 20px;">operator</span>&nbsp*&nbsp(Mod64&nbsprhs)&nbsp<span
+		style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbspMod64(*this)*=rhs;&nbsp}
 	<br />
-	 &nbsp &nbspu64&nbspget()&nbsp<span style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span style="color: blue;font: 20px;">return</span>&nbspreduce(n_);&nbsp}
+	 &nbsp &nbspu64&nbspget()&nbsp<span style="color: blue;font: 20px;">const</span>&nbsp{&nbsp<span
+		style="color: blue;font: 20px;">return</span>&nbspreduce(n_);&nbsp}
 	<br />
 	};
 	<br />
 	u64&nbspMod64::mod,Mod64::inv,Mod64::r2;<br />
-	
+
 
 </div>
 <div type="text/javadiv" src="/ACM/js/web_end.js"></div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="/ACM/js/link.js"></script>
+    <title>cf523C</title>
+</head>
+
+
+<script type="text/javascript" src="/ACM/js/web_begin.js"></script>
+<div>
+    <center><h1>cf523C</h1></center>
+    <div id="text">
+    <h2>链接</h2>
+        <div id="normal_href">
+            <a href="https://codeforc.es/contest/1061/problem/C" target="_blank">https://codeforc.es/contest/1061/problem/C</a><br>
+        </div>
+    <h2>题意</h2>
+        <span style="color:red">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给你一个n(&nbsp;(1≤𝑛≤100000)个数的数列，让你构造一个序列，保证每个位置的数字能整除这个位置的下标。问有多少个子序列满足这种做法。<br>
+        </span>
+    <h2>题解</h2>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j]代表前i个数，构成长度为j的数列的方案数<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j]&nbsp;&lt;---&nbsp;dp[i-1][j-1]&nbsp;&nbsp;j|a[i]&nbsp;预处理每个数的因子即可<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后发现若从大到小枚举因子则第一维可以优化掉，<br>
+    </div>
+</div>
+<script type="text/javascript" src="/ACM/js/web_end.js"></script>
+</html>

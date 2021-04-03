@@ -1,10 +1,12 @@
-转移自<a href='https://fightinggg.github.io/ACM/stencil/graph_theory/tarjan点双联通分量.html'>老blog</a>
+转移自<a href='/ACM/stencil/graph_theory/tarjan点双联通分量.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
-    <center><h1>tarjan点双联通</h1></center>
+    <center>
+        <h1>tarjan点双联通</h1>
+    </center>
     <div id="code">
-      <pre><span class="k">struct</span> <span class="n">Graph</span><span class="p">{</span>
+        <pre><span class="k">struct</span> <span class="n">Graph</span><span class="p">{</span>
     <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span><span class="o">=</span><span class="mf">1e5</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="n">maxm</span><span class="o">=</span><span class="mf">3e5</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span>
     <span class="k">struct</span> <span class="n">star</span><span class="p">{</span><span class="kt">int</span> <span class="n">v</span><span class="p">,</span><span class="n">nex</span><span class="p">;}</span><span class="n">edge</span><span class="p">[</span><span class="n">maxm</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">];</span>
     <span class="kt">int</span> <span class="n">head</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">cnt</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>

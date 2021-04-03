@@ -1,8 +1,10 @@
-转移自<a href='https://fightinggg.github.io/ACM/stencil/thinging/大范围贪心，小范围暴力.html'>老blog</a>
+转移自<a href='/ACM/stencil/thinging/大范围贪心，小范围暴力.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
-    <center><h1>大范围贪心，小范围暴力</h1></center>
+    <center>
+        <h1>大范围贪心，小范围暴力</h1>
+    </center>
     <div id="text">
         <h2>大范围贪心，小范围暴力</h2>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这一类做法，通常不是很好想，但是很多题目都能这样做。<br>
@@ -47,8 +49,8 @@
         <h2>优化</h2>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们换一种状态的设法，设dp[i][j]为只取前i类物品的方案的唯一分解下，不考虑背包容量上限，第二部分容量为j，第一部分的k能取到的大值。
         <h2>转移方程</h2>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] ---> dp[i+1][j+t*i]  t是选取的数量，j+t*i<8*840
-        <h2>这样的做法就已经很快了。</h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] ---> dp[i+1][j+t*i] t是选取的数量，j+t*i<8*840 <h2>
+            这样的做法就已经很快了。</h2>
 
     </div>
 </div>

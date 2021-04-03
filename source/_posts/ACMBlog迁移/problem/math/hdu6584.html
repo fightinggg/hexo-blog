@@ -1,33 +1,37 @@
-转移自<a href='https://fightinggg.github.io/ACM/problem/math/hdu6584.html'>老blog</a>
+转移自<a href='/ACM/problem/math/hdu6584.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div style="overflow: scroll">
-    <center><h1><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6584" target="_blank">hdu6584</a></h1></center>
+    <center>
+        <h1><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6584" target="_blank">hdu6584</a></h1>
+    </center>
 
     <div id="text">
         题目本质上是 找分子分母小于n的第k小的真分数,我们直接对答案二分即可，采取分数二分的方式，找到一个区间，它包含最多一个解
         <div style="width: 600px">
-        $$
-        \begin{aligned}
-        &答案肯定是找到一个分子分母小于n的分数\frac{p}{q}他满足下面的特征\\
-        &(\sum_{i=1}^n\sum_{j=1}^n[gcd(i,j)=1][\frac{i}{j} \leq \frac{p}{q}]) = k\\
-        &我们对左式化简\\
-        &=\sum_{i=1}^n\sum_{j=1}^n[gcd(i,j)=1][i \leq \frac{p}{q}j]\\
-        &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n[gcd(i,j)=1]\\
-        &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^ne(gcd(i,j))\\
-        &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n(u*1)(gcd(i,j))\\
-        &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n\sum_{d|gcd(i,j)}u(d)*1(d)\\
-        &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n\sum_{d|gcd(i,j)}u(d)\\
-        &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n\sum_{d|i,d|j}u(d)\\
-        &=\sum_{d=1}^{n}u(d)\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n[d|i,d|j]\\
-        &=\sum_{d=1}^{n}u(d)\sum_{xd=1}^{\lfloor \frac{p}{q}(yd)\rfloor}\sum_{yd=1}^n[d|(xd),d|(yd)]\\
-        &=\sum_{d=1}^{n}u(d)\sum_{x=1}^{\lfloor\frac{\lfloor \frac{p}{q}(yd)\rfloor}{d}\rfloor}\sum_{y=1}^{\lfloor\frac{n}{d}\rfloor}1\\
-        &=\sum_{d=1}^{n}u(d)\sum_{y=1}^{\lfloor\frac{n}{d}\rfloor}\lfloor\frac{\lfloor \frac{p}{q}(yd)\rfloor}{d}\rfloor\\
-        &=\sum_{d=1}^{n}u(d)\sum_{y=1}^{\lfloor\frac{n}{d}\rfloor}{\lfloor \frac{p}{q}y\rfloor}\\
-        \end{aligned}
-        $$
+            $$
+            \begin{aligned}
+            &答案肯定是找到一个分子分母小于n的分数\frac{p}{q}他满足下面的特征\\
+            &(\sum_{i=1}^n\sum_{j=1}^n[gcd(i,j)=1][\frac{i}{j} \leq \frac{p}{q}]) = k\\
+            &我们对左式化简\\
+            &=\sum_{i=1}^n\sum_{j=1}^n[gcd(i,j)=1][i \leq \frac{p}{q}j]\\
+            &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n[gcd(i,j)=1]\\
+            &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^ne(gcd(i,j))\\
+            &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n(u*1)(gcd(i,j))\\
+            &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n\sum_{d|gcd(i,j)}u(d)*1(d)\\
+            &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n\sum_{d|gcd(i,j)}u(d)\\
+            &=\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n\sum_{d|i,d|j}u(d)\\
+            &=\sum_{d=1}^{n}u(d)\sum_{i=1}^{\lfloor \frac{p}{q}j\rfloor}\sum_{j=1}^n[d|i,d|j]\\
+            &=\sum_{d=1}^{n}u(d)\sum_{xd=1}^{\lfloor \frac{p}{q}(yd)\rfloor}\sum_{yd=1}^n[d|(xd),d|(yd)]\\
+            &=\sum_{d=1}^{n}u(d)\sum_{x=1}^{\lfloor\frac{\lfloor
+            \frac{p}{q}(yd)\rfloor}{d}\rfloor}\sum_{y=1}^{\lfloor\frac{n}{d}\rfloor}1\\
+            &=\sum_{d=1}^{n}u(d)\sum_{y=1}^{\lfloor\frac{n}{d}\rfloor}\lfloor\frac{\lfloor
+            \frac{p}{q}(yd)\rfloor}{d}\rfloor\\
+            &=\sum_{d=1}^{n}u(d)\sum_{y=1}^{\lfloor\frac{n}{d}\rfloor}{\lfloor \frac{p}{q}y\rfloor}\\
+            \end{aligned}
+            $$
         </div>
-        这里是可以求出答案的,对d分块，右边的部分采用<a href="http://fightinggg.github.io/ACM/stencil/math/类欧几里得算法.html">类欧几里得算法</a><br>
+        这里是可以求出答案的,对d分块，右边的部分采用<a href="/ACM/stencil/math/类欧几里得算法.html">类欧几里得算法</a><br>
         我们一直往下二分，直到区间足够小，最后用 Stern-Brocot Tree 或 法雷序列找出答案
     </div>
 

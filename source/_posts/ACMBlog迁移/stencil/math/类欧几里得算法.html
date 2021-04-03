@@ -1,8 +1,10 @@
-转移自<a href='https://fightinggg.github.io/ACM/stencil/math/类欧几里得算法.html'>老blog</a>
+转移自<a href='/ACM/stencil/math/类欧几里得算法.html'>老blog</a>
 
 <div type="text/javadiv" src="/ACM/js/web_begin.js"></div>
 <div>
-    <center><h1>类欧几里得算法</h1></center>
+    <center>
+        <h1>类欧几里得算法</h1>
+    </center>
     <div id="text" style="overflow: scroll">
         先考虑一个简单的问题
         $$f(a,b,c,n)=\sum_{i=0}^n\lfloor\frac{ai+b}{c}\rfloor$$
@@ -42,9 +44,15 @@
         \begin{aligned}
         &h(a,b,c,n)\\
         =&\sum_{i=0}^n\lfloor\frac{ai+b}{c}\rfloor^2\\
-        =&\sum_{i=0}^n(\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor+\lfloor\frac{a}{c}\rfloor i+\lfloor\frac{b}{c}\rfloor)^2\\
-        =&\sum_{i=0}^n(\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor^2+\lfloor\frac{a}{c}\rfloor^2i^2+\lfloor\frac{b}{c}\rfloor^2+2\lfloor\frac{a}{c}\rfloor i\lfloor\frac{b}{c}\rfloor+2\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor\lfloor\frac{a}{c}\rfloor i+2\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor\lfloor\frac{b}{c}\rfloor\\
-        =&h(a\%c,b\%c,c,n)+2\lfloor\frac{a}{c}\rfloor g(a\%c,b\%c,c,n)+2\lfloor\frac{b}{c}\rfloor f(a\%c,b\%c,c,n)+\lfloor\frac{a}{c}\rfloor^2\frac{n(n+1)(2n+1)}{6}+2\lfloor\frac{a}{c}\rfloor \lfloor\frac{b}{c}\rfloor\frac{n(n+1)}{2}+(n+1)\lfloor\frac{b}{c}\rfloor^2
+        =&\sum_{i=0}^n(\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor+\lfloor\frac{a}{c}\rfloor
+        i+\lfloor\frac{b}{c}\rfloor)^2\\
+        =&\sum_{i=0}^n(\lfloor\frac{(a\%c)i+(b\%c)
+        }{c}\rfloor^2+\lfloor\frac{a}{c}\rfloor^2i^2+\lfloor\frac{b}{c}\rfloor^2+2\lfloor\frac{a}{c}\rfloor
+        i\lfloor\frac{b}{c}\rfloor+2\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor\lfloor\frac{a}{c}\rfloor
+        i+2\lfloor\frac{(a\%c)i+(b\%c) }{c}\rfloor\lfloor\frac{b}{c}\rfloor\\
+        =&h(a\%c,b\%c,c,n)+2\lfloor\frac{a}{c}\rfloor g(a\%c,b\%c,c,n)+2\lfloor\frac{b}{c}\rfloor
+        f(a\%c,b\%c,c,n)+\lfloor\frac{a}{c}\rfloor^2\frac{n(n+1)(2n+1)}{6}+2\lfloor\frac{a}{c}\rfloor
+        \lfloor\frac{b}{c}\rfloor\frac{n(n+1)}{2}+(n+1)\lfloor\frac{b}{c}\rfloor^2
         \end{aligned}
         $$
 
@@ -57,10 +65,14 @@
         =&\sum_{i=0}^n\lfloor\frac{ai+b}{c}\rfloor^2\\
         =&\sum_{i=0}^n(\sum_{j=1}^m[\lfloor\frac{ai+b}{c}\rfloor\geq j])^2\\
         =&\sum_{i=0}^n(\sum_{j=0}^{m-1}[i \gt \lfloor\frac{cj+c-b-1}{a}\rfloor])^2\\
-        =&\sum_{i=0}^n\sum_{j=0}^{m-1}[i \gt \lfloor\frac{cj+c-b-1}{a}\rfloor]\sum_{k=0}^{m-1}[i \gt \lfloor\frac{ck+c-b-1}{a}\rfloor]\\
-        =&\sum_{i=0}^n\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}[i \gt \lfloor\frac{cj+c-b-1}{a}\rfloor]*[i \gt \lfloor\frac{ck+c-b-1}{a}\rfloor]\\
-        =&\sum_{i=0}^n\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}[i \gt max(\lfloor\frac{cj+c-b-1}{a}\rfloor,\lfloor\frac{ck+c-b-1}{a}\rfloor)]\\
-        =&\sum_{i=0}^n\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}[i \gt max(\lfloor\frac{cj+c-b-1}{a}\rfloor,\lfloor\frac{ck+c-b-1}{a}\rfloor)]\\
+        =&\sum_{i=0}^n\sum_{j=0}^{m-1}[i \gt \lfloor\frac{cj+c-b-1}{a}\rfloor]\sum_{k=0}^{m-1}[i \gt
+        \lfloor\frac{ck+c-b-1}{a}\rfloor]\\
+        =&\sum_{i=0}^n\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}[i \gt \lfloor\frac{cj+c-b-1}{a}\rfloor]*[i \gt
+        \lfloor\frac{ck+c-b-1}{a}\rfloor]\\
+        =&\sum_{i=0}^n\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}[i \gt
+        max(\lfloor\frac{cj+c-b-1}{a}\rfloor,\lfloor\frac{ck+c-b-1}{a}\rfloor)]\\
+        =&\sum_{i=0}^n\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}[i \gt
+        max(\lfloor\frac{cj+c-b-1}{a}\rfloor,\lfloor\frac{ck+c-b-1}{a}\rfloor)]\\
         =&nm^2-\sum_{j=0}^{m-1}\sum_{k=0}^{m-1} max(\lfloor\frac{cj+c-b-1}{a}\rfloor,\lfloor\frac{ck+c-b-1}{a}\rfloor)\\
         =&nm^2-2\sum_{j=0}^{m-1}j\lfloor\frac{cj+c-b-1}{a}\rfloor-\sum_{j=0}^{m-1}\lfloor\frac{cj+c-b-1}{a}\rfloor\\
         =&nm^2-2g(c,c-b-1,a,m-1)-f(c,c-b-1,a,m-1)
@@ -74,8 +86,10 @@
         =&\sum_{i=0}^ni\lfloor\frac{ai+b}{c}\rfloor\\
         =&\sum_{i=0}^ni\lfloor\frac{(a\%c)i+b\%c}{c}+\lfloor\frac{a}{c}\rfloor i+\lfloor\frac{b}{c}\rfloor\rfloor \\
         =&\sum_{i=0}^ni(\lfloor\frac{(a\%c)i+b\%c}{c}\rfloor+\lfloor\frac{a}{c}\rfloor i+\lfloor\frac{b}{c}\rfloor)\\
-        =&\sum_{i=0}^ni\lfloor\frac{(a\%c)i+b\%c}{c}\rfloor+\sum_{i=0}^n\lfloor\frac{a}{c}\rfloor i^2+\sum_{i=0}^n\lfloor\frac{b}{c}\rfloor i\\
-        =&\frac{n(n+1)(2n+1)}{6}\lfloor\frac{a}{c}\rfloor +\frac{n(n+1)}{2}\lfloor\frac{b}{c}\rfloor +\sum_{i=0}^ni\lfloor\frac{(a\%c)i+b\%c}{c}\rfloor\\
+        =&\sum_{i=0}^ni\lfloor\frac{(a\%c)i+b\%c}{c}\rfloor+\sum_{i=0}^n\lfloor\frac{a}{c}\rfloor
+        i^2+\sum_{i=0}^n\lfloor\frac{b}{c}\rfloor i\\
+        =&\frac{n(n+1)(2n+1)}{6}\lfloor\frac{a}{c}\rfloor +\frac{n(n+1)}{2}\lfloor\frac{b}{c}\rfloor
+        +\sum_{i=0}^ni\lfloor\frac{(a\%c)i+b\%c}{c}\rfloor\\
         =&g(a\%c,b\%c,c,n)+\frac{n(n+1)(2n+1)}{6}\lfloor\frac{a}{c}\rfloor +\frac{n(n+1)}{2}\lfloor\frac{b}{c}\rfloor
         \end{aligned}
         $$
@@ -101,12 +115,15 @@
         $$
         \begin{aligned}
         &f(a,b,c,n)=\sum_{i=0}^n\lfloor\frac{ai+b}{c}\rfloor\\
-        &h(a,b,c,n)=\sum_{i=0}^n\lfloor\frac{ai+b}{c}\rfloor^2  \\
-        & g(a,b,c,n)=\sum_{i=0}^ni\lfloor\frac{ai+b}{c}\rfloor  \\
+        &h(a,b,c,n)=\sum_{i=0}^n\lfloor\frac{ai+b}{c}\rfloor^2 \\
+        & g(a,b,c,n)=\sum_{i=0}^ni\lfloor\frac{ai+b}{c}\rfloor \\
         \\
         &f(a,b,c,n)=f(a\%c,b\%c,c,n)+\frac{n(n+1)}{2}\lfloor\frac{a}{c}\rfloor+(n+1)\lfloor\frac{b}{c}\rfloor\\
-        &h(a,b,c,n)=h(a\%c,b\%c,c,n)+2\lfloor\frac{a}{c}\rfloor g(a\%c,b\%c,c,n)+2\lfloor\frac{b}{c}\rfloor f(a\%c,b\%c,c,n)+\lfloor\frac{a}{c}\rfloor^2\frac{n(n+1)(2n+1)}{6}+2\lfloor\frac{a}{c}\rfloor \lfloor\frac{b}{c}\rfloor\frac{n(n+1)}{2}+(n+1)\lfloor\frac{b}{c}\rfloor^2\\
-        &g(a,b,c,n)=g(a\%c,b\%c,c,n)+\frac{n(n+1)(2n+1)}{6}\lfloor\frac{a}{c}\rfloor +\frac{n(n+1)}{2}\lfloor\frac{b}{c}\rfloor\\
+        &h(a,b,c,n)=h(a\%c,b\%c,c,n)+2\lfloor\frac{a}{c}\rfloor g(a\%c,b\%c,c,n)+2\lfloor\frac{b}{c}\rfloor
+        f(a\%c,b\%c,c,n)+\lfloor\frac{a}{c}\rfloor^2\frac{n(n+1)(2n+1)}{6}+2\lfloor\frac{a}{c}\rfloor
+        \lfloor\frac{b}{c}\rfloor\frac{n(n+1)}{2}+(n+1)\lfloor\frac{b}{c}\rfloor^2\\
+        &g(a,b,c,n)=g(a\%c,b\%c,c,n)+\frac{n(n+1)(2n+1)}{6}\lfloor\frac{a}{c}\rfloor
+        +\frac{n(n+1)}{2}\lfloor\frac{b}{c}\rfloor\\
         \\
         &f(a,b,c,n)=nm-f(c,c-b-1,a,m-1)\\
         &h(a,b,c,n)=nm^2-2g(c,c-b-1,a,m-1)-f(c,c-b-1,a,m-1)\\
