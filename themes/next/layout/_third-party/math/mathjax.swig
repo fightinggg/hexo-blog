@@ -1,2 +1,2 @@
 
-<script src='js/mathjax.js'></script>
+<script src='/js/mathjax.js'></script>
