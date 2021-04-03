@@ -1,5 +1,3 @@
-x = 1
-
 regMapConfig = hexo.config.linkable || []
 regMap = regMapConfig.map(o => ({
     reg: new RegExp("(" + o.key + ")", "gi"),

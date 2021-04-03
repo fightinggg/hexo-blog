@@ -92,6 +92,7 @@ pagination_dir: page
 include: 
   - ".github/**/*"
 exclude:
+  - "**/*.ignore_deploy"
 ignore:
 
 # Extensions
@@ -204,7 +205,7 @@ neat_js:
 lazyload:
   enable: true
   onlypost: false # optional
-  loadingImg: # optional eg ./images/loading.gif
+  loadingImg: /images/loading.gif # optional eg ./images/loading.gif
   isSPA: false # optional
   preloadRatio: 3 # optional, default is 1
 

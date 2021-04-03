@@ -39,10 +39,19 @@
         {% if site.tags.length > 1 %}
           <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
           <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
+          <script type="text/javascript" charset="utf-8">
+              $.get('/api/tagList/').then(o=>{
+                  tagList = JSON.parse(o)
+                  tagHtmlList = tagList.map(tag=>`<a class="tag-list-link" href="/tags/${tag}/" rel="tag">${tag}</a>`)
+                  tagHTML = tagHtmlList.join('')
+                  document.getElementById('tagCloudList').innerHTML = tagHTML;
+              })
+          </script>
           <div class="widget-wrap">
               <div id="myCanvasContainer" class="widget tagcloud">
                   <canvas width="250" height="250" id="resCanvas" style="width:100%">
-                      {{ list_tags() }}
+                      <ul id="tagCloudList", class="tag-list" itemprop="keywords">
+                      </ul>
                   </canvas>
               </div>
           </div>
