@@ -1,0 +1,7 @@
+{
+  "name": "hexo-fightinggg-symbols-count-time",
+  "version": "1.0.0",
+  "dependencies": {
+    "hexo-util": "1.9.0"
+  }
+}

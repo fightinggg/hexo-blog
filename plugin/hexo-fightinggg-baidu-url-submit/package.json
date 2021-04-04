@@ -1,0 +1,7 @@
+{
+  "name": "hexo-fightinggg-baidu-url-submit",
+  "version": "1.0.2",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}
