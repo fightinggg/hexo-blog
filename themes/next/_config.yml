@@ -359,10 +359,10 @@ codeblock:
   # See: https://github.com/chriskempson/tomorrow-theme
   highlight_theme: normal
   # Add copy button on codeblock
-  copy_button:
+  copy_hidden_button:
     enable: true
     # Show text copy result.
-    show_result: false
+    show_result: true
     # Available values: default | flat | mac
     style: mac
 

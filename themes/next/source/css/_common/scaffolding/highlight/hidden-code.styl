@@ -2,11 +2,11 @@
   position: relative;
 }
 
-.highlight-container:hover .copy-btn, .highlight-container .copy-btn:focus {
+.highlight-container:hover .hidden-btn, .highlight-container .hidden-btn:focus {
   opacity: 1;
 }
 
-.copy-btn {
+.hidden-btn {
   color: $black-dim;
   cursor: pointer;
   line-height: 1.6;
@@ -24,7 +24,7 @@
   } else if (hexo-config('codeblock.copy_hidden_button.style') == 'mac') {
     color: white;
     font-size: 14px;
-    right: 0;
+    right: 30px;
     top: 2px;
   } else {
     background-color: $gainsboro;

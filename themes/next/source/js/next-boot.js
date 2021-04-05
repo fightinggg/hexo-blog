@@ -85,7 +85,7 @@ NexT.boot.refresh = function() {
   CONFIG.pangu && window.pangu.spacingPage();
 
   CONFIG.exturl && NexT.utils.registerExtURL();
-  CONFIG.copycode.enable && NexT.utils.registerCopyCode();
+  CONFIG.copyhiddencode.enable && NexT.utils.registerCopyHiddenCode();
   NexT.utils.registerTabsTag();
   NexT.utils.registerActiveMenuItem();
   NexT.utils.registerLangSelect();

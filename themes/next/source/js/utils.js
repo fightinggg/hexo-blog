@@ -59,50 +59,76 @@ NexT.utils = {
     });
   },
 
-  /**
+    /**
    * One-click copy code support.
    */
-  registerCopyCode: function() {
-    document.querySelectorAll('figure.highlight').forEach(element => {
-      const box = document.createElement('div');
-      element.wrap(box);
-      box.classList.add('highlight-container');
-      box.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-clipboard fa-fw"></i></div>');
-      var button = element.parentNode.querySelector('.copy-btn');
-      button.addEventListener('click', event => {
-        var target = event.currentTarget;
-        var code = [...target.parentNode.querySelectorAll('.code .line')].map(line => line.innerText).join('\n');
-        var ta = document.createElement('textarea');
-        ta.style.top = window.scrollY + 'px'; // Prevent page scrolling
-        ta.style.position = 'absolute';
-        ta.style.opacity = '0';
-        ta.readOnly = true;
-        ta.value = code;
-        document.body.append(ta);
-        const selection = document.getSelection();
-        const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
-        ta.select();
-        ta.setSelectionRange(0, code.length);
-        ta.readOnly = false;
-        var result = document.execCommand('copy');
-        if (CONFIG.copycode.show_result) {
-          target.querySelector('i').className = result ? 'fa fa-check fa-fw' : 'fa fa-times fa-fw';
-        }
-        ta.blur(); // For iOS
-        target.blur();
-        if (selected) {
-          selection.removeAllRanges();
-          selection.addRange(selected);
-        }
-        document.body.removeChild(ta);
+     registerCopyHiddenCode: function () {
+      document.querySelectorAll('figure.highlight').forEach(element => {
+        const box = document.createElement('div');
+        element.wrap(box);
+        box.classList.add('highlight-container');
+        box.insertAdjacentHTML('beforeend', '<div class="copy-btn"><i class="fa fa-copy fa-fw"></i></div>');
+        var button = element.parentNode.querySelector('.copy-btn');
+        button.addEventListener('click', event => {
+          var target = event.currentTarget;
+          var code = [...target.parentNode.querySelectorAll('.code .line')].map(line => line.innerText).join('\n');
+          var ta = document.createElement('textarea');
+          ta.style.top = window.scrollY + 'px'; // Prevent page scrolling
+          ta.style.position = 'absolute';
+          ta.style.opacity = '0';
+          ta.readOnly = true;
+          ta.value = code;
+          document.body.append(ta);
+          const selection = document.getSelection();
+          const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+          ta.select();
+          ta.setSelectionRange(0, code.length);
+          ta.readOnly = false;
+          var result = document.execCommand('copy');
+          if (CONFIG.copyhiddencode.show_result) {
+            target.querySelector('i').className = result ? 'fa fa-check fa-fw' : 'fa fa-times fa-fw';
+          }
+          ta.blur(); // For iOS
+          target.blur();
+          if (selected) {
+            selection.removeAllRanges();
+            selection.addRange(selected);
+          }
+          document.body.removeChild(ta);
+        });
+        button.addEventListener('mouseleave', event => {
+          setTimeout(() => {
+            event.target.querySelector('i').className = 'fa fa-copy fa-fw';
+          }, 300);
+        });
+  
+        box.insertAdjacentHTML('beforeend', '<div class="hidden-btn"><i class="fa fa-expand-arrows-alt"></i></div>');
+  
+        var hiddenButton = element.parentNode.querySelector('.hidden-btn');
+        hiddenButton.addEventListener('click', event => {
+          var target = event.currentTarget;
+          ele = hiddenButton.parentElement.children[0].getElementsByClassName('table-container')[0]
+          if (ele.style.maxHeight != "100000px") {
+            ele.style.maxHeight =  "100000px"
+            hiddenButton.addEventListener('mouseleave', event => {
+              setTimeout(() => {
+                event.target.querySelector('i').className = 'fa fa-compress-arrows-alt';
+              }, 300);
+            });
+          } else {
+            ele.style.maxHeight = "300px"
+            hiddenButton.addEventListener('mouseleave', event => {
+              setTimeout(() => {
+                event.target.querySelector('i').className = 'fa fa-expand-arrows-alt';
+              }, 300);
+            });
+          }
+          if (CONFIG.copyhiddencode.show_result) {
+            target.querySelector('i').className = 'fa fa-check fa-fw';
+          }
+        });
       });
-      button.addEventListener('mouseleave', event => {
-        setTimeout(() => {
-          event.target.querySelector('i').className = 'fa fa-clipboard fa-fw';
-        }, 300);
-      });
-    });
-  },
+    },
 
   wrapTableWithBox: function() {
     document.querySelectorAll('table').forEach(element => {
