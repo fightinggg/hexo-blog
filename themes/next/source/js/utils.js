@@ -95,6 +95,7 @@ NexT.utils = {
             selection.addRange(selected);
           }
           document.body.removeChild(ta);
+          msgUtils.showSuccessMsg('复制成功！', 1000)
         });
         button.addEventListener('mouseleave', event => {
           setTimeout(() => {
@@ -115,6 +116,7 @@ NexT.utils = {
                 event.target.querySelector('i').className = 'fa fa-compress-arrows-alt';
               }, 300);
             });
+            msgUtils.showSuccessMsg('代码展开成功！', 1000)
           } else {
             ele.style.maxHeight = "300px"
             hiddenButton.addEventListener('mouseleave', event => {
@@ -122,6 +124,7 @@ NexT.utils = {
                 event.target.querySelector('i').className = 'fa fa-expand-arrows-alt';
               }, 300);
             });
+            msgUtils.showSuccessMsg('代码折叠成功！', 1000)
           }
           if (CONFIG.copyhiddencode.show_result) {
             target.querySelector('i').className = 'fa fa-check fa-fw';
