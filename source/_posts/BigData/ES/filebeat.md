@@ -9,9 +9,6 @@ mathjax: true
 
 
 ```sh
-
-
-
 curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.5.1-x86_64.rpm
 rpm -vi filebeat-7.5.1-x86_64.rpm
 filebeat modules enable logstash
@@ -39,19 +36,6 @@ EOF
 mkdir /data
 for i in $(seq 1 10000); do echo "{\"x\"="$i"}" >> /data/10000.log; sleep 1s;done &
 /usr/share/filebeat/bin/filebeat -c /etc/filebeat/filebeat.yml -path.home /usr/share/filebeat -path.config /etc/filebeat -path.data /var/lib/filebeat -path.logs /var/log/filebeat -e &
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
 
 

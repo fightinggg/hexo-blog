@@ -8,19 +8,27 @@ mathjax: true
 Zookeeper是一个为分布式应用提供一致性服务的软件，是Hadoop项目的一个子项目，是分布式应用程序协调服务
 
 # Zookeeper安装
-这里有一个下载[地址](https://zookeeper.apache.org/releases.html#download),
-也可以`brew install zookeeper`安装
-还可以`docker pull zookeeper`安装
+
+
+这里有一个下载[地址](https://zookeeper.apache.org/releases.html#download),也可以`brew install zookeeper`安装还可以`docker pull zookeeper`安装
+
 <!-- more -->
+
 我们这里采取docker的方式
 
 # Zookeeper单机启动
 ```sh
 docker run -d -p 2181:2181 --name zookeeper --restart always zookeeper
+```
+```shell
 docker exec -it zookeeper bash
 ./bin/zkCli.sh
 ```
+
+
+
 然后我们能看到下面的输出, 我只截取前几行
+
 ```sh
 Connecting to localhost:2181
 2020-04-17 07:54:30,252 [myid:] - INFO  [main:Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
@@ -138,12 +146,22 @@ FIFO队列， 如生产者消费者模型，创建子目录/queue,当生产者�
 
 # 参考资料
 [Docker下安装zookeeper（单机 & 集群）](https://www.cnblogs.com/LUA123/p/11428113.html)
+
 [ZooKeeper学习 一:安装](https://blog.csdn.net/weixin_41863129/article/details/105028766)
+
 [zookeeper使用和原理探究](http://jm.taobao.org/2010/12/21/665/)
+
 [分布式服务框架 Zookeeper — 管理分布式环境中的数据](https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/)
+
 [mac安装的docker替换镜像](https://www.cnblogs.com/jinzhidao/p/12534064.html)
+
 [Zookeeper持久化原理](https://my.oschina.net/u/3847203/blog/3098735/print)
+
 [ZooKeeper 技术内幕：数据的存储(持久化机制)](https://blog.csdn.net/varyall/article/details/795644180)
+
 [Zookeeper-持久化](https://blog.csdn.net/jpf254/article/details/80769525)
+
 [分析Zookeeper的一致性原理](https://blog.51cto.com/welcomeweb/2103292?utm_source=oschina-app)
+
 [理解zookeeper选举机制](https://www.cnblogs.com/shuaiandjun/p/9383655.html)
+

@@ -1,14 +1,12 @@
 ---
 date: 2021-01-20 00:00:00
-updated: 2021-01-20 00:00:00
+updated: 2021-04-05 22:32:00
 typora-root-url: ..\..
 ---
 
 # 设计模式（JAVA版）
 
  ![](/images/image-2021-03-09-12.58.03.579.png)
-
- <!-- more -->
 
 # 第四章 结构型模式
 
@@ -20,7 +18,7 @@ typora-root-url: ..\..
 
 在spring中，我们常用的动态代理就是代理模式，代理模式目的是代理对象，增强其原有的功能，例如日志打印，数据库事务等
 
-
+ <!-- more -->
 
 ## 装饰模式
 
@@ -152,15 +150,68 @@ public abstract class AbstractQueuedSynchronizer
 
 
 
+# 命令模式
 
 
 
+>命令模式( Command Pattern)又称为行动( Action)模式或交易( Transaction)模式。
+>
+>将一个请求封装成一个对象，从而让你使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能。
 
 
 
+![image-2021-04-05 23.03.05.240](/images/image-2021-04-05-23.03.05.240.png)
+
+```java
+class Receiver {
+    void action() {
+        System.out.println("hello");
+    }
+}
+
+class MyRunnable implements Runnable {
+    Receiver receiver;
+
+    MyRunnable(Receiver receiver) {
+        this.receiver = receiver;
+    }
+
+    @Override
+    public void run() {
+        receiver.action();
+    }
+}
+
+public class Main{
+    public static void (String[] args) {
+        ThreadPoolExecutor threadPoolExecutor = null;
+        
+        threadPoolExecutor.submit(new MyRunnable(new Receiver()));
+    }
+}
+```
 
 
 
+我们思考Runnable， 他其实就是Command，
+
+我们再思考ThreadPoolExecutor , 他其实就是 Invoker
+
+我们思考MyRunnable，他其实就是ConcreteCommand
+
+Receiver 就是Receiver
+
+我们这里发现Receiver和ThreadPoolExecutor没有任何依赖关系
+
+
+
+> 命令模式的优点有以下几个方面。
+>
+> ■ 类间解耦。调用者角色与接收者角色之间没有任何依赖关系，调用者实现功能时只需要调用Command中的execute()方法即可，不需要了解是哪个接收者执行。
+>
+> ■ 可扩展性。Command 的子类可以非常容易地扩展，而调用者Invoker和高层次的模块Client不产生严重的代码耦合。
+>
+> ■ 命令模式结合其他模式会更优秀。命令模式可以结合责任链模式，实现命令族解析任务，结合模板方法模式，则可以减少Command子类的膨胀问题。
 
 
 
