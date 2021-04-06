@@ -6,7 +6,7 @@ typora-root-url: ..\..
 
 # 深入浅出HTTPS从原理到实战
 
-<img src="images/image-20201223135420330.png" alt="images/image-20201223135420330" style="zoom: 10%;" />
+<img src="/images/image-2020-12-23-13.54.20.330.png" style="zoom: 10%;" />
 
 <!-- more -->
 
