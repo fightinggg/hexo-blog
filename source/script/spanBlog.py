@@ -56,6 +56,14 @@ def changeImageUrl(blog):
                          r'![-\1-](https://fightinggg.github.io\2)',  blog[i])
     return '\n'.join(blog)
 
+def changeLinkUrl(blog):
+    blog = blog.split("\n")
+    for i in range(0, len(blog)):
+        blog[i] = re.sub(r'([^!]\[.*?\])\(/(.*?)\)',
+                         r'\1(https://fightinggg.github.io/\2)',  blog[i])
+        blog[i] = re.sub(r'(^\[.*?\])\(/(.*?)\)',
+                        r'\1(https://fightinggg.github.io/\2)',  blog[i])
+    return '\n'.join(blog)
 
 def copyfileAndAddLink(src, dst):
     f = open(src)
@@ -81,6 +89,8 @@ def copyfileAndAddLink(src, dst):
     blog = linkHead(date)+newBlog
 
     blog = changeImageUrl(blog)
+
+    blog = changeLinkUrl(blog)
 
     f = open(dst, 'w')
     f.write(blog)

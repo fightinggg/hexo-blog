@@ -61,7 +61,7 @@ table {
 
 /* 代码长度 */
 .highlight-container .highlight .table-container {
-  max-height: 300px;
+  max-height: 500px;
 }
 
 /*更好的侧边滚动条*/
@@ -149,6 +149,11 @@ table {
   background: var(--content-bg-color);
 }
 
+.darkScheme code{
+  background: var(--google-gray-700);
+  color: var(--text-color);
+}
+
 .darkScheme .highlight .code pre {
   background: var(--content-bg-color);
 }
@@ -163,6 +168,7 @@ table {
 }
 
 
+
 .darkScheme img{
   filter:brightness(80%)
 }
@@ -174,6 +180,15 @@ table {
 /*valine评论区字体颜色*/
 .darkScheme .v * {
   color: var(--text-color);
+}
+
+
+/*搜索框*/
+.darkScheme .search-popup .search-header {
+    background: var(--google-gray-900);
+}
+.darkScheme .search-popup input.search-input {
+    color: var(--text-color);
 }
 
 /* ============================================================================================= */
