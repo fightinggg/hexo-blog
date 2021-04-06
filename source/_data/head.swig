@@ -6,3 +6,7 @@
 
 <script src="/js/msg.js"></script>
 <script src="/js/hello.js"></script>
+<script src="/js/changeBackground.js"></script>
+<script type="text/javascript" src="/js/nightAuto.js"></script>
+<!-- 雪花特效 -->
+<!-- <script type="text/javascript" src="\js\snow.js"></script> -->

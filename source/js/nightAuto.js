@@ -28,8 +28,11 @@ autoScheme = () => {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementsByClassName('night-btn')[0].onclick = () => {
         if (!document.documentElement.classList.contains('darkScheme')) {
+            document.body.style.backgroundImage = document.body.style.oldbackgroundImage
             msgUtils.showSuccessMsg('白天主题好看！(可以按alt+x或者option+x快速更新😯)', 1000)
         } else {
+            document.body.style.oldbackgroundImage = document.body.style.backgroundImage
+            document.body.style.backgroundImage = ""
             msgUtils.showSuccessMsg('暗色主题好看！(可以按alt+x或者option+x快速更新😯)', 1000)
         }
     }
