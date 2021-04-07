@@ -563,7 +563,9 @@ acks=-1也会丢失数据,在ISR中只有leader一个的时候发生
 ### 数据一致性问题
 
 HW(High Watermark) 高水位， 集群中所有节点都能提供的最新消息
+
 LEO(Log End Offset) 节点各自能提供的最新消息
+
 为了保证数据的一致性，我们只提供HW的消费，就算消息丢了后，消费者也不知道，他看起来就是一致性的
 
 #### leader故障
@@ -573,7 +575,9 @@ LEO(Log End Offset) 节点各自能提供的最新消息
 ### 精准一致性(Exactly Once)
 
 ACKS 为 -1 则不会丢失数据，即Least Once
+
 ACKS 为 1 则生产者的每条数据只发送一次， 即At Most Once
+
 他们一个丢数据一个重复数据
 
 #### 幂等性
@@ -843,6 +847,7 @@ auto.offset.reset 当没有初始offset或者offset被删除了(数据过期)就
 ### 手动提交
 
 同步: 当前线程会阻塞直到offset提交成功
+
 异步: 加一个回调函数就可以
 
 ### 问题
@@ -860,8 +865,11 @@ auto.offset.reset 当没有初始offset或者offset被删除了(数据过期)就
 ## 自定义拦截器
 
 configure 读取配置信息
+
 onSend(ProducerRecord) 拦截
+
 onAcknowledgement(RecordMetadata,Exception), 这个和上面的回调函数一样，拦截器也会收到这个东西，
+
 close 拦截
 
 ### 例子

@@ -7,6 +7,7 @@ commens: false
 
 <div id="hot"></div>
 <div id="barcon" name="barcon"></div>
+<div id="comment"></div>
 
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
@@ -85,4 +86,18 @@ function showButton() {//当前页数
     tempStr += "<a href=\"#\" onClick=\"nextPage()\">➡️</a>";
     document.getElementById("barcon").innerHTML = tempStr;
 }
+</script>
+
+
+<script type="text/javascript">
+new AV.Query('Comment').descending('createdAt').limit(10).find().then(o => {
+    html = "<h1 class='post-title' itemprop='name headline'>最近评论</h1>"
+    o.forEach(item => {
+        comment = item.attributes.comment
+        url = item.attributes.url
+        var content = `<div><a href='${url}' color='var(--link-color)'>${url}</a><div color='var(--text-color)' style='margin-left: 10%'>${comment}</div></div>\n`
+        html += content
+    });
+    document.getElementById('comment').innerHTML = html
+})
 </script>
