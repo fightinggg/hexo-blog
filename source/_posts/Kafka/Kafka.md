@@ -3,7 +3,6 @@ date: 2020-04-19 13:32:51
 updated: 2020-04-19 13:32:51
 mathjax: true
 typora-root-url: ..\..
-
 ---
 
 # Kafka概述
@@ -43,7 +42,9 @@ Kafka是一个分布式的基于发布/订阅模式的消息队列，应用于�
 ## 基础架构
 
 Kafka Cluster 中有多个 Broker
+
 Broker中有多个Topic Partion
+
 每个Topic的多个Parttition，放在多个Broker上，可以提高Producer的并发，每个Topic Partition在其他Cluster上存有副本，用于备份，他们存在leader和follower，我们只找leader，不找follower
 
 Topic是分区的，每个分区都是有副本的，分为leader和follower
@@ -51,7 +52,9 @@ Topic是分区的，每个分区都是有副本的，分为leader和follower
 消费者存在消费者组，一个分区只能被同一个组的某一个消费者消费，我们主要是把一个组当作一个大消费者，消费者组可以提高消费能力，消费者多了整个组的消费能力就高了，消费组中消费者的个数不要比消息多，不然就是浪费资源
 
 Kafka利用Zookeeper来管理配置
+
 0.9前消费者把自己消费的位置信息储存在Zookeeper中
+
 0.9后是Kafka自己储存在某个主题中(减少了消费者和zk的连接)
 
 **[我偷了个图](https://www.bilibili.com/video/BV1a4411B7V9?p=5)**
@@ -546,6 +549,7 @@ Kafka选择了完全同步才发送ack，这有一个问题，如果同步的时
 #### ISR
 
 in-sync replica set
+
 leader 动态维护了一个动态的ISR，只要这个集合中的机器同步完成，就发送ack，选举ISR的时候，根据节点的同步速度和信息差异的条数来决定，在高版本中只保留了同步速度，为什么呢？延迟为什么比数据重要？
 
 由于生产者是按照批次生产的，如果我们保留信息差异，当生产者发送大量信息的时候，直接就拉开了leader和follower的信息差异条数，同步快的follower首先拉小了自己和leader信息差异，这时候他被加入ISR，但最一段时间后他会被同步慢但是，最终信息差异小的follower赶出ISR，这就导致了ISR频繁发生变化，意味着ZK中的节点频繁变化，这个选择不可取
@@ -556,7 +560,7 @@ leader 动态维护了一个动态的ISR，只要这个集合中的机器同步�
 | ------- | ---------------------------------- | ----------------------------------------------------------- |
 | 0       | leader收到后就返回ack              | broker故障可能丢失数据                                      |
 | 1       | leader写入磁盘后ack                | 在follower同步前的leader故障可能导致丢失数据                |
-| -1      | 等待ISR的follower写入磁盘后返回ack | 在follower同步后，broker发送ack前，leader故障则导致数据重复 |
+| -1/all  | 等待ISR的follower写入磁盘后返回ack | 在follower同步后，broker发送ack前，leader故障则导致数据重复 |
 
 acks=-1也会丢失数据,在ISR中只有leader一个的时候发生
 
@@ -946,15 +950,25 @@ if ["x$KAFKA_HEAP_OPTS" = "x"] then
 ## 配置文件
 
 可以跟踪多个集群
+
 kafka.eagle.zk.cluster.alisa = cluster1,cluster2
+
 cluster1.zk.list=ip:port,ip:port,...
+
 保存的位置
+
 cluster1.kafka.eagle.offset.storage=kafka
+
 监控图表
+
 kafka.eagle.metrics.charts=true
+
 启动
+
 bin/ke.sh start
+
 http://192.168.9.102:8048/ke
+
 有很多信息都能看到，
 
 # Kafka面试题
@@ -991,7 +1005,7 @@ ISR+OSR=AR
 
 先提交后处理数据
 
-## 创建topuc背后的逻辑
+## 创建topic背后的逻辑
 
 zk中创建新的topic节点，触发controller的监听，controller创建topic然后更新metadata cache
 
@@ -1036,7 +1050,7 @@ Rodrobin和range
 ## 消息积压，消费者消费能力不够怎么办
 
 增加topic分区、提高消费者组的消费者数量、提高消费者每次拉取的数量(默认500)
-## 
+
 
 # 参考资料
 
