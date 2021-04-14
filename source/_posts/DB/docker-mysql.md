@@ -5,10 +5,6 @@ mathjax: true
 typora-root-url: ../..
 ---
 
-
-
-
-
 # mysql安装
 
 ```sh
@@ -21,17 +17,12 @@ docker run --restart=always \
 
 
 
-# docker-mysql
+# 允许远程登录
 
-## 宿主机无法连接
-
-当我们使用docker创建了mysql服务以后，一般无法在宿主机对其进行连接，现象如下
-
-![](/images/image-2021-03-15-12.54.00.159.png)
-
-原因是mysql连接如果不指定IP，则会使用/var/lib/mysql/mysql.sock进行连接，这时我们只需要指定ip即可
+```sql
+ALTER USER 'root'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY '123456';
+```
 
 
 
-
-
+![image-2021-04-09 16.25.42.031](/images/image-2021-04-09-16.25.42.031.png)

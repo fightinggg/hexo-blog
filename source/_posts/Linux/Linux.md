@@ -257,6 +257,13 @@ chore：构建过程或辅助工具的变动
 git push origin --tags
 ```
 
+## 设置代理
+
+```sh
+git config --global http.proxy 'socks5://127.0.0.1:1081'
+git config --global https.proxy 'socks5://127.0.0.1:1081'
+```
+
 
 
 ## vim
