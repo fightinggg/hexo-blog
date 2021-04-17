@@ -7,15 +7,29 @@ typora-root-url: ../..
 
 # mysql安装
 
-```sh
-docker run --restart=always \
-  -d -e MYSQL_ROOT_PASSWORD=123456 \
-  --name mysql \
-  -v /data/docker/mysql/data:/var/lib/mysql \
-  -p 3306:3306 mysql
+可以酌情修改内存大小和交换内存大小。
+
+```shell
+# filename: $HOME/data/mysql/conf/docker.cnf
+[mysqld]
+performance_schema_max_table_instances=400
+table_definition_cache=400
+table_open_cache=256
+performance_schema = off
+skip-host-cache
+skip-name-resolve
 ```
 
-
+```sh
+docker run \
+  -d -e MYSQL_ROOT_PASSWORD=123456 \
+  --name mysql \
+  -v $HOME/data/mysql/data:/var/lib/mysql \
+  -v $HOME/data/mysql/conf:/etc/mysql/conf.d \
+  -m 150M --memory-swap=1024M \
+  -p 3306:3306 \
+  mysql
+```
 
 # 允许远程登录
 

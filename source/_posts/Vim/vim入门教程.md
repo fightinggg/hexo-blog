@@ -8,17 +8,25 @@ typora-root-url: ..\..
 # vim
  vim是一款强大的文本编辑器,如果配置到位，真的真的非常漂亮，如下图violet主题的浅色和深色
 
-![](/images/violet_light.png) 
+![](/images/image-2020-03-07-12.28.32.000.png) 
 
 <!---more-->
-![](/images/violet_dark.png)
+
  还有经典的molokai配色主题
+
+![](/images/image-2020-03-07-12.28.32.001.png)
+
  还有c++高亮配色
-![](/images/c++高亮.png)
+
+![](/images/image-2020-03-07-12.28.32.002.png)
+
  c++补全
-![](/images/c++补全.png)
+
+![](/images/image-2020-03-07-12.28.32.003.png)
+
  多行编辑
-![](/images/多行编辑.png)
+
+![](/images/image-2020-03-07-12.28.32.004.png)
 
 
 
@@ -83,7 +91,7 @@ set matchtime=1
 
 # vim的插件
  这里推荐vundle，安装vundle后，我们的配置前面就多了一些东西
-<summary>代码</summary>
+
 ```
 " Vundle set nocompatible
 filetype off
@@ -126,21 +134,31 @@ filetype plugin indent on
  b是向前跳转一个单词，w是向后跳转一个单词
 ### 行内跳转
  $跳转到行末,A跳转到行末并输入,0跳转到行首,^跳转到行首非空字符,I跳转到行首非空字符并输入
+
  f+a跳转到后面的第一个a, F+a跳转到前面第一个a
+
 ### 行间跳转
  gg到首行，G到尾行, :100到100行
+
  H到屏幕顶，M到屏幕中，L到屏幕底
+
 ### 屏幕跳转
  zz把当前行变为屏幕正中间。
+
  <C-y>向上移动一行，<C-e>向下移动一行
+
  <C-b>向上整个屏幕, <C-f>向下整个屏幕
+
 ### 文件跳转
  :bn到缓冲区下一个文件，bp到前一个
+
  :A .c与.h文件跳转
+
  :IH 到光标指向文件
 
 ## vim 多行操作
 用插件会卡，这里我们可以<C-v>, 移动,I,写,ESC 
+
 指令10,20s/^/#/g
 
 
@@ -150,7 +168,9 @@ filetype plugin indent on
 
 ## vim 高质量组合操作
  c<space> 删除当前字符并插入
+
  caw  change a word删除当前单词并插入 
+
 ```
 one
 two

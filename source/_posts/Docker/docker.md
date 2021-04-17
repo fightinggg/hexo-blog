@@ -21,6 +21,7 @@ mathjax: true
 -v /root/.m2:/root/.m2
 ```
 <!-- more -->
+
 # 安装docker
 
 ```sh
@@ -93,7 +94,7 @@ service docker restart
 就是类似于虚拟机中的iso文件
 # 容器
 就是运行中的系统
-<!-- more -->
+
 # tar文件
 将一个镜像保存为tar文件
 # Dockerfile
@@ -155,23 +156,31 @@ docker-compose up -d
 
 如果有一天发现docker把空间占满了，我们可以先暂停docker，然后使用软连接将/var/lib/docker放置到其他地方
 
-
-
-
-
-
-
 # Docker临时容器妙用
 
 ```sh
 docker run -it --rm --net=host centos:centos8 bash
 yum install vim wget lrzsz -y
 
+```
 
+# 小内存
 
+```shell
+-m 50M --memory-swap=1024M \
 ```
 
 
+
+# Docsker 自动更新容器
+
+```sh
+ docker run -d \
+ --name watchtower \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ -m 50M --memory-swap=1024M \
+ v2tec/watchtower
+```
 
 # Docker的坑
 
