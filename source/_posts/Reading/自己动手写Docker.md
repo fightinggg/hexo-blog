@@ -1,6 +1,6 @@
 ---
 date: 2021-04-16 13:46:00
-updated: 2021-04-17 13:55:00
+updated: 2021-04-20 02:39:00
 typora-root-url: ..\..
 ---
 
@@ -73,33 +73,37 @@ Linux 一个实现了6个不同的Namespace
 
 
 
-## UTS Namespace
+### UTS Namespace
 
 下面是一个`main.go`文件，我们使用指令`go run main.go`
 
-```go
-package main
+>```go
+> package main
+> import (
+>   "os/exec"
+>   "syscall"
+>   "os"
+>   "log"
+> )
+> func main () {
+>   cmd := exec.Command("sh")
+>   cmd.SysProcAttr = &syscall.SysProcAttr{
+>     Cloneflags: syscall.CLONE_NEWUTS,
+>   }
+>   cmd.Stdin = os.Stdin
+>   cmd.Stdout = os.Stdout
+>   cmd.Stderr = os.Stderr
+>   if err := cmd.Run(); err!= nil {
+>     log.Fatal(err)
+>   }
+> }
+>```
+>
+>
+>
+>取自原书第10页
 
-import (
-  "os/exec"
-  "syscall"
-  "os"
-  "log"
-)
 
-func main () {
-  cmd := exec.Command("sh")
-  cmd.SysProcAttr = &syscall.SysProcAttr{
-    Cloneflags: syscall.CLONE_NEWUTS,
-  }
-  cmd.Stdin = os.Stdin
-  cmd.Stdout = os.Stdout
-  cmd.Stderr = os.Stderr
-  if err := cmd.Run(); err!= nil {
-    log.Fatal(err)
-  }
-}
-```
 
 
 
@@ -154,6 +158,10 @@ lrwxrwxrwx 1 root root 0 Apr 16 15:08 pid -> 'pid:[4026531836]'
 lrwxrwxrwx 1 root root 0 Apr 16 15:08 pid_for_children -> 'pid:[4026531836]'
 lrwxrwxrwx 1 root root 0 Apr 16 15:08 user -> 'user:[4026531837]'
 lrwxrwxrwx 1 root root 0 Apr 16 15:06 uts -> 'uts:[4026532643]'
+lrwxrwxrwx 1 root root 0 Apr 16 15:07 uts -> 'uts:[4026531838]'
+```
+
+```sh
 sh-4.4# ls -l /proc/1539185/ns
 total 0
 lrwxrwxrwx 1 root root 0 Apr 16 15:08 cgroup -> 'cgroup:[4026531835]'
@@ -166,7 +174,7 @@ lrwxrwxrwx 1 root root 0 Apr 16 15:08 user -> 'user:[4026531837]'
 lrwxrwxrwx 1 root root 0 Apr 16 15:07 uts -> 'uts:[4026531838]'
 ```
 
-## 其他的Namespace
+### 其他的Namespace
 
 更多的例子可以查看原书11-19页，即可实现其他5个空间的隔离，其实只需要修改代码为下面这样即可。我们只需要使用符号 `|`就能同时开启多个资源的隔离。 
 
@@ -204,7 +212,7 @@ hierarchy把cgroup描述为一个树状结构，在这个树状结构中，Cgrou
 
 
 
-## 安装Cgroup库
+### 安装Cgroup库
 
 ```sh
 yum install -y libcgroup-tools.x86_64
@@ -279,7 +287,7 @@ rdma /sys/fs/cgroup/rdma
 
 
 
-### 三个组件的约束
+### Cgroups三个组件的约束
 
 >系统在创建了新的 hierarchy之后,系统中所有的进程都会加入这个 hierarchy的 cgroup根节点,这个 cgroup根节点是 hierarchy默认创建的。
 >
@@ -293,903 +301,472 @@ rdma /sys/fs/cgroup/rdma
 
 
 
+### Cgroups 实战
+
+我们安装下面的方式即可创建一个cgroup，这个cgroup在子系统cpu所附着的Hierarchy上。
+
+只需要创建一个文件夹，cgroup就被创建了。
+
+```sh
+[root@VM-4-4-centos cpu]# cd /sys/fs/cgroup/cpu
+[root@VM-4-4-centos cpu]# mkdir my-cpu
+[root@VM-4-4-centos cpu]# cd my-cpu/
+[root@VM-4-4-centos my-cpu]# ll
+total 0
+-rw-r--r-- 1 root root 0 Apr 17 14:32 cgroup.clone_children
+-rw-r--r-- 1 root root 0 Apr 17 14:32 cgroup.procs
+-r--r--r-- 1 root root 0 Apr 17 14:32 cpuacct.stat
+-rw-r--r-- 1 root root 0 Apr 17 14:32 cpuacct.usage
+-r--r--r-- 1 root root 0 Apr 17 14:32 cpuacct.usage_all
+-r--r--r-- 1 root root 0 Apr 17 14:32 cpuacct.usage_percpu
+-r--r--r-- 1 root root 0 Apr 17 14:32 cpuacct.usage_percpu_sys
+...
+```
+
+接下来，我们来看两个文件
+
+```sh
+[root@VM-4-4-centos my-cpu]# cat cpu.cfs_period_us 
+100000
+[root@VM-4-4-centos my-cpu]# cat cpu.cfs_quota_us 
+-1
+```
+
+
+
+>cfs_period_us用来配置时间周期长度，cfs_quota_us用来配置当前cgroup在设置的周期长度内所能使用的CPU时间数，两个文件配合起来设置CPU的使用上限。两个文件的单位都是微秒（us），cfs_period_us的取值范围为1毫秒（ms）到1秒（s），cfs_quota_us的取值大于1ms即可，如果cfs_quota_us的值为-1（默认值），表示不受cpu时间的限制。下面是几个例子：
+>
+>```txt
+> 1.限制只能使用1个CPU（每250ms能使用250ms的CPU时间）
+>    # echo 250000 > cpu.cfs_quota_us /* quota = 250ms */
+>    # echo 250000 > cpu.cfs_period_us /* period = 250ms */
+>
+> 2.限制使用2个CPU（内核）（每500ms能使用1000ms的CPU时间，即使用两个内核）
+>    # echo 1000000 > cpu.cfs_quota_us /* quota = 1000ms */
+>    # echo 500000 > cpu.cfs_period_us /* period = 500ms */
+>
+> 3.限制使用1个CPU的20%（每50ms能使用10ms的CPU时间，即使用一个CPU核心的20%）
+>    # echo 10000 > cpu.cfs_quota_us /* quota = 10ms */
+>    # echo 50000 > cpu.cfs_period_us /* period = 50ms */
+>```
+>
+>引用： [原文链接](https://segmentfault.com/a/1190000008323952)
+
+紧接着我们编写一个CPU密集型的算法，计算斐波拉契数列第100000000项的最后4位数字。
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n = 100000000;    
+    int a[] = {0,1,1};
+    for(int i=3;i<=n;i++){
+        int*fib = a-i+2;
+        fib[i-2] = fib[i-1];
+        fib[i-1] = fib[i];
+        fib[i] = (fib[i-1]+fib[i-2])%10000;
+    }
+    cout<<a[2]<<endl;    
+}
+
+```
+
+我们运行他，发现大概执行了1秒钟
+
+```sh
+[root@VM-4-4-centos tmp]# g++ main.cpp -o main && time ./main
+6875
+
+real    0m1.020s
+user    0m0.967s
+sys     0m0.001s
+```
+
+现在我们构建一个只占用10%CPU的Cgroups，并让这个进程运行在这个Cgroups中。我们可以看到，这个进程在9.610秒内占用了0.963秒的CPU时间，这和我们希望看到的10%的CPU时间是相符合的。
+
+```sh
+[root@VM-4-4-centos tmp]# echo 10000 > /sys/fs/cgroup/cpu/my-cpu/cpu.cfs_quota_us
+[root@VM-4-4-centos tmp]# echo 100000 > /sys/fs/cgroup/cpu/my-cpu/cpu.cfs_period_us 
+[root@VM-4-4-centos tmp]# g++ main.cpp -o main && time cgexec -g cpu:my-cpu ./main
+6875
+
+real    0m9.610s
+user    0m0.963s
+sys     0m0.005s
+```
+
+类似如内存占用的实战，在[这里](https://www.cnblogs.com/sparkdev/p/8296063.html)可以看到更多
+
+
+
+## Union File System
+
+>联合文件系统（Union File System）：2004年由纽约州立大学石溪分校开发，它可以把多个目录(也叫分支)内容联合挂载到同一个目录下，而目录的物理位置是分开的。UnionFS允许只读和可读写目录并存，就是说可同时删除和增加内容。
+>
+>作者：_一叶_
+>
+>链接：https://www.jianshu.com/p/3ba255463047
 
+>写时复制(copy-on-wrie,下文简称CoW),也叫隐式共享,是一种对可修改资源实现高效复制的资源管理技术。它的思想是,如果一个资源是重复的,但没有任何修改,这时并不需要立即创建一个新的资源,这个资源可以被新旧实例共享。创建新资源发生在第一次写操作,也就是对资源进行修改的时候。通过这种资源共享的方式,可以显著地减少未修改资源复制带来的消耗,但是也会在进行资源修改时增加小部分的开销。
+>
+>引用： 原书27页
 
-# 11111111111111111111fork出子进程时,子进程是和父进程在同一个 cgroup中的
+### AUFS
 
-## 1111111111111111111
+ Advanced Multi-Layered Unification Filesystem 改写了UFS，提高其可靠性和性能。
 
-### 1
+#### AUFS实战
 
-abc
+我们先创建如下目录
 
-### 2
+```sh
+[root@VM-4-4-centos aufs]# tree 
+.
+├── container-layer
+├── image-layer1
+│   └── file1.txt
+├── image-layer2
+│   └── file2.txt
+├── image-layer3
+│   └── file3.txt
+├── image-layer4
+│   └── file4.txt
+└── mnt
+```
+
+内容如下
+
+```sh
+[root@VM-4-4-centos aufs]# cat image-layer1/file1.txt 
+I'm in layer1
+[root@VM-4-4-centos aufs]# cat image-layer2/file2.txt 
+I'm in layer2
+[root@VM-4-4-centos aufs]# cat image-layer3/file3.txt 
+I'm in layer3
+[root@VM-4-4-centos aufs]# cat image-layer4/file4.txt 
+I'm in layer4
+```
 
-def
+开始挂载
 
-### 3
+```sh
+[root@VM-4-4-centos aufs]#  sudo mount -t aufs -o dirs=container-layer:image-layer1:image-layer2:image-layer3:image-layer4 none mnt
+mount: /data/src/tmp/aufs/mnt: unknown filesystem type 'aufs'.
+```
+
+[GG](https://blog.csdn.net/dmw412724/article/details/107159288) 现在的centos上的docker，使用的不是aufs，而是OverlayFS，不信你看
+
+```sh
+[root@VM-4-4-centos aufs]# df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+devtmpfs          407188        0    407188   0% /dev
+tmpfs             420616       48    420568   1% /dev/shm
+tmpfs             420616     1052    419564   1% /run
+tmpfs             420616        0    420616   0% /sys/fs/cgroup
+/dev/vda1       25736400 21166108   3421600  87% /
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/665fa7b38b75b193df7995e1535782c88e9922d6097e16472ac94d254e18c850/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/1f2ddfe4b78e83f2ba5b721d167b584187726a3fae80ce4ffcf400fa0b0ad1db/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/d76eb09f0d9388bd10daeba94112025dd55c0b6c67cc37fd05ac6664fd4f9947/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/9c8e0bf244fc65294eb2d4455994ca470cd48d3a7b65318d7382bf53ac611cfe/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/0cbbbfc5ed25c5583abe765b06f367add27d0834cedea47e8e5bf12d633af1ee/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/434275a20afd962e4dfea51329f1520fad94ea49b2b9c3d299a06cbf55423b40/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/180399a29eeb51f456a165adf7ea52a79d1219882fc707b9988b93a8c60a2000/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/f7afc7f62355db8f11449d0559fad921c929418b5b8fd80c6b20e7db93054546/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/46d0b181bfd0218a5fa88f3ec0b3f55ef710fc5e8de9ebbac3dc8025c084a372/merged
+overlay         25736400 21166108   3421600  87% /var/lib/docker/overlay2/4b64e9d775bdc157a476a2b7edc6a8141916e57107f2bca0bb795bd18ebe79ea/merged
+tmpfs              84120        0     84120   0% /run/user/0
+```
 
-ghi
+#### AUFS细节
 
+##### 读文件
 
+下图是一个AUFS挂载情况，当我们对/mnt处进行读取文件的时候，他会从顶层依次向下寻找，如果在layer4层找到了这个文件，则直接读取，如果找不到就递归向下寻找。
 
-## 2
+![](/images/image-2021-04-17-16.17.00.000.svg)
 
-### 1
 
-abc
 
-### 2
+##### 写文件
 
-def
+写文件比较特殊，如果底层文件无法写入，则通过COW技术直接写mnt层即可。如果底层文件可读写，则直接写入底层文件。
 
-### 3
+##### 删除文件
 
-ghi
+- 文件在mnt层，下层只读，且下层无此文件，直接删除
+- 文件在mnt层，下层只读，且下层有此文件，删除mnt层，然后创建一个隐藏文件.wh.{filename}表示该文件被删除
+- 文件在下层读写层，直接删除。
 
-## 3
+#### 了解更多
 
-### 1
+[拓展阅读](https://arkingc.github.io/2017/04/13/2017-04-13-docker-filesystem-aufs/)
 
-abc
+### OverlayFS
 
-### 2
+> 如下图所示，Overlay在主机上用到2个目录，这2个目录被看成是overlay的层。
+> upperdir为容器层、lowerdir为镜像层使用联合挂载技术将它们挂载在同一目录(merged)下，提供统一视图
+>
+> ![](/images/image-2021-04-17-16.28.41.938.png)
+>
+> 原文:  [链接](https://docs.docker.com/storage/storagedriver/overlayfs-driver/)
 
-def
+#### 了解更多
 
-### 3
+[拓展阅读](https://docs.docker.com/storage/storagedriver/overlayfs-driver/)
 
-ghi
+# 构造容器
 
-## 4
+## Proc文件系统
 
-### 1
+>Linux下的proc文件系统是由内核提供的,它其实不是一个真正的文件系统只包含了系统运行时的信息(比如系统内存、 mount设备信息、一些硬件配置等),它只存在于内存中,而不占用外存空间。它以文件系统的形式,为访问内核数据的操作提供接口。实际上,很多系统工具都是简单地去读取这个文件系统的某个文件内容,比如 Ismo,其实就是cat
+>proc/modules
+>
+>当遍历这个目录的时候,会发现很多数字,这些都是为每个进程创建的空间,数字就是它们的PID。
 
-abc
+```sh
+[root@VM-4-4-centos aufs]# ll /proc | head -n 15
+total 0
+dr-xr-xr-x  9 root             root         0 Apr  9 15:16 1
+dr-xr-xr-x  9 root             root         0 Apr 17 16:26 10
+dr-xr-xr-x  9 root             root         0 Apr 17 16:26 11
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1102
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1106
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1108
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1111
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1112
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1116
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1135
+dr-xr-xr-x  9 root             root         0 Apr 17 15:57 1136
+dr-xr-xr-x  9 root             root         0 Apr 17 16:26 12
+dr-xr-xr-x  9 root             root         0 Apr 17 16:26 13
+dr-xr-xr-x  9 root             root         0 Apr 17 16:17 1411993
+```
 
-### 2
 
-def
 
-### 3
+目录结构
 
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-# 21111111111111111111fork出子进程时,子进程是和父进程在同一个 cgroup中的
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 31111111111111111111fork出子进程时,子进程是和父进程在同一个 cgroup中的
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 41111111111111111111fork出子进程时,子进程是和父进程在同一个 cgroup中的
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 5
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 6
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 7
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 8
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 9
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-# 10
-
-## 1
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-## 2
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 3
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 4
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 5
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-## 6
-
-### 1
-
-abc
-
-### 2
-
-def
-
-### 3
-
-ghi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| 目录            | 备注                                 |
+| --------------- | ------------------------------------ |
+| /proc/N         | PID为N的进程信息                     |
+| /proc/N/cmdline | 进程启动命令                         |
+| /proc/N/cwd     | 链接到进程当前工作目录               |
+| /proc/N/environ | 进程环境变量列表                     |
+| /proc/N/exe     | 链接到进程的执行命令文件             |
+| /proc/N/fd      | 包含进程相关的所有文件描述符         |
+| /proc/N/maps    | 与进程相关的内存映射信息             |
+| /proc/N/mem     | 指代进程持有的内存,不可读            |
+| /proc/N/root    | 链接到进程的根目录                   |
+| /proc/N/stat    | 进程的状态                           |
+| /proc/N/statm   | 进程使用的内存状态                   |
+| /proc/N/status  | 进程状态信息,比stat/ statm更具可读性 |
+| /proc/self/     | 链接到当前正在运行的进程             |
+
+
+
+
+
+## 有Go我不用
+
+就用C++，哎，就是玩。
+
+## [3.1版本](https://github1s.com/fightinggg/pocker/tree/3.1)
+
+直接看`main.cpp`中的主函数, 首先是解析参数，然后使用clone 系统调用制造一个进程。
+
+```c++
+
+int main(int argc, char *argv[]) {
+    Param *param = ParamParse::parse(argc, argv);
+
+    void *stack = malloc(FIBER_STACK);//为子进程申请系统堆栈
+
+
+    int containerFlag = SIGCHLD | CLONE_NEWUTS | CLONE_NEWPID
+                        | CLONE_NEWNS | CLONE_NEWNET | CLONE_NEWIPC | CLONE_NEWUSER;
+    int pid = clone(doContainer, (char *) stack + FIBER_STACK, containerFlag, param);//创建子线程
+    waitpid(pid, NULL, 0);
+    cout << "parent exit " << endl;
+}
+
+```
+
+
+
+然后看`main.cpp`的子进程， 这里挂在proc目录是为了隔离，然后由于我们并没有编写镜像，所以我们mock了一个只支持centos的镜像。紧接着就是子进程调用exec替换掉自己的代码。
+
+```c++
+int doContainer(void *param) {
+    auto *runParam = (RunParam *) param;
+
+    if (mount("proc", "/proc", "proc", MS_NOEXEC | MS_NOSUID | MS_NODEV, NULL)) {
+        cerr << "mount proc error" << endl;
+        exit(-1);
+    }
+    if (runParam->getImage() == "centos") {
+        vector<string> v = runParam->getExec();
+
+        switch (v.size()) {
+            case 1:
+                execlp(v[0].data(), nullptr);
+                break;
+            case 2:
+                execlp(v[0].data(), v[1].data(), NULL);
+                break;
+            case 3:
+                execlp(v[0].data(), v[1].data(), v[2].data(), NULL);
+                break;
+            case 4:
+                execlp(v[0].data(), v[1].data(), v[2].data(), v[3].data(), NULL);
+                break;
+            default:
+                cerr << "too many params, only four params support" << endl;
+                exit(0);
+        }
+        cerr << "exec error: " << endl;
+        exit(-1);
+    } else {
+        cerr << "could not find image '" << runParam->getImage() << "'" << endl;
+        exit(-1);
+    }
+}
+
+```
+
+
+
+### 编译运行3.1
+
+```sh
+mkdir build
+cd build
+cmake ..
+make
+```
+
+```sh
+[root@wsx pocker]# mkdir build
+[root@wsx pocker]# cd build
+[root@wsx build]# cmake ..
+-- The C compiler identification is GNU 8.3.1
+-- The CXX compiler identification is GNU 8.3.1
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /data/src/pocker/build
+[root@wsx build]# make
+Scanning dependencies of target pocker
+[ 25%] Building CXX object CMakeFiles/pocker.dir/src/param/parse/ParamParse.cpp.o
+[ 50%] Building CXX object CMakeFiles/pocker.dir/src/param/parse/RunParamParse.cpp.o
+[ 75%] Building CXX object CMakeFiles/pocker.dir/src/main.cpp.o
+[100%] Linking CXX executable pocker
+[100%] Built target pocker
+```
+
+默认的提示
+
+```sh
+[root@wsx build]# ./pocker 
+please run:
+      ./pocker run --help
+```
+
+`pocker run`的提示
+
+```sh
+[root@wsx build]# ./pocker run --help
+usage: ./pocker [options] ... image...
+options:
+  -i, --interactive    interactive
+  -t, --tty            tty
+  -d, --detach         detach
+  -?, --help           print this message
+```
+
+调用ls指令
+
+```sh
+[root@wsx build]# ./pocker run -it centos ls .
+CMakeCache.txt  CMakeFiles  cmake_install.cmake  Makefile  pocker
+parent exit 
+```
+
+调用ps指令
+
+```sh
+[root@wsx build]# ./pocker run -it centos ps aux
+    PID TTY          TIME CMD
+      1 pts/0    00:00:00 ps
+parent exit 
+```
+
+调用bash指令
+
+```sh
+[root@wsx build]# ./pocker run -it centos bash
+[nobody@wsx build]$ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+nobody         1       0  0 02:38 pts/0    00:00:00 [bash]
+nobody        22       1  0 02:38 pts/0    00:00:00 ps -ef
+[nobody@wsx build]$ exit
+exit
+parent exit 
+```
+
+
+
+### pocker3.1 in docker
+
+笔者还为大家准备了一份开箱即用的3.1版本。大家可以一起来学习。
+
+```sh
+s@s ~ % docker run  --privileged  -it --rm 1144560553/pocker:3.1 bash 
+Unable to find image '1144560553/pocker:3.1' locally
+3.1: Pulling from 1144560553/pocker
+7a0437f04f83: Already exists 
+4bbae049836d: Pull complete 
+Digest: sha256:8340325bed1f0c26a1a24f0052e03fd06cb873d47a1b5d750f827d2ad4691b9e
+Status: Downloaded newer image for 1144560553/pocker:3.1
+[root@ed07427b0ebd /]# pocker 
+please run:
+      pocker run --help
+[root@ed07427b0ebd /]# pocker run --help
+usage: pocker [options] ... image...
+options:
+  -i, --interactive    interactive
+  -t, --tty            tty
+  -d, --detach         detach
+  -?, --help           print this message
+[root@ed07427b0ebd /]# pocker run -it centos ps ef
+  PID TTY          TIME CMD
+    1 pts/0    00:00:00 ps
+parent exit 
+[root@ed07427b0ebd /]# pocker run -it centos ls . 
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc
+root  run  sbin  srv  sys  tmp  usr  var
+parent exit 
+[root@ed07427b0ebd /]# pocker run -it centos bash
+[nobody@ed07427b0ebd /]$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+nobody       1     0  0 07:24 pts/0    00:00:00 [bash]
+nobody      14     1  0 07:24 pts/0    00:00:00 ps -ef
+[nobody@ed07427b0ebd /]$ exit
+exit
+parent exit 
+[root@ed07427b0ebd /]# exit
+exit
+```
+
+此blog暂时挂起。
