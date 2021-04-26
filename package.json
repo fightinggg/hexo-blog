@@ -9,14 +9,14 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "4.2.1"
+    "version": "5.4.0"
   },
   "dependencies": {
-    "hexo": "^4.0.0",
+    "hexo": "^5.4.0",
     "hexo-blog-encrypt": "^3.0.12",
-    "hexo-deployer-git": "^2.1.0",
+    "hexo-deployer-git": "^3.0.0",
     "hexo-fightinggg-baidu-url-submit": "^1.0.2",
-    "hexo-fightinggg-enhancer": "^1.0.2",
+    "hexo-fightinggg-enhancer": "^1.0.3",
     "hexo-fightinggg-linkable-blog": "^1.0.0",
     "hexo-fightinggg-mathjax": "^1.0.0",
     "hexo-fightinggg-next-nightmode": "^1.0.0",
@@ -35,7 +35,6 @@
     "hexo-inject": "^1.0.0",
     "hexo-lazyload-image": "^1.0.10",
     "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-kramed": "^0.1.4",
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-mathjax": "^0.6.0",
     "hexo-renderer-stylus": "^1.1.0",

@@ -12,6 +12,8 @@ util.parseTags(hexo.config.keywords, tags);
  * @param log
  * @param data
  */
+
+hexoAbbrlinkSet = new Set();
 function filterPost(log, data) {
     let metadata = util.parseSource(data.source);
 
@@ -23,9 +25,14 @@ function filterPost(log, data) {
         data.updated = moment(1565018588000)
         data.abbrlink = data.title
     } else {
-        data.abbrlink = (data.date.valueOf() / 1000).toString(36).toUpperCase();
+        data.abbrlink = (data.abbrlink?data.abbrlink:'') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
     }
+    if(hexoAbbrlinkSet.has(data.abbrlink)){
+        log.error('重复的abbrlink: '+data)
+    }
+    hexoAbbrlinkSet.add(data.abbrlink);
 
+  
     if (metadata.categories.length) {
         let categories = metadata.categories;
         data.categories.forEach(item => {
