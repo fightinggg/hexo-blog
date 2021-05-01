@@ -19,7 +19,7 @@ mathjax: true
 
 <!---more-->
 
-# type_traits<T>
+# type_traits\<T\>
  一个模版元技术，他是一个类,能够萃取类型的相关信息，模版元详见C++笔记中的Boost源码分析
 
 # destroy

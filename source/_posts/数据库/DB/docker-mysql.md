@@ -2,7 +2,7 @@
 date: 2021-03-15 12:53:00
 updated: 2021-03-15 12:53:00
 mathjax: true
-typora-root-url: ../..
+typora-root-url: ../../..
 ---
 
 # mysql安装
@@ -39,4 +39,5 @@ ALTER USER 'root'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY '123456';
 
 
 
-![image-2021-04-09 16.25.42.031](/images/image-2021-04-09-16.25.42.031.png)
+![](/images/image-2021-04-09-16.25.42.031.png)
+

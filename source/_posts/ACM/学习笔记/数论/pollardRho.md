@@ -5,7 +5,7 @@ mathjax: true
 ---
 
 
-<!---more-->
+
 
 ```cpp
 #include<bits/stdc++.h>

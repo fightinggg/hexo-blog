@@ -6,22 +6,22 @@ mathjax: true
 
 
 
-# 置换符号
+# 符号
 
-```txt
-\begin{pmatrix}
-1 & 2 & 3\\\\
-3 & 2 & 1
-\end{pmatrix} \circ 
-\begin{pmatrix}
-2 & 3 \\\\
-3 & 2
-\end{pmatrix}
-=\begin{pmatrix}
-1 & 2 & 3 \\\\
-2 & 3 & 1
-\end{pmatrix}
-```
+右键符号选择Copy to Clipboard即可复制代码。
+
+# 集合论
+
+|   符号   |    查看    |
+| :------: | :--------: |
+|    交    |  $$\cap$$  |
+|    并    |  $$\cup$$  |
+| 笛卡尔积 | $$\times$$ |
+|   竖线   | $$\vert$$  |
+
+<!-- more -->
+
+# 置换
 
 $$
 \begin{pmatrix}
@@ -37,6 +37,8 @@ $$
 2 & 3 & 1
 \end{pmatrix}
 $$
+
+
 
 
 

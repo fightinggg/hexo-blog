@@ -1,6 +1,6 @@
 ---
 date: 2021-04-16 13:46:00
-updated: 2021-04-20 02:39:00
+updated: 2021-04-29 20:18:00
 typora-root-url: ..\..
 ---
 
@@ -769,4 +769,89 @@ parent exit
 exit
 ```
 
-此blog暂时挂起。
+
+
+## 3.2-cpu版本
+
+这个版本笔者主要增加了一些cpu的限制，先看main.cpp中多了一个函数，这个函数是在容器启动前就已经调用了的，目的就是创建CPU子系统，我们可以看到这里主要使用了system系统调用，在目录`/sys/fs/cgroup/cpu`下用容器的id为文件夹名字创建了一个cpu子系统，在其中修改cfs_quota_us和cfs_period_us来解决cpu资源的问题。具体可见[Cgroups 实战](#Cgroups 实战)。
+
+```c++
+void prepareContainer(RunParam *runParam) {
+    // create cpu subsystem
+    char cmd[128];
+    string cmdList[] = {
+            "cd /sys/fs/cgroup/cpu ",
+            "&& mkdir %s ",
+            "&& cd %s ",
+            "&& echo %d > cpu.cfs_quota_us ",
+            "&& echo 50000 > cpu.cfs_period_us "
+    };
+    string cmdOrigin;
+    for (string &s:cmdList) {
+        cmdOrigin += s;
+    }
+    sprintf(cmd, cmdOrigin.data(),
+            runParam->getContainerId().data(),
+            runParam->getContainerId().data(),
+            int(runParam->getCpus() * 50000)
+    );
+    system(cmd);
+}
+```
+
+然后就是在容器启动后增加了下面这一段代码, 依然使用系统调用system，把容器所在的进程ID加入到tasks文件中，其目的就是让当前进程加入cpu子系统，来限制cpu的使用率。然后为了测试cpu子系统的有效性，笔者还在其中加了一个0到1e9的for循环来完成一个计算密集型任务。pocker会输出这个任务所占用的时间（单位为秒）。
+
+```c++
+    // add cpu subsystem
+    char cmd[128];
+    sprintf(cmd, "echo %d >> /sys/fs/cgroup/cpu/%s/tasks",
+            getpid(), runParam->getContainerId().data());
+    system(cmd);
+
+    int cur = time(0);
+    int a = 1;
+    for (int i = 0; i < 1e9; i++) {
+        a += i;
+    }
+    cout << a << endl;
+    cout << "cost: " << time(0) - cur << endl;
+```
+
+当然笔者依然准备了一份开箱即用的docker版本，大家可以自行尝试。下面是笔者测试的结果。 我们可以看到当cpus取值为0.5的时候，花费了7秒，当取值为0.25的时候，花费了18秒。
+
+```bash
+s@s ~ % docker run  --privileged  -it --rm 1144560553/pocker:3.2-cpu bash
+Unable to find image '1144560553/pocker:3.2-cpu' locally
+3.2-cpu: Pulling from 1144560553/pocker
+7a0437f04f83: Pull complete 
+cc5cd42589c1: Pull complete 
+Digest: sha256:01ac27156f599acfa588a51301455b92eca7c4963b0e6c6ab943d66f4c5cb06f
+Status: Downloaded newer image for 1144560553/pocker:3.2-cpu
+[root@37ab95d1bfdb /]# pocker
+please run:
+      pocker run --help
+[root@37ab95d1bfdb /]# pocker run -idt --memory 50m --cpus 0.5 --memory-swap 1024m centos ps ef
+RunParam:: tty: 1, interactive: 1, detach: 1, memory: 50, memorySwap: 1024, cpus: 0.500000, image: centos,containerId: 205b8eaf-76a3-474f-9a3f-4d5a9e5b64ad,containerName: 
+-1243309311
+cost: 7
+  PID TTY          TIME CMD
+    1 pts/0    00:00:03 ps
+parent exit 
+[root@37ab95d1bfdb /]# pocker run -idt --memory 50m --cpus 0.25 --memory-swap 1024m centos ps ef
+RunParam:: tty: 1, interactive: 1, detach: 1, memory: 50, memorySwap: 1024, cpus: 0.250000, image: centos,containerId: 322904df-a8b0-46c4-b7c2-ec3e6ea66f17,containerName: 
+-1243309311
+cost: 18
+  PID TTY          TIME CMD
+    1 pts/0    00:00:04 ps
+parent exit 
+```
+
+
+
+
+
+
+
+
+
+此blog暂时挂起，开始慢速更新模式，我准备ICPC去了
