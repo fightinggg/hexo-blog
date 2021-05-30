@@ -22,11 +22,11 @@ skip-name-resolve
 
 ```sh
 docker run \
+  --cpus 0.2 \
   -d -e MYSQL_ROOT_PASSWORD=123456 \
   --name mysql \
   -v $HOME/data/mysql/data:/var/lib/mysql \
   -v $HOME/data/mysql/conf:/etc/mysql/conf.d \
-  -m 150M --memory-swap=1024M \
   -p 3306:3306 \
   mysql
 ```

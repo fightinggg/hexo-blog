@@ -85,3 +85,31 @@ echo "  <version>1.0-SNAPSHOT</version>" >> pom.xml
 echo "</project>" >> pom.xml
 cd ..
 ```
+
+
+
+
+
+# 发布时加入源码
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.0.1</version>
+            <configuration>
+                <attach>true</attach>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+```
