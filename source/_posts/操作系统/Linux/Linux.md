@@ -46,16 +46,6 @@ sudo apt-get install yum -y
 
 
 
-## ele
-
-### firefox
-
-```shell
-sudo dpkg --remove --force-remove-reinstreq google-chrome-stable
-apt-get install firefox
-```
-<!-- more -->
-
 ## XXD
 
 这是一个16进制查看工具
@@ -202,69 +192,6 @@ ssh localhost -p 2222
 ssh root@9.135.10.2 -p 36000 -P
 xxxx
 ```
-
-
-
-## Git
-
-```sh
-docker run -it --rm \
-	-v ${HOME}:/root \
-	-v $(pwd):/git \
-	alpine/git \
-	clone https://github.com/alpine-docker/git.git
-```
-
-### 源码安装
-
-```sh
-gitVersion=2.29.2
-yum install -y curl-devel expat-devel gettext-devel \
-    openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker \
-    autoconf automake make libtool wget;\
-wget https://github.com/git/git/archive/v$gitVersion.tar.gz; \
-tar -zxf v$gitVersion.tar.gz; \
-cd /git-$gitVersion; \
-make prefix=/usr/local/git all; \
-make prefix=/usr/local/git install; \
-echo "GIT_HOME=/usr/local/git" >> ~/.bashrc; \
-echo "PATH=\$GIT_HOME/bin:\$PATH" >> ~/.bashrc; \
-source ~/.bashrc; \
-git --version;   
-```
-
-修改Git默认编辑器
-
-```sh
- git config --global core.editor "vim"
-```
-
-### GIT提交规范
-
-```txt
-feat：新功能（feature）
-fix：修补bug
-docs：文档（documentation）
-style： 格式（不影响代码运行的变动）
-refactor：重构（即不是新增功能，也不是修改bug的代码变动）
-test：增加测试
-chore：构建过程或辅助工具的变动
-```
-
-### 提交Tag
-
-```
-git push origin --tags
-```
-
-## 设置代理
-
-```sh
-git config --global http.proxy 'socks5://127.0.0.1:1081'
-git config --global https.proxy 'socks5://127.0.0.1:1081'
-```
-
-
 
 ## vim
 
