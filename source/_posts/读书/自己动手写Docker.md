@@ -1,6 +1,6 @@
 ---
 date: 2021-04-16 13:46:00
-updated: 2021-04-29 20:18:00
+updated: 2021-05-31 12:43:00
 typora-root-url: ..\..
 ---
 
@@ -848,10 +848,38 @@ parent exit
 
 
 
+## 3.2-mem版本
+
+新增的主要部分还是在main.cpp中，这个部分完成了内存子系统，这里直接看到，我们在位置`/sys/fs/cgroup/memory`新建了一个文件夹，并限制了内存和交换内存的大小，注意到一旦进程发生了内存溢出，默认将会被kill
+
+```c++
+  // create memory subsystem
+  cmdList = {"cd /sys/fs/cgroup/memory ", "&& mkdir %s ",
+                            "&& cd %s ", "&& echo %d > memory.limit_in_bytes ",
+                            "&& echo %d > memory.memsw.limit_in_bytes "};
+  sprintf(cmd, StringUtils::join(cmdList).data(),
+          runParam->getContainerId().data(), runParam->getContainerId().data(),
+          int(runParam->getMemory()), int(runParam->getMemorySwap()));
+  system(cmd);
+```
+
+笔者还是准备了一份开箱即用的docker版本(以后的docker版本都将直接转移到账号fightinggg下，而不是1144560553)，大家可以直接尝试。
+
+这里首先使用docker创建了一个pocker，然后使用pocker创建了一个内存空间10mb的容器，最后在容器中使用大量的内存，之后发现这个容器被Killed。
+
+```sh
+s@s ~ % docker run  --privileged  -it --rm fightinggg/pocker:3.2-mem bash
+[root@6b67dbf3b43e /]# pocker run -itd -m 10m --memory-swap 10m centos bash
+RunParam:: tty: 1, interactive: 1, detach: 1, memory: 10485760, memorySwap: 10485760, cpus: 1.000000, image: centos,containerId: 2b90e451-8d10-4efc-b105-42000930b51d,containerName: 
+[nobody@6b67dbf3b43e /]$ bash -c "arr=(1 2 3); for((i=1;i<=1000000;i++));  do arr[i]=i; done; echo ${arr[@]}"
+Killed
+[nobody@6b67dbf3b43e /]$ exit
+exit
+container exit, thanks for using pocker 
+[root@6b67dbf3b43e /]# 
+```
 
 
 
 
 
-
-此blog暂时挂起，开始慢速更新模式，我准备ICPC去了

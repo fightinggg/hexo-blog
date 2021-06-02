@@ -4,7 +4,18 @@ updated: 2020-04-07 15:25:07
 mathjax: true
 ---
 
-# linux运行级别
+# MAN 操作手册
+
+学linux，必须知道如何使用man，首先是安装man，或者在[这里](https://man7.org/linux/man-pages/dir_all_alphabetic.html)逛逛
+
+```sh
+yum -y install man-pages
+```
+
+
+
+# Linux运行级别
+
  linux一共有7个级别，分别为
 0关机、
 1单用户、
