@@ -16,9 +16,9 @@ typora-root-url: ..\..
 
 随着云计算领域的兴起，容器这个词出现了，但是什么是容器？
 
-容器英文名Container，是基于Linux Namespace以及Cgroups技术实现的具备隔离特性的进程。
+容器英文名Container，是基于Linux Namespace以及Cgroups技术实现的具备隔离特性的一组进程。
 
-OK，他是一个具备隔离特性的进程。
+OK，他是一组具备隔离特性的进程。
 
 
 
@@ -32,15 +32,11 @@ OK，虚拟机是一个操作系统。
 
 ## 操作系统和进程的区别
 
-操作系统是管理软件、硬件的进程。
-
-
+操作系统是管理软件、硬件的一组进程。
 
 ## GO
 
-这里不做介绍
-
-
+这里不做介绍（其实我只能看懂一点点Go代码，没时间学，后面有机会再出这方面的Blog吧）
 
 # 基础技术
 
@@ -878,6 +874,407 @@ exit
 container exit, thanks for using pocker 
 [root@6b67dbf3b43e /]# 
 ```
+
+
+
+# 构造镜像
+
+## 4.1-busybox版本
+
+这个版本中，我们实现了容器根目录的隔离，首先从docker容器中导出busybox的文件系统，然后将其挂载到pocker所构造的容器中，主要代码在[main.cpp](https://github.com/fightinggg/pocker/commit/1d55e7326b1cb902ee8d9160f8e6c3ec354cde54#diff-34d21af3c614ea3cee120df276c9c4ae95053830d7f1d3deaf009a4625409ad2)中，这里增加了系统调用`SYS_pivot_root`，把busybox的文件系统挂在到当前根目录，然后卸载旧的根目录。
+
+```c++
+// mount busyBox 1. change workdir
+  if (chdir(busyBoxDir.data())) {
+    cerr << "chdir to busyBoxDir error" << endl;
+    exit(-1);
+  }
+  // mount busyBox 2. mount busyBox
+  if (mount(busyBoxDir.data(), busyBoxDir.data(), "bind", MS_BIND | MS_REC,
+            NULL)) {
+    cerr << "mount busyBox error" << endl;
+    exit(-1);
+  }
+  String privotRootName = ".pivot_root" + runParam->getContainerId();
+  String privotRoot = busyBoxDir + "/" + privotRootName;
+  // mount busyBox 3. mkdir put_old
+  if (mkdir(privotRoot.data(), S_IRWXU | S_IRWXG | S_IRWXO)) {
+    cerr << "mkdir privotRoot error" << endl;
+    exit(-1);
+  }
+  // mount busyBox 4. privot_root()
+  if (syscall(SYS_pivot_root, busyBoxDir.data(), privotRoot.data())) {
+    cerr << "privot_root error" << endl;
+    exit(-1);
+  }
+  // mount busyBox 5. to dir /
+  if (chdir("/")) {
+    cerr << "chdir to / error" << endl;
+    exit(-1);
+  }
+  // mount busyBox 6. unmount .privot_root
+  if (umount2(("/" + privotRootName).data(), MNT_DETACH)) {
+    cerr << "unmount .pivot_root  error " << getErr() << endl;
+    exit(-1);
+  }
+  // mount busyBox 7. delete dir
+  if (rmdir(("/" + privotRootName).data())) {
+    cerr << "rm .pivot_root  error " << getErr() << endl;
+    exit(-1);
+  }
+```
+
+
+
+笔者还是准备了一个docker版本，可以看到这时候使用ls，已经能发现根目录下的文件系统发生了变化。
+
+```sh
+s@s hexo-blog % docker run -it --rm --privileged fightinggg/pocker:4.1-busybox  
+[root@2d2a5c1bcd01 /]# pocker run -it busybox sh
+RunParam:: tty: 1, interactive: 1, detach: 0, memory: 10485760, memorySwap: 10485760, cpus: 1.000000, image: busybox,containerId: 0ee090e5-9829-4140-bfd1-48982952f4e0,containerName: 
+container begin: sh
+/ # ps ef
+PID   USER     TIME  COMMAND
+    1 root      0:00 sh
+    4 root      0:00 ps ef
+/ # ls -a
+.           ..          .dockerenv  bin         dev         etc         home        proc        root        sys         tmp         usr         var
+/ # df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+overlay               16447356   7816736   7775428  50% /
+/ # exit
+container exited, status=0,  thanks for using pocker
+[root@2d2a5c1bcd01 /]# exit
+exit
+s@s hexo-blog % 
+```
+
+
+
+## 4.2-overlay版本
+
+这部分笔者并没有选择和原书中一样的aufs文件系统，而是使用了overlay文件系统，哎就是玩。主要的修改还是在`main.cpp`中。
+
+大概是先创建一个disk.img文件，然后将其挂载到目录disk下，在disk目录下创建三个文件夹，upper、tmp和overlay，最后使用overlay文件系统以busybox为lower构造出一个两层文件系统。
+
+这里有一个很重要的点，为什么要挂载disk.img，首先注意到一个事实，docker默认使用overlay文件系统来构造容器，所以我们下面这个程序是有可能运行在overlay文件系统下的。
+
+overlay文件系统挂载时对upper有一定的要求，这导致了overlay文件系统没办法做为upper层挂载在另一个overlay文件系统下。
+
+所以我们必须虚拟一个文件系统。
+
+挂载流程和代码都在下面
+
+
+
+![](/images/image-2021-06-04-23.22.00.000.svg)
+
+
+
+```c++
+
+  String containerDataDir = containerDir + "/" + runParam->getContainerId();
+  if (mkdir(containerDataDir.data(), 0777)) {
+    cerr << " mkdir " << containerDataDir << " error" << endl;
+    exit(-1);
+  }
+
+  String diskFile = containerDataDir + "/disk.img";
+  String containerDisk = containerDataDir + "/disk";
+
+  // create container disk 1. create disk
+  sprintf(cmd, "dd if=/dev/zero bs=1M count=20 of=%s", diskFile.data());
+  system(cmd);
+
+  // 2. init file system
+  if (system(("mkfs.ext4 " + diskFile).data())) {
+    cerr << "mkfs error " << diskFile << endl;
+    exit(-1);
+  }
+
+  mkdir(containerDisk.data(), 0777);
+
+  // 3. mount container disk system
+  sprintf(cmd, "mount %s %s", diskFile.data(), containerDisk.data());
+  printf("mount upper: %s\n", cmd);
+  if (system(cmd)) {
+    cerr << "mount " << diskFile << " error" << endl;
+    exit(-1);
+  }
+
+  String containerUpper = containerDisk + "/upper";
+  String containerTmp = containerDisk + "/tmp";
+  String containerMerge = containerDisk + "/overlay";
+
+  mkdir(containerUpper.data(), 0777);
+  mkdir(containerTmp.data(), 0777);
+  mkdir(containerMerge.data(), 0777);
+
+  // system(("ls -al " + containerDisk).data());
+
+  // 4. build overlay
+  sprintf(cmd,
+          "mount -t overlay overlay "
+          "-olowerdir=%s,upperdir=%s,workdir=%s %s",
+          busyBoxDir.data(), containerUpper.data(), containerTmp.data(),
+          containerMerge.data());
+  printf("do: %s\n", cmd);
+  if (system(cmd)) {
+    cerr << "build overlay error " << getErr() << endl;
+    exit(-1);
+  }
+```
+
+笔者依旧准备了一份开箱即用的docker版本。如下。首先演示了在第一个容器中创建文件abc，然后退出容器，接着在第二个进入第二个容器，查看目录，是看不到文件abc的。
+
+```c++
+s@s pocker % docker run -it --rm --privileged fightinggg/pocker:4.2-overlay bash
+Unable to find image 'fightinggg/pocker:4.2-overlay' locally
+4.2-overlay: Pulling from fightinggg/pocker
+7a0437f04f83: Already exists 
+00386041dce7: Pull complete 
+7b2a7c3db2a0: Pull complete 
+eeb1e29037fb: Pull complete 
+74f885815b4e: Pull complete 
+Digest: sha256:300f607e39217465a547593fda5c93c2a4d20e133dab82a519127bec66976b1e
+Status: Downloaded newer image for fightinggg/pocker:4.2-overlay
+[root@e070166a0ba7 /]# pocker run -it busybox sh
+RunParam:: tty: 1, interactive: 1, detach: 0, memory: 10485760, memorySwap: 10485760, cpus: 1.000000, image: busybox,containerId: f5212791-e818-4fe2-b040-e7f779473e23,containerName: 
+20+0 records in
+20+0 records out
+20971520 bytes (21 MB, 20 MiB) copied, 0.0562303 s, 373 MB/s
+mke2fs 1.45.6 (20-Mar-2020)
+Discarding device blocks: done                            
+Creating filesystem with 20480 1k blocks and 5136 inodes
+Filesystem UUID: 61b1d479-fca0-41b0-86be-5d9c3c501714
+Superblock backups stored on blocks: 
+	8193
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+mount upper: mount /usr/local/pocker/data/containers/f5212791-e818-4fe2-b040-e7f779473e23/disk.img /usr/local/pocker/data/containers/f5212791-e818-4fe2-b040-e7f779473e23/disk
+do: mount -t overlay overlay -olowerdir=/usr/local/pocker/data/images/busybox,upperdir=/usr/local/pocker/data/containers/f5212791-e818-4fe2-b040-e7f779473e23/disk/upper,workdir=/usr/local/pocker/data/containers/f5212791-e818-4fe2-b040-e7f779473e23/disk/tmp /usr/local/pocker/data/containers/f5212791-e818-4fe2-b040-e7f779473e23/disk/overlay
+container begin: sh
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # mkdir abc
+/ # ls
+abc   bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # exit
+container exited, status=0,  thanks for using pocker
+[root@e070166a0ba7 /]# pocker run -it busybox sh
+RunParam:: tty: 1, interactive: 1, detach: 0, memory: 10485760, memorySwap: 10485760, cpus: 1.000000, image: busybox,containerId: 276d1b7b-72de-4538-8b39-fbfb469ae930,containerName: 
+20+0 records in
+20+0 records out
+20971520 bytes (21 MB, 20 MiB) copied, 0.0629004 s, 333 MB/s
+mke2fs 1.45.6 (20-Mar-2020)
+Discarding device blocks: done                            
+Creating filesystem with 20480 1k blocks and 5136 inodes
+Filesystem UUID: 4231f410-3e32-4486-9d09-2de705563eb8
+Superblock backups stored on blocks: 
+	8193
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+mount upper: mount /usr/local/pocker/data/containers/276d1b7b-72de-4538-8b39-fbfb469ae930/disk.img /usr/local/pocker/data/containers/276d1b7b-72de-4538-8b39-fbfb469ae930/disk
+do: mount -t overlay overlay -olowerdir=/usr/local/pocker/data/images/busybox,upperdir=/usr/local/pocker/data/containers/276d1b7b-72de-4538-8b39-fbfb469ae930/disk/upper,workdir=/usr/local/pocker/data/containers/276d1b7b-72de-4538-8b39-fbfb469ae930/disk/tmp /usr/local/pocker/data/containers/276d1b7b-72de-4538-8b39-fbfb469ae930/disk/overlay
+container begin: sh
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # exit
+container exited, status=0,  thanks for using pocker
+[root@e070166a0ba7 /]# exit
+exit
+s@s pocker % 
+
+```
+
+
+
+## 4.3-volumes版本
+
+今天去拍毕业照了，累了一整天，哎，真累，无聊中得到了两个点：
+
+- 仔细想了想，4.2中让pocker去适配操作系统的文件系统，有点不太合理，我觉得应该pocker还是不应该管操作系统的文件系统是哪个具体的类型，让用户自己去挂载ext4就可以了，没必要在程序中搞。
+- Java代码写C++真是shit到家了，我全给他改成了下划线命名。
+
+然后步入正题，在4.2版本中我们注意到换根以后，卸载privot以前，可以做一些文件映射，于是笔者直接使用mount指令将其挂载，实现了容器数据的持久化，但是由于笔者使用的命令行框架似乎不支持数组格式的flag，所以目前只能映射一个目录。这个以后应该会修复，新增代码如下，非常简单。
+
+```c++
+void pre_umount_privot(run_param *arg_run_param, string privot_root_name) {
+  if (!arg_run_param->volumes.empty()) {
+    auto v = arg_run_param->volumes[0];
+    string src = "/" + privot_root_name + "/" + v.from;
+    system(("mkdir -p " + v.to).data());
+    if (mount(src.data(), v.to.data(), NULL, MS_BIND, NULL)) {
+      cerr << "mount " << v.from << " to " << v.to << " failed" << getErr()
+           << endl;
+      exit(-1);
+    }
+  }
+}
+```
+
+
+
+当然笔者还是准备了一个非常nice的docker版本，专门给懒人用的，下面是例子。
+
+```sh
+s@s ~ % docker run -it --rm --privileged fightinggg/pocker:4.3-volumes 
+Unable to find image 'fightinggg/pocker:4.3-volumes' locally
+4.3-volumes: Pulling from fightinggg/pocker
+7a0437f04f83: Already exists 
+00386041dce7: Already exists 
+06435815e90c: Pull complete 
+7e9a89da8fed: Pull complete 
+16d9b87459ec: Pull complete 
+Digest: sha256:f6314e114d6bd6bed21c6749c38b4636d1db51b22f8ab575bbdf72ccd8307dd2
+Status: Downloaded newer image for fightinggg/pocker:4.3-volumes
+[root@1e558fec41d2 /]# pocker run -it -v /:/hostdir/root busybox sh
+run_param:: tty: 1, interactive: 1, detach: 0, memory: 10485760, memory_swap: 10485760, cpus: 1.000000, image: busybox,volumes: [ (from: /, to: /hostdir/root)]id: 744a37f3-a390-4faf-8fbb-3baa43b62988,name: 
+20+0 records in
+20+0 records out
+20971520 bytes (21 MB, 20 MiB) copied, 0.0395407 s, 530 MB/s
+mke2fs 1.45.6 (20-Mar-2020)
+Discarding device blocks: done                            
+Creating filesystem with 20480 1k blocks and 5136 inodes
+Filesystem UUID: d46262a1-0cc4-46a0-ac1b-1fd908c8fa28
+Superblock backups stored on blocks: 
+	8193
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+mount upper: mount /usr/local/pocker/data/containers/744a37f3-a390-4faf-8fbb-3baa43b62988/disk.img /usr/local/pocker/data/containers/744a37f3-a390-4faf-8fbb-3baa43b62988/disk
+do: mount -t overlay overlay -olowerdir=/usr/local/pocker/data/images/busybox,upperdir=/usr/local/pocker/data/containers/744a37f3-a390-4faf-8fbb-3baa43b62988/disk/upper,workdir=/usr/local/pocker/data/containers/744a37f3-a390-4faf-8fbb-3baa43b62988/disk/tmp /usr/local/pocker/data/containers/744a37f3-a390-4faf-8fbb-3baa43b62988/disk/overlay
+container begin: sh
+/ # ls
+bin      dev      etc      home     hostdir  proc     root     sys      tmp      usr      var
+/ # cd hostdir
+/hostdir # ls
+root
+/hostdir # cd root
+/hostdir/root # ls
+bin         etc         lib         lost+found  mnt         proc        run         srv         tmp         var
+dev         home        lib64       media       opt         root        sbin        sys         usr
+/hostdir/root # mkdir containerCreateDir
+/hostdir/root # exit
+container exited, status=0,  thanks for using pocker
+[root@1e558fec41d2 /]# ls
+bin  containerCreateDir  dev  etc  home  lib  lib64  lost+found  media	mnt  opt  proc	root  run  sbin  srv  sys  tmp	usr  var
+[root@1e558fec41d2 /]# 
+```
+
+
+
+
+
+# 容器进阶
+
+笔者不准备实现这部分代码了。
+
+5.1实现后台运行只需要将容器变为守护进程，让init收管即可
+
+5.2实现查看运行中的容器是crud，把本地json文件当做了数据库
+
+5.3实现查看容器日志只需要重定向容器的输出到文件中即可
+
+5.4实现进入容器还是有点意思的，需要使用系统调用setns进入和容器相同的名称空间即可
+
+5.5停止容器实际上只是发了一个kill信号
+
+5.6删除容器清理一下就好了
+
+5.7通过容器制作镜像只需要提前保留容器的upper文件系统，之后自己合并即可
+
+5.8配置环境变量也只需要简简单单的在宿主进程进入容器时配置即可
+
+# 容器网络
+
+这部分过于偏向于计算机网络，对于这部分，笔者后面会专门出一篇Blog进行介绍。
+
+这部分代码笔者也不准备实现。关于容器网络部分，笔者第一次接触到是在《Kubernetes权威指南：从Docker到Kubernetes实践全接触》（第2版）-2016.10-电工-P519-龚正，吴治辉，王伟 等 的第三章第七节网络原理中，这两本书的这两个地方中有很多重复的地方。
+
+至此，笔者的Pocker项目也将会告一段落了。
+
+# 高级实践
+
+这部分介绍一些名词，希望可以体会到其中的设计理念。
+
+## OCI
+
+Open Container Initiative 是一个组织，是Linux基金会在2015年成立的，是一个定义容器标准的组织。
+
+## runC
+
+runC是一个容器引擎，他主要用于构造、运行容器。
+
+> runC是个轻量级的容器运行引擎， 包括所有 Docker 使用的和容器相关的系统调用的代码。
+>
+> runC的目标就是去构造到处都可以运行的标准容器。
+>
+> 引用： 原书177页
+
+runC的流程和pocker的流程是比较类似的，pocker只是个小demo，毕竟全部加起来也就几百行代码，他没有使用任何设计模式。
+
+>代码读到这里,应该可以大概理解runC创建容器的整个过程了,如下
+>
+>1.读取配置文件。
+>
+>2.设置 rootfilesystem
+>
+>3.使用 factory创建容器,各个系统平台均有不同实现。
+>
+>4.创建容器的初始化进程 process
+>
+>5.设置容器的输出管道,主要是Go的 pipes
+>
+>6.执行 Container. Start)启动物理的容器
+>
+>7.回调init方法重新初始化容器进程。
+>
+>runC父进程等待子进程初始化成功后退出。
+>
+>可以看到,具体的执行流程涉及3个概念: process、 container、 factory。 factory用来创建容器, process 负责进程之间的通信和启动容器
+>
+>引用： 原书185页
+
+## Containerd
+
+containerd是一个守护进程，专注于容器的生命周期管理，方便容器编排。当然containerd只是docker的一部分，他不负责镜像的构造。
+
+>每个 contained只负责一台机器,Pul镜像、对容器的操作(启动、停止等)、网络、存储都
+>是由 container完成的。具体运行容器由runC负责。
+
+
+
+## CRI容器引擎
+
+CRI是 Container Runtime Interface ，即容器运行时，众所周知，容器不只docker这一个软件支持，还有很多其他的支持容器的软件，k8s是负责容器编排的，k8s定义了一套CRI标准，只要你的容器支持CRI，那么k8s就可以帮助你管理他。
+
+```mermaid
+graph LR;
+    docker-->CRI;
+    podman-->CRI;
+    LXC-->CRI;
+    1(...)-->CRI;
+    CRI-->k8s;
+    
+```
+
+
+
+
+
+
 
 
 
