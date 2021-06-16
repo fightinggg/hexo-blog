@@ -2,6 +2,7 @@
 layout: page
 title: 热度排行
 date: 2021-03-14 14:58:10
+updated:  2021-03-14 14:58:10
 commens: false
 ---
 
@@ -11,21 +12,19 @@ commens: false
 
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script>AV.initialize("T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz", "oMcE8X0UKAVaDtK51UA1LuGL");</script>
+<script>
+AV.initialize("T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz", "oMcE8X0UKAVaDtK51UA1LuGL");
+</script>
 <script type="text/javascript">
-
 var rankList;
 var pageSize = 10;
 var currentPage = 1;
 var totalPage;
-
-
 new AV.Query('Counter').descending('time').limit(1000).find().then(o => {
     rankList = o;
     totalPage = Math.ceil(rankList.length / pageSize);//总页数
     goPage(currentPage, pageSize)
 })
-
 function prePage() {
     currentPage--;
     if (currentPage == 0) {
@@ -33,8 +32,6 @@ function prePage() {
     }
     goPage(currentPage, pageSize)
 }
-
-
 function nextPage() {
     currentPage++;
     if (currentPage == totalPage + 1) {
@@ -42,7 +39,6 @@ function nextPage() {
     }
     goPage(currentPage, pageSize)
 }
-
 function goPage(page, pageSize) {
     currentPage = page;
     document.getElementById("hot").innerHTML = ""
@@ -60,7 +56,6 @@ function goPage(page, pageSize) {
     }
     showButton();
 }
-
 function doubleWord(x) {
     if (x < 10) {
         return "0" + x;
@@ -68,7 +63,6 @@ function doubleWord(x) {
         return x;
     }
 }
-
 function showButton() {//当前页数
     var tempStr = "";
     tempStr += "<a href=\"#\" onClick=\"prePage()\">⬅️</a>&emsp;"
@@ -87,8 +81,6 @@ function showButton() {//当前页数
     document.getElementById("barcon").innerHTML = tempStr;
 }
 </script>
-
-
 <script type="text/javascript">
 new AV.Query('Comment').descending('createdAt').limit(10).find().then(o => {
     html = "<h1 class='post-title' itemprop='name headline'>最近评论</h1>"

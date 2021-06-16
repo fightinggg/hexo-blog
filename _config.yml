@@ -256,7 +256,11 @@ tags: C++, Boost, STL, \
       设计模式, 费用流, 软件测试, 软件需求, 霍尔定理, \ 
       实习, 腾讯, 阿里, 字节, 网易, 美团
 
-
+global-replace:
+  - from: blog_global_replace\.cdn\.react
+    to: https://unpkg.com
+  - from: blog_global_replace\.cdn\.wangHightLighter
+    to: https://raw.githubusercontent.com/panshuiqing/wangHighLighter/master/js
 
 linkable: 
   - key: PING

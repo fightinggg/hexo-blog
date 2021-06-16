@@ -966,7 +966,7 @@ vendors:
 
   # Mermaid
   # mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
-  mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js
+  mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.10.2/mermaid.min.js
   # mermaid: 
 
   # Internal version: 1.2.1

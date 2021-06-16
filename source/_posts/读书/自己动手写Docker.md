@@ -567,7 +567,9 @@ dr-xr-xr-x  9 root             root         0 Apr 17 16:17 1411993
 
 就用C++，哎，就是玩。
 
-## [3.1版本](https://github1s.com/fightinggg/pocker/tree/3.1)
+## 3.1版本
+
+[项目地址](https://github1s.com/fightinggg/pocker/tree/3.1)
 
 直接看`main.cpp`中的主函数, 首先是解析参数，然后使用clone 系统调用制造一个进程。
 
