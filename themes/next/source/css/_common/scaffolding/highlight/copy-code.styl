@@ -15,13 +15,13 @@
   position: absolute;
   the-transition();
 
-  if (hexo-config('codeblock.copy_hidden_button.style') == 'flat') {
+  if (hexo-config('codeblock.copy_button.style') == 'flat') {
     background: white;
     border: 0;
     font-size: $font-size-smaller;
     right: 0;
     top: 0;
-  } else if (hexo-config('codeblock.copy_hidden_button.style') == 'mac') {
+  } else if (hexo-config('codeblock.copy_button.style') == 'mac') {
     color: white;
     font-size: 14px;
     right: 0;
@@ -37,7 +37,7 @@
   }
 }
 
-if (hexo-config('codeblock.copy_hidden_button.style') == 'mac') {
+if (hexo-config('codeblock.copy_button.style') == 'mac') {
   .highlight-container {
     background: #21252b;
     border-radius: 5px;

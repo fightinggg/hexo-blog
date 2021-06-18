@@ -8,8 +8,6 @@
     {{- __('title.category') + page_title_suffix }}
   {%- elif page.type === 'tags' and not page.title %}
     {{- __('title.tag') + page_title_suffix }}
-  {%- elif page.type === 'links' and not page.title %}
-    {{- __('title.links') + page_title_suffix }}
   {%- elif page.type === 'schedule' and not page.title %}
     {{- __('title.schedule') + page_title_suffix }}
   {%- else %}
@@ -46,7 +44,6 @@
               }}
             </div>
           </div>
-          {% include 'tag-color.swig' %}	
         {% elif page.type === 'categories' %}
           <div class="category-all-page">
             <div class="category-all-title">

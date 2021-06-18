@@ -17,7 +17,7 @@ hexo.extend.helper.register('next_config', function() {
     version   : next_version,
     exturl    : theme.exturl,
     sidebar   : theme.sidebar,
-    copyhiddencode  : theme.codeblock.copy_hidden_button,
+    copycode  : theme.codeblock.copy_button,
     back2top  : theme.back2top,
     bookmark  : theme.bookmark,
     fancybox  : theme.fancybox,

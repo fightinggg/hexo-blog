@@ -18,12 +18,9 @@
     "hexo-fightinggg-baidu-url-submit": "^1.0.2",
     "hexo-fightinggg-enhancer": "^1.0.3",
     "hexo-fightinggg-linkable-blog": "^1.0.0",
-    "hexo-fightinggg-mathjax": "^1.0.0",
     "hexo-fightinggg-next-nightmode": "^1.0.0",
     "hexo-fightinggg-post-image": "^1.0.0",
     "hexo-fightinggg-symbols-count-time": "^1.0.0",
-    "hexo-fightinggg-tagcloud": "^1.0.0",
-    "hexo-fightinggg-valine": "^1.0.0",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.6",
@@ -40,6 +37,7 @@
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
     "hexo-tag-cloud": "^2.1.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "xmlhttprequest": "^1.8.0"
   }
 }

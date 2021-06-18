@@ -85,7 +85,7 @@ NexT.boot.refresh = function() {
   CONFIG.pangu && window.pangu.spacingPage();
 
   CONFIG.exturl && NexT.utils.registerExtURL();
-  CONFIG.copyhiddencode.enable && NexT.utils.registerCopyHiddenCode();
+  CONFIG.copycode.enable && NexT.utils.registerCopyCode();
   NexT.utils.registerTabsTag();
   NexT.utils.registerActiveMenuItem();
   NexT.utils.registerLangSelect();
@@ -107,7 +107,7 @@ NexT.boot.motion = function() {
   NexT.utils.updateSidebarPosition();
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   NexT.boot.registerEvents();
   NexT.boot.refresh();
   NexT.boot.motion();

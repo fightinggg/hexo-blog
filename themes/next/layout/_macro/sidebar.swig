@@ -29,34 +29,12 @@
           <div class="post-toc motion-element">{{ toc }}</div>
         {%- endif %}
       </div>
-      
       <!--/noindex-->
+
       <div class="site-overview-wrap sidebar-panel">
         {{ partial('_partials/sidebar/site-overview.swig', {}, {cache: theme.cache.enable}) }}
 
         {{- next_inject('sidebar') }}
-
-        {% if site.tags.length > 1 %}
-          <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
-          <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
-          <script type="text/javascript" charset="utf-8">
-              $.get('/api/tagList/').then(o=>{
-                  tagList = JSON.parse(o)
-                  tagHtmlList = tagList.map(tag=>`<a class="tag-list-link" href="/tags/${tag}/" rel="tag">${tag}</a>`)
-                  tagHTML = tagHtmlList.join('')
-                  document.getElementById('tagCloudList').innerHTML = tagHTML;
-              })
-          </script>
-          <div class="widget-wrap">
-              <div id="myCanvasContainer" class="widget tagcloud">
-                  <canvas width="250" height="250" id="resCanvas" style="width:100%">
-                      <ul id="tagCloudList", class="tag-list" itemprop="keywords">
-                      </ul>
-                  </canvas>
-              </div>
-          </div>
-        {% endif %}
-
       </div>
 
       {%- if theme.back2top.enable and theme.back2top.sidebar %}
@@ -66,19 +44,7 @@
         </div>
       {%- endif %}
 
-
-
-
-
-
-
-
     </div>
-
-
   </aside>
-
   <div id="sidebar-dimmer"></div>
 {% endmacro %}
-
-

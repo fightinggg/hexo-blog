@@ -22,7 +22,7 @@ minify: false
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  head: source/_data/head.swig
+  #head: source/_data/head.swig
   #header: source/_data/header.swig
   #sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
@@ -31,7 +31,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  #style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -64,12 +64,12 @@ footer:
     color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright: fightinggg
+  copyright:
 
   # Powered by Hexo & NexT
-  powered: false
+  powered: true
 
-  # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
+  # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
     enable: false
     icp:
@@ -88,8 +88,8 @@ footer:
 creative_commons:
   license: by-nc-sa
   sidebar: false
-  post: true
-  language: zh-CN
+  post: false
+  language:
 
 
 # ---------------------------------------------------------------
@@ -97,10 +97,10 @@ creative_commons:
 # ---------------------------------------------------------------
 
 # Schemes
-# scheme: Muse
-# scheme: Mist
-# scheme: Pisces
-scheme: Gemini
+scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -117,14 +117,12 @@ darkmode: false
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-  about: /fightinggg/README.html || fa fa-user
-  tags: /tags/ || fa fa-tags
-  categories: /categories/ || fa fa-th
+  #about: /about/ || fa fa-user
+  #tags: /tags/ || fa fa-tags
+  #categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
-  links: /links/ || fa fa-link
-  hot: /hot/ || fa fa-signal
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -165,11 +163,11 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
+  url: #/images/avatar.gif
   # If true, the avatar will be dispalyed in circle.
-  rounded: true
+  rounded: false
   # If true, the avatar will be rotated with the cursor.
-  rotated: true
+  rotated: false
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
@@ -179,17 +177,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  # GitHub: https://github.com/fightinggg || fab fa-github
-  # CSDN: https://blog.csdn.net/qq_41157212  || fab fa-cuttlefish
-  # 简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
-  # 知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-zhihu
-  主站: http://fightinggg.top || fas fa-blog
-  老BLOG: /ACM || far fa-lightbulb
-  镜像站1(最稳): https://fightinggg.github.io || fas fa-blog
-  镜像站2: https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
-  镜像站3: https://fightinggg.gitee.io || fas fa-blog
-  镜像站4: https://eaw3p1.coding-pages.com || fas fa-blog
-  # E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  #GitHub: https://github.com/yourname || fab fa-github
+  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -198,6 +187,7 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
+
 social_icons:
   enable: true
   icons_only: false
@@ -211,13 +201,14 @@ links_settings:
   layout: block
 
 links:
+  #Title: http://yoursite.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: false
+  number: true
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
@@ -256,6 +247,12 @@ post_meta:
     another_day: true
   categories: true
 
+# Post wordcount display settings
+# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
@@ -317,8 +314,8 @@ tagcloud:
   # All values below are same as default, change them by yourself.
   min: 12 # Minimun font size in px
   max: 30 # Maxium font size in px
-  start: "#9aa0a6" # Start color (hex, rgba, hsla or color keywords)
-  end: "#9aa0a6" # End color (hex, rgba, hsla or color keywords)
+  start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
+  end: "#111" # End color (hex, rgba, hsla or color keywords)
   amount: 200 # Amount of tags, change it if you have more than 200 tags
 
 # Google Calendar
@@ -359,19 +356,19 @@ codeblock:
   # See: https://github.com/chriskempson/tomorrow-theme
   highlight_theme: normal
   # Add copy button on codeblock
-  copy_hidden_button:
-    enable: true
+  copy_button:
+    enable: false
     # Show text copy result.
-    show_result: true
+    show_result: false
     # Available values: default | flat | mac
-    style: mac
+    style:
 
 back2top:
   enable: true
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: true
+  scrollpercent: false
 
 # Reading progress bar
 reading_progress:
@@ -414,7 +411,7 @@ font:
   enable: false
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
-  host: //fonts.loli.net
+  host:
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -424,7 +421,7 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: 
+    family: Lato
     size:
 
   # Font settings for site title (.site-title).
@@ -447,7 +444,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: Courier New
+    family:
 
 
 # ---------------------------------------------------------------
@@ -503,7 +500,7 @@ math:
 
   # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
   mathjax:
-    enable: true
+    enable: false
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem: false
 
@@ -519,7 +516,7 @@ pjax: false
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
-fancybox: true
+fancybox: false
 
 # A JavaScript library for zooming images like Medium.
 # Do not enable both `fancybox` and `mediumzoom`.
@@ -611,25 +608,23 @@ changyan:
   #post_meta_order: 0
 
 # Valine
-# You can get your appid and appkey from https://leancloud.cn
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: true # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version
-  appid: T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz
-  appkey: oMcE8X0UKAVaDtK51UA1LuGL
-  notify: false # Mail notifier. See: https://github.com/xCss/Valine/wiki
+  enable: false
+  appid: # Your leancloud application appid
+  appkey: # Your leancloud application appkey
+  notify: false # Mail notifier
   verify: false # Verification code
   placeholder: Just go go # Comment box placeholder
   avatar: mm # Gravatar style
   guest_info: nick,mail,link # Custom comment header
   pageSize: 10 # Pagination size
   language: # Language, available values: en, zh-cn
-  visitor: true # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
+  visitor: false # Article reading statistic
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
   recordIP: false # Whether to record the commenter IP
   serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
   #post_meta_order: 0
-
 
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
@@ -716,12 +711,12 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: ture
+  enable: false
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true
   total_views_icon: fa fa-eye
-  post_views: false
+  post_views: true
   post_views_icon: fa fa-eye
 
 
@@ -744,7 +739,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: true
+  enable: false
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -816,7 +811,7 @@ pdf:
 
 # Mermaid tag
 mermaid:
-  enable: true
+  enable: false
   # Available themes: default | dark | forest | neutral
   theme: forest
 
@@ -829,7 +824,7 @@ mermaid:
 # For more information: http://velocityjs.org
 motion:
   enable: true
-  async: true
+  async: false
   transition:
     # Transition variants:
     # fadeIn | flipXIn | flipYIn | flipBounceXIn | flipBounceYIn
@@ -849,16 +844,16 @@ motion:
 # Dependencies: https://github.com/theme-next/theme-next-pace
 # For more information: https://github.com/HubSpot/pace
 pace:
-  enable: true
+  enable: false
   # Themes list:
   # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
   # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
-  theme: center-circle
+  theme: minimal
 
 # JavaScript 3D library.
 # Dependencies: https://github.com/theme-next/theme-next-three
 three:
-  enable: true
+  enable: false
   three_waves: false
   canvas_lines: false
   canvas_sphere: false
@@ -887,159 +882,116 @@ vendors:
   _internal: lib
 
   # Internal version: 3.1.0
-  anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
-  # anime:
+  # anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
+  anime:
 
   # Internal version: 5.13.0
-  fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
+  # fontawesome: //cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css
-  # fontawesome: /lib/fontawesome/css/all.min.css
-  # fontawesome:
+  fontawesome:
 
   # MathJax
-  mathjax: //cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  # mathjax:
+  # mathjax: //cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  mathjax:
 
   # KaTeX
   # katex: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css
   # katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css
-  katex: /lib/katex.min.css
-  copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js
-  copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css
-  # katex:
-  # copy_tex_js:
-  # copy_tex_css:
+  # copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js
+  # copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css
+  katex:
+  copy_tex_js:
+  copy_tex_css:
 
   # Internal version: 0.2.8
-  pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
-  # pjax:
+  # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+  pjax:
 
   # FancyBox
   # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
-  fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
-  fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
-  # jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
-  jquery: /lib/jquery.min.js
-  # fancybox:
-  # fancybox_css:
+  # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
+  # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
+  jquery:
+  fancybox:
+  fancybox_css:
 
   # Medium-zoom
-  mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
-  # mediumzoom:
+  # mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
+  mediumzoom:
 
   # Lazyload
   # lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js
-  lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js
-  # lazyload:
+  # lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js
+  lazyload:
 
   # Pangu
   # pangu: //cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js
-  pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js
-  # pangu:
+  # pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js
+  pangu:
 
   # Quicklink
-  quicklink: //cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js
-  # quicklink:
+  # quicklink: //cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js
+  quicklink:
 
   # DisqusJS
-  disqusjs_js: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
-  disqusjs_css: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
-  # disqusjs_js:
-  # disqusjs_css:
+  # disqusjs_js: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
+  # disqusjs_css: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
+  disqusjs_js:
+  disqusjs_css:
 
   # Valine
   # valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js
   # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js
-  valine: /lib/Valine.min.js
+  valine:
 
   # Gitalk
-  gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
-  gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css
-  # gitalk_js:
-  # gitalk_css:
+  # gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
+  # gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css
+  gitalk_js:
+  gitalk_css:
 
   # Algolia Search
-  algolia_search: //cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js
-  instant_search: //cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js
-  # algolia_search:
-  # instant_search:
+  # algolia_search: //cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js
+  # instant_search: //cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js
+  algolia_search:
+  instant_search:
 
   # Mermaid
   # mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
-  mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.10.2/mermaid.min.js
-  # mermaid: 
+  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js
+  mermaid:
 
   # Internal version: 1.2.1
   # velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
   # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js
-  velocity: /lib/velocity.min.js
   # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
   # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js
-  velocity_ui: /lib/velocity.ui.min.js
-  # velocity:
-  # velocity_ui:
+  velocity:
+  velocity_ui:
 
   # Internal version: 1.0.2
   # pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
   # pace: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js
-  pace: /lib/pace.min.js
   # pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css
   # pace_css: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css
-  pace_css: /lib/pace-theme-minimal.min.css
-  # pace:
-  # pace_css:
+  pace:
+  pace_css:
 
   # Internal version: 1.0.0
-  three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js
-  three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js
-  canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js
-  canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js
-  # three:
-  # three_waves:
-  # canvas_lines:
-  # canvas_sphere:
+  # three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js
+  # three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js
+  # canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js
+  # canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js
+  three:
+  three_waves:
+  canvas_lines:
+  canvas_sphere:
 
   # Internal version: 1.0.0
-  canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
-  # canvas_ribbon:
+  # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
+  canvas_ribbon:
 
 # Assets
 css: css
 js: js
 images: images
-
-
-mylinks:
-  - nickname: yg大神
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1356931781&s=640
-    site: https://me.csdn.net/weixin_41863129
-  - nickname: zwg大神(此网站失效了)
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1359781368&s=640
-    site: https://decaku.github.io/
-  - nickname: ly大神(此网站失效了)
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1091756452&s=640
-    site: http://39.96.45.191:4000
-  - nickname: Benbody大神
-    site: http://benboby.github.io
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1981505441&s=640
-  - nickname: yy大神
-    site: https://yang1998cmd.github.io/
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=779771381&s=640
-  - nickname: xhf大神
-    site: https://blog.xhofe.top/
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=927625802&s=640
-  - nickname: Chunibyo大神
-    site: https://chunibyo-wly.github.io/
-    avatar: https://chunibyo-wly.github.io/images/avatar.png
-  # - nickname: Fi9Coder  #友链名称
-  #   avatar: https://www.safeinfo.me/images/avatar.gif  #友链头像
-  #   site: https://www.safeinfo.me  #友链地址
-  #   info: 致力于Web安全与Python学习,研究,开发。  #友链说明
-  # - nickname: Leaf's Blog
-  #   avatar: https://leafjame.github.io/images/beichen.png
-  #   site: https://leafjame.github.io
-  #   info: Java狮 北漂男 摄影 旅行 赚钱
-
-
-passage_end_tag: 
-  enabled: true
