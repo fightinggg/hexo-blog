@@ -1,17 +1,18 @@
 /* // 添加背景图片 */
 body {
-      background: #85c1e9;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: 50% 50%;
+  background: #85c1e9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
 }
 
-/*首行缩进*/
+/* 首行缩进 */
 p {
-     text-indent: 2em; 
+  text-indent: 2em;
 }
 
+// 文章内容的透明度设置 */
 /* //博客内容透明化
 //文章内容的透明度设置 */
 .content-wrap {
@@ -21,40 +22,38 @@ p {
 /* 侧边框的透明度设置 */
 .sidebar {
   opacity: 0.9;
-  background: rgba(255,255,255,0);
+  background: rgba(255, 255, 255, 0);
 }
 
-/*会导致黑夜的bug*/
+/* 会导致黑夜的bug */
 /* 菜单栏的透明度设置 */
 /* .header-inner {
   opacity: 0.9;
 } */
-
-
 /* 设置表格透明度 */
 table {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 /* 回到顶部按钮边框及透明度 */
 .back-to-top.back-to-top-on {
-    opacity: 0.8;
-    border-radius: 15px;
+  opacity: 0.8;
+  border-radius: 15px;
 }
 
 /* 代码块透明度 */
 .highlight-wrap {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 /* 版权声明透明度 */
 .post-copyright {
-    opacity: 0.8;
-    background: rgba(255,255,255,0.9);
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .footer-inner {
-    color: #FFFFFF
+  color: #FFFFFF;
 }
 
 .search-active .search-popup {
@@ -63,52 +62,59 @@ table {
   opacity: 1;
 }
 
-
 /* 代码长度 */
 .highlight-container .highlight .table-container {
   max-height: 500px;
 }
 
-/*更好的侧边滚动条*/
+/* 更好的侧边滚动条 */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
+
 ::-webkit-scrollbar-button {
   width: 0;
   height: 0;
 }
-::-webkit-scrollbar-button:start:increment,::-webkit-scrollbar-button:end:decrement {
+
+::-webkit-scrollbar-button:start:increment, ::-webkit-scrollbar-button:end:decrement {
   display: none;
 }
+
 ::-webkit-scrollbar-corner {
   display: block;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   border-radius: 8px;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
-::-webkit-scrollbar-track,::-webkit-scrollbar-thumb {
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
   border-right: 1px solid transparent;
   border-left: 1px solid transparent;
 }
+
 ::-webkit-scrollbar-track:hover {
-  background-color: rgba(0,0,0,.15);
+  background-color: rgba(0, 0, 0, 0.15);
 }
+
 ::-webkit-scrollbar-button:start {
   width: 10px;
   height: 10px;
-  /*background: url(../images/scrollbar_arrow.png) no-repeat 0 0;*/  /*可以添加滚动条样式*/
+  /* background: url(../images/scrollbar_arrow.png) no-repeat 0 0; */
+  /* 可以添加滚动条样式 */
 }
-
 
 /* ============================================================================================= */
 /* 黑色主题 */
-.darkScheme{
+.darkScheme {
   --google-gray-50: rgb(248, 249, 250);
   --google-gray-100: rgb(241, 243, 244);
   --google-gray-300: rgb(218, 220, 224);
@@ -117,12 +123,12 @@ table {
   --google-gray-700: rgb(95, 99, 104);
   --google-gray-800: rgb(60, 64, 67);
   --google-gray-900: rgb(32, 33, 36);
-  --body-bg-color: rgb(0,0,0);/*背景颜色*/
-  --text-color: var(--google-gray-100); /* 文本字体颜色*/
-  --content-bg-color: var(--google-gray-800); /*文本背景颜色*/
-  --blockquote-color: var(--google-gray-500); /*引用块字体颜色*/
-  --btn-default-bg: var(--google-gray-800); /*按钮颜色*/
-  --link-color: #35e7e9  /*链接颜色*/
+  --body-bg-color: rgb(0, 0, 0); /* 背景颜色 */
+  --text-color: var(--google-gray-100); /* 文本字体颜色 */
+  --content-bg-color: var(--google-gray-800); /* 文本背景颜色 */
+  --blockquote-color: var(--google-gray-500); /* 引用块字体颜色 */
+  --btn-default-bg: var(--google-gray-800); /* 按钮颜色 */
+  --link-color: #35e7e9; /* 链接颜色 */
 }
 
 .darkScheme .posts-expand .post-meta {
@@ -144,17 +150,16 @@ table {
   color: var(--text-color);
 }
 
-
 .darkScheme .highlight figcaption {
   background: var(--content-bg-color);
   color: var(--text-color);
 }
 
-.darkScheme .highlight-container .highlight .table-container{
+.darkScheme .highlight-container .highlight .table-container {
   background: var(--content-bg-color);
 }
 
-.darkScheme code{
+.darkScheme code {
   background: var(--google-gray-700);
   color: var(--text-color);
 }
@@ -172,59 +177,71 @@ table {
   background: var(--content-bg-color);
 }
 
-
-
-.darkScheme img{
-  filter:brightness(80%)
+.darkScheme img {
+  filter: brightness(80%);
 }
 
-/*valine评论区评论者使用的客户端的背景颜色*/
+/* valine评论区评论者使用的客户端的背景颜色 */
 .darkScheme .v .vlist .vcard .vhead .vsys {
   background: var(--google-gray-600);
 }
-/*valine评论区字体颜色*/
+
+/* valine评论区字体颜色 */
 .darkScheme .v * {
   color: var(--text-color);
 }
 
-
-/*搜索框*/
+/* 搜索框 */
 .darkScheme .search-popup .search-header {
-    background: var(--google-gray-900);
+  background: var(--google-gray-900);
 }
+
 .darkScheme .search-popup input.search-input {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 /* ============================================================================================= */
-
-
-
-
-
-
-//  tags
-.tag-cloud-tags{
-  /*font-family: Helvetica, Tahoma, Arial;*/
-  /*font-weight: 100;*/
+.tag-cloud-tags {
+  /* font-family: Helvetica, Tahoma, Arial; */
+  /* font-weight: 100; */
   text-align: center;
   counter-reset: tags;
 }
-.tag-cloud-tags a{
+
+.tag-cloud-tags a {
   border-radius: 6px;
   padding-right: 5px;
   padding-left: 5px;
   margin: 8px 5px 0px 0px;
 }
-.tag-cloud-tags a:before{
-  content: "🏷️";
+
+.tag-cloud-tags a:before {
+  content: '🏷️';
 }
 
-.tag-cloud-tags a:hover{
-    box-shadow: 0px 5px 15px 0px rgba(0,0,0,.4);
-    transform: scale(1.1);
-    /*box-shadow: 10px 10px 15px 2px rgba(0,0,0,.12), 0 0 6px 0 rgba(104, 104, 105, 0.1);*/
-    transition-duration: 0.15s;
+.tag-cloud-tags a:hover {
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+  /* box-shadow: 10px 10px 15px 2px rgba(0,0,0,.12), 0 0 6px 0 rgba(104, 104, 105, 0.1); */
+  transition-duration: 0.15s;
 }
 
+// 圆角
+.post-block  {
+  border-radius: 30px;
+}
+.post-block + .post-block {
+  border-radius: 30px;
+}
 
+.header-inner {
+  border-radius: 30px;
+}
+
+.sidebar-inner {
+  border-radius: 30px;
+}
+
+.comments {
+  border-radius: 30px;
+}
