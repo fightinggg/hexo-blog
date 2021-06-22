@@ -381,7 +381,7 @@ leancloud_visitors:
   app_id: T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz
   app_key: oMcE8X0UKAVaDtK51UA1LuGL
   # Required for apps from CN region
-  server_url: fightinggg.github.io # <your server url>
+  server_url: # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.

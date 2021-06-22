@@ -9,6 +9,7 @@ public/
 .ssh/
 .tmp/
 .idea/
+.vscode/
 .git.nosync/
 .deploy_git
 package-lock.json
