@@ -12,6 +12,7 @@
     "version": "5.4.0"
   },
   "dependencies": {
+    "@next-theme/plugins": "^8.5.0",
     "hexo": "^5.4.0",
     "hexo-blog-encrypt": "^3.0.12",
     "hexo-deployer-git": "^3.0.0",
@@ -30,8 +31,8 @@
     "hexo-generator-tag": "^1.0.0",
     "hexo-inject": "^1.0.0",
     "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-kramed": "^0.1.4",
     "hexo-renderer-mathjax": "^0.6.0",
+    "hexo-renderer-pandoc": "^0.3.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
     "hexo-tag-cloud": "^2.1.2",
