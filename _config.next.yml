@@ -60,7 +60,7 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   友链: /links/ || fa fa-link
-  热度榜单: /hot/ || fa fa-signal
+  # 热度榜单: /hot/ || fa fa-signal
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -214,9 +214,9 @@ codeblock:
 back2top:
   enable: true
   # Back to top in sidebar.
-  sidebar: false
+  sidebar: true
   # Scroll percent label in b2t button.
-  scrollpercent: true
+  scrollpercent: false
 
 # Reading progress bar
 reading_progress:
@@ -333,7 +333,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active:
+  active: gitalk | disqus
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -346,46 +346,23 @@ comments:
     #gitalk:
     #  order: -2
 
-# Disqus
-disqus:
+# Gitalk
+# For more information: https://gitalk.github.io
+gitalk:
   enable: true
-  shortname:
-  count: true
-  #post_meta_order: 0
+  github_id: fightinggg # GitHub repo owner
+  repo: fightinggg.github.io # Repository name to store issues
+  client_id: 309dbdc0e1928fcdab0c # GitHub Application Client ID
+  client_secret: 963f51f5577a4ce1bbfdb632e1779fb5ed6808bb # GitHub Application Client Secret
+  admin_user: fightinggg # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  distraction_free_mode: true # Facebook-like distraction free mode
+  # When the official proxy is not available, you can change it to your own proxy address
+  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy adress
+  # Gitalk's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
+  language:
 
-
-# Valine
-# You can get your appid and appkey from https://leancloud.cn
-# For more information: https://valine.js.org, https://github.com/xCss/Valine
-valine:
-  enable: true # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version
-  appid: T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz
-  appkey: oMcE8X0UKAVaDtK51UA1LuGL
-  notify: false # Mail notifier. See: https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
-  placeholder: Just go go # Comment box placeholder
-  avatar: mm # Gravatar style
-  guest_info: nick,mail,link # Custom comment header
-  pageSize: 10 # Pagination size
-  language: zh-cn # Language, available values: en, zh-cn
-  visitor: true # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
-  comment_count: true # If false, comment count will only be displayed in post page, not in home page
-  recordIP: true # Whether to record the commenter IP
-  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
-  #post_meta_order: 0
-
-# Show number of visitors of each article.
-# You can visit https://www.leancloud.cn to get AppID and AppKey.
-leancloud_visitors:
-  enable: true
-  app_id: T7JBt0YPfeKdVQ0KPjrICOOm-gzGzoHsz
-  app_key: oMcE8X0UKAVaDtK51UA1LuGL
-  # Required for apps from CN region
-  server_url: # <your server url>
-  # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
-  # If you don't care about security in leancloud counter and just want to use it directly
-  # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
-  security: true
 
 # Show Views / Visitors of the website / page with busuanzi.
 # For more information: http://ibruce.info/2015/04/04/busuanzi/
@@ -395,9 +372,8 @@ busuanzi_count:
   total_visitors_icon: fa fa-user
   total_views: true
   total_views_icon: fa fa-eye
-  post_views: false
+  post_views: true
   post_views_icon: far fa-eye
-
 
 
 # Local Search

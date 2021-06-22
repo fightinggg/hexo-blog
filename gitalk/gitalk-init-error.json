@@ -1,0 +1,79 @@
+[
+  {
+    "url": "http://fightinggg.top/PQW4S0.html",
+    "title": "虚拟内存 | Believe it",
+    "desc": "",
+    "date": "1556823600000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PQW200.html",
+    "title": "补码 | Believe it",
+    "desc": "",
+    "date": "1556820000000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PQEPJ5.html",
+    "title": "数位dp | Believe it",
+    "desc": "",
+    "date": "1556010689000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PQBI61.html",
+    "title": "莫队算法 | Believe it",
+    "desc": "",
+    "date": "1555861177000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PO1JY5.html",
+    "title": "后缀自动机 | Believe it",
+    "desc": "前言 本文力争用理性分析的手段，来推测此算法发明者的思维过程， 尝试感受其在设计此算法的时所展现出的思维方式， 力求用数学证明的手段，尽可能多的为读者证明相关结论，建议有其他自动机学习的基础，最好已经学会AC自动机和回文自动机，后缀自动机很难，他 和其他自动机不一样，它的状态更加复杂，一个算法的创作过程很 复杂，学起来当然会感到很难。强烈建议看陈立杰的ppt，看一遍肯定看不懂，仔细看，一遍看不懂看",
+    "date": "1552037693000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PLM7NB.html",
+    "title": "hdu5745 | Believe it",
+    "desc": "",
+    "date": "1547962679000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PKKB6K.html",
+    "title": "树形dp | Believe it",
+    "desc": "",
+    "date": "1546194332000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PHRG42.html",
+    "title": "AC自动机 | Believe it",
+    "desc": "AC自动机 所谓AC自动机，其实是kmp算法与字典树的结合,不懂这两个，是无法学会的。 # 自动机 自动机，是一个五元组，包括了状态的非空有穷集合，符号的有限集合，状态转移函 数， 开始状态，终止状态集合，而在字典树上，增加了两个新的东西，一个标记了终止状态集合，另一个辅助了状态转移函数。 我们利用字典树上 的节点来表示状态，而边则用来表示状态转移函数的一部分。",
+    "date": "1541488466000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PHMIY1.html",
+    "title": "回文自动机 | Believe it",
+    "desc": "",
+    "date": "1541258857000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PGU74V.html",
+    "title": "合数分解 | Believe it",
+    "desc": "",
+    "date": "1539937183000",
+    "info": "初始化异常"
+  },
+  {
+    "url": "http://fightinggg.top/PGMLHU.html",
+    "title": "尺取法 | Believe it",
+    "desc": "",
+    "date": "1539582546000",
+    "info": "初始化异常"
+  }
+]

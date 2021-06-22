@@ -31,6 +31,8 @@ category_dir: categories
 code_dir: ./
 i18n_dir: :lang
 skip_render:
+  - "_posts2/**"
+  - "_posts3/**"
   - ".github/**/*"
   - "*.html"
   - "ACM/**"
@@ -103,6 +105,11 @@ baidusitemap:
     path: baidusitemap.xml
 sitemap:
     path: sitemap.xml
+    template: gitalk/sitemap_template.xml
+    rel: false
+    tag: true
+    category: false
+
 baidu_url_submit:
   count: 10000 ## 比如3，代表提交最新的三个链接
   host: http://fightinggg.top ## 在百度站长平台中注册的域名
@@ -126,24 +133,6 @@ deploy:
   branch: master
 - type: baidu_url_submitter
 
-
-next_nightmode:
-  enable: true
-  # FontAwesome or ForkAwesome icon in sidebar button.
-  icon: lightbulb-o
-  # Text for sidebar button.
-  text: 黑夜模式
-  # If true, when you disable Night Mode, Hexo will show warning messages in your console.
-  reminder: true
-  # Debugger for alpha option below.
-  debugger: false
-  # Support experimental prefers-color-scheme media query.
-  # For now if alpha mode enabled, sidebar button will be disabled.
-  # The only way to toggle night mode is changing your device scheme.
-  # Also see: https://caniuse.com/#feat=prefers-color-scheme.
-  alpha: false
-
-
 # Security
 ##
 encrypt:
@@ -154,22 +143,6 @@ encrypt:
     wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 
 
-math:
-  engine: 'mathjax' 
-  mathjax: true
-# math
-mathjax:
-  enable: true
-
-# hexo-tag-cloud
-tag_cloud:
-    textFont: Trebuchet MS, Helvetica
-    textColor: 'var(--link-color)'
-    textHeight: 12
-    outlineColor: '#E2E1D1'
-    maxSpeed: 0.08
-    pauseOnSelected: false # true 意味着当选中对应 tag 时,停止转动
-
 # hexo-generator-search
 search:
   path: search.xml
@@ -177,37 +150,6 @@ search:
   format: html
   limit: 10000
 
-
-# hexo-neat
-# 博文压缩
-neat_enable: true
-# 压缩html
-neat_html:
-  enable: true
-  exclude:
-# 压缩css  
-neat_css:
-  enable: true
-  exclude:
-    - '**/*.min.css'
-# 压缩js
-neat_js:
-  enable: true
-  mangle: true
-  output:
-  compress:
-  exclude:
-    - '**/*.min.js'
-    - '**/jquery.fancybox.pack.js'
-    - '**/index.js'  
-
-
-lazyload:
-  enable: true
-  onlypost: false # optional
-  loadingImg: /images/loading.gif # optional eg ./images/loading.gif
-  isSPA: false # optional
-  preloadRatio: 3 # optional, default is 1
 
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
@@ -219,6 +161,7 @@ symbols_count_time:
   wpm: 275                 # Words Per Minute（每分钟阅读词数）
   exclude_codeblock: false 
   suffix: mins.
+
 
 # tags and keywords
 # keywords: HTML, JavaScript, Hexo
@@ -255,12 +198,6 @@ tags: C++, Boost, STL, \
       类欧几里得算法, 素数,  虚树, 计算机网络, 记忆化, \
       设计模式, 费用流, 软件测试, 软件需求, 霍尔定理, \ 
       实习, 腾讯, 阿里, 字节, 网易, 美团
-
-global-replace:
-  - from: blog_global_replace\.cdn\.react
-    to: https://unpkg.com
-  - from: blog_global_replace\.cdn\.wangHightLighter
-    to: https://raw.githubusercontent.com/panshuiqing/wangHighLighter/master/js
 
 linkable: 
   - key: PING
