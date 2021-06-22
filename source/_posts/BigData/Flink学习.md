@@ -174,6 +174,8 @@ DataStream<WordWithCount> windowCounts =
 
 如果自定义数据源，从Kafka消费数据，然后查询Mysql，最后输出，这其中其实涉及到很多问题，一个最简单的想法是从Kafka单线程消费数据，然后阻塞住，去查询Mysql。
 
+
+
 ```mermaid
 sequenceDiagram
   rect rgb(0, 0, 255, .1)
@@ -242,7 +244,6 @@ public void processElement(
     }
 }
 ```
-
 
 
 

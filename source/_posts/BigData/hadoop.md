@@ -12,11 +12,16 @@ mathjax: true
 
 # hdfs
  分布式文件系统，一个文件分成多个128Mb的文件，存储在多个节点，为了保证分区容错性，存有备份，默认为3。主从架构。
-<!---more-->
+
+<!-- more -->
+
 ## namenode
- 用来记录各个文件的block的编号、各个block的位置、抽象目录树
- 处理读写请求
- 可以有多个namenode
+用来记录各个文件的block的编号、各个block的位置、抽象目录树
+
+处理读写请求
+
+可以有多个namenode
+
 ## secondarynamenode
  用来备份namenode,当namenode宕机的时候，帮助namenode恢复
 ## datanode

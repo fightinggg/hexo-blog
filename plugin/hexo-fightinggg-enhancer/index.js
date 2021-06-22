@@ -28,7 +28,7 @@ function filterPost(log, data) {
         data.abbrlink = (data.abbrlink?data.abbrlink:'') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
     }
     if(hexoAbbrlinkSet.has(data.abbrlink)){
-        log.error('重复的abbrlink: '+data)
+        log.error('重复的abbrlink: '+data.source)
     }
     hexoAbbrlinkSet.add(data.abbrlink);
 
