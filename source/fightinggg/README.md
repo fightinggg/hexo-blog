@@ -32,6 +32,8 @@ QQ: 246553278
 - [ ] 阅读《设计模式Java版》
 - [x] [阅读《自动动手写docker》](https://fightinggg.github.io/QRN6OO.html)
 - [ ] 学习Linux操作系统的网络虚拟设备部分
+- [ ] [学习Flink](https://confucianzuoyuan.github.io/flink-tutorial/book/)
+- [ ] 不做一个[编译器]()，你好意思说你学计算机？
 
 # 我的留言
 

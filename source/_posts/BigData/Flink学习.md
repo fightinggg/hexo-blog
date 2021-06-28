@@ -16,7 +16,7 @@ typora-root-url: ..\..
 git clone https://github.com/fightinggg/flink-src-study.git --recursive
 ```
 
-在这个项目中，笔者把flink源码作为了一个git submodule放置于文件夹flink中，用来临时查看，当然我个人不建议看这些代码。
+在这个项目中，笔者把flink源码作为了一个git submodule放置于文件夹flink中，用来临时查看，当然我个人不建议看这些代码，因为这个文件夹太大了，IDE都不能很好的处理他。
 
 然后就可以直接运行了
 
@@ -33,8 +33,6 @@ git clone https://github.com/fightinggg/flink-src-study.git --recursive
 ## Step3. Debug
 
 自己设断点就好了。
-
-![](/images/image-2021-06-08-22.32.44.436.png)
 
 # 使用Flink
 
@@ -244,6 +242,58 @@ public void processElement(
     }
 }
 ```
+
+
+
+
+
+
+
+## WindowJoin模型
+
+参考SQL语法中的Join操作，两个stream将按照指定的key进行聚合。
+
+```java
+public static DataStream<Tuple3<String, Integer, Integer>> runWindowJoin(
+    DataStream<Tuple2<String, Integer>> grades,
+    DataStream<Tuple2<String, Integer>> salaries,
+    long windowSize) {
+
+    return grades.join(salaries)
+        .where(new NameKeySelector())
+        .equalTo(new NameKeySelector())
+        .window(TumblingEventTimeWindows.of(Time.milliseconds(windowSize)))
+        .apply(
+        new JoinFunction<
+        Tuple2<String, Integer>,
+        Tuple2<String, Integer>,
+        Tuple3<String, Integer, Integer>>() {
+
+            @Override
+            public Tuple3<String, Integer, Integer> join(
+                Tuple2<String, Integer> first, Tuple2<String, Integer> second) {
+                return new Tuple3<String, Integer, Integer>(
+                    first.f0, first.f1, second.f1);
+            }
+        });
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![](/images/image-2021-06-08-22.32.44.436.png)
 
 
 

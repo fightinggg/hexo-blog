@@ -11,7 +11,9 @@ typora-root-url: ..\..\..
 ### 文档
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
+
 <!-- more -->
+
 ### Install ES
 
 #### Docker Install ES
@@ -154,5 +156,4 @@ cd ..
 ```sh
 curl -u 'password' IP:9200
 ```
-
 

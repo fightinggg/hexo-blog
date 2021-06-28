@@ -11,4 +11,5 @@ mathjax: true
 
 [点我直接查看pdf文件](pdf/data_mining.pdf)
 
-<iframe name="container_ifranme" id="iframeId" frameborder="no" border="0" src="pdf/data_mining.pdf" width="100%" height="7000px" style="background-color:white" ></iframe>
+{% pdf pdf/data_mining.pdf %}
+

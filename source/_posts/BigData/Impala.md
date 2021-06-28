@@ -8,7 +8,9 @@ typora-root-url: ..\..
 ## Impala
 
 impala提供对HDFS、Hbase数据的高性能、低延迟的交互式SQL查询功能。基于Hive使用内存计算，兼顾数据仓库、具有实时、批处理、多并发等优点。
+
 <!-- more -->
+
 ### Impala的优点
 
 - 基于内存计算

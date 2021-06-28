@@ -164,6 +164,11 @@ footer:
     gongan_icon_url:
 
 
+symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: false
+  
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
 
@@ -198,8 +203,8 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: tomorrow-night
+    light: xcode
+    dark: monokai
   prism:
     light: prism
     dark: prism-dark
@@ -447,7 +452,7 @@ tabs:
 pdf:
   enable: true
   # Default height
-  height: 500px
+  height: 800px
 
 # Mermaid tag
 mermaid:

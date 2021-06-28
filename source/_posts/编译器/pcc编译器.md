@@ -1,0 +1,79 @@
+---
+date: 2021-06-24 22:25:00
+updated: 2021-06-24 22:25:00
+typora-root-url: ..\..
+---
+
+# 引言
+
+想做编译器很久了，大学期间留下了不少遗憾，没有实现自己的编译器，没有实现自己的JVM，没有实现自己的数据库，当然这其中有很多原因，比如学院的要求太松，比如自己也不够主动，这篇Blog将引导读者一步一步构建一个自己的编译器。由于笔者熟练的语言有限，还是决定使用C++编写。
+
+其实主要是发现了这个[项目](https://github.com/DoctorWkt/acwj)，他看起来好厉害啊，我直接膜拜。
+
+
+
+# 前期准备
+
+那个项目其实或多或少逻辑有点问题的，有一些前置内容。
+
+## 正则表达式
+
+我们首先打算编写一个支持正则文法的程序，他输入一个正则表达式，输出一个自动机，这个自动机可以识别匹配到正则表达式的字符串。
+
+正则表达式是什么这里就不做介绍了，我们仅仅只实现一个正则表达式的最小功能集。
+
+### 正则词法分析
+
+我们一共有5个关键字，他们分别是`(`,`)`,`[`,`]`,`*`,其中`()`总是成对出现，`[]`也是成对出现，他们的意义笔者这里就不做说明了。
+
+有了关键词，关键词就会和字符集冲突，这个时候需要引入转码。
+
+为了从简，目前只支持这5个关键词的转码。
+
+理论介绍完毕，接下来开始实现正则语法。
+
+```mermaid
+graph
+  number["0...9"]
+  littlec["a...z"]
+  upperc["a...z"]
+  escape["\"]
+  escapelbrackets["\("]
+  escaperbrackets["\)"]
+  escapelbrackets2["\["]
+  escaperbrackets2["\]"]
+  escapestar["\*"]
+  escapeself["\\"]
+
+  开始 --> number & littlec & upperc & escape
+  escape --> escapelbrackets & escaperbrackets & escapelbrackets2 & escaperbrackets2 & escapestar & escapeself
+  number & littlec & upperc & escape  --> 结束
+  escapelbrackets & escaperbrackets & escapelbrackets2 & escaperbrackets2 & escapestar & escapeself --> 结束
+```
+
+## 正则语法分析
+
+这个阶段只需要检查括号是否匹配即可，无需做过多的事情
+
+## 正则语义分析
+
+这个阶段我们开始构建nfa。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
