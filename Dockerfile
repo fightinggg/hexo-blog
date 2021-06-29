@@ -14,6 +14,12 @@ COPY package.json /app
 
 RUN npm install
 
+RUN yum install wget -y
+RUN wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
+RUN tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz -C /usr/local
+RUN echo -e "unalias cp\nPATH=$PATH:/usr/local/pandoc-2.14.0.3/bin\n" >> /root/.bashrc
+
+
 CMD \
   cp -rf /data/hexo-blog/* /app && \
   # npm install && \
@@ -25,12 +31,10 @@ CMD \
   hexo clean && hexo s
 
 
-# unalias cp 
+# cp -rf /data/src/hexo-blog/* /app && hexo s
 
-# cp -rf /data/hexo-blog/* /app && hexo clean && hexo s
+# docker run -it --rm --name=hexoblog -v ${HOME}:/data:ro -p 4000:4000 hexo bash
 
-# sudo docker run -it --rm --name=hexoblog -v /src/hexo-blog:/data/hexo-blog -v /root/.ssh:/data/.ssh -p 4000:4000 hexo bash
-
-# sudo docker build -t hexo .
+# docker build --build-arg  http_proxy=http://host.docker.internal:1080 --build-arg https_proxy=http://host.docker.internal:1080 -t hexo . 
 
 # sudo docker rm -f hexoblog
