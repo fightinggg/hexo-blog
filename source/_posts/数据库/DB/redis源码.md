@@ -1,15 +1,15 @@
 ---
 date: 2021-06-26 14:45:00
 updated: 2021-06-26 14:45:00
+mathjax: true
+typora-root-url: ..\..\..
 ---
 
 
 
 # sds.h sds.c 
 
-## 前置内容
-
-### 内存对齐
+## 内存对齐
 
 `__attribute__((__packed__))`可以让编译器对结构体不进行内存对齐，[详细参考](https://blog.csdn.net/wuxing26jiayou/article/details/79609025)
 
@@ -42,9 +42,13 @@ nopacked: 24
 */
 ```
 
-### 宏\#\#
+## 宏\#\#
 
 \#\#后标识的字符串会被替换，然后其左右的内容加上自己会被合并到一起，编译器将其视为标识符进行解析，[详细参考](https://blog.csdn.net/mitu405687908/article/details/51084441?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-2.control)
+
+
+
+<!-- more -->
 
 ## sds.h 源码
 
@@ -131,15 +135,306 @@ typedef struct list {
 
 
 
+# mt19937-64.c mt19937-64.h
+
+## 梅森素数
+
+在OEIS上，梅森素数有[这些](https://oeis.org/A000043/list), 维基百科上也有[说明](https://zh.wikipedia.org/wiki/%E6%A2%85%E6%A3%AE%E7%B4%A0%E6%95%B0#%E6%A2%85%E6%A3%AE%E7%B4%A0%E6%95%B0%E5%88%97%E8%A1%A8), 我们需要注意到的是$2^{19937}-1$是一个梅森素数
+
+## 线性反馈移位寄存器
+
+线性反馈移位寄存器（Linear Feedback Shifting Register，简称 LFSR）
+
+假设你有一个寄存器，寄存器中储存着一些二进制位，寄存器中有几个位被标记了，接下来会有无限轮操作，每轮操作如下
+
+- 寄存器输出最低位x（x=0或1）。
+- 寄存器选择被标记的位和x，取出其值，放到一起进行异或，得到y（y=0或1）。
+- 寄存器把自己右移1位，然后把值y放入最高位。
+
+
+
+具体来说，你有一个$8$位寄存器，初始储存着$00001111$，其中$3$,$5$,$7$位被标记了，于是开始操作。
+
+第一轮输出$x=1$，然后从低位到高位选择了$1$,$0$,$0$, 最后$y=1 \oplus1 \oplus 0 \oplus 0=0$，寄存器变成了$00000111$
+
+第二轮输出$x=1$，然后从低位到高位选择了$1$,$0$,$0$, 最后$y=1 \oplus1 \oplus 0 \oplus 0=0$，寄存器变成了$00000011$
+
+第三轮输出$x=1$，然后从低位到高位选择了$0$,$0$,$0$, 最后$y=1 \oplus 0 \oplus 0 \oplus 0=1$，寄存器变成了$10000001$
+
+第四轮输出$x=1$，然后从低位到高位选择了$0$,$0$,$0$, 最后$y=1 \oplus 0 \oplus 0 \oplus 0=1$，寄存器变成了$11000000$
+
+第五轮输出$x=0$，然后从低位到高位选择了$0$,$0$,$1$, 最后$y=0 \oplus 0 \oplus 0 \oplus 1=1$，寄存器变成了$11100000$
+
+......
+
+
+
+## 梅森旋转算法
+
+这是一个随机数生成算法，这里有一篇有趣的[Blog](https://liam.page/2018/01/12/Mersenne-twister/)，有兴趣可以读一下。这里引用一些主要内容。
+
+梅森旋转算法（Mersenne Twister Algorithm，简称 MT）
+
+>$32$ 位的梅森旋转算法能够产生周期为 $P$ 的 $w$-比特的随机数序列$\{\vec x_i\}$；其中 $w=32$。这也就是说，每一个$\vec x$ 是一个长度为 $32$ 的行向量，并且其中的每一个元素都是二元数域$\mathbb{F}_2 \overset{\text{def}}{=} \{0, 1\}$中的元素。现在，我们定义如下一些记号，来描述梅森旋转算法是如何进行旋转（线性移位）的。
+>
+>- $n$：参与梅森旋转的随机数个数；
+>- $r$：$[0, w)$ 之间的整数；
+>- $m$：$(0, n]$之间的整数；
+>- $\mathbf{A}$：$w \times w$ 的常矩阵；
+>- $\vec x^{(u)}$：$\vec x$的最高 $w - r$ 比特组成的数（低位补零）；
+>- $\vec x^{(l)}$：$\vec x$的最低 r 比特组成的数（高位补零）。
+>
+>梅森旋转算法，首先需要根据随机数种子初始化$ n $个行向量：
+>$$
+>\vec x_0, \vec x_1, \ldots, \vec x_{n - 1}.
+>$$
+>而后根据下式，从$ k=0$ 开始依次计算 $\vec x_{n}$：
+>$$
+>\begin{equation}\vec x_{k + n} \overset{\text{def}}{=} \vec x_{k + m}\oplus \bigl(\vec x_{k}^{(u)}\mid \vec x_{k + 1}^{(l)}\bigr)\mathbf{A}.\label{eq:twister}\end{equation}
+>$$
+>
+>
+>其中，$\vec x\mid \vec x'$表示两个二进制数按位或；$\vec x\oplus \vec x'$表示两个二进制数按位半加（不进位，也就是按位异或）；$\vec x\mathbf A$ 则表示按位半加的矩阵乘法。在 MT 中，$\mathbf A$ 被定义为
+>$$
+>\begin{pmatrix}
+>& 1 \\
+>& & 1 \\
+>& & & \ddots \\
+>& & & & 1 \\
+>a_{w - 1} & a_{w - 2} & a_{w - 3} & \cdots & a_0
+>\end{pmatrix}
+>$$
+>
+
+我们现在看看这个计算和旋转有什么关系。首先不考虑矩阵$\mathbf A$.
+
+则有$\vec x_{k + n} \overset{\text{def}}{=} \vec x_{k + m}\oplus \bigl(\vec x_{k}^{(u)}\mid \vec x_{k + 1}^{(l)}\bigr)$, 这个式子笔者看了很久才明白他就是$w$轮线性反馈移位寄存器变换。下图是计算$x_n$的时候的异或情况， 可以看到$x_n$的每一个位都是独立的异或
+
+![](https://raw.githubusercontent.com/fightinggg/drawio-data/master/redis-src/redis-src-mt19937.svg)
+
+> 回过头来看 2 式，不难发现，这其实相当于一个 $nw - r$ 级的线性反馈移位寄存器（取 $\vec x_k^{(u)}$的最高 $w−r$ 位与 $\vec x_{k + 1}^{(l)}$的最低 $r $位进行迭代异或，再经过一个不影响周期的线性变换 $\mathbf A$）。只不过，2 式每一次运算，相当于 $LFSR$ 进行了 $w$ 轮计算。若 $w$ 与 $nw−r$ 互素，那么这一微小的改变是不会影响 $LFSR$ 的周期的。考虑到 $LFSR$ 的计算过程像是在「旋转」，这即是「梅森『旋转』」名字的来由。
+
+
+
+## mt19937源码
+
+主要的计算都在这里
+
+```c
+unsigned long long genrand64_int64(void)
+{
+		//...
+        for (i=0;i<NN-MM;i++) {
+            x = (mt[i]&UM)|(mt[i+1]&LM);
+            mt[i] = mt[i+MM] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
+        }
+        for (;i<NN-1;i++) {
+            x = (mt[i]&UM)|(mt[i+1]&LM);
+            mt[i] = mt[i+(MM-NN)] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
+        }
+		//...
+}
+
+```
+
+然后是`63`位生成
+
+```c
+/* generates a random number on [0, 2^63-1]-interval */
+long long genrand64_int63(void)
+{
+    return (long long)(genrand64_int64() >> 1);
+}
+```
+
+实数的生成
+
+```c
+/* generates a random number on [0,1]-real-interval */
+double genrand64_real1(void)
+{
+    return (genrand64_int64() >> 11) * (1.0/9007199254740991.0);
+}
+
+/* generates a random number on [0,1)-real-interval */
+double genrand64_real2(void)
+{
+    return (genrand64_int64() >> 11) * (1.0/9007199254740992.0);
+}
+
+/* generates a random number on (0,1)-real-interval */
+double genrand64_real3(void)
+{
+    return ((genrand64_int64() >> 12) + 0.5) * (1.0/4503599627370496.0);
+}
+```
+
+
+
+
+
 # dict.c dict.h
 
+## 字典源码
+
+字典结构体定义，需要注意这里有两个dictht，即两个字典，这涉及到了一个重hash问题，redis使用了渐进式rehash算法，即把重hash分布到各个地方(插入、查询等)，使得重hash的复杂度降低为$O1$，
+
+redis是单线程，绝对不能出现过于耗时的操作，否则影响redis延时
+
+```c
+typedef struct dict {
+    dictType *type;
+    void *privdata;
+    dictht ht[2];
+    long rehashidx; /* rehashing not in progress if rehashidx == -1 */
+    int16_t pauserehash; /* If >0 rehashing is paused (<0 indicates coding error) */
+} dict;
+
+```
+
+
+
+# 一探server.h server.c-跳表
+
+跳表定义在这里
+
+```c
+/* ZSETs use a specialized version of Skiplists */
+typedef struct zskiplistNode {
+    sds ele;
+    double score;
+    struct zskiplistNode *backward;
+    struct zskiplistLevel {
+        struct zskiplistNode *forward;
+        unsigned long span;
+    } level[];
+} zskiplistNode;
+
+typedef struct zskiplist {
+    struct zskiplistNode *header, *tail;
+    unsigned long length;
+    int level;
+} zskiplist;
+```
+
+
+
+# intset.c intset.h
+
+整数集合，这里可以储存整数
+
+```c
+typedef struct intset {
+    uint32_t encoding;
+    uint32_t length;
+    int8_t contents[];
+} intset;
+
+intset *intsetNew(void);
+intset *intsetAdd(intset *is, int64_t value, uint8_t *success);
+intset *intsetRemove(intset *is, int64_t value, int *success);
+uint8_t intsetFind(intset *is, int64_t value);
+int64_t intsetRandom(intset *is);
+uint8_t intsetGet(intset *is, uint32_t pos, int64_t *value);
+uint32_t intsetLen(const intset *is);
+size_t intsetBlobLen(intset *is);
+int intsetValidateIntegrity(const unsigned char *is, size_t size, int deep);
+```
+
+encoding是编码方式，指的是contents中的数据如何储存，编码方式分为三种
+
+```c
+/* Note that these encodings are ordered, so:
+ * INTSET_ENC_INT16 < INTSET_ENC_INT32 < INTSET_ENC_INT64. */
+#define INTSET_ENC_INT16 (sizeof(int16_t))
+#define INTSET_ENC_INT32 (sizeof(int32_t))
+#define INTSET_ENC_INT64 (sizeof(int64_t))
+```
+
+length是数字的个数
+
+contents是内容，但是他不一定是8位的整数，取决于encoding的值。
+
+
+
+## 整数集合升级
+
+由于整数集合初始情况储存的是INTSET_ENC_INT16，当你插入一个32位的数字以后，会出现溢出，这时候就需要进行升级，就直接开辟新的空间然后拷贝过去，复杂的$O(N)$
+
+不支持降级
 
 
 
 
 
+# ziplist.c ziplist.h
+
+压缩列表
+
+# 二探server.h server.c-对象
+
+redis对象都在这里统一起来
+
+```c 
+typedef struct redisObject {
+    unsigned type:4;
+    unsigned encoding:4;
+    unsigned lru:LRU_BITS; /* LRU time (relative to global lru_clock) or
+                            * LFU data (least significant 8 bits frequency
+                            * and most significant 16 bits access time). */
+    int refcount;
+    void *ptr;
+} robj;
+```
 
 
+
+# 三探server.h-db
+
+这次主要关注redisServer，这个结构体有460行，笔者省去了一些,可以砍刀redisDb是一个数组，dbnum记录他的数量，一般情况下，dbnum为6
+
+```c
+struct redisServer {
+	// ...
+    redisDb *db;
+    // ...
+    int dbnum;                      /* Total number of configured DBs */
+    // ...
+};
+```
+
+然后是客户端这边, 注意到client,. 这里也有一个指针，当然他指向的就是当前使用的db，而不是数组。
+
+```c
+typedef struct client {
+    // ...
+    redisDb *db;            /* Pointer to currently SELECTed DB. */
+    // ...
+} client;
+```
+
+看完服务器和客户端，然后看db
+
+```c
+/* Redis database representation. There are multiple databases identified
+ * by integers from 0 (the default database) up to the max configured
+ * database. The database number is the 'id' field in the structure. */
+typedef struct redisDb {
+    dict *dict;                 /* The keyspace for this DB */
+    dict *expires;              /* Timeout of keys with a timeout set */
+    dict *blocking_keys;        /* Keys with clients waiting for data (BLPOP)*/
+    dict *ready_keys;           /* Blocked keys that received a PUSH */
+    dict *watched_keys;         /* WATCHED keys for MULTI/EXEC CAS */
+    int id;                     /* Database ID */
+    long long avg_ttl;          /* Average TTL, just for stats */
+    unsigned long expires_cursor; /* Cursor of the active expire cycle. */
+    list *defrag_later;         /* List of key names to attempt to defrag one by one, gradually. */
+} redisDb;
+```
+
+对于redisDb，笔者这里引用一下《Redis设计与实现》中的一个图，读者可以看的更加清晰
+
+> ![](/images/image-2021-06-30-16.09.00.000.png)
 
 
 
@@ -198,8 +493,6 @@ typedef struct list {
 # geohash_helper.h
 # help.h
 # hyperloglog.c
-# intset.c
-# intset.h
 # latency.c
 # latency.h
 # lazyfree.c
@@ -221,8 +514,6 @@ typedef struct list {
 # modules
 # monotonic.c
 # monotonic.h
-# mt19937-64.c
-# mt19937-64.h
 # multi.c
 # networking.c
 # notify.c
@@ -285,8 +576,6 @@ typedef struct list {
 # util.h
 # valgrind.sup
 # version.h
-# ziplist.c
-# ziplist.h
 # zipmap.c
 # zipmap.h
 # zmalloc.c

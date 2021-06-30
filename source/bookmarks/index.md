@@ -36,6 +36,8 @@
 
 [NexT - Theme for Hexo](https://theme-next.js.org/)
 
+[始终 不忘初心](https://liam.page/)
+
 # ACM
 
 [Welcome to Hangzhou Dianzi University Online Judge](http://acm.hdu.edu.cn/)
@@ -146,15 +148,7 @@
 
 [大规模SOA系统中的分布事务处理](http://tsingxu.github.io/blog/20140513/distributed-transaction-in-soa-by-chengli.pdf)
 
-[深入学习Redis（1）：Redis内存模型 - 编程迷思 - 博客园](https://www.cnblogs.com/kismetv/p/8654978.html)
-
-[深入学习Redis（2）：持久化 - 编程迷思 - 博客园](https://www.cnblogs.com/kismetv/p/9137897.html)
-
-[深入学习Redis（3）：主从复制 - 编程迷思 - 博客园](https://www.cnblogs.com/kismetv/p/9236731.html)
-
 [Java面试必问：ThreadLocal终极篇 - 掘金](https://juejin.im/post/5f1d82646fb9a07e654fbe25)
-
-[(32条消息)Redis系列十：Pipeline详解_w1lgy的博客-CSDN博客_redis pipeline](https://blog.csdn.net/w1lgy/article/details/84455579)
 
 [(32条消息)云时代架构_罗伯特北京_CSDN博客-深入剖析Spring Web源码,云计算 - 精通Hadoop（翻译）领域博主](https://blog.csdn.net/robertleepeak)
 
@@ -229,6 +223,20 @@
 [操作系统 - 清华大学 - 学堂在线](https://www.xuetangx.com/learn/THU08091000267/THU08091000267/5883104/video/9173314)
 
 [Introduction | uCore Lab Documents](https://objectkuan.gitbooks.io/ucore-docs/content/)
+
+# 数据库
+
+## Redis
+
+[深入学习Redis（1）：Redis内存模型 - 编程迷思 - 博客园](https://www.cnblogs.com/kismetv/p/8654978.html)
+
+[深入学习Redis（2）：持久化 - 编程迷思 - 博客园](https://www.cnblogs.com/kismetv/p/9137897.html)
+
+[深入学习Redis（3）：主从复制 - 编程迷思 - 博客园](https://www.cnblogs.com/kismetv/p/9236731.html)
+
+[(32条消息)Redis系列十：Pipeline详解_w1lgy的博客-CSDN博客_redis pipeline](https://blog.csdn.net/w1lgy/article/details/84455579)
+
+[Redis 设计与实现](http://redisbook.com/index.html)
 
 # Latex
 
