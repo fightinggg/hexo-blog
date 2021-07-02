@@ -204,7 +204,6 @@ typedef struct list {
 >a_{w - 1} & a_{w - 2} & a_{w - 3} & \cdots & a_0
 >\end{pmatrix}
 >$$
->
 
 我们现在看看这个计算和旋转有什么关系。首先不考虑矩阵$\mathbf A$.
 
@@ -216,7 +215,7 @@ typedef struct list {
 
 
 
-## mt19937源码
+# mt19937源码
 
 主要的计算都在这里
 
@@ -438,6 +437,216 @@ typedef struct redisDb {
 
 
 
+# rio.c rio.h
+
+rio即redis io， 主要实现了redis中的io操作, rio是一个结构体，他就是`_rio`, 下面是源码。
+
+```c
+struct _rio {
+    /* Backend functions.
+     * Since this functions do not tolerate short writes or reads the return
+     * value is simplified to: zero on error, non zero on complete success. */
+    size_t (*read)(struct _rio *, void *buf, size_t len);
+    size_t (*write)(struct _rio *, const void *buf, size_t len);
+    off_t (*tell)(struct _rio *);
+    int (*flush)(struct _rio *);
+    /* The update_cksum method if not NULL is used to compute the checksum of
+     * all the data that was read or written so far. The method should be
+     * designed so that can be called with the current checksum, and the buf
+     * and len fields pointing to the new block of data to add to the checksum
+     * computation. */
+    void (*update_cksum)(struct _rio *, const void *buf, size_t len);
+
+    /* The current checksum and flags (see RIO_FLAG_*) */
+    uint64_t cksum, flags;
+
+    /* number of bytes read or written */
+    size_t processed_bytes;
+
+    /* maximum single read or write chunk size */
+    size_t max_processing_chunk;
+
+    /* Backend-specific vars. */
+    union {
+        /* In-memory buffer target. */
+        struct {
+            sds ptr;
+            off_t pos;
+        } buffer;
+        /* Stdio file pointer target. */
+        struct {
+            FILE *fp;
+            off_t buffered; /* Bytes written since last fsync. */
+            off_t autosync; /* fsync after 'autosync' bytes written. */
+        } file;
+        /* Connection object (used to read from socket) */
+        struct {
+            connection *conn;   /* Connection */
+            off_t pos;    /* pos in buf that was returned */
+            sds buf;      /* buffered data */
+            size_t read_limit;  /* don't allow to buffer/read more than that */
+            size_t read_so_far; /* amount of data read from the rio (not buffered) */
+        } conn;
+        /* FD target (used to write to pipe). */
+        struct {
+            int fd;       /* File descriptor. */
+            off_t pos;
+            sds buf;
+        } fd;
+    } io;
+};
+```
+
+简单来说，他的这些字段，分别对应这些内容：
+
+|         字段         |         内容         |
+| :------------------: | :------------------: |
+|         read         |  读数据，是函数指针  |
+|        write         |  写数据，是函数指针  |
+|         tell         |   tell，是函数指针   |
+|        flush         |  flush，是函数指针   |
+|     update_cksum     |  校验和，是函数指针  |
+|        cksum         |      当前校验和      |
+|        flags         |   是否发生读写错误   |
+|   processed_bytes    |   已经处理的字节数   |
+| max_processing_chunk | 单次最大处理的字节数 |
+|          io          |    具体的读写目标    |
+
+这里的函数指针主要作用是给后面的下面这些函数使用，这种编程方式有一点像面向对象中的抽象类。注意看，下面的`rioWrite`使用了对象`r`的`write`方法，实现了任意 长度`len`的写入。而对象`r`的`write`方法是不支持任意长度len的。`rioRead`也是同理了。
+
+```c
+static inline size_t rioWrite(rio *r, const void *buf, size_t len) {
+    if (r->flags & RIO_FLAG_WRITE_ERROR) return 0;
+    while (len) {
+        size_t bytes_to_write = (r->max_processing_chunk && r->max_processing_chunk < len) ? r->max_processing_chunk : len;
+        if (r->update_cksum) r->update_cksum(r,buf,bytes_to_write);
+        if (r->write(r,buf,bytes_to_write) == 0) {
+            r->flags |= RIO_FLAG_WRITE_ERROR;
+            return 0;
+        }
+        buf = (char*)buf + bytes_to_write;
+        len -= bytes_to_write;
+        r->processed_bytes += bytes_to_write;
+    }
+    return 1;
+}
+
+static inline size_t rioRead(rio *r, void *buf, size_t len) {
+    if (r->flags & RIO_FLAG_READ_ERROR) return 0;
+    while (len) {
+        size_t bytes_to_read = (r->max_processing_chunk && r->max_processing_chunk < len) ? r->max_processing_chunk : len;
+        if (r->read(r,buf,bytes_to_read) == 0) {
+            r->flags |= RIO_FLAG_READ_ERROR;
+            return 0;
+        }
+        if (r->update_cksum) r->update_cksum(r,buf,bytes_to_read);
+        buf = (char*)buf + bytes_to_read;
+        len -= bytes_to_read;
+        r->processed_bytes += bytes_to_read;
+    }
+    return 1;
+}
+
+static inline off_t rioTell(rio *r) {
+    return r->tell(r);
+}
+
+static inline int rioFlush(rio *r) {
+    return r->flush(r);
+}
+```
+
+这里有一个有趣的函数
+
+```c
+/* Flushes any buffer to target device if applicable. Returns 1 on success
+ * and 0 on failures. */
+static int rioBufferFlush(rio *r) {
+    UNUSED(r);
+    return 1; /* Nothing to do, our write just appends to the buffer. */
+}
+```
+
+其中的`UNUSED`来自于一个宏` #define UNUSED(V) ((void) V)`, 其作用是消除编译器的警告： 变量未使用。
+
+最后是整个`bufferio`的源码, 定义了一些函数，这些函数只给rioBufferIO这个对象使用。这是一种单例模式。
+
+```c
+/* ------------------------- Buffer I/O implementation ----------------------- */
+
+/* Returns 1 or 0 for success/failure. */
+static size_t rioBufferWrite(rio *r, const void *buf, size_t len) {
+    r->io.buffer.ptr = sdscatlen(r->io.buffer.ptr,(char*)buf,len);
+    r->io.buffer.pos += len;
+    return 1;
+}
+
+/* Returns 1 or 0 for success/failure. */
+static size_t rioBufferRead(rio *r, void *buf, size_t len) {
+    if (sdslen(r->io.buffer.ptr)-r->io.buffer.pos < len)
+        return 0; /* not enough buffer to return len bytes. */
+    memcpy(buf,r->io.buffer.ptr+r->io.buffer.pos,len);
+    r->io.buffer.pos += len;
+    return 1;
+}
+
+/* Returns read/write position in buffer. */
+static off_t rioBufferTell(rio *r) {
+    return r->io.buffer.pos;
+}
+
+/* Flushes any buffer to target device if applicable. Returns 1 on success
+ * and 0 on failures. */
+static int rioBufferFlush(rio *r) {
+    UNUSED(r);
+    return 1; /* Nothing to do, our write just appends to the buffer. */
+}
+
+static const rio rioBufferIO = {
+    rioBufferRead,
+    rioBufferWrite,
+    rioBufferTell,
+    rioBufferFlush,
+    NULL,           /* update_checksum */
+    0,              /* current checksum */
+    0,              /* flags */
+    0,              /* bytes read or written */
+    0,              /* read/write chunk size */
+    { { NULL, 0 } } /* union for io-specific vars */
+};
+
+void rioInitWithBuffer(rio *r, sds s) {
+    *r = rioBufferIO;
+    r->io.buffer.ptr = s;
+    r->io.buffer.pos = 0;
+}
+```
+
+文件io和缓冲区io相差不大，注意关注文件io的写函数，这里涉及到一个[异步刷盘](https://blog.csdn.net/mengyafei43/article/details/38319783)的问题。
+
+redis对多个操作系统做了兼容,在linux下`redis_fsync`就是`fsync`，文件读写也有自己的缓冲区，一旦开启了自动同步`io.file.autosync`，则每写入一定数量`io.file.buffered`的数据，就进行同步`fsync(fileno(fp))`。
+
+```c
+/* Returns 1 or 0 for success/failure. */
+static size_t rioFileWrite(rio *r, const void *buf, size_t len) {
+    size_t retval;
+
+    retval = fwrite(buf,len,1,r->io.file.fp);
+    r->io.file.buffered += len;
+
+    if (r->io.file.autosync &&
+        r->io.file.buffered >= r->io.file.autosync)
+    {
+        fflush(r->io.file.fp);
+        if (redis_fsync(fileno(r->io.file.fp)) == -1) return 0;
+        r->io.file.buffered = 0;
+    }
+    return retval;
+}
+```
+
+
+
 # Makefile
 
 # acl.c
@@ -540,8 +749,6 @@ typedef struct redisDb {
 # redismodule.h
 # release.c
 # replication.c
-# rio.c
-# rio.h
 # scripting.c
 # sdsalloc.h
 # sentinel.c
