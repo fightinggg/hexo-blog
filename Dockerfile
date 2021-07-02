@@ -33,7 +33,3 @@ CMD \
 
 # docker build --build-arg  http_proxy=http://host.docker.internal:1080 --build-arg https_proxy=http://host.docker.internal:1080 -t hexo . 
 
-# docker run -it --rm --name=hexoblog -v ${HOME}:/data:ro -p 4000:4000 hexo bash
-
-# cp -rf /data/src/hexo-blog/* /app && hexo s
-

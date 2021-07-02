@@ -645,6 +645,12 @@ static size_t rioFileWrite(rio *r, const void *buf, size_t len) {
 }
 ```
 
+接下来的两个io分别是connection io和 file descriptor io, 前者只实现了从socket中读取数据的接口，后者只实现了向fd中写数据的接口（`This target is used to write the RDB file to pipe, when the master just streams the data to the replicas without creating an RDB on-disk image (diskless replication option)`）。
+
+
+
+
+
 
 
 # Makefile
