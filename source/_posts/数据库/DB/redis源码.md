@@ -7,6 +7,10 @@ typora-root-url: ..\..\..
 
 
 
+# 版本
+
+使用6.2.4
+
 # sds.h sds.c 
 
 ## 内存对齐
@@ -18,22 +22,22 @@ typora-root-url: ..\..\..
 #include <stdio.h>
 
 struct __attribute__((__packed__)) sdshdr64 {
-  uint64_t len;        /* used */
-  uint64_t alloc;      /* excluding the header and null terminator */
-  unsigned char flags; /* 3 lsb of type, 5 unused bits */
-  char buf[];
+    uint64_t len;        /* used */
+    uint64_t alloc;      /* excluding the header and null terminator */
+    unsigned char flags; /* 3 lsb of type, 5 unused bits */
+    char buf[];
 };
 
 struct _sdshdr64 {
-  uint64_t len;        /* used */
-  uint64_t alloc;      /* excluding the header and null terminator */
-  unsigned char flags; /* 3 lsb of type, 5 unused bits */
-  char buf[];
+    uint64_t len;        /* used */
+    uint64_t alloc;      /* excluding the header and null terminator */
+    unsigned char flags; /* 3 lsb of type, 5 unused bits */
+    char buf[];
 };
 
 int main() {
-  printf("packed: %d\n", sizeof(struct sdshdr64));
-  printf("nopacked: %d\n", sizeof(struct _sdshdr64));
+    printf("packed: %d\n", sizeof(struct sdshdr64));
+    printf("nopacked: %d\n", sizeof(struct _sdshdr64));
 }
 /*
 gcc a.c -o a && ./a
@@ -215,23 +219,23 @@ typedef struct list {
 
 
 
-# mt19937源码
+## mt19937源码
 
 主要的计算都在这里
 
 ```c
 unsigned long long genrand64_int64(void)
 {
-		//...
-        for (i=0;i<NN-MM;i++) {
-            x = (mt[i]&UM)|(mt[i+1]&LM);
-            mt[i] = mt[i+MM] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
-        }
-        for (;i<NN-1;i++) {
-            x = (mt[i]&UM)|(mt[i+1]&LM);
-            mt[i] = mt[i+(MM-NN)] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
-        }
-		//...
+    //...
+    for (i=0;i<NN-MM;i++) {
+        x = (mt[i]&UM)|(mt[i+1]&LM);
+        mt[i] = mt[i+MM] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
+    }
+    for (;i<NN-1;i++) {
+        x = (mt[i]&UM)|(mt[i+1]&LM);
+        mt[i] = mt[i+(MM-NN)] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
+    }
+    //...
 }
 
 ```
@@ -293,7 +297,7 @@ typedef struct dict {
 
 
 
-# 一探server.h server.c-跳表
+# server.h server.c-1-跳表
 
 跳表定义在这里
 
@@ -370,7 +374,7 @@ contents是内容，但是他不一定是8位的整数，取决于encoding的值
 
 压缩列表
 
-# 二探server.h server.c-对象
+# server.h server.c-2-对象
 
 redis对象都在这里统一起来
 
@@ -388,13 +392,13 @@ typedef struct redisObject {
 
 
 
-# 三探server.h-db
+# server.h-3-db
 
 这次主要关注redisServer，这个结构体有460行，笔者省去了一些,可以砍刀redisDb是一个数组，dbnum记录他的数量，一般情况下，dbnum为6
 
 ```c
 struct redisServer {
-	// ...
+    // ...
     redisDb *db;
     // ...
     int dbnum;                      /* Total number of configured DBs */
@@ -608,10 +612,10 @@ static const rio rioBufferIO = {
     rioBufferTell,
     rioBufferFlush,
     NULL,           /* update_checksum */
-    0,              /* current checksum */
-    0,              /* flags */
-    0,              /* bytes read or written */
-    0,              /* read/write chunk size */
+        0,              /* current checksum */
+        0,              /* flags */
+        0,              /* bytes read or written */
+        0,              /* read/write chunk size */
     { { NULL, 0 } } /* union for io-specific vars */
 };
 
@@ -646,6 +650,268 @@ static size_t rioFileWrite(rio *r, const void *buf, size_t len) {
 ```
 
 接下来的两个io分别是connection io和 file descriptor io, 前者只实现了从socket中读取数据的接口，后者只实现了向fd中写数据的接口（`This target is used to write the RDB file to pipe, when the master just streams the data to the replicas without creating an RDB on-disk image (diskless replication option)`）。
+
+# rdb.c rdb.h
+
+## rdbSaveRio
+
+直接看函数`rdbSaveRio`的实现，第一部分是一些准备工作，RDB的版本被储存到了字符串magic中
+
+```c
+int rdbSaveRio(rio *rdb, int *error, int rdbflags, rdbSaveInfo *rsi) {
+    // ...
+    dictIterator *di = NULL;
+    dictEntry *de;
+    char magic[10];
+    uint64_t cksum;
+    size_t processed = 0;
+    int j;
+    long key_count = 0;
+    long long info_updated_time = 0;
+    char *pname = (rdbflags & RDBFLAGS_AOF_PREAMBLE) ? "AOF rewrite" :  "RDB";
+
+    if (server.rdb_checksum)
+        rdb->update_cksum = rioGenericUpdateChecksum;
+    snprintf(magic,sizeof(magic),"REDIS%04d",RDB_VERSION);
+    // ...
+}
+
+```
+
+
+
+第二部分`rdbWriteRaw`直接把magic版本数据写入rdb输出流，`rdbSaveInfoAuxFields`写入了一些kv对，分别是`redis-ver`,`redis-bits`,`ctime`和`used-mem`。
+
+对于`rdbSaveModulesAux`，他是module.c和module.h中的内容，大概就是保存了一个modules字典。
+
+```c
+int rdbSaveInfoAuxFields(rio *rdb, int rdbflags, rdbSaveInfo *rsi) {
+    // ...
+    if (rdbSaveAuxFieldStrStr(rdb,"redis-ver",REDIS_VERSION) == -1) return -1;
+    if (rdbSaveAuxFieldStrInt(rdb,"redis-bits",redis_bits) == -1) return -1;
+    if (rdbSaveAuxFieldStrInt(rdb,"ctime",time(NULL)) == -1) return -1;
+    if (rdbSaveAuxFieldStrInt(rdb,"used-mem",zmalloc_used_memory()) == -1) return -1;
+    // ...
+    return 1;
+}
+
+int rdbSaveRio(rio *rdb, int *error, int rdbflags, rdbSaveInfo *rsi) {
+    // ...
+    if (rdbWriteRaw(rdb,magic,9) == -1) goto werr;
+    if (rdbSaveInfoAuxFields(rdb,rdbflags,rsi) == -1) goto werr;
+    if (rdbSaveModulesAux(rdb, REDISMODULE_AUX_BEFORE_RDB) == -1) goto werr;
+    // ...
+}
+```
+
+第三部分开始处理数据库,其主体如下。依次写入了数据库的编号、数据库kv个数，数据库超时kv个数。
+
+```c
+int rdbSaveRio(rio *rdb, int *error, int rdbflags, rdbSaveInfo *rsi) {
+    // ...
+    for (j = 0; j < server.dbnum; j++) {
+        redisDb *db = server.db+j;
+        dict *d = db->dict;
+        if (dictSize(d) == 0) continue;
+        di = dictGetSafeIterator(d);
+
+        /* Write the SELECT DB opcode */
+        if (rdbSaveType(rdb,RDB_OPCODE_SELECTDB) == -1) goto werr;
+        if (rdbSaveLen(rdb,j) == -1) goto werr;
+
+        /* Write the RESIZE DB opcode. */
+        uint64_t db_size, expires_size;
+        db_size = dictSize(db->dict);
+        expires_size = dictSize(db->expires);
+        if (rdbSaveType(rdb,RDB_OPCODE_RESIZEDB) == -1) goto werr;
+        if (rdbSaveLen(rdb,db_size) == -1) goto werr;
+        if (rdbSaveLen(rdb,expires_size) == -1) goto werr;
+
+        /* Iterate this DB writing every entry */
+        while((de = dictNext(di)) != NULL) {
+            // ...
+        }
+    }
+    // ...
+}
+```
+
+
+
+第三部分的`while`循环中，对整个数据库的kv字典进行了迭代，依次写入了rio的流。
+
+```c
+/* Iterate this DB writing every entry */
+while((de = dictNext(di)) != NULL) {
+    sds keystr = dictGetKey(de);
+    robj key, *o = dictGetVal(de);
+    long long expire;
+
+    initStaticStringObject(key,keystr);
+    expire = getExpire(db,&key);
+    if (rdbSaveKeyValuePair(rdb,&key,o,expire) == -1) goto werr;
+
+    /* When this RDB is produced as part of an AOF rewrite, move
+             * accumulated diff from parent to child while rewriting in
+             * order to have a smaller final write. */
+    if (rdbflags & RDBFLAGS_AOF_PREAMBLE &&
+        rdb->processed_bytes > processed+AOF_READ_DIFF_INTERVAL_BYTES)
+    {
+        processed = rdb->processed_bytes;
+        aofReadDiffFromParent();
+    }
+
+    /* Update child info every 1 second (approximately).
+             * in order to avoid calling mstime() on each iteration, we will
+             * check the diff every 1024 keys */
+    if ((key_count++ & 1023) == 0) {
+        long long now = mstime();
+        if (now - info_updated_time >= 1000) {
+            sendChildInfo(CHILD_INFO_TYPE_CURRENT_INFO, key_count, pname);
+            info_updated_time = now;
+        }
+    }
+}
+```
+
+最后一部分，写入了结束符和checksum
+
+```c
+/* If we are storing the replication information on disk, persist
+     * the script cache as well: on successful PSYNC after a restart, we need
+     * to be able to process any EVALSHA inside the replication backlog the
+     * master will send us. */
+if (rsi && dictSize(server.lua_scripts)) {
+    di = dictGetIterator(server.lua_scripts);
+    while((de = dictNext(di)) != NULL) {
+        robj *body = dictGetVal(de);
+        if (rdbSaveAuxField(rdb,"lua",3,body->ptr,sdslen(body->ptr)) == -1)
+            goto werr;
+    }
+    dictReleaseIterator(di);
+    di = NULL; /* So that we don't release it again on error. */
+}
+
+if (rdbSaveModulesAux(rdb, REDISMODULE_AUX_AFTER_RDB) == -1) goto werr;
+
+/* EOF opcode */
+if (rdbSaveType(rdb,RDB_OPCODE_EOF) == -1) goto werr;
+
+/* CRC64 checksum. It will be zero if checksum computation is disabled, the
+     * loading code skips the check in this case. */
+cksum = rdb->cksum;
+memrev64ifbe(&cksum);
+if (rioWrite(rdb,&cksum,8) == 0) goto werr;
+return C_OK;
+```
+
+## rdbSave
+
+首先rdbSave创建了一个名为`temp-pid.rdb`的文件，该文件将用于输出rdb的结果。
+
+```c
+int rdbSave(char *filename, rdbSaveInfo *rsi) {
+    char tmpfile[256];
+    char cwd[MAXPATHLEN]; /* Current working dir path for error messages. */
+    FILE *fp = NULL;
+    rio rdb;
+    int error = 0;
+
+    snprintf(tmpfile,256,"temp-%d.rdb", (int) getpid());
+    fp = fopen(tmpfile,"w");
+    if (!fp) {
+        char *cwdp = getcwd(cwd,MAXPATHLEN);
+        serverLog(LL_WARNING,
+            "Failed opening the RDB file %s (in server root dir %s) "
+            "for saving: %s",
+            filename,
+            cwdp ? cwdp : "unknown",
+            strerror(errno));
+        return C_ERR;
+    }
+    // ...
+}
+```
+
+然后使用该文件初始化rio流，并根据配置文件rio是否进行自动刷盘。
+
+```c
+int rdbSave(char *filename, rdbSaveInfo *rsi) {
+    // ...
+    rioInitWithFile(&rdb,fp);
+    startSaving(RDBFLAGS_NONE);
+
+    if (server.rdb_save_incremental_fsync)
+        rioSetAutoSync(&rdb,REDIS_AUTOSYNC_BYTES);
+    // ...
+} 
+```
+
+接着执行`rdbSaveRio`，并刷盘
+
+```c
+int rdbSave(char *filename, rdbSaveInfo *rsi) {
+    // ...
+    if (rdbSaveRio(&rdb,&error,RDBFLAGS_NONE,rsi) == C_ERR) {
+        errno = error;
+        goto werr;
+    }
+
+    /* Make sure data will not remain on the OS's output buffers */
+    if (fflush(fp)) goto werr;
+    if (fsync(fileno(fp))) goto werr;
+    if (fclose(fp)) { fp = NULL; goto werr; }
+    fp = NULL;
+    // ...
+} 
+```
+
+最后把这个rdb文件命名为`filename`，并结束rdb。
+
+## rdbSaveBackground
+
+fork出一个子进程，子进程执行rdb任务。
+
+```c
+int rdbSaveBackground(char *filename, rdbSaveInfo *rsi) {
+    pid_t childpid;
+
+    if (hasActiveChildProcess()) return C_ERR;
+
+    server.dirty_before_bgsave = server.dirty;
+    server.lastbgsave_try = time(NULL);
+
+    if ((childpid = redisFork(CHILD_TYPE_RDB)) == 0) {
+        int retval;
+
+        /* Child */
+        redisSetProcTitle("redis-rdb-bgsave");
+        redisSetCpuAffinity(server.bgsave_cpulist);
+        retval = rdbSave(filename,rsi);
+        if (retval == C_OK) {
+            sendChildCowInfo(CHILD_INFO_TYPE_RDB_COW_SIZE, "RDB");
+        }
+        exitFromChild((retval == C_OK) ? 0 : 1);
+    } else {
+        /* Parent */
+        if (childpid == -1) {
+            server.lastbgsave_status = C_ERR;
+            serverLog(LL_WARNING,"Can't save in background: fork: %s",
+                strerror(errno));
+            return C_ERR;
+        }
+        serverLog(LL_NOTICE,"Background saving started by pid %ld",(long) childpid);
+        server.rdb_save_time_start = time(NULL);
+        server.rdb_child_type = RDB_CHILD_TYPE_DISK;
+        return C_OK;
+    }
+    return C_OK; /* unreached */
+}
+```
+
+
+
+
 
 
 
@@ -743,8 +1009,6 @@ static size_t rioFileWrite(rio *r, const void *buf, size_t len) {
 # rax.c
 # rax.h
 # rax_malloc.h
-# rdb.c
-# rdb.h
 # redis-benchmark.c
 # redis-check-aof.c
 # redis-check-rdb.c
