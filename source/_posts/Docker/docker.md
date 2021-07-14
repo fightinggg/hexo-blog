@@ -103,6 +103,7 @@ service docker restart
 保存了很多镜像
 # 免费使用
 [点这里](https://labs.play-with-docker.com)
+
 # --link myng:myng
 将另一个容器储存为域名，其实是在/etc/hosts中加入了一行映射
 # 复杂的Docker
@@ -185,6 +186,20 @@ yum install vim wget lrzsz -y
 # Docker的坑
 
 千万不要在docker启动以后重启防火墙！！！！！！
+
+
+
+# Docker 命令行
+
+docker非常有用，很多时候你不需要下载那些奇怪的东西，你只需要一个别名，就能使用下面这些应用
+
+```txt
+alias centos='docker run -it --rm -v $PWD:$PWD -w $PWD centos:8'
+alias java='docker run -it --rm -v $PWD:$PWD -w $PWD openjdk:8 java'
+alias mvn='docker run -it --rm -v $HOME/.m2:/root/.m2 -v $PWD:$PWD -w $PWD maven:3.8.1-jdk-8 mvn'
+```
+
+
 
 
 # 参考
