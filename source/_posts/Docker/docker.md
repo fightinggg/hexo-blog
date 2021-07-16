@@ -194,9 +194,14 @@ yum install vim wget lrzsz -y
 docker非常有用，很多时候你不需要下载那些奇怪的东西，你只需要一个别名，就能使用下面这些应用
 
 ```txt
+alias busybox='docker run -it --rm -v $PWD:$PWD -w $PWD busybox'
 alias centos='docker run -it --rm -v $PWD:$PWD -w $PWD centos:8'
+alias dot='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/graphviz dot'
+alias rar='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/rar rar'
+alias unrar='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/rar unrar'
 alias java='docker run -it --rm -v $PWD:$PWD -w $PWD openjdk:8 java'
 alias mvn='docker run -it --rm -v $HOME/.m2:/root/.m2 -v $PWD:$PWD -w $PWD maven:3.8.1-jdk-8 mvn'
+
 ```
 
 
