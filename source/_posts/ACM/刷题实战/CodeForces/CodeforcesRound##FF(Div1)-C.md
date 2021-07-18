@@ -4,10 +4,10 @@ updated: 2019-08-09 13:34:52
 mathjax: true
 ---
 
-###name
+# name
 DZY Loves Fibonacci Numbers
 
-###discription
+# discription
 time limit per test:4 seconds
 memory limit per test:256 megabytes
 In mathematical terms, the sequence $F_n$ of Fibonacci numbers is defined by the recurrence relation
@@ -21,15 +21,15 @@ Help DZY reply to all the queries.
 
 <!---more-->
 
-###input
+# input
 The first line of the input contains two integers n and m (1 ≤ n, m ≤ 300000). The second line contains n integers $a_1, a_2, ..., a_n (1 ≤ a_i ≤ 10^9)$ — initial array a.
 
 Then, m lines follow. A single line describes a single query in the format given in the statement. It is guaranteed that for each query inequality 1 ≤ l ≤ r ≤ n holds.
 
-###output
+# output
 For each query of the second type, print the value of the sum on a single line.
 
-###sample input
+# sample input
 4 4
 1 2 3 4
 1 1 4
@@ -37,20 +37,21 @@ For each query of the second type, print the value of the sum on a single line.
 1 2 4
 2 1 3
 
-###sample output
+# sample output
 17
 12
 
-###hint
+# hint
 After the first query, a = [2, 3, 5, 7].
 For the second query, sum = 2 + 3 + 5 + 7 = 17.
 After the third query, a = [2, 4, 6, 9].
 For the fourth query, sum = 2 + 4 + 6 = 12.
 
-###toturial
+# toturial
 斐波那契数列在模$10^9+7$的时候,可以写成这样的形式 $F_n=276601605(691504013^n − 308495997^n)$因为5是一个二次剩余，于是题目就转化为了区间加上等比数列，区间和查询了，加等比数列我们可以直接记录首项然后合并懒惰标记,注意预处理快速幂就能过了。
 
-###code
+# code
+
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
