@@ -37,6 +37,8 @@ classDiagram
   人 <|-- 男人
 ```
 
+<!-- more -->
+
 ## 实现关系
 
 实现关系即实现，docker实现了[CRI](http://fightinggg.top/QRN6OO.html#cri容器引擎)，podman也实现了CRI，LXC也实现了CRI (这里也应该是空心箭头)
