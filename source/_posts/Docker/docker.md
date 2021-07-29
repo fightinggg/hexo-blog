@@ -201,7 +201,8 @@ alias rar='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/rar rar'
 alias unrar='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/rar unrar'
 alias java='docker run -it --rm -v $PWD:$PWD -w $PWD openjdk:8 java'
 alias mvn='docker run -it --rm -v $HOME/.m2:/root/.m2 -v $PWD:$PWD -w $PWD maven:3.8.1-jdk-8 mvn'
-
+alias jpegoptim='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/jpegoptim jpegoptim'
+alias tree='docker run -it --rm -v $PWD:$PWD -w $PWD fightinggg/tree tree'
 ```
 
 
