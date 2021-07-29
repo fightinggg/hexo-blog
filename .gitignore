@@ -13,3 +13,4 @@ public/
 .git.nosync/
 .deploy_git
 package-lock.json
+gitalk/*.json
