@@ -154,6 +154,97 @@ int main() {
 
 
 
+# 4. D. Say No to Palindromes
+
+## 4.1. 题意
+
+没有长度超过1的回文子串的串就是漂亮串，给你一个串S，k组询问，每次问S的一个子串至少修改几个字符后是漂亮串
+
+S只包含abc三个字母
+
+## 4.2. 做法
+
+打表发现漂亮串只有6类，他们分别以`abc`,`acb`,`bac`,`bca`,`cab`,`cba`作为自己的循环节 ，然后就直接按照这6类来进行比较，看有多少字符不同即可，可以使用前缀和优化。
+
+
+
+## 4.3. 代码
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int sz[3][3][200000 + 5];
+int n, m;
+string s;
+int l, r;
+
+
+int solve(int a, int b, int c) {
+    int same = sz[0][a][r] - sz[0][a][l - 1]
+               + sz[1][b][r] - sz[1][b][l - 1]
+               + sz[2][c][r] - sz[2][c][l - 1];
+//    cout << r - l + 1 - same << endl;
+    return r - l + 1 - same;
+}
+
+int main() {
+    std::ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    cin >> n >> m >> s;
+    s.insert(s.begin(), ' ');
+    for(int i=1;i<=n;i++){
+       // cout<<s[i];
+    }
+    vector<vector<int>> size;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            for (int k = 1; k <= n; k++) {
+                sz[i][j][k] = k > 1 ? sz[i][j][k - 1] : 0;
+                if (k % 3 == j) {
+                    sz[i][j][k] += (s[k] == ('a' + i));
+                }
+                //  cout<<sz[i][j][k]<<" ";
+            }
+            // cout<<endl;
+        }
+        // cout<<endl;
+    }
+
+    for (int i = 0; i < m; i++) {
+        cin >> l >> r;
+//        cout << solve(2, 1, 0) << endl;
+        int ans = min({solve(0, 1, 2),
+                       solve(0, 2, 1),
+                       solve(1, 2, 0),
+                       solve(1, 0, 2),
+                       solve(2, 1, 0),
+                       solve(2, 0, 1),
+                      });
+        cout << ans << "\n";
+    }
+
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
