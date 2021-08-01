@@ -21,7 +21,8 @@ RUN echo -e "unalias cp\nPATH=$PATH:/usr/local/pandoc-2.14.0.3/bin\n" >> /root/.
 
 
 CMD \
-  cp -rf /data/hexo-blog/* /app && \
+  source /root/.bashrc && \
+  cp -rf /data/src/hexo-blog/* /app && \
   # npm install && \
   cp -r /data/.ssh ~/ && \
   chmod 600 ~/.ssh/id_rsa && \

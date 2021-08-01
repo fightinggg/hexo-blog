@@ -59,7 +59,6 @@ menu:
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
-  友链: /links/ || fa fa-link
   # 热度榜单: /hot/ || fa fa-signal
   #commonweal: /404/ || fa fa-heartbeat
 
@@ -225,7 +224,7 @@ back2top:
 
 # Reading progress bar
 reading_progress:
-  enable: true
+  enable: false
   # Available values: left | right
   startAt: left
   # Available values: top | bottom
