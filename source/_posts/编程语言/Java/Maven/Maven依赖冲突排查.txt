@@ -1,0 +1,17 @@
+---
+date: 2021-07-21 15:09:00
+updated: 2021-07-21 15:09:00
+---
+
+
+
+```
+mvn -Dverbose dependency:tree > target/dependency.log
+```
+
+
+
+在日志文件中，对于`compile`结尾的jar包，就是编译成功的情况
+
+
+

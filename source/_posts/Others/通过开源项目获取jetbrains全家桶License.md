@@ -6,14 +6,6 @@ typora-root-url: ..\..
 
 
 
-
-
-
-
-
-
-
-
 # JetBrains License
 
 
