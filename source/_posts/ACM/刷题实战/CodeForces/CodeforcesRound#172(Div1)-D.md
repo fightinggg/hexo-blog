@@ -1,13 +1,12 @@
 ---
 date: 2019-08-09 17:15:19
 updated: 2019-08-09 17:15:19
-mathjax: true
 ---
 
-###name
+# name
 k-Maximum Subsequence Sum
 
-###descirption
+# descirption
 time limit per test 4 seconds
 memory limit per test 256 megabytes
 Consider integer sequence $a_1, a_2, ..., a_n$. You should run queries of two types:
@@ -17,29 +16,38 @@ The query format is "1 l r k". In reply to this query you should print the maxim
 
 <!---more-->
 
-###input
+# input
 The first line contains integer $n (1 ≤ n ≤ 10^5)$, showing how many numbers the sequence has. The next line contains n integers a1, a2, ..., an (|ai| ≤ 500).
 The third line contains integer $m (1 ≤ m ≤ 10^5)$ — the number of queries. The next m lines contain the queries in the format, given in the statement.
 All changing queries fit into limits: 1 ≤ i ≤ n, |val| ≤ 500.
 All queries to count the maximum sum of at most k non-intersecting subsegments fit into limits: 1 ≤ l ≤ r ≤ n, 1 ≤ k ≤ 20. It is guaranteed that the number of the queries to count the maximum sum of at most k non-intersecting subsegments doesn't exceed 10000.
 
-###output
+# output
 For each query to count the maximum sum of at most k non-intersecting subsegments print the reply — the maximum sum. Print the answers to the queries in the order, in which the queries follow in the input.
 
-###sample input
+# sample input
+```txt
 9
 9 -8 9 -1 -1 -1 9 -8 9
 3
 1 1 9 1
 1 1 9 2
 1 4 6 3
+```
 
-###sample output
+
+
+# sample output
+```txt
 17
 25
 0
+```
 
-###sample input
+
+
+# sample input
+```txt
 15
 -4 8 -3 -10 10 4 -7 -7 0 -6 3 8 -10 7 2
 15
@@ -58,8 +66,12 @@ For each query to count the maximum sum of at most k non-intersecting subsegment
 0 11 -10
 1 5 14 2
 1 6 12 1
+```
 
-###sample output
+
+
+# sample output
+```txt
 14
 11
 15
@@ -69,18 +81,22 @@ For each query to count the maximum sum of at most k non-intersecting subsegment
 18
 23
 8
+```
 
-###hint
+
+
+# hint
 In the first query of the first example you can select a single pair (1, 9). So the described sum will be 17.
 
 Look at the second query of the first example. How to choose two subsegments? (1, 3) and (7, 9)? Definitely not, the sum we could get from (1, 3) and (7, 9) is 20, against the optimal configuration (1, 7) and (9, 9) with 25.
 
 The answer to the third query is 0, we prefer select nothing if all of the numbers in the given interval are negative.
 
-###toturial
+# toturial
 先考虑k=1的情况, 我么你可以直接用线段树来维护，这是一个经典问题，但是当k>1的时候，我们可以这样来做，我们做k次下诉操作，取出最大字段和，然后将这一段数乘以-1，直到最大字段和为负或者执行了k次操作，如此我们就能得到最大k字段和。正确性可以用费用流来证明。
 
-###code
+# code
+
 ```cpp
 #include<bits/stdc++.h>
 using namespace std;
