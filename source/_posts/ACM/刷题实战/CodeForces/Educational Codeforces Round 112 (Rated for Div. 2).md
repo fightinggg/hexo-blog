@@ -31,7 +31,7 @@ https://codeforces.com/contest/1555
 
 **notes**: 注意一定是至少两倍以上才能贪心
 
-
+<!-- more -->
 
 ## 1.3. 代码
 

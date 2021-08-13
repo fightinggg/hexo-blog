@@ -34,6 +34,8 @@ docker run \
 # 允许远程登录
 
 ```sql
+docker exec -it mysql bash
+mysql -u root -p123456
 ALTER USER 'root'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY '123456';
 ```
 

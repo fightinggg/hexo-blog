@@ -46,7 +46,7 @@ int main() {
  
 ```
 
-
+<!-- more -->
 
 # 2.  B2. Wonderful Coloring - 2
 

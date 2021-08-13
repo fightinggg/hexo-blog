@@ -167,8 +167,8 @@ classDiagram
 
 ```mermaid
 sequenceDiagram
-  A ->> B: 调用
-  B -->> A: 返回
+  A ->> +B: 调用
+  B -->> -A: 返回
 ```
 
 
