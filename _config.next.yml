@@ -1,3 +1,5 @@
+# see https://github.com/next-theme/hexo-theme-next/blob/master/_config.yml
+
 # Console reminder if new version released.
 reminder: true
 
@@ -489,6 +491,7 @@ vendors:
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
   plugins: local
+  mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
 
 
 mylinks:
