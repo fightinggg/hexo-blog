@@ -27,9 +27,6 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: submodule
-        run: git submodule update --init --recursive
-
       - name: Configuration environment
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
@@ -43,6 +40,9 @@ jobs:
           ssh-keyscan e.coding.net >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
+
+      - name: submodule
+        run: git submodule update --init --recursive
 
       - name: Install pandoc
         run : |
