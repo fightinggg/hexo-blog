@@ -8,10 +8,6 @@ on:
 env:
   GIT_USER: fightinggg
   GIT_EMAIL: 246553278@qq.com
-  THEME_REPO: sanonz/hexo-theme-concise
-  THEME_BRANCH: master
-  DEPLOY_REPO: fightinggg/fightinggg.github.io
-  DEPLOY_BRANCH: master
 
 jobs:
   build:
@@ -38,7 +34,7 @@ jobs:
           sudo timedatectl set-timezone "Asia/Shanghai"
           mkdir -p ~/.ssh/
           echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
-          echo ~/.ssh/id_rsa
+          cat ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
