@@ -43,6 +43,12 @@ jobs:
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
 
+      - name: Install pandoc
+        run : |
+          wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
+          tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz -C /usr/local
+          PATH=$PATH:/usr/local/pandoc-2.14.0.3/bin
+
       - name: Install dependencies
         run: |
           npm install
