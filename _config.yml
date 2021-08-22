@@ -1,6 +1,6 @@
 # Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
+# Docs: https://hexo.io/docs/configuration.html
+# Source: https://github.com/hexojs/hexo/
 
 
 # Site
@@ -13,7 +13,7 @@ language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+# If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://fightinggg.top
 root: /
 permalink: :abbrlink.html   
@@ -72,13 +72,13 @@ category_map:
 tag_map:
 
 # Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+# https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
 # Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
+# Hexo uses Moment.js to parse and display date
+# You can customize the date format as defined in
+# http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
@@ -90,7 +90,7 @@ per_page: 30
 pagination_dir: page
 
 # Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
+# include:/exclude: options only apply to the 'source/' folder
 include: 
   - ".github/**/*"
 exclude:
@@ -111,30 +111,30 @@ sitemap:
     category: false
 
 baidu_url_submit:
-  count: 10000 ## 比如3，代表提交最新的三个链接
-  host: http://fightinggg.top ## 在百度站长平台中注册的域名
-  token: e2sgSK99VXdpyZgS ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
-  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
+  count: 10000 # 比如3，代表提交最新的三个链接
+  host: http://fightinggg.top # 在百度站长平台中注册的域名
+  token: e2sgSK99VXdpyZgS # 请注意这是您的秘钥， 请不要发布在公众仓库里!
+  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
+# Plugins: https://hexo.io/plugins/
+# Themes: https://hexo.io/themes/
 theme: next
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+# Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
   ignore_hidden: false # gitee 部署
   repo:
     github: git@github.com:fightinggg/fightinggg.github.io.git
-#    cvm: root@fightinggg.top:/data/GitLibrary/hexo
-#    coding: git@e.coding.net:fightinggg/hexoblog.git
-#    coding2: git@e.coding.net:fightinggg-01/fightinggg.git
+    cvm: root@fightinggg.top:/data/GitLibrary/hexo
+    coding: git@e.coding.net:fightinggg/hexoblog.git
+    coding2: git@e.coding.net:fightinggg-01/fightinggg.git
     # gitee: git@gitee.com:fightinggg/fightinggg.git
   branch: master
 - type: baidu_url_submitter
 
 # Security
-##
+#
 encrypt:
     enable: true
     abstract: 有东西被加密了, 请输入密码查看.
