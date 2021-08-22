@@ -48,11 +48,12 @@ jobs:
           wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
           tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz
           PATH=$PATH:$PWD/pandoc-2.14.0.3/bin
-
-      - name: Install dependencies
-        run: |
-          npm install
-
-      - name: Deploy hexo
-        run: |
-          npm run deploy
+          pandoc -v
+#
+#      - name: Install dependencies
+#        run: |
+#          npm install
+#
+#      - name: Deploy hexo
+#        run: |
+#          npm run deploy
