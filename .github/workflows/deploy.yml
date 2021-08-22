@@ -49,11 +49,11 @@ jobs:
           tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz
           PATH=$PATH:$PWD/pandoc-2.14.0.3/bin
           pandoc -v
-#
-#      - name: Install dependencies
-#        run: |
-#          npm install
-#
-#      - name: Deploy hexo
-#        run: |
-#          npm run deploy
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Deploy hexo
+        run: |
+          npm run deploy
