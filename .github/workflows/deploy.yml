@@ -45,7 +45,9 @@ jobs:
 
       - name: Install pandoc
         run : |
-             apt get install pandoc
+          wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
+          tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz
+          echo "$PWD/pandoc-2.14.0.3/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
         run: |
