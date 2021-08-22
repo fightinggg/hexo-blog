@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
+      - name: submodule
+        run: git submodule update --recursive --remote
+
       - name: Configuration environment
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
