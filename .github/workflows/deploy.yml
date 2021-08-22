@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: submodule
-        run: git submodule update --recursive --remote
+        run: git submodule update --init --recursive
 
       - name: Configuration environment
         env:
