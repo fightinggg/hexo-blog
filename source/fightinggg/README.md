@@ -3,21 +3,24 @@ type: about
 abbrlink: about
 ---
 
-# 关于我
+
+
+# About
+
 精通[Jvav](https://jvav.top/)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=fightinggg&hide=typescript,glsl,css,html)
 
-# 联系我
+# Contact
 
 QQ: 246553278
 
-# 我的一些链接
+# # Some Interesting links
 - [我的Blog](https://fightinggg.github.io)
 - [Polin OJ](http://fightinggg.top:8081)
 - ~~[CSDN](https://blog.csdn.net/qq_41157212?spm=1010.2135.3001.5343)~~
 
-# 我的代办
+# # TODO AND DONE
 
 - [x] [学习容器技术的实现原理](https://fightinggg.github.io/QRN6OO.html)
 - [ ] 学习虚拟机技术
@@ -33,9 +36,9 @@ QQ: 246553278
 - [x] [阅读《自动动手写docker》](https://fightinggg.github.io/QRN6OO.html)
 - [ ] 学习Linux操作系统的网络虚拟设备部分
 - [ ] [学习Flink](https://confucianzuoyuan.github.io/flink-tutorial/book/)
-- [ ] 不做一个[编译器]()，你好意思说你学计算机？
+- [ ] 不做一个[编译器]()，好意思说你学计算机？
 
-# 我的留言
+# # Nonsense
 
 - 2021.05.16
 
