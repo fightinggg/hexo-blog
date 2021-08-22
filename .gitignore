@@ -3,14 +3,11 @@ Thumbs.db
 db.json
 *.log
 node_modules/
-node_modules.nosync/
 public/
 .deploy*/
 .ssh/
-.tmp/
 .idea/
 .vscode/
-.git.nosync/
 .deploy_git
 package-lock.json
 gitalk/*.json
