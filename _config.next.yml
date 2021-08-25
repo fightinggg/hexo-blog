@@ -59,9 +59,9 @@ menu:
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
+  link: /link/ || fa fa-link
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
-  # 热度榜单: /hot/ || fa fa-signal
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -86,16 +86,15 @@ avatar:
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  # GitHub: https://github.com/fightinggg || fab fa-github
-  # CSDN: https://blog.csdn.net/qq_41157212  || fab fa-cuttlefish
-  # 简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
-  # 知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-zhihu
+  GitHub: https://github.com/fightinggg || fab fa-github
+  CSDN: https://blog.csdn.net/qq_41157212  || fab fa-cuttlefish
+  简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
+  知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-zhihu
   主站: http://fightinggg.top || fas fa-blog
   老BLOG: /ACM || far fa-lightbulb
-  镜像站1(最稳): https://fightinggg.github.io || fas fa-blog
-  镜像站2: https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
-  镜像站3: https://fightinggg.gitee.io || fas fa-blog
-  镜像站4: https://eaw3p1.coding-pages.com || fas fa-blog
+  镜像站1(Github): https://fightinggg.github.io || fas fa-blog
+  镜像站2(Coding): https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
+  镜像站3: https://eaw3p1.coding-pages.com || fas fa-blog
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -492,35 +491,3 @@ vendors:
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
   plugins: local
   mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
-
-
-mylinks:
-  - nickname: yg大神
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1356931781&s=640
-    site: https://me.csdn.net/weixin_41863129
-  - nickname: zwg大神(此网站失效了)
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1359781368&s=640
-    site: https://decaku.github.io/
-  - nickname: ly大神(此网站失效了)
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1091756452&s=640
-    site: http://39.96.45.191:4000
-  - nickname: Benbody大神
-    site: http://benboby.github.io
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=1981505441&s=640
-  - nickname: yy大神
-    site: https://yang1998cmd.github.io/
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=779771381&s=640
-  - nickname: xhf大神
-    site: https://blog.xhofe.top/
-    avatar: http://q1.qlogo.cn/g?b=qq&nk=927625802&s=640
-  - nickname: Chunibyo大神
-    site: https://chunibyo-wly.github.io/
-    avatar: https://chunibyo-wly.github.io/images/avatar.png
-  # - nickname: Fi9Coder  #友链名称
-  #   avatar: https://www.safeinfo.me/images/avatar.gif  #友链头像
-  #   site: https://www.safeinfo.me  #友链地址
-  #   info: 致力于Web安全与Python学习,研究,开发。  #友链说明
-  # - nickname: Leaf's Blog
-  #   avatar: https://leafjame.github.io/images/beichen.png
-  #   site: https://leafjame.github.io
-  #   info: Java狮 北漂男 摄影 旅行 赚钱
