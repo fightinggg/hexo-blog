@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>page test</title>
+    <script type="text/javascript">
+
+        function readSingleFile(file, onSuccess) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                onSuccess(e.target.result);
+            };
+        }
+
+        function readOrCreateIndex(files, onSuccess) {
+            for (let i = 0; i < files.length; i++) {
+                let name = files[i].name;
+                if (name === 'sync.json') {
+                    readSingleFile(files[i], function (context) {
+                        onSuccess();
+                    })
+                }
+            }
+            onSuccess();
+        }
+
+
+        function fileChange(that) {
+            document.getElementById("input").remove()
+            var files = that.files;
+
+            readOrCreateIndex(files, function () {
+
+            })
+
+
+            var filesJson = '[';
+            for (var i = 0; i < files.length; i++) {
+                let name = files[i].name;
+                readSingleFile(files[i])
+                let size = Math.round(files[i].size / 1024) + "K";
+                filesJson += '{"name":"' + name + '","size":"' + size + '"},';
+            }
+            filesJson = filesJson.slice(0, -1) + "]";
+            createTable(filesJson);
+        }
+
+        function createTable(jsonStr) {
+            var obj = JSON.parse(jsonStr);
+            var tableObject = document.getElementById('dllList');
+            for (var i in obj) {
+                let TableRow = tableObject.insertRow();
+                let fileName = TableRow.insertCell(0);
+                fileName.innerHTML = obj[i].name;
+            }
+        }
+    </script>
+</head>
+
+<body>
+<table id="dllList">
+    <thead>
+    <tr>
+        <th>文件名</th>
+        <th>c2</th>
+    </tr>
+    </thead>
+</table>
+
+<input id="input" type="file" webkitdirectory onchange="fileChange(this);"/>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+curl 'https://bizapi.csdn.net/blog-console-api/v3/mdeditor/saveArticle' \
+-H 'authority: bizapi.csdn.net' \
+-H 'sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"' \
+-H 'x-ca-signature-headers: x-ca-key,x-ca-nonce' \
+-H 'x-ca-signature: fClS9wi4P1I3s88gCfRvYRSUcO4VoGUGUPvezUlCSII=' \
+-H 'x-ca-nonce: ac06220f-85ab-4c45-a0c5-dd168ff68933' \
+-H 'sec-ch-ua-mobile: ?0' \
+-H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36' \
+-H 'content-type: application/json' \
+-H 'accept: */*' \
+-H 'x-ca-key: 203803574' \
+-H 'sec-fetch-site: same-site' \
+-H 'sec-fetch-mode: cors' \
+-H 'sec-fetch-dest: empty' \
+-H 'referer: https://editor.csdn.net/' \
+-H 'accept-language: zh-CN,zh;q=0.9' \
+-H $'cookie: uuid_tt_dd=10_19029230670-1630067392945-752721; dc_session_id=10_1630067392945.203572; c_first_page=https%3A//www.csdn.net/; c_segment=1; dc_sid=10e03e9a8b5645ed28e0bbc583b8c362; _ga=GA1.2.576697990.1630067400; _gid=GA1.2.467144662.1630067400; SESSION=4e03b1f1-1ddf-4b81-9e76-c549fa290c02; ssxmod_itna=iqGx2DgDcQ3+qGHqTnDjxQqhCxyWmpieg1Ox0vhbeGzDAxn40iDtPPNDGqoGQeZWiiv5W4ueoBP4fKWiPe1fS0QIhQOUGfH9mrDneG0DQKGmDBKDSDWKD9jnd4GG/4GYDGDif0DYk=GytMtDG4Dg/MtP9GGXUqGvDDUctqGwDGEMDAAuDBQDbMjcirtDAfjMY162zgjV8MXNHqGgUq62D0pmK7dolrvYR7dqlDYenhvs2GYQWexbRA5q8ixPnrhBfGe65nqm0FD=; ssxmod_itna2=iqGx2DgDcQ3+qGHqTnDjxQqhCxyWmpieg1xn9oGQDBCx0vxh3x03KOYc60D6AzgRtkRWlbr6zY=mYFbmkzOLyG8jzcTv=K7a1kv3jO/3qkamD23mg60ZKwL6B1jUxuT6Q0ZekEtqlOi1RCTG9G5KXQK+HcwxgOHHc7q=Xn+tzDpYbZPPtOq43bKQdaBrwzfHDzSwL8DbLPYbdxuLcWpG2lYC0Awf0YmflgPr0AS=HOuFeBWLcbFGM7fHV3SzFkfiYK7Lt5u7fC=hOeMdLri1SOg6B4qpd2ykclvNwa/NiUfwciMC0doU+ywY+Dh9CYAOYwrShiYbwfT204ziYabbL+52QpRBy45B=QDF8pE9yPpWc9v0IT3y7+9H2txDKTPwYKexqBg4d75nm=QgqcYvAxxKDDLxD2YGDD==; UserName=qq_41157212; UserInfo=7f9ec75b1b844d6b9720e8d9c6e52db6; UserToken=7f9ec75b1b844d6b9720e8d9c6e52db6; UserNick=qq_41157212; AU=27A; UN=qq_41157212; BT=1630067413593; p_uid=U010000; c_first_ref=graph.qq.com; Hm_lvt_6bcd52f51e9b3dce32bec4a3997715ac=1630067400,1630067409; Hm_up_6bcd52f51e9b3dce32bec4a3997715ac=%7B%22islogin%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isonline%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isvip%22%3A%7B%22value%22%3A%220%22%2C%22scope%22%3A1%7D%2C%22uid_%22%3A%7B%22value%22%3A%22qq_41157212%22%2C%22scope%22%3A1%7D%7D; Hm_ct_6bcd52f51e9b3dce32bec4a3997715ac=6525*1*10_19029230670-1630067392945-752721\u00215744*1*qq_41157212; c_page_id=default; __gads=ID=7acea3a4ea336f2d-22986b5828cb00a4:T=1630067443:RT=1630067443:S=ALNI_MYtPZd6zmN8dZXwvaQSv2KfqwOWRw; log_Id_view=4; log_Id_click=4; c_pref=https%3A//blog.csdn.net/qq_41157212%3Fspm%3D1010.2135.3001.5421; c_ref=https%3A//mp.csdn.net/; dc_tos=qyi03o; log_Id_pv=8; Hm_lpvt_6bcd52f51e9b3dce32bec4a3997715ac=1630067461' \
+--data-raw '{"id":119960162,"title":"2021-08-27","markdowncontent":"@[TOC](这里写自定义目录标题)\n\n# 你好呀\n这里是内容\n","content":"<p></p><div class=\"toc\"><h3>这里写自定义目录标题</h3><ul><li><a href=\"#_2\">你好呀</a></li></ul></div><p></p>\n<h1><a id=\"_2\"></a>你好呀</h1>\n<p>这里是内容</p>\n\n","readType":"public","tags":"java","status":0,"categories":"","type":"original","original_link":"","authorized_status":false,"not_auto_saved":"1","source":"pc_mdeditor","cover_images":[],"cover_type":0,"is_new":1,"vote_id":0,"pubStatus":"publish"}' \
+--compressed
+
+
+
+curl 'https://bizapi.csdn.net/blog-console-api/v3/mdeditor/saveArticle' \
+-H 'authority: bizapi.csdn.net' \
+-H 'sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"' \
+-H 'x-ca-signature-headers: x-ca-key,x-ca-nonce' \
+-H 'x-ca-signature: YfAYSUcLb3PK7oaLQa4W9WlJYtGgrGcT4iLBMk2ldXc=' \
+-H 'x-ca-nonce: 4245b30b-5de9-4fde-b4f1-ba30fcf9d07a' \
+-H 'sec-ch-ua-mobile: ?0' \
+-H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36' \
+-H 'content-type: application/json' \
+-H 'accept: */*' \
+-H 'x-ca-key: 203803574' \
+-H 'sec-fetch-site: same-site' \
+-H 'sec-fetch-mode: cors' \
+-H 'sec-fetch-dest: empty' \
+-H 'referer: https://editor.csdn.net/' \
+-H 'accept-language: zh-CN,zh;q=0.9' \
+-H $'cookie: uuid_tt_dd=10_19029230670-1630067392945-752721; dc_session_id=10_1630067392945.203572; c_first_page=https%3A//www.csdn.net/; c_segment=1; dc_sid=10e03e9a8b5645ed28e0bbc583b8c362; _ga=GA1.2.576697990.1630067400; _gid=GA1.2.467144662.1630067400; SESSION=4e03b1f1-1ddf-4b81-9e76-c549fa290c02; ssxmod_itna=iqGx2DgDcQ3+qGHqTnDjxQqhCxyWmpieg1Ox0vhbeGzDAxn40iDtPPNDGqoGQeZWiiv5W4ueoBP4fKWiPe1fS0QIhQOUGfH9mrDneG0DQKGmDBKDSDWKD9jnd4GG/4GYDGDif0DYk=GytMtDG4Dg/MtP9GGXUqGvDDUctqGwDGEMDAAuDBQDbMjcirtDAfjMY162zgjV8MXNHqGgUq62D0pmK7dolrvYR7dqlDYenhvs2GYQWexbRA5q8ixPnrhBfGe65nqm0FD=; ssxmod_itna2=iqGx2DgDcQ3+qGHqTnDjxQqhCxyWmpieg1xn9oGQDBCx0vxh3x03KOYc60D6AzgRtkRWlbr6zY=mYFbmkzOLyG8jzcTv=K7a1kv3jO/3qkamD23mg60ZKwL6B1jUxuT6Q0ZekEtqlOi1RCTG9G5KXQK+HcwxgOHHc7q=Xn+tzDpYbZPPtOq43bKQdaBrwzfHDzSwL8DbLPYbdxuLcWpG2lYC0Awf0YmflgPr0AS=HOuFeBWLcbFGM7fHV3SzFkfiYK7Lt5u7fC=hOeMdLri1SOg6B4qpd2ykclvNwa/NiUfwciMC0doU+ywY+Dh9CYAOYwrShiYbwfT204ziYabbL+52QpRBy45B=QDF8pE9yPpWc9v0IT3y7+9H2txDKTPwYKexqBg4d75nm=QgqcYvAxxKDDLxD2YGDD==; UserName=qq_41157212; UserInfo=7f9ec75b1b844d6b9720e8d9c6e52db6; UserToken=7f9ec75b1b844d6b9720e8d9c6e52db6; UserNick=qq_41157212; AU=27A; UN=qq_41157212; BT=1630067413593; p_uid=U010000; c_first_ref=graph.qq.com; Hm_lvt_6bcd52f51e9b3dce32bec4a3997715ac=1630067400,1630067409; Hm_up_6bcd52f51e9b3dce32bec4a3997715ac=%7B%22islogin%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isonline%22%3A%7B%22value%22%3A%221%22%2C%22scope%22%3A1%7D%2C%22isvip%22%3A%7B%22value%22%3A%220%22%2C%22scope%22%3A1%7D%2C%22uid_%22%3A%7B%22value%22%3A%22qq_41157212%22%2C%22scope%22%3A1%7D%7D; Hm_ct_6bcd52f51e9b3dce32bec4a3997715ac=6525*1*10_19029230670-1630067392945-752721\u00215744*1*qq_41157212; c_page_id=default; __gads=ID=7acea3a4ea336f2d-22986b5828cb00a4:T=1630067443:RT=1630067443:S=ALNI_MYtPZd6zmN8dZXwvaQSv2KfqwOWRw; log_Id_view=4; log_Id_click=4; c_pref=https%3A//blog.csdn.net/qq_41157212%3Fspm%3D1010.2135.3001.5421; c_ref=https%3A//mp.csdn.net/; dc_tos=qyi03o; log_Id_pv=8; Hm_lpvt_6bcd52f51e9b3dce32bec4a3997715ac=1630067461' \
+--data-raw '{"id":119960162,"title":"2021-08-27","markdowncontent":"@[TOC](这里写自定义目录标题)\n\n# 你好呀\n这里是内容\n","content":"<p></p><div class=\"toc\"><h3>这里写自定义目录标题</h3><ul><li><a href=\"#_2\">你好呀</a></li></ul></div><p></p>\n<h1><a id=\"_2\"></a>你好呀</h1>\n<p>这里是内容</p>\n\n","readType":"public","tags":"java","status":0,"categories":"","type":"original","original_link":"","authorized_status":false,"not_auto_saved":"1","source":"pc_mdeditor","cover_images":[],"cover_type":0,"is_new":1,"vote_id":0,"pubStatus":"publish"}' \
+--compressed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,8 @@
----
-date: 2020-04-20 13:34:24
-updated: 2020-04-20 13:34:24
-mathjax: true
----
 
 
-```sh
+
+
+```shell
 docker network create --subnet=192.168.0.0/16 dockernet
 
 docker run \
@@ -126,5 +123,46 @@ java \
  --name=polinoj-frontend\
  --restart=always \
  1144560553/polinoj-frontend:test
+ 
+ 
+ # mongo
+docker rm -f mongo
+docker run \
+-d \
+--net dockernet \
+-m 128m --memory-swap 128m --cpus 0.3 \
+-v /data/mongo/data/db:/data/db \
+--restart always \
+--name mongo \
+mongo
+
+
+ # artipub
+docker rm -f artipub
+docker run \
+-d \
+--net dockernet \
+-m 256m --memory-swap 256m --cpus 0.3 \
+--restart always \
+--name artipub \
+--link mongo:mongo \
+-e "ARTIPUB_API_ADDRESS=http://fightinggg.top:3000" \
+-e "MONGO_HOST=mongo" \
+-p 8090:8000 \
+-p 3000:3000 \
+tanliyuan123/artipub:1.2.0
+
+
+# Vpn
+docker run -d  \
+-e "SS_PORT=443" \
+-e "SS_PASSWORD=fightinggg" \
+-e "SS_METHOD=salsa20" \
+-e "SS_TIMEOUT=600" \
+-p 443:443 -p 443:443/udp \
+--restart=always \
+--name=vpn \
+imhang/shadowsocks-docker
+
 ```
 
