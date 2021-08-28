@@ -1,0 +1,19 @@
+table {
+}
+table th {
+    border-width: 1px;
+    border-style: solid;
+}
+table td {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.graypic {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Cookie API Test Extension",
+  "version": "0.8",
+  "description": "Testing Cookie API",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "cookies",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {
+    "16": "128.png",
+    "48": "128.png",
+    "128": "128.png"
+  },
+  "browser_action": {
+    "default_icon": "128.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}
