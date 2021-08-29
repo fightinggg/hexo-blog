@@ -134,7 +134,7 @@ deploy:
 - type: tcb
   secretId: AKIDa1D9pFOGtFKEuKVR6VfcJlwqSoujHXXG
   secretKey: TfbGgrmRq0vb1B5lCNIyOaWDfrnTt3ye
-  envId: blog-008335
+  envId: hexoblog-0gbcfywu9055bf90
 
 # Security
 #
