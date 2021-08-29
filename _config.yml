@@ -131,6 +131,10 @@ deploy:
     # gitee: git@gitee.com:fightinggg/fightinggg.git
   branch: master
 - type: baidu_url_submitter
+- type: tcb
+  secretId: AKIDa1D9pFOGtFKEuKVR6VfcJlwqSoujHXXG
+  secretKey: TfbGgrmRq0vb1B5lCNIyOaWDfrnTt3ye
+  envId: blog-008335
 
 # Security
 #
