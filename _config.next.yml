@@ -89,12 +89,12 @@ social:
   GitHub: https://github.com/fightinggg || fab fa-github
   CSDN: https://blog.csdn.net/qq_41157212  || fab fa-cuttlefish
   简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
-  知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-zhihu
+  知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-custom-zhihu
   主站: http://fightinggg.top || fas fa-blog
   老BLOG: /ACM || far fa-lightbulb
   Github镜像: https://fightinggg.github.io || fas fa-blog
   Coding镜像 : https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
-  Tencent镜像 : https://hexoblog-0gbcfywu9055bf90-1258727650.tcloudbaseapp.com/
+  Tencent镜像 : https://hexoblog-0gbcfywu9055bf90-1258727650.tcloudbaseapp.com || fas fa-custom-tencent-cloud
   Coding镜像2: https://eaw3p1.coding-pages.com || fas fa-blog
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
@@ -106,6 +106,8 @@ social:
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
 
+social_icons:
+  icons_only: true
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
