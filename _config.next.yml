@@ -86,16 +86,16 @@ avatar:
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/fightinggg || fab fa-github
-  CSDN: https://blog.csdn.net/qq_41157212  || fab fa-cuttlefish
-  简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-book
+  GitHub: https://github.com/fightinggg || fab fa-custom-github
+  CSDN: https://blog.csdn.net/qq_41157212  || fab fa-custom-csdn
+  简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-custom-jianshu
   知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-custom-zhihu
-  主站: http://fightinggg.top || fas fa-blog
-  老BLOG: /ACM || far fa-lightbulb
-  Github镜像: https://fightinggg.github.io || fas fa-blog
-  Coding镜像 : https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  ||fas fa-blog
+  ACM-BLOG: /ACM || fas fa-custom-icpc
+  主站: http://fightinggg.top || fas fa-custom-myblog
+  Github镜像: https://fightinggg.github.io || fas fa-custom-myblog
+  Coding镜像 : https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  || fas fa-custom-myblog
   Tencent镜像 : https://hexoblog-0gbcfywu9055bf90-1258727650.tcloudbaseapp.com || fas fa-custom-tencent-cloud
-  Coding镜像2: https://eaw3p1.coding-pages.com || fas fa-blog
+  Coding镜像2: https://eaw3p1.coding-pages.com || fas fa-custom-myblog
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
