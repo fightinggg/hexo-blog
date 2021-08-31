@@ -12,7 +12,7 @@ module.exports.parseSource = function (src) {
     let parts = src.split("/");
     let title = parts[parts.length - 1];
     if (title.indexOf(".") >= 0) {
-        title = title.substring(0, title.indexOf("."));
+        title = title.substring(0, title.lastIndexOf("."));
     }
 
     let categories = [];
