@@ -17,7 +17,7 @@
     "version": "5.4.0"
   },
   "dependencies": {
-    "@next-theme/plugins": "https://github.com/next-theme/plugins/tarball/1a99dc8a7794306f867ca466802a1af647dda3a4",
+    "@next-theme/plugins": "https://github.com/next-theme/plugins/tarball/main",
     "hexo": "^5.4.0",
     "hexo-blog-encrypt": "^3.1.6",
     "hexo-deployer-git": "^3.0.0",
