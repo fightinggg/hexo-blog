@@ -74,7 +74,7 @@ menu_settings:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: http://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
+  url: https://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
   # If true, the avatar will be dispalyed in circle.
   rounded: true
   # If true, the avatar will be rotated with the cursor.
@@ -493,4 +493,4 @@ vendors:
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
   plugins: local
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+#  mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js

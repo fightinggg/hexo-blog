@@ -10,7 +10,8 @@
     "gitalkInit": "node gitalk/gitalk-auto-init.js",
     "s": "npm run server",
     "g": "npm run build",
-    "d": "npm run build && npm run deploy"
+    "d": "npm run build && npm run deploy",
+    "update": "ncu -u"
   },
   "hexo": {
     "version": "5.4.0"
@@ -37,9 +38,10 @@
     "hexo-renderer-pandoc": "^0.3.0",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
-    "hexo-tag-cloud": "^2.1.2",
+    "hexo-tag-cloud": "^1.0.1",
     "hexo-theme-next": "^8.7.0",
-    "hexo-word-counter": "^0.0.3"
+    "hexo-word-counter": "^0.0.3",
+    "npm-check-updates": "^11.8.3"
   },
   "devDependencies": {
     "md5": "^2.3.0",
