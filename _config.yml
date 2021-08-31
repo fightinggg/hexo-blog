@@ -131,11 +131,11 @@ deploy:
     # gitee: git@gitee.com:fightinggg/fightinggg.git
   branch: master
 - type: baidu_url_submitter
-#- type: tcb
-#  # 权限只有一点点
-#  secretId: AKIDa1D9pFOGtFKEuKVR6VfcJlwqSoujHXXG
-#  secretKey: TfbGgrmRq0vb1B5lCNIyOaWDfrnTt3ye
-#  envId: hexoblog-0gbcfywu9055bf90
+- type: tcb
+  # 权限只有一点点
+  secretId: AKIDa1D9pFOGtFKEuKVR6VfcJlwqSoujHXXG
+  secretKey: TfbGgrmRq0vb1B5lCNIyOaWDfrnTt3ye
+  envId: hexoblog-0gbcfywu9055bf90
 
 # Security
 #
