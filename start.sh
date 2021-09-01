@@ -1,4 +1,4 @@
-docker run -d --name hexo-blog -p 80:80 nginx:1.21.1 bash -c "apt update && \
+docker run -d --restart=always --name hexo-blog -p 80:80 nginx:1.21.1 bash -c "apt update && \
 apt-get install git -y && \
 rm -rf /usr/share/nginx/html && \
 git clone https://github.com/fightinggg/fightinggg.github.io.git /usr/share/nginx/html && \
