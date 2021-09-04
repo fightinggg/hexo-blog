@@ -18,9 +18,12 @@ function parseYaml(blog) {
     }
 }
 
+function dateToUrl(url) {
+    return (new Date(url).valueOf() / 1000).toString(36).toUpperCase();
+}
+
 
 function blogPrework(blog) {
     blog = parseYaml(blog)
-    console.log(blog)
-    return blog.md
+    return `# 原文链接\n[链接](https://fightinggg.github.io/${dateToUrl(blog.date)}.html)\n\n` + blog.md
 }

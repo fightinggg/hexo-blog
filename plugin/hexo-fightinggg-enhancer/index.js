@@ -32,7 +32,6 @@ function filterPost(log, data) {
     }
     hexoAbbrlinkSet.add(data.abbrlink);
 
-  
     if (metadata.categories.length) {
         let categories = metadata.categories;
         data.categories.forEach(item => {

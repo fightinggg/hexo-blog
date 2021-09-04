@@ -37,7 +37,7 @@
     "csdn": {
       "id": 115449631,
       "url": "https://blog.csdn.net/qq_41157212/article/details/115449631",
-      "md5": "eee895582ade8bf1a6bf4b1a46f1739d"
+      "md5": "ba77c6a9caabe7fe0890e3f351b36662"
     },
     "jianshu": {
       "id": "85354738-14",
@@ -51,7 +51,12 @@
   },
   {
     "path": "_posts/计算机网络/从TCP看HTTP.md",
-    "file": {}
+    "file": {},
+    "csdn": {
+      "id": 120106154,
+      "url": "https://blog.csdn.net/qq_41157212/article/details/120106154",
+      "md5": "f11cfb0761a289c3dafde361ffc48b15"
+    }
   },
   {
     "path": "_posts/ACM/老Blog迁移/problem/math/img/2019牛客D.png",
@@ -75,7 +80,12 @@
   },
   {
     "path": "_posts/读书/自己动手写Docker.md",
-    "file": {}
+    "file": {},
+    "csdn": {
+      "id": 120106169,
+      "url": "https://blog.csdn.net/qq_41157212/article/details/120106169",
+      "md5": "3bc116c0319059da8d52082be08e51eb"
+    }
   },
   {
     "path": "_posts/ACM/老Blog迁移/problem/graph_theory/zoj4097.html",
@@ -83,7 +93,12 @@
   },
   {
     "path": "_posts/队列/Kafka/Kafka.md",
-    "file": {}
+    "file": {},
+    "csdn": {
+      "id": 120106201,
+      "url": "https://blog.csdn.net/qq_41157212/article/details/120106201",
+      "md5": "60f55cb654d462749fe67eea25dce78a"
+    }
   },
   {
     "path": "_posts/index.json",
@@ -238,15 +253,7 @@
     "file": {}
   },
   {
-    "path": "_posts/编译器/编译器.md",
-    "file": {}
-  },
-  {
     "path": "_posts/ACM/老Blog迁移/blog/span/bzoj2655.html",
-    "file": {}
-  },
-  {
-    "path": "_posts/ACM/老Blog迁移/problem/math/bzoj2655.html",
     "file": {}
   },
   {
@@ -606,6 +613,10 @@
     "file": {}
   },
   {
+    "path": "_posts/Docker/docker.md",
+    "file": {}
+  },
+  {
     "path": "_posts/ACM/刷题实战/洛谷/P4121[wc2005].md",
     "file": {}
   },
@@ -631,10 +642,6 @@
   },
   {
     "path": "_posts/ACM/刷题实战/uoj/uoj119.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/Docker/docker.md",
     "file": {}
   },
   {
@@ -903,10 +910,6 @@
   },
   {
     "path": "_posts/操作系统/Linux/SSH.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/毕业设计/部署.md",
     "file": {}
   },
   {
@@ -1817,10 +1820,6 @@
   },
   {
     "path": "_posts/数据结构/B+Tree.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/Others/shadowsocks.md",
     "file": {}
   },
   {
