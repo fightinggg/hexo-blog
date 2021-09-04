@@ -33,8 +33,7 @@ async function loadIndex(indexFile, files) {
     res.forEach(o => {
         o.file = allFiles[o.path];
     });
-    console.log(res)
-    return config.files = res;
+    return config.files = res.filter(o => o.file !== undefined);
 }
 
 function createIndex(files) {
@@ -102,7 +101,7 @@ async function setButtonCreateHtml(platform, o) {
     if (o[platform] === undefined) {
         var htmlId = `${o.path} ${platform}`
         document.getElementById(htmlId).onclick = async function () {
-            const context = await readFileAsync(o.file);
+            const context = blogPrework(await readFileAsync(o.file));
             const postData = {
                 title: o.file.name.substring(0, o.file.name.length - 3),
                 html: `<div>${new showdown.Converter().makeHtml(context)}</div>`,
@@ -130,7 +129,7 @@ async function setButtonUpdateHtml(platform, o) {
     if (o[platform] !== undefined) {
         var htmlId = `${o.path} ${platform} sync`
         document.getElementById(htmlId).onclick = async function () {
-            const context = await readFileAsync(o.file);
+            const context = blogPrework(await readFileAsync(o.file));
             const postData = {
                 id: o[platform].id,
                 title: o.file.name.substring(0, o.file.name.length - 3),
@@ -157,6 +156,7 @@ async function setButtonUpdateHtml(platform, o) {
     }
 }
 
+
 document.getElementById("indexOutput").onclick = async function (e) {
     if (config.files === undefined) {
         alert("没有数据下载")
@@ -175,3 +175,5 @@ document.getElementById("indexOutput").onclick = async function (e) {
     // 然后移除
     document.body.removeChild(eleLink);
 }
+
+
