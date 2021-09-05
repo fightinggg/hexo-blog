@@ -17,14 +17,13 @@
     "version": "5.4.0"
   },
   "comment": {
-   
+    "hexo-deployer-tcb": "^1.0.3"
   },
   "dependencies": {
     "@next-theme/plugins": "^8.7.1",
     "hexo": "^5.4.0",
     "hexo-blog-encrypt": "^3.1.6",
     "hexo-deployer-git": "^3.0.0",
-    "hexo-deployer-tcb": "^1.0.3",
     "hexo-fightinggg-enhancer": "file:plugin/hexo-fightinggg-enhancer",
     "hexo-fightinggg-linkable-blog": "file:plugin/hexo-fightinggg-linkable-blog",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
