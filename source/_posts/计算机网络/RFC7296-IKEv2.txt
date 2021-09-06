@@ -62,6 +62,18 @@ IKE端在发送后续消息前必须等待每一个消息的response，除非他
 
 
 
+IKE endpoint 在发送request的时候必须保证不会超过另一个endpoint的window size，换句话说，如果接收端的window size是N，发送端想要发送X，发送端必须等待所有X-N的response被接受。IKE endpoint必须保存每一个request的拷贝，除非他接收到正确的reponse，必须保存和他窗口大小相同的最后几个response，预防response的丢失。
+
+windows size大于1的端，应该有能力处理乱序的request，以最大化性能。
+
+windows size只是一个属性，他与TCP中的拥塞控制（congestion control）无关，windows size只能增大，不能减小，除非IKE 的SA失效。
+
+## 2.4. 状态同步和连接超时
+
+
+
+
+
 
 
 # 3. IKEv2协议具体格式
