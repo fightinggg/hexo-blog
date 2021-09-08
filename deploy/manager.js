@@ -8,8 +8,8 @@ document.getElementById("fileInput").onchange = async function (e) {
     var files = [...e.target.files];
     console.log("load files: ", files)
     let index = await createOrLoadIndex(files);
-    index = index.sort((l, r) => r.file.size - l.file.size)
     index = index.filter(o => o.path.endsWith(".md"))
+    index = index.sort((l, r) => r.file.lastModified - l.file.lastModified)
     console.log("index: ", index)
     showIndex(index);
 }
@@ -32,7 +32,14 @@ async function loadIndex(indexFile, files) {
     files.forEach(o => allFiles[o.webkitRelativePath] = o)
     res.forEach(o => {
         o.file = allFiles[o.path];
+        delete allFiles[o.path]
     });
+    Object.keys(allFiles).forEach(o => {
+        res.push({
+            path: allFiles[o].webkitRelativePath,
+            file: allFiles[o],
+        })
+    })
     return config.files = res.filter(o => o.file !== undefined);
 }
 
