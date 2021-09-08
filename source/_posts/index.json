@@ -32,20 +32,6 @@
     "file": {}
   },
   {
-    "path": "_posts/读书/操作系统导论.md",
-    "file": {},
-    "csdn": {
-      "id": 115449631,
-      "url": "https://blog.csdn.net/qq_41157212/article/details/115449631",
-      "md5": "ba77c6a9caabe7fe0890e3f351b36662"
-    },
-    "jianshu": {
-      "id": "85354738-14",
-      "url": "https://www.jianshu.com/p/03697d06ef52",
-      "md5": "eee895582ade8bf1a6bf4b1a46f1739d"
-    }
-  },
-  {
     "path": "_posts/ACM/老Blog迁移/problem/graph_theory/bzoj1924.html",
     "file": {}
   },
@@ -77,15 +63,6 @@
   {
     "path": "_posts/ACM/老Blog迁移/stencil/data_struct/主席树.html",
     "file": {}
-  },
-  {
-    "path": "_posts/读书/自己动手写Docker.md",
-    "file": {},
-    "csdn": {
-      "id": 120106169,
-      "url": "https://blog.csdn.net/qq_41157212/article/details/120106169",
-      "md5": "3bc116c0319059da8d52082be08e51eb"
-    }
   },
   {
     "path": "_posts/ACM/老Blog迁移/problem/graph_theory/zoj4097.html",
@@ -138,7 +115,12 @@
   },
   {
     "path": "_posts/数据库/redis源码.md",
-    "file": {}
+    "file": {},
+    "csdn": {
+      "id": 120161788,
+      "url": "https://blog.csdn.net/qq_41157212/article/details/120161788",
+      "md5": "92ba7d815333fbadc24fade61e280817"
+    }
   },
   {
     "path": "_posts/ACM/老Blog迁移/stencil/data_struct/线段树.html",
@@ -197,19 +179,11 @@
     "file": {}
   },
   {
-    "path": "_posts/读书/计算机网络-自顶向下方法.md",
-    "file": {}
-  },
-  {
     "path": "_posts/ACM/老Blog迁移/stencil/data_struct/树链剖分.html",
     "file": {}
   },
   {
     "path": "_posts/数据结构/search_tree.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/读书/深入理解Kafka-核心设计与实践原理.md",
     "file": {}
   },
   {
@@ -297,10 +271,6 @@
     "file": {}
   },
   {
-    "path": "_posts/读书/Kafka权威指南.md",
-    "file": {}
-  },
-  {
     "path": "_posts/数据结构/heap.md",
     "file": {}
   },
@@ -326,10 +296,6 @@
   },
   {
     "path": "_posts/队列/Kafka/Kafka时间轮.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/读书/HTTP权威指南.md",
     "file": {}
   },
   {
@@ -397,15 +363,7 @@
     "file": {}
   },
   {
-    "path": "_posts/读书/深入浅出HTTPS从原理到实战.md",
-    "file": {}
-  },
-  {
     "path": "_posts/ACM/刷题实战/比赛/2020牛客暑期多校训练营第五场 .md",
-    "file": {}
-  },
-  {
-    "path": "_posts/读书/TCP-IP详解-卷一-协议.md",
     "file": {}
   },
   {
@@ -570,10 +528,6 @@
   },
   {
     "path": "_posts/ACM/刷题实战/hdu/hdu4578.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/读书/设计模式Java版.md",
     "file": {}
   },
   {
@@ -1541,15 +1495,6 @@
     "file": {}
   },
   {
-    "path": "_posts/读书/30天自制操作系统.txt",
-    "file": {},
-    "csdn": {
-      "id": 119967251,
-      "url": "https://blog.csdn.net/qq_41157212/article/details/119967251",
-      "md5": "460aae7ce7bbba2a361c4d611e44e68f"
-    }
-  },
-  {
     "path": "_posts/实习/腾讯二面.txt",
     "file": {}
   },
@@ -1883,10 +1828,6 @@
     "file": {}
   },
   {
-    "path": "_posts/读书/大型分布式网站架构设计与实践.txt",
-    "file": {}
-  },
-  {
     "path": "_posts/ACM/老Blog迁移/stencil/data_struct/划分树.html",
     "file": {}
   },
@@ -1904,10 +1845,6 @@
   },
   {
     "path": "_posts/数据结构/23Tree.md",
-    "file": {}
-  },
-  {
-    "path": "_posts/读书/UNIX网络编程-卷1-套接字联网API.txt",
     "file": {}
   },
   {
