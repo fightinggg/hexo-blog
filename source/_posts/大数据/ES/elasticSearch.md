@@ -19,17 +19,49 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-in
 #### Docker Install ES
 
 ```sh
+# see https://www.elastic.co/guide/en/enterprise-search/current/docker.html
+docker rm -f elasticsearch kibana enterprise-search
+
 docker run -d \
 --name elasticsearch \
 -p 9200:9200 \
 -p 9300:9300 \
 -e "discovery.type=single-node" \
-elasticsearch:7.10.1; \
+-e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+-e "xpack.security.enabled=true" \
+-e "xpack.security.authc.api_key.enabled=true" \
+-e "ELASTIC_PASSWORD=changeme" \
+docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+
+# username enterprise_search
+# password changeme
+docker run -d \
+--name enterprise-search \
+-p 3002:3002 \
+--link elasticsearch:elasticsearch \
+-e "JAVA_OPTS=-Xms512m -Xmx512m" \
+-e "ENT_SEARCH_DEFAULT_PASSWORD=changeme" \
+-e "elasticsearch.username=elastic" \
+-e "elasticsearch.password=changeme" \
+-e "elasticsearch.host=http://elasticsearch:9200" \
+-e "allow_es_settings_modification=true" \
+-e "secret_management.encryption_keys=[4a2cd3f81d39bf28738c10db0ca782095ffac07279561809eecc722e0c20eb09]" \
+-e "elasticsearch.startup_retry.interval=15" \
+docker.elastic.co/enterprise-search/enterprise-search:7.10.1
 
 docker run -d \
+--name kibana \
 --link elasticsearch:elasticsearch \
+--link enterprise-search:enterprise-search \
+-e "ELASTICSEARCH_HOSTS=http://elasticsearch:9200" \
+-e "ENTERPRISESEARCH_HOST=http://enterprise-search:3002" \
+-e "ELASTICSEARCH_USERNAME=elastic" \
+-e "ELASTICSEARCH_PASSWORD=changeme" \
+-e "secret_management.encryption_keys=[4a2cd3f81d39bf28738c10db0ca782095ffac07279561809eecc722e0c20eb09]" \
 -p 5601:5601 \
-kibana:7.10.1
+docker.elastic.co/kibana/kibana:7.10.1 \
+/usr/local/bin/kibana-docker \
+--enterpriseSearch.host=http://enterprise-search:3002
 ```
 
 #### K8s Install ES
