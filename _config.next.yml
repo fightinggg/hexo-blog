@@ -60,6 +60,7 @@ menu:
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   友链: /link/ || fa fa-link
+  读书: /tags/%E8%AF%BB%E4%B9%A6/ || fa fa-book
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
