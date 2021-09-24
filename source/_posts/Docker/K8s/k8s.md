@@ -1,24 +1,58 @@
 ---
 date: 2020-10-01 00:00:00
-updated: 2020-10-01 00:00:00
+updated: 2021-09-24 11:33:00
 mathjax: true
 ---
 
 
 # K8S
 
-## 初始化K8S集群
+## 安装docker
+
+```shell
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo sed -i 's/$releasever/7/g' /etc/yum.repos.d/docker-ce.repo
+sudo yum update -y
+sudo yum install yum-utils docker-ce docker-ce-cli containerd.io -y
+sudo systemctl start docker
+```
 
 
+
+
+
+
+
+## kubaadm 引导初始化K8S集群
 
 ```sh
-kubeadm init --pod-network-cidr=10.244.0.0/16
+kubeadm init --pod-network-cidr 10.244.0.0/16 --control-plane-endpoint  k8s-control-plane-endpoint-vip:6443  --upload-certs  --kubernetes-version=v1.22.1
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+# 允许master节点进行负载
 kubectl taint nodes --all node-role.kubernetes.io/master-
 vim /etc/kubernetes/manifests/kube-apiserver.yaml
 #- --service-node-port-range=1000-32000
 ```
+
+
+```shell
+# 加入控制平面
+kubeadm join k8s-control-plane-endpoint-vip:6443 --token xxxxxx.xxxxxxxxxxxxxxxx         --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx         --control-plane --certificate-key xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
 <!-- more -->
+
 ## K8S客户端
 
 ```sh
@@ -268,7 +302,7 @@ cd ..
 
 
 
-## k8s重启pod
+## k8s强制重启pod
 
 ```sh
  kubectl replace --force -f xxx.yaml

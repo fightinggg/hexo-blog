@@ -1,7 +1,7 @@
 ---
 date: 2020-03-27 12:11:28
 updated: 2020-04-07 15:25:07
-mathjax: true
+tags: linux指令
 ---
 
 # MAN 操作手册
@@ -451,5 +451,25 @@ d|目录
  修改文件的权限
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 参考
+
 [文件权限中 chmod、u+x、u、r、w、x分别代表什么](https://blog.csdn.net/BjarneCpp/article/details/79912495)
