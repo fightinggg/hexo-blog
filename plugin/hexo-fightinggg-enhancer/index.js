@@ -27,9 +27,9 @@ function filterPost(log, data) {
     } else {
         data.abbrlink = (data.abbrlink?data.abbrlink:'') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
     }
-    if(hexoAbbrlinkSet.has(data.abbrlink)){
-        log.error('重复的abbrlink: '+data.source)
-    }
+    // if(hexoAbbrlinkSet.has(data.abbrlink)){
+    //     log.error('重复的abbrlink: '+data.source)
+    // }
     hexoAbbrlinkSet.add(data.abbrlink);
 
     if (metadata.categories.length) {
