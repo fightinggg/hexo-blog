@@ -118,7 +118,7 @@ baidu_url_submit:
   path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
 # Plugins: https://hexo.io/plugins/
 # Themes: https://hexo.io/themes/
-theme: next
+theme: hexo-theme-next
 
 # Deployment
 # Docs: https://hexo.io/docs/deployment.html
