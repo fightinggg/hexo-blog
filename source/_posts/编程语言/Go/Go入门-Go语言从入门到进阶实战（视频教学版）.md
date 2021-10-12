@@ -2,13 +2,24 @@
 date: 2021-10-11 16:10:00
 updated: 2021-10-11 16:10:00
 typora-root-url: ../../../
+tags: 读书
+clickbait:
+  - 超简单的Go语言入门
+  - 从零开始的Go入门
+  - Go的基础语法问题
 ---
+
+
 
 
 
 # 1. 开始学习Go
 
-从一本英文书开始，这本书叫做[《Go by Example》](https://gobyexample.com/)
+从一本书开始，这本书叫做[《Go语言从入门到进阶实战（视频教学版）》](https://weread.qq.com/web/reader/24d323407155597024d28a7kc81322c012c81e728d9d180)
+
+
+
+![](/images/image-2021-10-12-16.26.00.000.png)
 
 
 
@@ -595,41 +606,358 @@ func main() {
 
 
 
-## 11.1 Go的包导出
+## 11.1. Go的包导出
+
+在Go中，首字母为小写的变量只能在包内使用，首字母为大写的变量会自动导出，可以在其他包使用。
+
+这是第一个文件`mylib/mylib.go`
+
+```go
+package mylib
+
+func Add(a, b int32) int32 {
+	return a + b
+}
+
+func add(a, b int32) int32 {
+	return a + b
+}
+
+```
+
+## 11.2. Go的包导入
+
+然后是`main.go`, 注意到可以直接使用`Add`函数，但是不能使用`add`函数
+
+```go
+package main
+
+import (
+	"fmt"
+	"go-study/mylib"
+)
+
+func main() {
+	var a, b int32 = 1, 2
+	fmt.Println(mylib.Add(a, b))
+}
+
+```
+
+
+
+在导入的时候可以直接重命名，只需要在包名前加上一个名字即可
+
+```go
+package main
+
+import (
+	"fmt"
+	lb "go-study/mylib"
+)
+
+func main() {
+	var a, b int32 = 1, 2
+	fmt.Println(lb.Add(a, b))
+}
+```
+
+
+
+## 11.3. Go的包的init函数
+
+一个包的init函数在包被引入时自动调用, 对于main包，init函数在main函数前运行
+
+```go
+package mylib
+
+import "fmt"
+
+func Add(a, b int32) int32 {
+	return a + b
+}
+
+func add(a, b int32) int32 {
+	return a + b
+}
+
+func init(){
+	fmt.Println("hi")
+}
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	lb "go-study/mylib"
+)
+
+func init() {
+	fmt.Println("hi main")
+}
+
+func main() {
+	var a, b int32 = 1, 2
+	fmt.Println(lb.Add(a, b))
+}
+
+```
+
+
+
+# 12. Go的反射
+
+## 12.1. Go反射类型
+
+通过reflect包来进行反射，可以获得类型
+
+```go
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+	a := 1
+	ta := reflect.TypeOf(a)
+	fmt.Println(ta.Bits(), ta.Name(), ta.Kind())
+}
+
+```
+
+对于name和kind的区别，看看下面这份代码就行了, name为Point，kind为struct
+
+```go
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+type Point struct {
+	X, Y int32
+}
+
+func main() {
+	var a = Point{}
+	ta := reflect.TypeOf(a)
+	fmt.Println(ta.Name(), ta.Kind())
+}
+
+```
+
+## 12.2. Go反射值
+
+通过字段的名字获取属性
+
+```go
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+type Point struct {
+	X, Y int32
+}
+
+func main() {
+	var a = Point{}
+	ta := reflect.ValueOf(a)
+	fmt.Println(ta.FieldByName("X"))
+}
+
+
+```
+
+
+
+# 13. Go的并发
+
+## 13.1. goroutine
+
+在关键词go后跟着一个函数调用，那么该函数调用就变成了goroutine，这是一个异步调用，立即返回
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func running() {
+	times := 1
+	for {
+		fmt.Println("tick", times)
+		times++
+		time.Sleep(time.Second)
+	}
+}
+
+func main() {
+	go running()
+	for {
+		time.Sleep(time.Second)
+	}
+}
+
+```
+
+
+
+## 13.2. Go的通道
+
+下面的程序会依次输出0和`hello`， 通道先进先出 `<-`符号可以用来传输数据， 注意通道在发送和接受的时候都会阻塞,注意到最后一行有一个`time.Sleep(time.Second)`，这是为了等待goroutine完成，否则main退出以后goroutine会直接强制退出
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch := make(chan interface{})
+
+	go func() {
+		ch <- 0
+		fmt.Println("send: 0")
+		ch <- "hello"
+		fmt.Println("send: hello")
+	}()
+
+	time.Sleep(time.Second)
+
+	data := <-ch
+	fmt.Println("recv: ", data)
+
+	time.Sleep(time.Second)
+
+	data = <-ch
+	fmt.Println("recv: ", data)
+
+	time.Sleep(time.Second)
+}
+```
+
+另一种接受方法是使用for循环，代码如下，注意这个循环需要手动退出
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch := make(chan interface{})
+
+	go func() {
+		ch <- 0
+		fmt.Println("send: 0")
+		ch <- "hello"
+		fmt.Println("send: hello")
+		ch <- "break"
+		fmt.Println("send: break")
+	}()
+
+	for data := range ch {
+		fmt.Println("recv:", data)
+		if data == "break" {
+			break
+		}
+	}
+
+	time.Sleep(time.Second)
+}
+
+
+```
+
+最后通道还支持指定输入端和输出端，输入端只能做输入，输出端只能做输出
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch := make(chan interface{})
+
+	var send chan<- interface{} = ch
+	var recv <-chan interface{} = ch
+
+	go func() {
+		send <- 0
+	}()
+
+	data := <-recv
+	fmt.Println("recv:", data)
+
+	time.Sleep(time.Second)
+}
+
+```
+
+
+
+创建带有缓冲区的通道, 只需要在make的第二个参数中填入数字即可
+
+```go
+ch := make(chan interface{}, 10)
+```
+
+多路复用，使用select关键字，case区域写要选择的通道即可接收多个通道，下面的代码有时输出1，有时输出2
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch1 := make(chan interface{})
+	ch2 := make(chan interface{})
+
+	go func() {
+		ch1 <- 1
+	}()
+
+	go func() {
+		ch2 <- 2
+	}()
+
+	time.Sleep(time.Second)
+
+	select {
+	case data := <-ch1:
+		fmt.Println("recv from ch1: ", data)
+	case data := <-ch2:
+		fmt.Println("recv from ch2: ", data)
+	}
+
+	time.Sleep(time.Second)
+}
+
+```
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 参考文献
-
-https://weread.qq.com/web/reader/24d323407155597024d28a7kc81322c012c81e728d9d180
 
 
 
