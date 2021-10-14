@@ -544,6 +544,38 @@ func main() {
 
 ```
 
+## 9.4. 结构体的Tag
+
+结构体中的字段可以设置Tag，即给字段打上标签，就像Java中的注解一样。然后可以使用一种比较高级的技术（反射来获取这个标签）
+
+```go
+package main
+
+import "reflect"
+
+type Point struct {
+	X int `name:"XXX" X:"你好"`
+	Y int `name:"YYY"`
+}
+
+func main() {
+	p := &Point{
+		X: 1,
+		Y: 2,
+	}
+
+	field, _ := reflect.TypeOf(*p).FieldByName("X")
+
+	println(field.Tag)
+}
+// 输出:
+// name:"XXX" X:"你好"asdf
+```
+
+
+
+
+
 # 10. Go的接口
 
 接口定义

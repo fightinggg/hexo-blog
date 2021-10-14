@@ -1,0 +1,47 @@
+---
+date: 2021-10-14 14:06:00
+updated: 2021-10-14 14:06:00
+typora-root-url: ../../../
+clickbait:
+  - Go语言超级简单的Swagger教程
+---
+
+
+
+
+
+# 1. 安装GoSwagger
+
+这里有[教程](https://goswagger.io/install.html)，对于MACOS，只需要两个指令
+
+```sh
+$ brew tap go-swagger/go-swagger
+$ brew install go-swagger
+```
+
+```sh
+$ swagger version
+version: v0.28.0
+commit: 48a66e4bdbcde02c8c6c95ff9a08f64fe40b1b50
+```
+
+# 2. 运行Swagger服务端
+
+接下来，我们通过一个[yaml文件](https://github.com/moby/moby/blob/HEAD/api/swagger.yaml)来直接生成一个Swagger服务端
+
+```shell
+ swagger serve https://raw.githubusercontent.com/moby/moby/1430d849a4fe74d601896d4bbb0134e898ef8a76/api/swagger.yaml
+```
+
+接着我们就能得到这样一个页面
+
+![截屏2021-10-14 下午2.14.27](/images/image-2021-10-14-14.14.00.000.png)
+
+<!-- more -->
+
+
+
+# 3.
+
+
+
