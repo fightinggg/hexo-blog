@@ -1,6 +1,6 @@
 ---
 date: 2021-10-11 16:10:00
-updated: 2021-10-11 16:10:00
+updated: 2021-10-14 19:58:00
 typora-root-url: ../../../
 tags: 读书
 clickbait:
@@ -15,7 +15,7 @@ clickbait:
 
 # 1. 开始学习Go
 
-从一本书开始，这本书叫做[《Go语言从入门到进阶实战（视频教学版）》](https://weread.qq.com/web/reader/24d323407155597024d28a7kc81322c012c81e728d9d180)
+从一本书开始，这本书叫做[《Go语言从入门到进阶实战（视频教学版）》](https://weread.qq.com/web/reader/24d323407155597024d28a7kc81322c012c81e728d9d180),当然这篇Blog并不是所有的内容都来自这本书，毕竟书中也有不足之处。
 
 
 
@@ -320,7 +320,7 @@ func main() {
 
 ## 6.2. 数组
 
-数组长度固定
+数组长度固定, 创建数组也有很多种写法
 
 ```go
 package main
@@ -328,12 +328,70 @@ package main
 import "fmt"
 
 func main() {
-	var a []int = make([]int, 3)
-	a[0] = 1
-	fmt.Println(a)
+	var arr1 []int = make([]int, 3)
+	arr1[0] = 1
+
+	arr2 := [3]int{1, 2}
+	arr3 := [...]int{1, 2}
+
+	fmt.Println(arr1, arr2, arr3)
 }
+// [1 0 0] [1 2 0] [1 2]
 
 ```
+
+注意对于由字面量组成的数组，如果长度小于等于4，那么它将直接被分配到栈上，否则分配到静态区
+
+## 6.3. 切片
+
+切片的创建可以是数组的一部分，也可以直接创建，切片可扩容
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var arr1 []int = make([]int, 3) // 数组
+
+	slice1 := arr1[1:2]
+	slice2 := []int{1, 2, 3}
+	slice3 := make([]int, 3)
+
+	fmt.Println(slice1, slice2, slice3)
+}
+
+// [0] [1 2 3] [0 0 0]
+
+```
+
+那么切片和数组有什么区别呢？其实切片只是数组的一个引用，任何一个切片，其背后一定有一个数组，当切片进行扩容的时候，会根据数组的剩余空间大小来决定附身到新的数组上，或者直接在原数组上扩容切片。
+
+具体表现如下, 输出就在注释里面。
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	arr1 := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	slice1 := arr1[2:5]
+	slice2 := arr1[3:6]
+
+	fmt.Println(slice1, slice2)
+	arr1[4]=0
+	fmt.Println(slice1, slice2)
+}
+
+// [2 3 4] [3 4 5]
+// [2 3 0] [3 0 5]
+```
+
+
+
+
 
 ## 6.3. 列表
 
