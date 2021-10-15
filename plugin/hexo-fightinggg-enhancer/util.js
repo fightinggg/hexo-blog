@@ -25,7 +25,12 @@ module.exports.parseSource = function (src) {
             categories.push(part);
         }
     }
-    return { title, categories };
+    if(title!=='index'){
+        return { title, categories };
+    }else{
+        title = categories.shift()
+        return { title , categories };
+    }
 };
 
 /**
