@@ -5,5 +5,4 @@ tags: 读书
 typora-root-url: ..\..
 ---
 
-![](/images/image-2021-03-30-00.55.48.595.png)
 

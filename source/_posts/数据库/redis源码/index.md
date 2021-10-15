@@ -211,7 +211,7 @@ typedef struct list {
 
 则有$\vec x_{k + n} \overset{\text{def}}{=} \vec x_{k + m}\oplus \bigl(\vec x_{k}^{(u)}\mid \vec x_{k + 1}^{(l)}\bigr)$, 这个式子笔者看了很久才明白他就是$w$轮线性反馈移位寄存器变换。下图是计算$x_n$的时候的异或情况， 可以看到$x_n$的每一个位都是独立的异或
 
-![](raw.githubusercontent.com/fightinggg/drawio-data/master/redis-src/redis-src-mt19937.svg)
+![](https://raw.githubusercontent.com/fightinggg/drawio-data/master/redis-src/redis-src-mt19937.svg)
 
 > 回过头来看 2 式，不难发现，这其实相当于一个 $nw - r$ 级的线性反馈移位寄存器（取 $\vec x_k^{(u)}$的最高 $w−r$ 位与 $\vec x_{k + 1}^{(l)}$的最低 $r $位进行迭代异或，再经过一个不影响周期的线性变换 $\mathbf A$）。只不过，2 式每一次运算，相当于 $LFSR$ 进行了 $w$ 轮计算。若 $w$ 与 $nw−r$ 互素，那么这一微小的改变是不会影响 $LFSR$ 的周期的。考虑到 $LFSR$ 的计算过程像是在「旋转」，这即是「梅森『旋转』」名字的来由。
 
@@ -435,7 +435,7 @@ typedef struct redisDb {
 
 对于redisDb，笔者这里引用一下《Redis设计与实现》中的一个图，读者可以看的更加清晰
 
-> ![](/images/image-2021-06-30-16.09.00.000.png)
+> ![](image-2021-06-30-16.09.00.000.png)
 
 
 

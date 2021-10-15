@@ -252,21 +252,21 @@ follower副本的LEO追赶上leader副本的HW时即可扩张。
 
 1. 先来看一个状况，这里灰色broker为leader，此时follower向leader发起同步请求，并携带自己的LEO，leader会根据请求的LEO更新自己的HW，当然这是第一轮，还不需要更新
 
-   ![image-2021-04-07 10.18.26.922](/images/image-2021-04-07-10.18.26.922.png)
+   ![image-2021-04-07 10.18.26.922](image-2021-04-07-10.18.26.922.png)
 
 2. leader回复follower的同步请求，并返回自己的HW以及follower所需要的数据，follower即可借此更新自己的HW和LEO
 
-   ![image-2021-04-07 10.21.50.064](/images/image-2021-04-07-10.21.50.064.png)
+   ![image-2021-04-07 10.21.50.064](image-2021-04-07-10.21.50.064.png)
 
 3. 随着时间流逝，leader中被生产者插入了数据，一段时间后follower发起了新的一轮同步请求，当然继续携带自己的LEO，leader接收到请求以后，更新自己的HW为3
 
-   ![image-2021-04-07 10.23.25.210](/images/image-2021-04-07-10.23.25.210.png)
+   ![image-2021-04-07 10.23.25.210](image-2021-04-07-10.23.25.210.png)
 
 
 
 4. leader准备好自己的HW，follower需要的数据，返回给他们，follower此时即可借助leader 返回的HW更新自己的HW
 
-   ![image-2021-04-07 10.27.45.914](/images/image-2021-04-07-10.27.45.914.png)
+   ![image-2021-04-07 10.27.45.914](image-2021-04-07-10.27.45.914.png)
 
 这里我们意识到一个问题，注意到笔者对刚刚发生对四个步骤标了号，仔细观察步骤2和步骤4之后的情况，我们发现HW似乎并不是所有副本（leader副本+follower副本）的LEO的最小值，HW的更新要慢一个请求周期。
 
@@ -288,7 +288,7 @@ follower副本的LEO追赶上leader副本的HW时即可扩张。
 >
 >假设有A、B两个Broker，初始时B为leader，A从B中取到消息m2，所以A中有消息m2了，但是由于在下一轮RPC中，A才会更新自己的HW，所以此时A的HW没变。如果这时候A重启了，他截取自己的日志到HW并发送一个fetch request到B。不幸的是，B这时宕机了，A成了新的leader，那么此时消息m2就会永久的丢失了。
 >
->![](/images/image-2021-04-07-11.21.00.000.png)
+>![](image-2021-04-07-11.21.00.000.png)
 >
 >原文链接： https://zhuanlan.zhihu.com/p/46658003
 
@@ -304,7 +304,7 @@ follower副本的LEO追赶上leader副本的HW时即可扩张。
 >
 > 假设我们有两个Broker，初始时A是leader，B是follower。A接收到m2消息，但B还没来得及复制时，断电了。过了一会，B重启了，成为了leader，接收了m3消息，HW+1。然后A重启了，截断日志到高水位，但是此时的消息却出现了不一致。
 >
-> ![](/images/image-2021-04-07-11.22.00.000.png)
+> ![](image-2021-04-07-11.22.00.000.png)
 >
 > 原文链接： https://zhuanlan.zhihu.com/p/46658003
 
@@ -340,7 +340,7 @@ kafka0.11以后引入leader epoch，每条消息被设置了纪元信息（epoch
 
 新leader会发送纪元信息询问请求给旧leader ，这时候旧leader返回他的HW，新leader旧不截断了
 
-> ![](/images/image-2021-04-07-11.26.00.000.png)
+> ![](image-2021-04-07-11.26.00.000.png)
 >
 > 图片来源： https://zhuanlan.zhihu.com/p/46658003
 
@@ -350,7 +350,7 @@ kafka0.11以后引入leader epoch，每条消息被设置了纪元信息（epoch
 
 A恢复的时候，会对B发起纪元请求，截断LE=0时代的消息1，即用这条消息丢失换取数据的一致性。
 
-> ![](/images/image-2021-04-07-11.27.00.000.png)
+> ![](image-2021-04-07-11.27.00.000.png)
 >
 > 图片来源： https://zhuanlan.zhihu.com/p/46658003
 

@@ -503,7 +503,7 @@ tmpfs              84120        0     84120   0% /run/user/0
 > 如下图所示，Overlay在主机上用到2个目录，这2个目录被看成是overlay的层。
 > upperdir为容器层、lowerdir为镜像层使用联合挂载技术将它们挂载在同一目录(merged)下，提供统一视图
 >
-> ![](/images/image-2021-04-17-16.28.41.938.png)
+> ![](image-2021-04-17-16.28.41.938.png)
 >
 > 原文:  [链接](https://docs.docker.com/storage/storagedriver/overlayfs-driver/)
 
