@@ -2,6 +2,7 @@
 date: 2020-03-31 23:19:56
 updated: 2020-04-09 21:01:41
 mathjax: true
+typora-root-url: ..\..\..
 ---
 
 # Automic 
