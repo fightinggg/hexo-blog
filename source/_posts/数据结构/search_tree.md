@@ -151,45 +151,45 @@ skew 是一个辅助函数，他的本质是zig，即如果发现一个节点的
 
 ### 情况1
  右儿子与自己同黑高
-<img src="/images/aa_tree/3.png" width="30%">
+![](/images/aa_tree/3.png)
 #### 情况1.1
   右儿子下降
-<img src="/images/aa_tree/1.png" width="30%">
+![](/images/aa_tree/1.png)
  这种情况是合法的，不需要调整
 #### 情况1.2
   左儿子下降
-<img src="/images/aa_tree/10.png" width="30%">
+![](/images/aa_tree/10.png)
  我们观察到这里是一种较为复杂的情况，可以这样处理，让节点a和c同时黑下降，得到了
-<img src="/images/aa_tree/11.png" width="30%">
+![](/images/aa_tree/11.png)
  然后我们考虑到c节点的左右儿子,注意到c和a以前黑同高，所以c的右儿子cr，一定比c矮，当c下降以后，cl、c、cr同高
-<img src="/images/aa_tree/12.png" width="30%">
+![](/images/aa_tree/12.png)
  根据定义，这里最多还能拖出两个同黑高的，cl的右儿子clr，cr的右儿子crr
-<img src="/images/aa_tree/13.png" width="30%">
+![](/images/aa_tree/13.png)
  这时候我们对c执行skew，然后clr成了c的左儿子，我们再次对c执行skew，最终a-cl-clr-c-cr-crr同黑高，
-<img src="/images/aa_tree/14.png" width="30%">
+![](/images/aa_tree/14.png)
  接下来的一步是让我最吃惊的，非常漂亮，我们先对a进行split，然后对根的右儿子再次split，就结束了。对a进行split后我们得到,注意到这里根的高度提高了
-<img src="/images/aa_tree/15.png" width="30%">
+![](/images/aa_tree/15.png)
  对根对右儿子split,就结束了
-<img src="/images/aa_tree/16.png" width="30%">
+![](/images/aa_tree/16.png)
 ### 情况2
  右儿子与自己不同黑高
-<img src="/images/aa_tree/1.png" width="30%">
+![](/images/aa_tree/1.png)
 #### 情况2.1
  右儿子下降
-<img src="/images/aa_tree/4.png" width="30%">
+![](/images/aa_tree/4.png)
  让a节点高度降低
-<img src="/images/aa_tree/5.png" width="30%">
+![](/images/aa_tree/5.png)
  让a进行skew,最后因为b的右儿子高度，分两种情况
-<img src="/images/aa_tree/6.png" width="30%">
-<img src="/images/aa_tree/7.png" width="30%">
+![](/images/aa_tree/6.png)
+![](/images/aa_tree/7.png)
  对于b的右儿子太高的时候，对a进行skew
-<img src="/images/aa_tree/8.png" width="30%">
+![](/images/aa_tree/8.png)
  然后对b进行split即可
 #### 情况2.2
  左儿子下降
-<img src="/images/aa_tree/2.png" width="30%">
+![](/images/aa_tree/2.png)
  让a下降
-<img src="/images/aa_tree/9.png" width="30%">
+![](/images/aa_tree/9.png)
  这里可能发生c的右儿子与c同高，split（a）即可
 
 ## AA树erase总结
@@ -226,7 +226,7 @@ skew 是一个辅助函数，他的本质是zig，即如果发现一个节点的
 #### 对数函数是一个凸函数
  已知a,b>0,则$lg(a)+lg(b)\lt 2lg(\frac{a+b}{2}) = 2lg(a+b)-2$
 ### 对于一条直链，我们要先rotate父亲，再rotate自己
-<img src="/images/splay_tree/rotate_father.png" width="30%">
+![](/images/splay_tree/rotate_father.png)
  设自己为x，父亲为y，祖父为z， 则势能变化为
 $$
 \begin{aligned}
@@ -237,7 +237,7 @@ $$
 $$
 这里的x和z‘的子树大小加起来刚好等于x'的子树大小-1。所以势能变化小于$3(X'-X)-2$
 ### 对于一条非直链，我们要rotate自己两次，才能上去，rotate父亲不行的
-<img src="/images/splay_tree/rotate_self.png" width="30%">
+![](/images/splay_tree/rotate_self.png)
  同理，势能变化为
 $$
 \begin{aligned}

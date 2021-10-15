@@ -25,7 +25,7 @@ mathjax: true
 #### 对数函数是一个凸函数
  已知a,b>0,则$lg(a)+lg(b)\lt 2lg(\frac{a+b}{2}) = 2lg(a+b)-2$
 ### 对于一条直链，我们要先rotate父亲，再rotate自己
-<img src="/images/splay_tree/rotate_father.png" width="30%">
+![](/images/splay_tree/rotate_father.png)
  设自己为x，父亲为y，祖父为z， 则势能变化为
 $$
 \begin{aligned}
@@ -36,7 +36,7 @@ $$
 $$
 这里的x和z‘的子树大小加起来刚好等于x'的子树大小-1。所以势能变化小于$3(X'-X)-2$
 ### 对于一条非直链，我们要rotate自己两次，才能上去，rotate父亲不行的
-<img src="/images/splay_tree/rotate_self.png" width="30%">
+![](/images/splay_tree/rotate_self.png)
  同理，势能变化为
 $$
 \begin{aligned}

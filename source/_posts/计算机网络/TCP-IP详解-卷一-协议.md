@@ -9,7 +9,7 @@ typora-root-url: ..\..
 
 # TCP-IP详解
 
-<img src="/images/image-2021-04-02-09.54.31.819.png" style="zoom:25%;" />
+![](/images/image-2021-04-02-09.54.31.819.png)
 
 # 慎重
 

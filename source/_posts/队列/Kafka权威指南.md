@@ -8,7 +8,7 @@ typora-root-url: ..\..
 
 
 
-<img src="/images/image-2021-04-07-16.25.47.090.png" style="zoom:15%;" />
+![](/images/image-2021-04-07-16.25.47.090.png)
 
 由于这是第三篇Kafka方面的学习资源，参见 [深入理解Kafka-核心设计与实践原理](/QQRN80.html)和[Kafka](/Q90SQR.html)，所以笔者对一些重复的部分进行了跳过，这里只写一些很重要的内容以及有趣的知识。
 

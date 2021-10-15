@@ -5,7 +5,7 @@ tags: 读书
 typora-root-url: ..\..
 ---
 
-<img src="/images/image-2021-09-18-13.50.00.000.png">
+![](/images/image-2021-09-18-13.50.00.000.png)
 
 
 

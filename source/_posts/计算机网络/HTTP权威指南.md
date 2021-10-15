@@ -7,7 +7,7 @@ typora-root-url: ..\..
 
 # HTTP权威指南
 
-<img src="/images/image-2021-04-03-15.40.44.260.png"  style="zoom:18%;" />
+![](/images/image-2021-04-03-15.40.44.260.png)
 
 # 第一章： HTTP概述
 

@@ -7,7 +7,7 @@ typora-root-url: ..\..
 
 
 
-<img src="/images/image-2021-04-16-13.59.48.106.png" style="zoom:25%;" />
+![](/images/image-2021-04-16-13.59.48.106.png)
 
 
 
