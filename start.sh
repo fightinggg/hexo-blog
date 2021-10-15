@@ -5,7 +5,7 @@ git clone https://github.com/fightinggg/fightinggg.github.io.git /usr/share/ngin
 cd /usr/share/nginx/html && \
 git config pull.rebase true && \
 ((while true; \
-do git fetch --all && git reset --hard origin/master && git pull  && sleep 10 ;\
+do git fetch --all && git reset --hard origin/master && git pull && git gc && sleep 10 ;\
 done;)&) && \
 echo \"launch nginx now\" && \
 nginx -g \"daemon off;\""
