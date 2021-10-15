@@ -57,7 +57,7 @@ CMD "java" "-jar" "/app/main.jar" $JAVA_PARAM
 
 每当我们对这个项目的master分支执行push，则dockerhub上自动启动构建任务。
 
-![image-2021-04-16 19.15.53.680](/image-2021-04-16-19.15.53.680.png)
+![image-2021-04-16 19.15.53.680](/images/image-2021-04-16-19.15.53.680.png)
 
 ## 如何CD
 
