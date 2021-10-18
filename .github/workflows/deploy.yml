@@ -57,6 +57,7 @@ jobs:
           ls -l
           npm install
           npm run g 
+          mkdir -p public
           cp -r source/**/*.jpg public 
           cp -r source/**/*.png public 
           cp -r source/**/*.svg public 
