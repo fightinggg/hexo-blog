@@ -5,12 +5,12 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy && npm run gitalkInit",
+    "deploy": "hexo deploy",
     "server": "hexo server",
     "gitalkInit": "node gitalk/gitalk-auto-init.js",
     "s": "npm run server",
     "g": "npm run build",
-    "d": "npm run build && npm run deploy",
+    "d": "npm run deploy",
     "update": "ncu -u"
   },
   "hexo": {
