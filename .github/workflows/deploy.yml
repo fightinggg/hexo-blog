@@ -61,5 +61,5 @@ jobs:
           cp -r source/**/*.*g public 
           npm run d
 
-      - name: Looks for Gitalk
-        run: cat gitalk/gitalk-init-error.json
+      # - name: Looks for Gitalk
+      #   run: cat gitalk/gitalk-init-error.json
