@@ -4,4 +4,4 @@ type: README
 
 # hexo-blog
 
-Blog for study
+Blog for study...
