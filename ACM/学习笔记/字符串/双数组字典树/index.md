@@ -23,6 +23,7 @@ updated: 2021-10-18 23:54:00
 
 最后，check数组，check数组与base数组相互照应，如果`base[i]=check[j]` 则说明j是i的儿子，而且i到j的边权恰好为`j-base[i]`，也可以写作`j-check[j]`好好理解这句话
 
+<!-- more -->
 
 
 # 3. 图解双数组字典树
