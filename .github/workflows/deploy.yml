@@ -54,7 +54,7 @@ jobs:
         run: |
           cp -r * .deploy/hexo-next/source/_posts
           cd .deploy/hexo-next
-          rm SUMMARY.md README.md
+          rm source/_posts/SUMMARY.md source/_posts/README.md
           ls -l
           npm install
           npm run g 
