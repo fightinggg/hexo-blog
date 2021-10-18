@@ -35,7 +35,15 @@ filesList.forEach(name=>{
     for(i=2;i<url.length;i++){
         str += '    '
     }
-    console.log('%s* [%s](%s)',str,url[url.length-2],name)
+    if(url.length==1){
+        return
+    }
+    if(name=="./index.md"){
+        console.log('* [Polin & Fightinggg](README.md)')
+    }else{
+        console.log('%s* [%s](%s)',str,url[url.length-2],name)
+    }
+   
 })
 
 //  node .SUMMARY.js > SUMMARY.md 
