@@ -57,10 +57,10 @@ jobs:
           rm source/_posts/SUMMARY.md source/_posts/README.md
           ls -l
           npm install
-          npm run hexo g 
+          npm exec hexo g 
           mkdir -p public
           cp -r source/**/*.*g public 
-          npm run hexo d
+          npm exec hexo d
 
       # - name: Looks for Gitalk
       #   run: cat gitalk/gitalk-init-error.json
