@@ -53,6 +53,8 @@ jobs:
       - name: Install dependencies
         run: |
           cp -r * .deploy/hexo-next/source/_posts
+          cd .deploy/hexo-next
+          ls -l
           npm install
           npm run g 
           cp -r source/**/*.jpg public 
