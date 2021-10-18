@@ -53,6 +53,7 @@ jobs:
       - name: Install dependencies
         run: |
           cp -r * .deploy/hexo-next/source/_posts
+          rm SUMMARY.md README.md
           cd .deploy/hexo-next
           ls -l
           npm install
