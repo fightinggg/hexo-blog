@@ -4,7 +4,6 @@ db.json
 *.log
 node_modules/
 public/
-.deploy*/
 .ssh/
 .idea/
 .vscode/

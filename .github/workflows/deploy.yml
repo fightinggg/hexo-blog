@@ -51,14 +51,14 @@ jobs:
           echo "$PWD/pandoc-2.14.0.3/bin" >> $GITHUB_PATH
 
       - name: Install dependencies
-        run: npm install
-
-      - name: hexo G
-        run: npm run g && cp -r source/**/*.jpg public && cp -r source/**/*.png public && cp -r source/**/*.svg public
-      
-      - name: hexo D
-        run: npm run g
-
+        run: |
+          cp -r * .deploy/hexo-next/source/_posts
+          npm install
+          npm run g 
+          cp -r source/**/*.jpg public 
+          cp -r source/**/*.png public 
+          cp -r source/**/*.svg public 
+          npm run d
 
       - name: Looks for Gitalk
         run: cat gitalk/gitalk-init-error.json
