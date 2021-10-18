@@ -52,12 +52,12 @@ class ClassNotDefErrorFromClassLoad {
 
 ```txt
 java.lang.ExceptionInInitializerError
-	at com.example.demo.Main.main(Main.java:6)
+    at com.example.demo.Main.main(Main.java:6)
 Caused by: java.lang.ArithmeticException: / by zero
-	at com.example.demo.ClassNotDefErrorFromClassLoad.<clinit>(Main.java:15)
-	... 1 more
+    at com.example.demo.ClassNotDefErrorFromClassLoad.<clinit>(Main.java:15)
+    ... 1 more
 Exception in thread "main" java.lang.NoClassDefFoundError: Could not initialize class com.example.demo.ClassNotDefErrorFromClassLoad
-	at com.example.demo.Main.main(Main.java:10)
+    at com.example.demo.Main.main(Main.java:10)
 ```
 
 
@@ -109,13 +109,13 @@ target/
 
 ```txt
 Exception in thread "main" java.lang.NoClassDefFoundError: com/example/demo/ClassNotDefErrorFromClassNotFound
-	at com.example.demo.Main.main(Main.java:5)
+    at com.example.demo.Main.main(Main.java:5)
 Caused by: java.lang.ClassNotFoundException: com.example.demo.ClassNotDefErrorFromClassNotFound
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	... 1 more
+    at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+    at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+    ... 1 more
 
 Process finished with exit code 1
 ```

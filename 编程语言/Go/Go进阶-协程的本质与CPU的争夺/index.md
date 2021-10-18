@@ -57,43 +57,43 @@ Bug的复现需要两个版本的Go进行对比才能看出来，笔者建议使
 package main
 
 import (
-	"fmt"
-	"runtime"
-	"time"
+    "fmt"
+    "runtime"
+    "time"
 )
 
 func main() {
 
-	runtime.GOMAXPROCS(1)
+    runtime.GOMAXPROCS(1)
 
-	go func() {
-		fmt.Println("begin1")
-		s := 0
-		for t := 0; t < 10000; t++ {
+    go func() {
+        fmt.Println("begin1")
+        s := 0
+        for t := 0; t < 10000; t++ {
 
-			for i := 0; i < 1000000000; i++ {
-				s += i
-			}
-			//fmt.Println(1, "->", s)
-		}
-		fmt.Println("end1", s)
+            for i := 0; i < 1000000000; i++ {
+                s += i
+            }
+            //fmt.Println(1, "->", s)
+        }
+        fmt.Println("end1", s)
 
-	}()
+    }()
 
-	go func() {
-		fmt.Println("begin2")
-		s := 0
-		for t := 0; t < 10; t++ {
+    go func() {
+        fmt.Println("begin2")
+        s := 0
+        for t := 0; t < 10; t++ {
 
-			for i := 0; i < 1000000000; i++ {
-				s += i
-			}
-			fmt.Println(2, "->", s)
-		}
-		fmt.Println("end2", s)
-	}()
+            for i := 0; i < 1000000000; i++ {
+                s += i
+            }
+            fmt.Println(2, "->", s)
+        }
+        fmt.Println("end2", s)
+    }()
 
-	time.Sleep(time.Second * 10)
+    time.Sleep(time.Second * 10)
 }
 ```
 

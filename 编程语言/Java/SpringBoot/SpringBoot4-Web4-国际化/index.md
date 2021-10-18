@@ -20,33 +20,33 @@ SpringBoot自动创建了管理国际化资源文件的组件
 @EnableConfigurationProperties
 public class MessageSourceAutoConfiguration {
 
-	private static final Resource[] NO_RESOURCES = {};
+    private static final Resource[] NO_RESOURCES = {};
 
-	@Bean
-	@ConfigurationProperties(prefix = "spring.messages")
-	public MessageSourceProperties messageSourceProperties() {
-		return new MessageSourceProperties();
-	}
+    @Bean
+    @ConfigurationProperties(prefix = "spring.messages")
+    public MessageSourceProperties messageSourceProperties() {
+        return new MessageSourceProperties();
+    }
 
-	@Bean
-	public MessageSource messageSource(MessageSourceProperties properties) {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		if (StringUtils.hasText(properties.getBasename())) {
-			messageSource.setBasenames(StringUtils
-					.commaDelimitedListToStringArray(StringUtils.trimAllWhitespace(properties.getBasename())));
-		}
-		if (properties.getEncoding() != null) {
-			messageSource.setDefaultEncoding(properties.getEncoding().name());
-		}
-		messageSource.setFallbackToSystemLocale(properties.isFallbackToSystemLocale());
-		Duration cacheDuration = properties.getCacheDuration();
-		if (cacheDuration != null) {
-			messageSource.setCacheMillis(cacheDuration.toMillis());
-		}
-		messageSource.setAlwaysUseMessageFormat(properties.isAlwaysUseMessageFormat());
-		messageSource.setUseCodeAsDefaultMessage(properties.isUseCodeAsDefaultMessage());
-		return messageSource;
-	}
+    @Bean
+    public MessageSource messageSource(MessageSourceProperties properties) {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        if (StringUtils.hasText(properties.getBasename())) {
+            messageSource.setBasenames(StringUtils
+                    .commaDelimitedListToStringArray(StringUtils.trimAllWhitespace(properties.getBasename())));
+        }
+        if (properties.getEncoding() != null) {
+            messageSource.setDefaultEncoding(properties.getEncoding().name());
+        }
+        messageSource.setFallbackToSystemLocale(properties.isFallbackToSystemLocale());
+        Duration cacheDuration = properties.getCacheDuration();
+        if (cacheDuration != null) {
+            messageSource.setCacheMillis(cacheDuration.toMillis());
+        }
+        messageSource.setAlwaysUseMessageFormat(properties.isAlwaysUseMessageFormat());
+        messageSource.setUseCodeAsDefaultMessage(properties.isUseCodeAsDefaultMessage());
+        return messageSource;
+    }
 ```
 ```java
 /**
@@ -58,13 +58,13 @@ public class MessageSourceAutoConfiguration {
  * /
 public class MessageSourceProperties {
 
-	/**
-	 * Comma-separated list of basenames (essentially a fully-qualified classpath
-	 * location), each following the ResourceBundle convention with relaxed support for
-	 * slash based locations. If it doesn't contain a package qualifier (such as
-	 * "org.mypackage"), it will be resolved from the classpath root.
-	 */
-	private String basename = "messages";
+    /**
+     * Comma-separated list of basenames (essentially a fully-qualified classpath
+     * location), each following the ResourceBundle convention with relaxed support for
+     * slash based locations. If it doesn't contain a package qualifier (such as
+     * "org.mypackage"), it will be resolved from the classpath root.
+     */
+    private String basename = "messages";
 
 ```
 ```properties
@@ -84,38 +84,38 @@ setting - editor - fileEncoding - utf8 - 自动转阿斯克码
 locale: LocaleResolver
 根据请求头的区域信息来进行国际化
 ```java
-		@Bean
-		@ConditionalOnMissingBean
-		@ConditionalOnProperty(prefix = "spring.mvc", name = "locale")
-		public LocaleResolver localeResolver() {
-			if (this.mvcProperties.getLocaleResolver() == WebMvcProperties.LocaleResolver.FIXED) {
-				return new FixedLocaleResolver(this.mvcProperties.getLocale());
-			}
-			AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
-			localeResolver.setDefaultLocale(this.mvcProperties.getLocale());
-			return localeResolver;
-		}
+        @Bean
+        @ConditionalOnMissingBean
+        @ConditionalOnProperty(prefix = "spring.mvc", name = "locale")
+        public LocaleResolver localeResolver() {
+            if (this.mvcProperties.getLocaleResolver() == WebMvcProperties.LocaleResolver.FIXED) {
+                return new FixedLocaleResolver(this.mvcProperties.getLocale());
+            }
+            AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
+            localeResolver.setDefaultLocale(this.mvcProperties.getLocale());
+            return localeResolver;
+        }
 
 ```
 ```java
 
-	@Override
-	public Locale resolveLocale(HttpServletRequest request) {
-		Locale defaultLocale = getDefaultLocale();
-		if (defaultLocale != null && request.getHeader("Accept-Language") == null) {
-			return defaultLocale;
-		}
-		Locale requestLocale = request.getLocale();
-		List<Locale> supportedLocales = getSupportedLocales();
-		if (supportedLocales.isEmpty() || supportedLocales.contains(requestLocale)) {
-			return requestLocale;
-		}
-		Locale supportedLocale = findSupportedLocale(request, supportedLocales);
-		if (supportedLocale != null) {
-			return supportedLocale;
-		}
-		return (defaultLocale != null ? defaultLocale : requestLocale);
-	}
+    @Override
+    public Locale resolveLocale(HttpServletRequest request) {
+        Locale defaultLocale = getDefaultLocale();
+        if (defaultLocale != null && request.getHeader("Accept-Language") == null) {
+            return defaultLocale;
+        }
+        Locale requestLocale = request.getLocale();
+        List<Locale> supportedLocales = getSupportedLocales();
+        if (supportedLocales.isEmpty() || supportedLocales.contains(requestLocale)) {
+            return requestLocale;
+        }
+        Locale supportedLocale = findSupportedLocale(request, supportedLocales);
+        if (supportedLocale != null) {
+            return supportedLocale;
+        }
+        return (defaultLocale != null ? defaultLocale : requestLocale);
+    }
 ```
 先写个链接把区域信息加上去
 ```html

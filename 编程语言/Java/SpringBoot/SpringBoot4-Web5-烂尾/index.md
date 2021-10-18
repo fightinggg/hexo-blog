@@ -60,32 +60,32 @@ include 是包含进去
 如何定制错误页面？
 这个是ErrorMvcAutoConfiguration
 ```java
-	@Bean
-	@ConditionalOnMissingBean(value = ErrorAttributes.class, search = SearchStrategy.CURRENT)
-	public DefaultErrorAttributes errorAttributes() {
-		return new DefaultErrorAttributes(this.serverProperties.getError().isIncludeException());
-	}
+    @Bean
+    @ConditionalOnMissingBean(value = ErrorAttributes.class, search = SearchStrategy.CURRENT)
+    public DefaultErrorAttributes errorAttributes() {
+        return new DefaultErrorAttributes(this.serverProperties.getError().isIncludeException());
+    }
 
-	@Bean
-	@ConditionalOnMissingBean(value = ErrorController.class, search = SearchStrategy.CURRENT)
-	public BasicErrorController basicErrorController(ErrorAttributes errorAttributes,
-			ObjectProvider<ErrorViewResolver> errorViewResolvers) {
-		return new BasicErrorController(errorAttributes, this.serverProperties.getError(),
-				errorViewResolvers.orderedStream().collect(Collectors.toList()));
-	}
+    @Bean
+    @ConditionalOnMissingBean(value = ErrorController.class, search = SearchStrategy.CURRENT)
+    public BasicErrorController basicErrorController(ErrorAttributes errorAttributes,
+            ObjectProvider<ErrorViewResolver> errorViewResolvers) {
+        return new BasicErrorController(errorAttributes, this.serverProperties.getError(),
+                errorViewResolvers.orderedStream().collect(Collectors.toList()));
+    }
 
-	@Bean
-	public ErrorPageCustomizer errorPageCustomizer(DispatcherServletPath dispatcherServletPath) {
-		return new ErrorPageCustomizer(this.serverProperties, dispatcherServletPath);
-	}
+    @Bean
+    public ErrorPageCustomizer errorPageCustomizer(DispatcherServletPath dispatcherServletPath) {
+        return new ErrorPageCustomizer(this.serverProperties, dispatcherServletPath);
+    }
 
 
-  	@Bean
-		@ConditionalOnBean(DispatcherServlet.class)
-		@ConditionalOnMissingBean(ErrorViewResolver.class)
-		DefaultErrorViewResolver conventionErrorViewResolver() {
-			return new DefaultErrorViewResolver(this.applicationContext, this.resourceProperties);
-		}
+      @Bean
+        @ConditionalOnBean(DispatcherServlet.class)
+        @ConditionalOnMissingBean(ErrorViewResolver.class)
+        DefaultErrorViewResolver conventionErrorViewResolver() {
+            return new DefaultErrorViewResolver(this.applicationContext, this.resourceProperties);
+        }
 ```
 系统出现错误以后去/error处理请求
 
@@ -93,25 +93,25 @@ include 是包含进去
 这里分两类，一个返回html，另一个返回json，区分浏览器,浏览器优先接受html，但是客户端优先接受/*， 没有要求，所以对浏览器返回，html,对客户端返回json
 
 ```java
-	@RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
-	public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) {
-		HttpStatus status = getStatus(request);
-		Map<String, Object> model = Collections
-				.unmodifiableMap(getErrorAttributes(request, isIncludeStackTrace(request, MediaType.TEXT_HTML)));
-		response.setStatus(status.value());
-		ModelAndView modelAndView = resolveErrorView(request, response, status, model);
-		return (modelAndView != null) ? modelAndView : new ModelAndView("error", model);
-	}
+    @RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) {
+        HttpStatus status = getStatus(request);
+        Map<String, Object> model = Collections
+                .unmodifiableMap(getErrorAttributes(request, isIncludeStackTrace(request, MediaType.TEXT_HTML)));
+        response.setStatus(status.value());
+        ModelAndView modelAndView = resolveErrorView(request, response, status, model);
+        return (modelAndView != null) ? modelAndView : new ModelAndView("error", model);
+    }
 
-	@RequestMapping
-	public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
-		HttpStatus status = getStatus(request);
-		if (status == HttpStatus.NO_CONTENT) {
-			return new ResponseEntity<>(status);
-		}
-		Map<String, Object> body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));
-		return new ResponseEntity<>(body, status);
-	}
+    @RequestMapping
+    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+        HttpStatus status = getStatus(request);
+        if (status == HttpStatus.NO_CONTENT) {
+            return new ResponseEntity<>(status);
+        }
+        Map<String, Object> body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));
+        return new ResponseEntity<>(body, status);
+    }
 
 ```
 ### 所以到底如何定制？
@@ -162,20 +162,20 @@ Undertow 适用于高并发不带jsp
 @ConditionalOnWebApplication
 @EnableConfigurationProperties(ServerProperties.class)
 public class EmbeddedWebServerFactoryCustomizerAutoConfiguration {
-	/**
-	 * Nested configuration if Tomcat is being used.
-	 */
-	@Configuration(proxyBeanMethods = false)
-	@ConditionalOnClass({ Tomcat.class, UpgradeProtocol.class })
-	public static class TomcatWebServerFactoryCustomizerConfiguration {
+    /**
+     * Nested configuration if Tomcat is being used.
+     */
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass({ Tomcat.class, UpgradeProtocol.class })
+    public static class TomcatWebServerFactoryCustomizerConfiguration {
 
-		@Bean
-		public TomcatWebServerFactoryCustomizer tomcatWebServerFactoryCustomizer(Environment environment,
-				ServerProperties serverProperties) {
-			return new TomcatWebServerFactoryCustomizer(environment, serverProperties);
-		}
+        @Bean
+        public TomcatWebServerFactoryCustomizer tomcatWebServerFactoryCustomizer(Environment environment,
+                ServerProperties serverProperties) {
+            return new TomcatWebServerFactoryCustomizer(environment, serverProperties);
+        }
 
-	}
+    }
 ```
 源码变了。。。
 <iframe src="//player.bilibili.com/player.html?aid=38657363&bvid=BV1Et411Y7tQ&cid=67953935&page=48" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

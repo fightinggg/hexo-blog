@@ -27,13 +27,13 @@ AB的行列都小于2000
 通过观察，我们发现C的每一列是互相独立的，不妨设他的第i列为$C_i$ 我们取出这里一列重新构建一个矩阵，这是一个n行一列的矩阵。
 $$
 \begin{bmatrix}
-	C_{1i} \\
-	C_{2i} \\
-	C_{3i} \\
-	. \\
-	. \\
-	. \\
-	C_{ni} \\
+    C_{1i} \\
+    C_{2i} \\
+    C_{3i} \\
+    . \\
+    . \\
+    . \\
+    C_{ni} \\
 \end{bmatrix}
 $$
 然后就有了
@@ -41,41 +41,41 @@ $$
 \begin{aligned}
 A \times
 \begin{bmatrix}
-	C_{1i} \\
-	C_{2i} \\
-	C_{3i} \\
-	. \\
-	. \\
-	. \\
-	C_{ni} \\
+    C_{1i} \\
+    C_{2i} \\
+    C_{3i} \\
+    . \\
+    . \\
+    . \\
+    C_{ni} \\
 \end{bmatrix} = 
 \begin{bmatrix}
-	B_{1i}\cdot C_{1i} \\
-	B_{2i}\cdot C_{2i} \\
-	B_{3i}\cdot C_{3i} \\
-	. \\
-	. \\
-	. \\
-	B_{ni}\cdot C_{ni} \\
+    B_{1i}\cdot C_{1i} \\
+    B_{2i}\cdot C_{2i} \\
+    B_{3i}\cdot C_{3i} \\
+    . \\
+    . \\
+    . \\
+    B_{ni}\cdot C_{ni} \\
 \end{bmatrix} = 
 \begin{bmatrix}
-	B_{11}\\
-	& B_{22}\\
-	&& B_{33}\\
-	&&&\cdot \\
-	&&&&\cdot \\
-	&&&&&\cdot \\
-	&&&&&&B_{ni} \\
+    B_{11}\\
+    & B_{22}\\
+    && B_{33}\\
+    &&&\cdot \\
+    &&&&\cdot \\
+    &&&&&\cdot \\
+    &&&&&&B_{ni} \\
 \end{bmatrix} 
 \times
 \begin{bmatrix}
-	C_{1i} \\
-	C_{2i} \\
-	C_{3i} \\
-	. \\
-	. \\
-	. \\
-	C_{ni} \\
+    C_{1i} \\
+    C_{2i} \\
+    C_{3i} \\
+    . \\
+    . \\
+    . \\
+    C_{ni} \\
 \end{bmatrix}
 \end{aligned}
 $$
@@ -83,32 +83,32 @@ $$
 $$
 (A  -
 \begin{bmatrix}
-	B_{11}\\
-	& B_{22}\\
-	&& B_{33}\\
-	&&&\cdot \\
-	&&&&\cdot \\
-	&&&&&\cdot \\
-	&&&&&&B_{ni} \\
+    B_{11}\\
+    & B_{22}\\
+    && B_{33}\\
+    &&&\cdot \\
+    &&&&\cdot \\
+    &&&&&\cdot \\
+    &&&&&&B_{ni} \\
 \end{bmatrix} )
 \times
 \begin{bmatrix}
-	C_{1i} \\
-	C_{2i} \\
-	C_{3i} \\
-	. \\
-	. \\
-	. \\
-	C_{ni} \\
+    C_{1i} \\
+    C_{2i} \\
+    C_{3i} \\
+    . \\
+    . \\
+    . \\
+    C_{ni} \\
 \end{bmatrix} = 
 \begin{bmatrix}
-	0 \\
-	0 \\
-	0 \\
-	. \\
-	. \\
-	. \\
-	0 \\
+    0 \\
+    0 \\
+    0 \\
+    . \\
+    . \\
+    . \\
+    0 \\
 \end{bmatrix}
 $$
 我们发现这是一个齐次线性方程组，直接使用高斯消元即可，时间复杂度$O(N^3)$，注意到是01矩阵，可以使用压位的方式降低64倍复杂度。

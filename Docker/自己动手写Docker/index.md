@@ -1050,7 +1050,7 @@ Discarding device blocks: done
 Creating filesystem with 20480 1k blocks and 5136 inodes
 Filesystem UUID: 61b1d479-fca0-41b0-86be-5d9c3c501714
 Superblock backups stored on blocks: 
-	8193
+    8193
 
 Allocating group tables: done                            
 Writing inode tables: done                            
@@ -1077,7 +1077,7 @@ Discarding device blocks: done
 Creating filesystem with 20480 1k blocks and 5136 inodes
 Filesystem UUID: 4231f410-3e32-4486-9d09-2de705563eb8
 Superblock backups stored on blocks: 
-	8193
+    8193
 
 Allocating group tables: done                            
 Writing inode tables: done                            
@@ -1148,7 +1148,7 @@ Discarding device blocks: done
 Creating filesystem with 20480 1k blocks and 5136 inodes
 Filesystem UUID: d46262a1-0cc4-46a0-ac1b-1fd908c8fa28
 Superblock backups stored on blocks: 
-	8193
+    8193
 
 Allocating group tables: done                            
 Writing inode tables: done                            
@@ -1171,7 +1171,7 @@ dev         home        lib64       media       opt         root        sbin    
 /hostdir/root # exit
 container exited, status=0,  thanks for using pocker
 [root@1e558fec41d2 /]# ls
-bin  containerCreateDir  dev  etc  home  lib  lib64  lost+found  media	mnt  opt  proc	root  run  sbin  srv  sys  tmp	usr  var
+bin  containerCreateDir  dev  etc  home  lib  lib64  lost+found  media    mnt  opt  proc    root  run  sbin  srv  sys  tmp    usr  var
 [root@1e558fec41d2 /]# 
 ```
 

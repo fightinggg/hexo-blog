@@ -37,9 +37,9 @@ for(int i=0;i<m;i++){
   cin>>q;
   vector<int> vec;
   for(int i=0;i<q;i++) {
-  	cin>>x;
-  	vec.push_back(x);
-  	if(dead[x]) flag=true;
+      cin>>x;
+      vec.push_back(x);
+      if(dead[x]) flag=true;
   }
   if(flag) for(int x:vec) dead[x]=true;
 }

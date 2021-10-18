@@ -631,7 +631,7 @@ struct Counter {
     
     void increment() {
         lock.lock();
-    	value ++;
+        value ++;
         lock.unlock();
     }
     
@@ -668,7 +668,7 @@ struct LazyCounter {
     }
     
     void increment(int threadId) {
-    	threadValue[threadId] ++;
+        threadValue[threadId] ++;
         if(threadValue[threadId] = lazyBounder) {
             lock.lock();
             value += lazyBounder;
@@ -823,7 +823,7 @@ struct Queue {
 
 ```c
 struct Condition {
-	void wait(Lock lock); //释放锁并睡眠,醒来时获取锁
+    void wait(Lock lock); //释放锁并睡眠,醒来时获取锁
     void signal(); // 唤醒在此条件上等待的线程
 }
 

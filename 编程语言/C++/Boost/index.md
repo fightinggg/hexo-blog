@@ -370,9 +370,9 @@ int main() {
 ```
  这个代码输出了
 ```
-|	  ab  d d  d d d 	|
-|ab  d d  d d d 	|
-|	  ab  d d  d d d|
+|      ab  d d  d d d     |
+|ab  d d  d d d     |
+|      ab  d d  d d d|
 |ab  d d  d d d|
 ```
 

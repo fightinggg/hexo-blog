@@ -47,63 +47,63 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)
 @AutoConfigureAfter({ DispatcherServletAutoConfiguration.class, TaskExecutionAutoConfiguration.class,
-		ValidationAutoConfiguration.class })
+        ValidationAutoConfiguration.class })
 public class WebMvcAutoConfiguration {
 
-	public static final String DEFAULT_PREFIX = "";
+    public static final String DEFAULT_PREFIX = "";
 
-	public static final String DEFAULT_SUFFIX = "";
+    public static final String DEFAULT_SUFFIX = "";
 
-	private static final String[] SERVLET_LOCATIONS = { "/" };
+    private static final String[] SERVLET_LOCATIONS = { "/" };
 ```
 里面也是这个类，注意又个EnableWebMvcConfiguration
 ```java
-	// Defined as a nested config to ensure WebMvcConfigurer is not read when not
-	// on the classpath
-	@Configuration(proxyBeanMethods = false)
-	@Import(EnableWebMvcConfiguration.class)
-	@EnableConfigurationProperties({ WebMvcProperties.class, ResourceProperties.class })
-	@Order(0)
-	public static class WebMvcAutoConfigurationAdapter implements WebMvcConfigurer {
+    // Defined as a nested config to ensure WebMvcConfigurer is not read when not
+    // on the classpath
+    @Configuration(proxyBeanMethods = false)
+    @Import(EnableWebMvcConfiguration.class)
+    @EnableConfigurationProperties({ WebMvcProperties.class, ResourceProperties.class })
+    @Order(0)
+    public static class WebMvcAutoConfigurationAdapter implements WebMvcConfigurer {
 
-		private static final Log logger = LogFactory.getLog(WebMvcConfigurer.class);
+        private static final Log logger = LogFactory.getLog(WebMvcConfigurer.class);
 
-		private final ResourceProperties resourceProperties;
+        private final ResourceProperties resourceProperties;
 ```
 静态资源映射
 ```java
 
-		@Override
-		public void addResourceHandlers(ResourceHandlerRegistry registry) {
-			if (!this.resourceProperties.isAddMappings()) {
-				logger.debug("Default resource handling disabled");
-				return;
-			}
-			Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
-			CacheControl cacheControl = this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();
-			if (!registry.hasMappingForPattern("/webjars/**")) {
-				customizeResourceHandlerRegistration(registry.addResourceHandler("/webjars/**")
-						.addResourceLocations("classpath:/META-INF/resources/webjars/")
-						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
-			}
-			String staticPathPattern = this.mvcProperties.getStaticPathPattern();
-			if (!registry.hasMappingForPattern(staticPathPattern)) {
-				customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)
-						.addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))
-						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
-			}
-		}
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            if (!this.resourceProperties.isAddMappings()) {
+                logger.debug("Default resource handling disabled");
+                return;
+            }
+            Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
+            CacheControl cacheControl = this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();
+            if (!registry.hasMappingForPattern("/webjars/**")) {
+                customizeResourceHandlerRegistration(registry.addResourceHandler("/webjars/**")
+                        .addResourceLocations("classpath:/META-INF/resources/webjars/")
+                        .setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
+            }
+            String staticPathPattern = this.mvcProperties.getStaticPathPattern();
+            if (!registry.hasMappingForPattern(staticPathPattern)) {
+                customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)
+                        .addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))
+                        .setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
+            }
+        }
 ```
 ```java
-	/**
-	 * Configuration equivalent to {@code @EnableWebMvc}.
-	 */
-	@Configuration(proxyBeanMethods = false)
-	public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfiguration implements ResourceLoaderAware {
+    /**
+     * Configuration equivalent to {@code @EnableWebMvc}.
+     */
+    @Configuration(proxyBeanMethods = false)
+    public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfiguration implements ResourceLoaderAware {
 
-		private final ResourceProperties resourceProperties;
+        private final ResourceProperties resourceProperties;
 
-		private final WebMvcProperties mvcProperties;
+        private final WebMvcProperties mvcProperties;
 
 ```
 从容器中获取所有的webmvcconfigurer,然后全部调用一遍
@@ -116,15 +116,15 @@ public class WebMvcAutoConfiguration {
 @Configuration(proxyBeanMethods = false)
 public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 
-	private final WebMvcConfigurerComposite configurers = new WebMvcConfigurerComposite();
+    private final WebMvcConfigurerComposite configurers = new WebMvcConfigurerComposite();
 
 
-	@Autowired(required = false)
-	public void setConfigurers(List<WebMvcConfigurer> configurers) {
-		if (!CollectionUtils.isEmpty(configurers)) {
-			this.configurers.addWebMvcConfigurers(configurers);
-		}
-	}
+    @Autowired(required = false)
+    public void setConfigurers(List<WebMvcConfigurer> configurers) {
+        if (!CollectionUtils.isEmpty(configurers)) {
+            this.configurers.addWebMvcConfigurers(configurers);
+        }
+    }
 ```
 springmvc的自动配置和我们的扩展配置都会起作用
 ### 全面接管mvc
@@ -148,7 +148,7 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)
 @AutoConfigureAfter({ DispatcherServletAutoConfiguration.class, TaskExecutionAutoConfiguration.class,
-		ValidationAutoConfiguration.class })
+        ValidationAutoConfiguration.class })
 public class WebMvcAutoConfiguration {
 
 ```

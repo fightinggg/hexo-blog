@@ -412,8 +412,8 @@ graph TD
   终结符: number, +, *
   非终结符: SUM, MUL, PRODUCTION
   产生式: SUM -> PRODUCTION + MUL
-  		 MUL -> MUL * number | number
-  		 PRODUCTION -> SUM | MUL
+           MUL -> MUL * number | number
+           PRODUCTION -> SUM | MUL
   开始： PRODUCTION
 ```
 
@@ -528,8 +528,8 @@ graph TD
   终结符: number, +, *
   非终结符: SUM, MUL, PRODUCTION
   产生式: SUM -> PRODUCTION + MUL
-  		 MUL -> MUL * number | number
-  		 PRODUCTION -> SUM | MUL
+           MUL -> MUL * number | number
+           PRODUCTION -> SUM | MUL
   开始： PRODUCTION
 ```
 
@@ -674,8 +674,8 @@ LR1在SLR的基础上继续进行增广，继续引入了end集合，下面继�
   终结符: number, +, *
   非终结符: SUM, MUL, PRODUCTION
   产生式: SUM -> PRODUCTION + MUL
-  		 MUL -> MUL * number | number
-  		 PRODUCTION -> SUM | MUL
+           MUL -> MUL * number | number
+           PRODUCTION -> SUM | MUL
   开始： PRODUCTION
 ```
 

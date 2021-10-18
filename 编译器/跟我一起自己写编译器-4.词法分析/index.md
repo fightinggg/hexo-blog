@@ -167,7 +167,7 @@ graph LR
     start1[start1] -->|a| ed1(end1)
     start2[start2] -->|b| ed2(end2)
     start[start起点] -->|空| start1 & start2
-  	ed1 & ed2 -->|空| ed[end终结]
+      ed1 & ed2 -->|空| ed[end终结]
   
 ```
 
@@ -180,7 +180,7 @@ graph LR
 ```mermaid
 graph LR
      start[start起点] -->|a| ed(end终结)
-  	ed -->|空| start
+      ed -->|空| start
   
 ```
 
@@ -194,7 +194,7 @@ nfa转dfa算法涉及到一个闭包，我们直接对这个nfa来计算闭包
 ```mermaid
 graph LR
      start[start起点] -->|a| ed(end终结)
-  	ed -->|空| start
+      ed -->|空| start
 ```
 
 最开始位于状态`start`， 当输入a以后，进入状态`end`， 计算end的空闭包`[start,end]`，当从状态`[start,end]`输入a以后，进入状态`end`，也就是`[start,end]`, 于是最终我们得到了这个dfa
@@ -202,7 +202,7 @@ graph LR
 ```mermaid
 graph LR
     start[start] -->|a| ed([start,end])
-  	ed -->|a| ed
+      ed -->|a| ed
 ```
 
 # 4.7. DFA识别

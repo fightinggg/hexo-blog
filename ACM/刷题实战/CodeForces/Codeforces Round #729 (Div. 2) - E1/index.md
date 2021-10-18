@@ -24,7 +24,7 @@ $f(i,j) = \sum_{t \in [1,i]} f(i-1,j-t+1)$
 $$
 \begin{aligned}
 ans[i] \\&= i * ans[i-1] + \sum_{1<=u<v<=i, x+u>y+v} f(i-1,x)\cdot f(i-1,y)
- 	\\&= i * ans[i-1] + \sum_{x-y>v-u, 1<=u<v<=i} f(i-1,x)\cdot f(i-1,y)
+     \\&= i * ans[i-1] + \sum_{x-y>v-u, 1<=u<v<=i} f(i-1,x)\cdot f(i-1,y)
     \\&= i * ans[i-1] + \sum_{x-y>d, 1<=d<i} (i-d)*f(i-1,x)\cdot f(i-1,y)
     \\&= i * ans[i-1] + \sum_{x,y} f(i-1,x)\cdot f(i-1,y) \cdot \sum_{x-y>d, 1<=d<i} (i-d)
 \end{aligned}

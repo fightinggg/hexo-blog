@@ -40,11 +40,11 @@ updated: 2020-04-16 12:19:20
 @ConfigurationProperties(prefix = "spring.thymeleaf")
 public class ThymeleafProperties {
 
-	private static final Charset DEFAULT_ENCODING = StandardCharsets.UTF_8;
+    private static final Charset DEFAULT_ENCODING = StandardCharsets.UTF_8;
 
-	public static final String DEFAULT_PREFIX = "classpath:/templates/";
+    public static final String DEFAULT_PREFIX = "classpath:/templates/";
 
-	public static final String DEFAULT_SUFFIX = ".html";
+    public static final String DEFAULT_SUFFIX = ".html";
 ```
 只要我们吧HTML页面放在class:/templates/下，thymeleaf就可以渲染。 
 继续修改我们的代码，注意这里不要用RestController注解，

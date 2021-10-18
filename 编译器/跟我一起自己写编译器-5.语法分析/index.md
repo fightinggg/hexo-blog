@@ -51,16 +51,16 @@ tags: [跟我一起写编译器,读书]
 
 ```txt
 匹配(参数1： deque, 参数2： 当前匹配的下标i)
-	如果双端队列deque[e1,e2,e3...]的最左侧e1是终结符
-    	从双端队列deque[terminalSymbol,e2,e3,e4...]取出并删除最左侧的终结符terminalSymbol
-       	如果 terminalSymbol和当前第i个token不相等， 返回失败
-       	否则 返回 继续匹配(deque,i+1)
+    如果双端队列deque[e1,e2,e3...]的最左侧e1是终结符
+        从双端队列deque[terminalSymbol,e2,e3,e4...]取出并删除最左侧的终结符terminalSymbol
+           如果 terminalSymbol和当前第i个token不相等， 返回失败
+           否则 返回 继续匹配(deque,i+1)
     如果双端队列deque[e1,e2,e3...]的最左侧e1是非终结符
-       	从双端队列deque[noTerminalSymbol,e2,e3,e4...]取出并删除最左侧的非终结符noTerminalSymbol
-       	枚举以非终结符noTerminalSymbol为左部的产生式production
+           从双端队列deque[noTerminalSymbol,e2,e3,e4...]取出并删除最左侧的非终结符noTerminalSymbol
+           枚举以非终结符noTerminalSymbol为左部的产生式production
            将production右部的所有符号[s1,s2,s3...]顺序不变放在deque[e1,e2,e3...]左侧得到[s1,s2,s3...e1,e2,e3...]
            如果 继续匹配(deque,i) 成功 返回成功
-    	返回失败
+        返回失败
 ```
 
 这样的一个算法，
@@ -92,7 +92,7 @@ tags: [跟我一起写编译器,读书]
   终结符: number, +
   非终结符: SUM, S
   产生式:  SUM -> S + S
-  		  S -> SUM | number
+            S -> SUM | number
   开始： SUM
 ```
 
@@ -117,19 +117,19 @@ ifelse:
 ```mermaid
 graph TD
     t1["target"] --> ict["target -> if condition target"]
-  	ict --> i1["if"] & c1["condition"] & t2["target -> if condition target else target"]
-  	t2 --> i2["if"] & c2["condition"]  & t3["target -> block"] & else & t4["target -> block"]
-  	t3 --> b1["block"]
-  	t4 --> b2["block"]
+      ict --> i1["if"] & c1["condition"] & t2["target -> if condition target else target"]
+      t2 --> i2["if"] & c2["condition"]  & t3["target -> block"] & else & t4["target -> block"]
+      t3 --> b1["block"]
+      t4 --> b2["block"]
 ```
 
 ```mermaid
 graph TD
     t1["target"] --> ict["target -> if condition target else target"]
-  	ict --> i1["if"] & c1["condition"] & t2["target -> if condition target"]  & else & t4["target -> block"]
-  	t2 --> i2["if"] & c2["condition"]  & t3["target -> block"] 
-  	t3 --> b1["block"]
-  	t4 --> b2["block"]
+      ict --> i1["if"] & c1["condition"] & t2["target -> if condition target"]  & else & t4["target -> block"]
+      t2 --> i2["if"] & c2["condition"]  & t3["target -> block"] 
+      t3 --> b1["block"]
+      t4 --> b2["block"]
 ```
 
 
@@ -197,8 +197,8 @@ graph TD
   终结符: number, +, *
   非终结符: SUM, MUL, PRODUCTION
   产生式: SUM -> PRODUCTION + PRODUCTION
-  	     MUL -> PRODUCTION * PRODUCTION
-  	     PRODUCTION -> number | SUM | MUL
+           MUL -> PRODUCTION * PRODUCTION
+           PRODUCTION -> number | SUM | MUL
   开始： PRODUCTION
 ```
 
@@ -240,8 +240,8 @@ graph LR
   终结符: type, symbol, visibility, staticable
   非终结符: staticableOPT, visibilityOPT, TARGET
   产生式: TARGET -> visibilityOPT staticableOPT type symbol
-  		 visibilityOPT -> visibility | ε
-  		 staticableOPT -> staticable | ε
+           visibilityOPT -> visibility | ε
+           staticableOPT -> staticable | ε
   开始： TARGET
 ```
 
@@ -272,9 +272,9 @@ staticableOPT的first集为`{staticable}`
 ```
 将所有的有向边(from,to)入队queue，
 只要queue非空:
-	取出并删除queue队首top
-	用top.to的可达集合合并到top.from的可达集合中，如果此过程对top.from的可达集合造成了修改:
-		将所有以top.from为有向边终点的边edge入队queue
+    取出并删除queue队首top
+    用top.to的可达集合合并到top.from的可达集合中，如果此过程对top.from的可达集合造成了修改:
+        将所有以top.from为有向边终点的边edge入队queue
 ```
 
 该算法时间复杂度为`O(VE)`, (V为顶点数，E为边数)
@@ -321,8 +321,8 @@ staticableOPT的first集为`{staticable}`
   终结符: number, +, *
   非终结符: SUM, MUL, PRODUCTION
   产生式: SUM -> PRODUCTION + PRODUCTION
-  	     MUL -> PRODUCTION * PRODUCTION
-  	     PRODUCTION -> number | SUM | MUL
+           MUL -> PRODUCTION * PRODUCTION
+           PRODUCTION -> number | SUM | MUL
   开始： PRODUCTION
 ```
 
@@ -383,7 +383,7 @@ ADD的FIRST集为`+`
 
 第二步计算FOLLOW集，SUM的FOLLOW集为： `$,+`
 
-ADD的FOLLOW集为	`$`
+ADD的FOLLOW集为    `$`
 
 最开始的时候，有一个队列，其中包含一个开始的符号`SUM`
 

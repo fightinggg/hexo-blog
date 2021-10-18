@@ -57,10 +57,10 @@ updated: 2020-12-06 00:00:00
 
 ```sh
 docker run -it --rm \
-	-v "$(pwd)":/usr/src/mymaven \
-	-w /usr/src/mymaven \
-	maven:3.3-jdk-8 \
-	mvn clean install
+    -v "$(pwd)":/usr/src/mymaven \
+    -w /usr/src/mymaven \
+    maven:3.3-jdk-8 \
+    mvn clean install
 ```
 
 ```sh

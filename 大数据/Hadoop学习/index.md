@@ -144,9 +144,9 @@ ENV YARN_NODEMANAGER_USER root
 
 RUN \
 sed '1 iexport JAVA_HOME=/usr/local/jdk-16' \
-	-i $HADOOP_HOME/etc/hadoop/hadoop-env.sh; \
+    -i $HADOOP_HOME/etc/hadoop/hadoop-env.sh; \
 sed '1 iexport HADOOP_HOME=/usr/local/hadoop-3.3.0' \
-	-i $HADOOP_HOME/etc/hadoop/hadoop-env.sh;
+    -i $HADOOP_HOME/etc/hadoop/hadoop-env.sh;
 COPY core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml
 COPY mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml
 COPY yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml
@@ -280,7 +280,7 @@ NameNode将内存数据持久化到磁盘中，分为fsimage和edits两个文件
 
 ```xml
 <property>
-	<name>dfs.namenode.name.dir</name>
+    <name>dfs.namenode.name.dir</name>
     <value>file:///xxx,file:///xxx</value>
 </property>
 ```

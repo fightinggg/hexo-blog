@@ -42,12 +42,12 @@ public class MyInterceptor implements HandlerInterceptor {
 MultipartResolver
 ```xml
 <bean id="multipartResolver"
-	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<!--上传文件的最大大小，单位为字节 --> 
-	<property name="maxUploadSize" value="17367648787"></property>
-	 
-	<!-- 上传文件的编码 -->
-	<property name="defaultEncoding" value="UTF-8"></property>
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <!--上传文件的最大大小，单位为字节 --> 
+    <property name="maxUploadSize" value="17367648787"></property>
+     
+    <!-- 上传文件的编码 -->
+    <property name="defaultEncoding" value="UTF-8"></property>
 </bean>
 ```
 

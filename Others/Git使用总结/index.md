@@ -50,8 +50,8 @@ No commits yet
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	a.txt
-	b.txt
+    a.txt
+    b.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
@@ -73,12 +73,12 @@ No commits yet
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-	new file:   a.txt
+    new file:   a.txt
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	b.txt
+    b.txt
 
 ```
 
@@ -233,7 +233,7 @@ echo "hellp" >> a.txtgit status
  我们看到了git提示有文件被修改了
 
 ```
-On branch masterChanges not staged for commit:  (use "git add <file>..." to update what will be committed)  (use "git checkout -- <file>..." to discard changes in working directory)	modified:   a.txtno changes added to commit (use "git add" and/or "git commit -a")
+On branch masterChanges not staged for commit:  (use "git add <file>..." to update what will be committed)  (use "git checkout -- <file>..." to discard changes in working directory)    modified:   a.txtno changes added to commit (use "git add" and/or "git commit -a")
 ```
 
  将它提交
@@ -259,13 +259,13 @@ echo "b" >> b.txtgit commit --amend
  我们发现我们进入到了vim中
 
 ```
-modified a.txt# Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.## Date:      Sun Mar 29 16:57:43 2020 +0800## On branch master# Changes to be committed:#	modified:   a.txt## Changes not staged for commit:#	modified:   b.txt#
+modified a.txt# Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.## Date:      Sun Mar 29 16:57:43 2020 +0800## On branch master# Changes to be committed:#    modified:   a.txt## Changes not staged for commit:#    modified:   b.txt#
 ```
 
  我们将它修改为
 
 ```
-modified a.txt b.txt# Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.## Date:      Sun Mar 29 16:57:43 2020 +0800## On branch master# Changes to be committed:#	modified:   a.txt## Changes not staged for commit:#	modified:   b.txt#
+modified a.txt b.txt# Please enter the commit message for your changes. Lines starting# with '#' will be ignored, and an empty message aborts the commit.## Date:      Sun Mar 29 16:57:43 2020 +0800## On branch master# Changes to be committed:#    modified:   a.txt## Changes not staged for commit:#    modified:   b.txt#
 ```
 
  最后再次查看log
@@ -297,7 +297,7 @@ git status
  看到了如下的输出
 
 ```
-On branch masterChanges not staged for commit:  (use "git add/rm <file>..." to update what will be committed)  (use "git checkout -- <file>..." to discard changes in working directory)	deleted:    a.txt	deleted:    a2.txt	deleted:    a3.txt	deleted:    a4.txt	deleted:    a5.txt	deleted:    b.txtno changes added to commit (use "git add" and/or "git commit -a")
+On branch masterChanges not staged for commit:  (use "git add/rm <file>..." to update what will be committed)  (use "git checkout -- <file>..." to discard changes in working directory)    deleted:    a.txt    deleted:    a2.txt    deleted:    a3.txt    deleted:    a4.txt    deleted:    a5.txt    deleted:    b.txtno changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 <!---more-->
@@ -310,7 +310,7 @@ git checkout
   看到了这些输出,他说我们删了很多东西，其实和git status的一样
 
 ```
-D	a.txtD	a2.txtD	a3.txtD	a4.txtD	a5.txtD	b.txt
+D    a.txtD    a2.txtD    a3.txtD    a4.txtD    a5.txtD    b.txt
 ```
 
  从暂存区恢复指定文件
@@ -334,7 +334,7 @@ git checkout -- .ls
  看到了输出,终于我们的文件全部恢复，
 
 ```
-a.txt	a2.txt	a3.txt	a4.txt	a5.txt	b.txt
+a.txt    a2.txt    a3.txt    a4.txt    a5.txt    b.txt
 ```
 
  恢复更老的版本？使用reset将暂存区的文件修改为版本913bc886088dabee0af5b06351450cad60102c23的a.txt
@@ -346,7 +346,7 @@ git reset 913bc886088dabee0af5b06351450cad60102c23 a.txtgit status
  我们注意下面的输出,有两条提示，第一条说改变没有被提交，是因为暂存区和版本区的文件不一致，第二条说修改没有储存到暂存区，这是因为工作区和暂存区的文件不一致造成的。
 
 ```
-On branch masterChanges to be committed:  (use "git reset HEAD <file>..." to unstage)	modified:   a.txtChanges not staged for commit:  (use "git add <file>..." to update what will be committed)  (use "git checkout -- <file>..." to discard changes in working directory)	modified:   a.txt
+On branch masterChanges to be committed:  (use "git reset HEAD <file>..." to unstage)    modified:   a.txtChanges not staged for commit:  (use "git add <file>..." to update what will be committed)  (use "git checkout -- <file>..." to discard changes in working directory)    modified:   a.txt
 ```
 
  这时候我们就可以使用checkout将暂存区的文件拿出来放到工作区，
@@ -358,7 +358,7 @@ git checkout -- a.txtcat a.txtgit status
  我们发现a.txt已经恢复到初始的版本的了。我们查看状态发现工作区和暂存区的差异已经消失了，这就已经达到了恢复文件的目的。
 
 ```
-On branch masterChanges to be committed:  (use "git reset HEAD <file>..." to unstage)	modified:   a.txt
+On branch masterChanges to be committed:  (use "git reset HEAD <file>..." to unstage)    modified:   a.txt
 ```
 
 # git删除
@@ -543,7 +543,7 @@ git remote add unimportant git@github.com:fightinggg/unimportant.gitgit remote -
  看到了输出
 
 ```
-unimportant	git@github.com:fightinggg/unimportant.git (fetch)unimportant	git@github.com:fightinggg/unimportant.git (push)
+unimportant    git@github.com:fightinggg/unimportant.git (fetch)unimportant    git@github.com:fightinggg/unimportant.git (push)
 ```
 
  推入
@@ -589,10 +589,10 @@ git push ssh://root@<IP>/wsx.com.git master
 
 ```sh
 docker run -it --rm \
-	-v ${HOME}:/root \
-	-v $(pwd):/git \
-	alpine/git \
-	clone https://github.com/alpine-docker/git.git
+    -v ${HOME}:/root \
+    -v $(pwd):/git \
+    alpine/git \
+    clone https://github.com/alpine-docker/git.git
 ```
 
 # 源码安装

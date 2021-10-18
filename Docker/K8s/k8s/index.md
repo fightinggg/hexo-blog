@@ -173,18 +173,18 @@ javaApp=xxxx
 
 echo -e "===get code==="
 docker run -i --rm \
-	-v ${HOME}:/root \
-	-v $(pwd)/src:/git \
-	alpine/git \
-	clone $gitPath .
+    -v ${HOME}:/root \
+    -v $(pwd)/src:/git \
+    alpine/git \
+    clone $gitPath .
 pwd
 echo $girBranch
 docker run -i --rm \
-	-v ${HOME}:/root \
-	-v $(pwd)/src:/git \
-	alpine/git \
-	checkout $girBranch 
-	
+    -v ${HOME}:/root \
+    -v $(pwd)/src:/git \
+    alpine/git \
+    checkout $girBranch 
+    
 
 echo -e "===build target==="
 mkdir .m2
@@ -202,12 +202,12 @@ cat>.m2/settings.xml<<EOF
 EOF
 docker volume create --name $mavenCacheVolume
 docker run -i --rm \
-	-v $(pwd)/src:/usr/src/mymaven \
-	-v $mavenCacheVolume:/root/.m2/repository \
-	-v $(pwd)/.m2/settings.xml:/root/.m2/settings.xml \
-	-w /usr/src/mymaven \
-	$mavenImage \
-	mvn package -Dmaven.test.skip=true
+    -v $(pwd)/src:/usr/src/mymaven \
+    -v $mavenCacheVolume:/root/.m2/repository \
+    -v $(pwd)/.m2/settings.xml:/root/.m2/settings.xml \
+    -w /usr/src/mymaven \
+    $mavenImage \
+    mvn package -Dmaven.test.skip=true
 
 echo -e "===move jar==="
 mkdir image

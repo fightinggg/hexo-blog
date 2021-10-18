@@ -39,58 +39,58 @@ const int maxn = 1e5 + 100;
 double a[maxn],b[maxn],at[maxn],bt[maxn],apreSum[maxn], bpreSum[maxn];
 int n, m, t, k;
 void initQ() {
-	int cnt = 1;
-	while (cnt <= t) {
-		double cura = ap.top();
-		ap.pop();
-		ap.push(cura * 0.6);
-		at[cnt] = cura;
-		apreSum[cnt] = apreSum[cnt - 1] + at[cnt];
+    int cnt = 1;
+    while (cnt <= t) {
+        double cura = ap.top();
+        ap.pop();
+        ap.push(cura * 0.6);
+        at[cnt] = cura;
+        apreSum[cnt] = apreSum[cnt - 1] + at[cnt];
 
 
-		double curb = bp.top();
-		bp.pop();
-		bp.push(curb * 0.6);
-		bt[cnt] = curb;
-		bpreSum[cnt] = bpreSum[cnt - 1] + bt[cnt];
-		cnt++;
-	}
+        double curb = bp.top();
+        bp.pop();
+        bp.push(curb * 0.6);
+        bt[cnt] = curb;
+        bpreSum[cnt] = bpreSum[cnt - 1] + bt[cnt];
+        cnt++;
+    }
 
 }
 void show() {
-	for (int i = 1; i <= t; i++) {
-		cout << at[i] << " " << bt[i] << endl;
-	}
-	for (int i = 1; i <= t; i++) {
-		cout << apreSum[i] << " " << bpreSum[i] << endl;
-	}
+    for (int i = 1; i <= t; i++) {
+        cout << at[i] << " " << bt[i] << endl;
+    }
+    for (int i = 1; i <= t; i++) {
+        cout << apreSum[i] << " " << bpreSum[i] << endl;
+    }
 }
 void solve() {
-	double ans = 0.0;
-	for (int x = 0; x <= t; x++) {
-		int y2 = t - x;
-		int y1 = y2;
-		if (x < k) {
-			y1 -= (k-x);
-		}
-		double curAns = apreSum[x] + bpreSum[y1] + (0.8 * (bpreSum[y2] - bpreSum[y1]));
-		ans = max(ans, curAns);
-	}
-	printf("%.2lf", ans);
+    double ans = 0.0;
+    for (int x = 0; x <= t; x++) {
+        int y2 = t - x;
+        int y1 = y2;
+        if (x < k) {
+            y1 -= (k-x);
+        }
+        double curAns = apreSum[x] + bpreSum[y1] + (0.8 * (bpreSum[y2] - bpreSum[y1]));
+        ans = max(ans, curAns);
+    }
+    printf("%.2lf", ans);
 }
 int main() {
-	scanf("%d%d%d%d", &n, &m, &t, &k);
-	for (int i = 1; i <= n; i++) {
-		scanf("%lf", &a[i]);
-		ap.push(a[i]);
-	}
+    scanf("%d%d%d%d", &n, &m, &t, &k);
+    for (int i = 1; i <= n; i++) {
+        scanf("%lf", &a[i]);
+        ap.push(a[i]);
+    }
 
-	for (int i = 1; i <= m; i++) {
-		scanf("%lf", &b[i]);
-		bp.push(b[i]);
-	}
-	initQ();
-	solve();
+    for (int i = 1; i <= m; i++) {
+        scanf("%lf", &b[i]);
+        bp.push(b[i]);
+    }
+    initQ();
+    solve();
 }
 ```
 

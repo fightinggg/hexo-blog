@@ -13,26 +13,26 @@ SpringBoot已经默认将这些常见配置好了，我们只需要在配置文�
 ### WebMvcAutoConfiguration
 打开WebMvcAutoConfiguration.java
 ```java
-		@Override
-		public void addResourceHandlers(ResourceHandlerRegistry registry) {
-			if (!this.resourceProperties.isAddMappings()) {
-				logger.debug("Default resource handling disabled");
-				return;
-			}
-			Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
-			CacheControl cacheControl = this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();
-			if (!registry.hasMappingForPattern("/webjars/**")) {
-				customizeResourceHandlerRegistration(registry.addResourceHandler("/webjars/**")
-						.addResourceLocations("classpath:/META-INF/resources/webjars/")
-						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
-			}
-			String staticPathPattern = this.mvcProperties.getStaticPathPattern();
-			if (!registry.hasMappingForPattern(staticPathPattern)) {
-				customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)
-						.addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))
-						.setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
-			}
-		}
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            if (!this.resourceProperties.isAddMappings()) {
+                logger.debug("Default resource handling disabled");
+                return;
+            }
+            Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
+            CacheControl cacheControl = this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();
+            if (!registry.hasMappingForPattern("/webjars/**")) {
+                customizeResourceHandlerRegistration(registry.addResourceHandler("/webjars/**")
+                        .addResourceLocations("classpath:/META-INF/resources/webjars/")
+                        .setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
+            }
+            String staticPathPattern = this.mvcProperties.getStaticPathPattern();
+            if (!registry.hasMappingForPattern(staticPathPattern)) {
+                customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)
+                        .addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations()))
+                        .setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
+            }
+        }
 ```
 <!-- more -->
 ### 配置jquery
@@ -56,29 +56,29 @@ public class ResourceProperties {
 还会在下面的路径中找(静态资源的文件夹)
 比方说你要访问一个localhost:8080/myjs.js,如果找不到的话，就在下面的文件夹中寻找
 ```java
-	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = { "classpath:/META-INF/resources/",
-			"classpath:/resources/", "classpath:/static/", "classpath:/public/" };
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = { "classpath:/META-INF/resources/",
+            "classpath:/resources/", "classpath:/static/", "classpath:/public/" };
 ```
 ### 欢迎界面
 欢迎页面, 静态资源文件夹的/index.html, 见下面的代码
 ```java
-		@Bean
-		public WelcomePageHandlerMapping welcomePageHandlerMapping(ApplicationContext applicationContext,
-				FormattingConversionService mvcConversionService, ResourceUrlProvider mvcResourceUrlProvider) {
-			WelcomePageHandlerMapping welcomePageHandlerMapping = new WelcomePageHandlerMapping(
-					new TemplateAvailabilityProviders(applicationContext), applicationContext, getWelcomePage(),
-					this.mvcProperties.getStaticPathPattern());
-			welcomePageHandlerMapping.setInterceptors(getInterceptors(mvcConversionService, mvcResourceUrlProvider));
-			return welcomePageHandlerMapping;
-		}
-    		private Optional<Resource> getWelcomePage() {
-			String[] locations = getResourceLocations(this.resourceProperties.getStaticLocations());
-			return Arrays.stream(locations).map(this::getIndexHtml).filter(this::isReadable).findFirst();
-		}
+        @Bean
+        public WelcomePageHandlerMapping welcomePageHandlerMapping(ApplicationContext applicationContext,
+                FormattingConversionService mvcConversionService, ResourceUrlProvider mvcResourceUrlProvider) {
+            WelcomePageHandlerMapping welcomePageHandlerMapping = new WelcomePageHandlerMapping(
+                    new TemplateAvailabilityProviders(applicationContext), applicationContext, getWelcomePage(),
+                    this.mvcProperties.getStaticPathPattern());
+            welcomePageHandlerMapping.setInterceptors(getInterceptors(mvcConversionService, mvcResourceUrlProvider));
+            return welcomePageHandlerMapping;
+        }
+            private Optional<Resource> getWelcomePage() {
+            String[] locations = getResourceLocations(this.resourceProperties.getStaticLocations());
+            return Arrays.stream(locations).map(this::getIndexHtml).filter(this::isReadable).findFirst();
+        }
 
-		private Resource getIndexHtml(String location) {
-			return this.resourceLoader.getResource(location + "index.html");
-		}
+        private Resource getIndexHtml(String location) {
+            return this.resourceLoader.getResource(location + "index.html");
+        }
 ```
 ### 图标
 配置自己的favicon.ico

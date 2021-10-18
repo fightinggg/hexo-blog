@@ -84,8 +84,8 @@ package main
 import "fmt"
 
 func main() {
-	var a int // 定义一个整形
-	fmt.Println(a)
+    var a int // 定义一个整形
+    fmt.Println(a)
 }
 
 ```
@@ -102,17 +102,17 @@ package main
 import "fmt"
 
 func main() {
-	var a int // 定义一个整形
-	fmt.Println(a)
+    var a int // 定义一个整形
+    fmt.Println(a)
 
-	var b int = 1 // 定义并赋值
-	fmt.Println(b)
+    var b int = 1 // 定义并赋值
+    fmt.Println(b)
 
-	var c = 2 // 编译器自动推导
-	fmt.Println(c)
+    var c = 2 // 编译器自动推导
+    fmt.Println(c)
 
-	d := 3 // 精简写法
-	fmt.Println(d)
+    d := 3 // 精简写法
+    fmt.Println(d)
 }
 
 ```
@@ -125,12 +125,12 @@ package main
 import "fmt"
 
 func main() {
-	a := 1
-	b := 2
-	a, b = b, a
-	c, _ := a, b
-	_, d := a, b
-	fmt.Println(a, b, c, d)
+    a := 1
+    b := 2
+    a, b = b, a
+    c, _ := a, b
+    _, d := a, b
+    fmt.Println(a, b, c, d)
 }
 
 ```
@@ -157,9 +157,9 @@ package main
 import "fmt"
 
 func main() {
-	var a float32 = 1.5
-	var b float64 = 1.5
-	fmt.Println(a, b)
+    var a float32 = 1.5
+    var b float64 = 1.5
+    fmt.Println(a, b)
 }
 
 ```
@@ -172,8 +172,8 @@ package main
 import "fmt"
 
 func main() {
-	var a bool = true
-	fmt.Println(a)
+    var a bool = true
+    fmt.Println(a)
 }
 
 ```
@@ -186,8 +186,8 @@ package main
 import "fmt"
 
 func main() {
-	var a string = "123"
-	fmt.Println(a)
+    var a string = "123"
+    fmt.Println(a)
 }
 
 ```
@@ -200,11 +200,11 @@ package main
 import "fmt"
 
 func main() {
-	var a string = `  123你好
-	abcsdaf
+    var a string = `  123你好
+    abcsdaf
 aslfnskflasjlfjoiwn
-	`
-	fmt.Println(a)
+    `
+    fmt.Println(a)
 }
 
 ```
@@ -222,23 +222,23 @@ import "fmt"
 
 func main() {
 
-	// 类似与C的while
-	a := 1
-	for a <= 3 {
-		fmt.Println(a)
-		a++
-	}
+    // 类似与C的while
+    a := 1
+    for a <= 3 {
+        fmt.Println(a)
+        a++
+    }
 
-	// 类似与C的while(true)
-	for {
-		fmt.Println("break")
-		break
-	}
+    // 类似与C的while(true)
+    for {
+        fmt.Println("break")
+        break
+    }
 
-	// 类似于C的for
-	for i := 0; i < 3; i++ {
-		fmt.Println("hello")
-	}
+    // 类似于C的for
+    for i := 0; i < 3; i++ {
+        fmt.Println("hello")
+    }
 
 }
 
@@ -255,11 +255,11 @@ import "fmt"
 
 func main() {
 
-	if 1+1 == 2 {
-		fmt.Println("1+1=2")
-	} else {
-		fmt.Println("1+1!=2")
-	}
+    if 1+1 == 2 {
+        fmt.Println("1+1=2")
+    } else {
+        fmt.Println("1+1!=2")
+    }
 
 }
 
@@ -278,14 +278,14 @@ import "fmt"
 
 func main() {
 
-	switch 3 {
-	case 3:
-		fmt.Println(3)
-	case 2:
-		fmt.Println(2)
-	case 1:
-		fmt.Println(1)
-	}
+    switch 3 {
+    case 3:
+        fmt.Println(3)
+    case 2:
+        fmt.Println(2)
+    case 1:
+        fmt.Println(1)
+    }
 
 }
 
@@ -305,14 +305,14 @@ package main
 import "fmt"
 
 func main() {
-	mp := make(map[string]int)
-	mp["k1"] = 1
-	mp["k2"] = 2
-	fmt.Println(mp)
+    mp := make(map[string]int)
+    mp["k1"] = 1
+    mp["k2"] = 2
+    fmt.Println(mp)
 
-	delete(mp,"k1")
-	fmt.Println(mp)
-	
+    delete(mp,"k1")
+    fmt.Println(mp)
+    
 }
 
 ```
@@ -327,13 +327,13 @@ package main
 import "fmt"
 
 func main() {
-	var arr1 []int = make([]int, 3)
-	arr1[0] = 1
+    var arr1 []int = make([]int, 3)
+    arr1[0] = 1
 
-	arr2 := [3]int{1, 2}
-	arr3 := [...]int{1, 2}
+    arr2 := [3]int{1, 2}
+    arr3 := [...]int{1, 2}
 
-	fmt.Println(arr1, arr2, arr3)
+    fmt.Println(arr1, arr2, arr3)
 }
 // [1 0 0] [1 2 0] [1 2]
 
@@ -351,13 +351,13 @@ package main
 import "fmt"
 
 func main() {
-	var arr1 []int = make([]int, 3) // 数组
+    var arr1 []int = make([]int, 3) // 数组
 
-	slice1 := arr1[1:2]
-	slice2 := []int{1, 2, 3}
-	slice3 := make([]int, 3)
+    slice1 := arr1[1:2]
+    slice2 := []int{1, 2, 3}
+    slice3 := make([]int, 3)
 
-	fmt.Println(slice1, slice2, slice3)
+    fmt.Println(slice1, slice2, slice3)
 }
 
 // [0] [1 2 3] [0 0 0]
@@ -374,14 +374,14 @@ package main
 import "fmt"
 
 func main() {
-	arr1 := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+    arr1 := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 
-	slice1 := arr1[2:5]
-	slice2 := arr1[3:6]
+    slice1 := arr1[2:5]
+    slice2 := arr1[3:6]
 
-	fmt.Println(slice1, slice2)
-	arr1[4]=0
-	fmt.Println(slice1, slice2)
+    fmt.Println(slice1, slice2)
+    arr1[4]=0
+    fmt.Println(slice1, slice2)
 }
 
 // [2 3 4] [3 4 5]
@@ -400,15 +400,15 @@ func main() {
 package main
 
 import (
-	"container/list"
-	"fmt"
+    "container/list"
+    "fmt"
 )
 
 func main() {
-	ls := list.New()
-	ls.PushBack(1)
-	ls.PushBack(2)
-	fmt.Println(ls)
+    ls := list.New()
+    ls.PushBack(1)
+    ls.PushBack(2)
+    fmt.Println(ls)
 }
 
 ```
@@ -423,13 +423,13 @@ package main
 import "fmt"
 
 func plus(a int, b int) int {
-	return a + b
+    return a + b
 }
 
 func main() {
-	a := 1
-	b := 1
-	fmt.Println(plus(a, b))
+    a := 1
+    b := 1
+    fmt.Println(plus(a, b))
 }
 
 ```
@@ -442,13 +442,13 @@ package main
 import "fmt"
 
 func swap(a int, b int) (int, int) {
-	return b, a
+    return b, a
 }
 
 func main() {
-	a := 1
-	b := 2
-	fmt.Println(swap(a, b))
+    a := 1
+    b := 2
+    fmt.Println(swap(a, b))
 }
 
 ```
@@ -461,18 +461,18 @@ package main
 import "fmt"
 
 func sum(a ...int) int {
-	s := 0
-	for i := 0; i < len(a); i++ {
-		s += a[i]
-	}
-	return s
+    s := 0
+    for i := 0; i < len(a); i++ {
+        s += a[i]
+    }
+    return s
 }
 
 func main() {
-	fmt.Println(sum(1, 2, 3))
+    fmt.Println(sum(1, 2, 3))
 
-	nums := []int{1, 2, 3, 4}
-	fmt.Println(sum(nums...))
+    nums := []int{1, 2, 3, 4}
+    fmt.Println(sum(nums...))
 }
 
 ```
@@ -485,19 +485,19 @@ package main
 import "fmt"
 
 func increase() func() int {
-	i := 0
-	return func() int {
-		i++
-		return i
-	}
+    i := 0
+    return func() int {
+        i++
+        return i
+    }
 }
 
 func main() {
-	fun := increase()
-	fmt.Println(fun())
-	fmt.Println(fun())
-	fmt.Println(fun())
-	fmt.Println(fun())
+    fun := increase()
+    fmt.Println(fun())
+    fmt.Println(fun())
+    fmt.Println(fun())
+    fmt.Println(fun())
 
 }
 ```
@@ -524,8 +524,8 @@ type <类型名> struct {
 
 ```go
 type Point struct {
-	X int32
-	Y int32
+    X int32
+    Y int32
 }
 ```
 
@@ -537,15 +537,15 @@ package main
 import "fmt"
 
 type Point struct {
-	X int32
-	Y int32
+    X int32
+    Y int32
 }
 
 func main() {
-	var p Point
-	p.X = 1
-	p.Y = 2
-	fmt.Println(p.X, p.Y)
+    var p Point
+    p.X = 1
+    p.Y = 2
+    fmt.Println(p.X, p.Y)
 }
 
 ```
@@ -558,13 +558,13 @@ package main
 import "fmt"
 
 type Point struct {
-	X int32
-	Y int32
+    X int32
+    Y int32
 }
 
 func main() {
-	p2 := new(Point)
-	fmt.Println(p2)
+    p2 := new(Point)
+    fmt.Println(p2)
 }
 
 ```
@@ -581,21 +581,21 @@ package main
 import "fmt"
 
 type Point struct {
-	X int32
-	Y int32
+    X int32
+    Y int32
 }
 
 func (p *Point) getAndSet(X int32, Y int32) (int32, int32) {
-	p.X, X = X, p.X // swap
-	p.Y, Y = Y, p.Y // swap
-	return X, Y
+    p.X, X = X, p.X // swap
+    p.Y, Y = Y, p.Y // swap
+    return X, Y
 }
 
 func main() {
-	p := new(Point)
-	p.X, p.Y = 1, 2
-	fmt.Println(p.getAndSet(3, 4))
-	fmt.Println(p.X, p.Y)
+    p := new(Point)
+    p.X, p.Y = 1, 2
+    fmt.Println(p.getAndSet(3, 4))
+    fmt.Println(p.X, p.Y)
 }
 
 
@@ -611,19 +611,19 @@ package main
 import "reflect"
 
 type Point struct {
-	X int `name:"XXX" X:"你好"`
-	Y int `name:"YYY"`
+    X int `name:"XXX" X:"你好"`
+    Y int `name:"YYY"`
 }
 
 func main() {
-	p := &Point{
-		X: 1,
-		Y: 2,
-	}
+    p := &Point{
+        X: 1,
+        Y: 2,
+    }
 
-	field, _ := reflect.TypeOf(*p).FieldByName("X")
+    field, _ := reflect.TypeOf(*p).FieldByName("X")
 
-	println(field.Tag)
+    println(field.Tag)
 }
 // 输出:
 // name:"XXX" X:"你好"asdf
@@ -652,27 +652,27 @@ package main
 import "fmt"
 
 type Point struct {
-	X int32
-	Y int32
+    X int32
+    Y int32
 }
 
 type GetAndSet interface {
-	invoke(X int32, Y int32) (int32, int32)
+    invoke(X int32, Y int32) (int32, int32)
 }
 
 func (p *Point) invoke(X int32, Y int32) (int32, int32) {
-	p.X, X = X, p.X // swap
-	p.Y, Y = Y, p.Y // swap
-	return X, Y
+    p.X, X = X, p.X // swap
+    p.Y, Y = Y, p.Y // swap
+    return X, Y
 }
 
 func main() {
-	p := new(Point)
-	p.X, p.Y = 1, 2
+    p := new(Point)
+    p.X, p.Y = 1, 2
 
-	var it GetAndSet = p
-	fmt.Println(it.invoke(3, 4))
-	fmt.Println(p.X, p.Y)
+    var it GetAndSet = p
+    fmt.Println(it.invoke(3, 4))
+    fmt.Println(p.X, p.Y)
 }
 
 ```
@@ -705,11 +705,11 @@ func main() {
 package mylib
 
 func Add(a, b int32) int32 {
-	return a + b
+    return a + b
 }
 
 func add(a, b int32) int32 {
-	return a + b
+    return a + b
 }
 
 ```
@@ -722,13 +722,13 @@ func add(a, b int32) int32 {
 package main
 
 import (
-	"fmt"
-	"go-study/mylib"
+    "fmt"
+    "go-study/mylib"
 )
 
 func main() {
-	var a, b int32 = 1, 2
-	fmt.Println(mylib.Add(a, b))
+    var a, b int32 = 1, 2
+    fmt.Println(mylib.Add(a, b))
 }
 
 ```
@@ -741,13 +741,13 @@ func main() {
 package main
 
 import (
-	"fmt"
-	lb "go-study/mylib"
+    "fmt"
+    lb "go-study/mylib"
 )
 
 func main() {
-	var a, b int32 = 1, 2
-	fmt.Println(lb.Add(a, b))
+    var a, b int32 = 1, 2
+    fmt.Println(lb.Add(a, b))
 }
 ```
 
@@ -763,15 +763,15 @@ package mylib
 import "fmt"
 
 func Add(a, b int32) int32 {
-	return a + b
+    return a + b
 }
 
 func add(a, b int32) int32 {
-	return a + b
+    return a + b
 }
 
 func init(){
-	fmt.Println("hi")
+    fmt.Println("hi")
 }
 ```
 
@@ -779,17 +779,17 @@ func init(){
 package main
 
 import (
-	"fmt"
-	lb "go-study/mylib"
+    "fmt"
+    lb "go-study/mylib"
 )
 
 func init() {
-	fmt.Println("hi main")
+    fmt.Println("hi main")
 }
 
 func main() {
-	var a, b int32 = 1, 2
-	fmt.Println(lb.Add(a, b))
+    var a, b int32 = 1, 2
+    fmt.Println(lb.Add(a, b))
 }
 
 ```
@@ -806,14 +806,14 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"reflect"
+    "fmt"
+    "reflect"
 )
 
 func main() {
-	a := 1
-	ta := reflect.TypeOf(a)
-	fmt.Println(ta.Bits(), ta.Name(), ta.Kind())
+    a := 1
+    ta := reflect.TypeOf(a)
+    fmt.Println(ta.Bits(), ta.Name(), ta.Kind())
 }
 
 ```
@@ -824,18 +824,18 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"reflect"
+    "fmt"
+    "reflect"
 )
 
 type Point struct {
-	X, Y int32
+    X, Y int32
 }
 
 func main() {
-	var a = Point{}
-	ta := reflect.TypeOf(a)
-	fmt.Println(ta.Name(), ta.Kind())
+    var a = Point{}
+    ta := reflect.TypeOf(a)
+    fmt.Println(ta.Name(), ta.Kind())
 }
 
 ```
@@ -848,18 +848,18 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"reflect"
+    "fmt"
+    "reflect"
 )
 
 type Point struct {
-	X, Y int32
+    X, Y int32
 }
 
 func main() {
-	var a = Point{}
-	ta := reflect.ValueOf(a)
-	fmt.Println(ta.FieldByName("X"))
+    var a = Point{}
+    ta := reflect.ValueOf(a)
+    fmt.Println(ta.FieldByName("X"))
 }
 
 
@@ -877,24 +877,24 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func running() {
-	times := 1
-	for {
-		fmt.Println("tick", times)
-		times++
-		time.Sleep(time.Second)
-	}
+    times := 1
+    for {
+        fmt.Println("tick", times)
+        times++
+        time.Sleep(time.Second)
+    }
 }
 
 func main() {
-	go running()
-	for {
-		time.Sleep(time.Second)
-	}
+    go running()
+    for {
+        time.Sleep(time.Second)
+    }
 }
 
 ```
@@ -909,31 +909,31 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	ch := make(chan interface{})
+    ch := make(chan interface{})
 
-	go func() {
-		ch <- 0
-		fmt.Println("send: 0")
-		ch <- "hello"
-		fmt.Println("send: hello")
-	}()
+    go func() {
+        ch <- 0
+        fmt.Println("send: 0")
+        ch <- "hello"
+        fmt.Println("send: hello")
+    }()
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 
-	data := <-ch
-	fmt.Println("recv: ", data)
+    data := <-ch
+    fmt.Println("recv: ", data)
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 
-	data = <-ch
-	fmt.Println("recv: ", data)
+    data = <-ch
+    fmt.Println("recv: ", data)
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 }
 ```
 
@@ -943,30 +943,30 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	ch := make(chan interface{})
+    ch := make(chan interface{})
 
-	go func() {
-		ch <- 0
-		fmt.Println("send: 0")
-		ch <- "hello"
-		fmt.Println("send: hello")
-		ch <- "break"
-		fmt.Println("send: break")
-	}()
+    go func() {
+        ch <- 0
+        fmt.Println("send: 0")
+        ch <- "hello"
+        fmt.Println("send: hello")
+        ch <- "break"
+        fmt.Println("send: break")
+    }()
 
-	for data := range ch {
-		fmt.Println("recv:", data)
-		if data == "break" {
-			break
-		}
-	}
+    for data := range ch {
+        fmt.Println("recv:", data)
+        if data == "break" {
+            break
+        }
+    }
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 }
 
 
@@ -978,24 +978,24 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	ch := make(chan interface{})
+    ch := make(chan interface{})
 
-	var send chan<- interface{} = ch
-	var recv <-chan interface{} = ch
+    var send chan<- interface{} = ch
+    var recv <-chan interface{} = ch
 
-	go func() {
-		send <- 0
-	}()
+    go func() {
+        send <- 0
+    }()
 
-	data := <-recv
-	fmt.Println("recv:", data)
+    data := <-recv
+    fmt.Println("recv:", data)
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 }
 
 ```
@@ -1014,32 +1014,32 @@ ch := make(chan interface{}, 10)
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	ch1 := make(chan interface{})
-	ch2 := make(chan interface{})
+    ch1 := make(chan interface{})
+    ch2 := make(chan interface{})
 
-	go func() {
-		ch1 <- 1
-	}()
+    go func() {
+        ch1 <- 1
+    }()
 
-	go func() {
-		ch2 <- 2
-	}()
+    go func() {
+        ch2 <- 2
+    }()
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 
-	select {
-	case data := <-ch1:
-		fmt.Println("recv from ch1: ", data)
-	case data := <-ch2:
-		fmt.Println("recv from ch2: ", data)
-	}
+    select {
+    case data := <-ch1:
+        fmt.Println("recv from ch1: ", data)
+    case data := <-ch2:
+        fmt.Println("recv from ch2: ", data)
+    }
 
-	time.Sleep(time.Second)
+    time.Sleep(time.Second)
 }
 
 ```

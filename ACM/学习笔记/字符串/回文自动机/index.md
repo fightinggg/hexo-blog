@@ -58,7 +58,7 @@ struct palindrome_tree{
     void extend(char*s,int cur){
         int w=s[cur]-'a';//当前结点的值
         int p=last;//上一次匹配到的回文后缀
-	while( cur-len[p]-1<1 || s[cur-len[p]-1] != s[cur]) p=suf[p]; // BUG 数组越界
+    while( cur-len[p]-1<1 || s[cur-len[p]-1] != s[cur]) p=suf[p]; // BUG 数组越界
         //现在p结点的cur儿子,要么是匹配成功的最长非自身回文后缀,要么是自身这一个字符
         
         if(!trans[p][w]){//如果此回文后缀未出现过，要创建节点
