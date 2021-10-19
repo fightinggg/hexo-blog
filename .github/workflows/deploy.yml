@@ -78,14 +78,15 @@ jobs:
       - name: Gen
         run: |
           cd .deploy/hexo-next
-          npm run g
+          # npm run g
+          mkdir -p public
           cp -r source/**/*.*g public
           find public
 
       - name: Deploy
         run: |
           cd .deploy/hexo-next
-          npm run d
+          #npm run d
           ls -l
       # - name: Looks for Gitalk
       #   run: cat gitalk/gitalk-init-error.json
