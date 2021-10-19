@@ -80,7 +80,7 @@ jobs:
           cd .deploy/hexo-next
           # npm run g
           mkdir -p public
-          cp -r source/**/*.*g public
+          find source/_posts -name "*.*g" -exec cp {} public \;
           find public
 
       - name: Deploy
