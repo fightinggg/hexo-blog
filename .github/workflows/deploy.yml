@@ -78,5 +78,17 @@ jobs:
           mkdir -p public
           cp -r source/**/*.*g public 
           npm run d
+          
+      - name: Deploy
+        run: |
+          pwd
+          cp -r * .deploy/hexo-next/source/_posts
+          cd .deploy/hexo-next
+          rm source/_posts/SUMMARY.md source/_posts/README.md
+          ls -l
+          npm run g 
+          mkdir -p public
+          cp -r source/**/*.*g public 
+          npm run d
       # - name: Looks for Gitalk
       #   run: cat gitalk/gitalk-init-error.json
