@@ -1,7 +1,6 @@
 ---
 date: 2021-10-14 14:06:00
 updated: 2021-10-14 14:06:00
-typora-root-url: ../../../
 clickbait:
   - Go语言超级简单的Swagger教程
 ---
