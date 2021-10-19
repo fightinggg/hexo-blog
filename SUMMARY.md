@@ -296,6 +296,7 @@
         * [STL源码分析](编程语言/C++/STL源码分析/index.md)
     * [Go](编程语言/Go/index.md)
         * [Go入门-Go语言从入门到进阶实战（视频教学版）](编程语言/Go/Go入门-Go语言从入门到进阶实战（视频教学版）/index.md)
+        * [Go进阶-Beego框架](编程语言/Go/Go进阶-Beego框架/index.md)
         * [Go进阶-协程的本质与CPU的争夺](编程语言/Go/Go进阶-协程的本质与CPU的争夺/index.md)
     * [Java](编程语言/Java/index.md)
         * [Grava](编程语言/Java/Grava/index.md)

@@ -1,6 +1,6 @@
 ---
 date: 2021-10-18 17:34:00
-updated: 2021-10-18 17:34:00
+updated: 2021-10-19 13:49:00
 tags: 读书
 clickbait:
   - 超简单Beego入门
@@ -146,5 +146,95 @@ GOPATH=/Users/s/go #gosetup
 
 
 
+## 2.4. Contorller
+
+### 2.4.1 路由
+
+路由在文件`routers/router.go`中, 在Beego的设计中，路由需要手动添加，即哪个PATH交给哪个Controller来处理。
+
+```go
+package routers
+
+import (
+	"bee-demo/controllers"
+	"github.com/astaxie/beego"
+)
+
+func init() {
+    beego.Router("/", &controllers.MainController{})
+}
+
+```
+
+### 2.4.2. Controller
+
+MainController继承了beego.Controller,所以我们可以复写他的方法，注意到beego.Controller实现了beegoControllerInterface这个接口，里边的方法其实都比较明显了，就是HTTP协议的方法。
+
+```go
+type ControllerInterface interface {
+	Init(ct *context.Context, controllerName, actionName string, app interface{})
+	Prepare()
+	Get()
+	Post()
+	Delete()
+	Put()
+	Head()
+	Patch()
+	Options()
+	Trace()
+	Finish()
+	Render() error
+	XSRFToken() string
+	CheckXSRFCookie() bool
+	HandlerFunc(fn string) bool
+	URLMapping()
+}
+```
 
 
+
+
+
+## 2.4.3. 返回JSON数据的Controller
+
+首先编写一个HelloController,然后把它加入到route中，最后访问/hello，就可以看到输出了。
+
+```go
+package controllers
+
+import (
+	"github.com/astaxie/beego"
+)
+
+type HelloController struct {
+	beego.Controller
+}
+
+type HelloVO struct {
+	Say1 string `json:"say_1"`
+	Say2 int    `json:"say_2"`
+}
+
+func (c *HelloController) Get() {
+	c.Data["json"] = &HelloVO{
+		Say1: "world",
+		Say2: 9527,
+	}
+	c.ServeJSON()
+}
+
+```
+
+
+
+```http
+GET /hello
+{
+  "say_1": "world",
+  "say_2": 9527
+}
+```
+
+
+
+这一块就点到为止了，听说Beego框架不太火，了解了解就好了，笔者也不是文档翻译器，更多更加细节的部分关注[这里](https://www.topgoer.com/beego%E6%A1%86%E6%9E%B6/)
