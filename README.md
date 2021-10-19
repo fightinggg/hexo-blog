@@ -1,7 +1,7 @@
----
-type: README
----
 
-# hexo-blog
 
-Blog for study...
+
+[![](https://img.shields.io/badge/Stable-GitHub%20Pages-YELLOW)](https://fightinggg.github.io)
+
+[![](https://img.shields.io/badge/Test-GitBook%20Pages-YELLOW)](https://fightinggg.github.io)
+[![](https://img.shields.io/badge/Test-CVM%20Pages-YELLOW)](https://fightinggg.github.io)
