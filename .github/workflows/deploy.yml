@@ -73,7 +73,7 @@ jobs:
           cp -r * .deploy/hexo-next/source/_posts
           cd .deploy/hexo-next
           rm source/_posts/SUMMARY.md source/_posts/README.md
-          find .deploy/hexo-next/source
+          find source
 
       - name: Gen
         run: |
