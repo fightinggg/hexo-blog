@@ -61,6 +61,11 @@ function filterPost(log, data) {
 hexo.extend.filter.register('before_post_render', function (data) {
     if (data.layout === 'post') {
         filterPost(this.log, data);
+        if(data.source.startsWith("_posts")){
+            data.source = data.source.substring(7)
+        }else{
+            log.error("error source file, this file not in _post dir ",data.source)
+        }
     }
     return data;
 });

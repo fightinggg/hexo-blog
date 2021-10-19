@@ -180,7 +180,7 @@ tag_icon: true
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: true
-  url: https://github.com/fightinggg/hexo-blog/tree/master/source/ # Link for view source
+  url: https://github.com/fightinggg/hexo-blog/tree/master/ # Link for view source
   #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name # Link for fork & edit
 
 # ---------------------------------------------------------------
