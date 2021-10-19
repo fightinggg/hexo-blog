@@ -73,16 +73,14 @@ jobs:
           cp -r * .deploy/hexo-next/source/_posts
           cd .deploy/hexo-next
           rm source/_posts/SUMMARY.md source/_posts/README.md
-          ls -l
+          find .
 
       - name: Gen
         run: |
           cd .deploy/hexo-next
           npm run g
-          mkdir -p 
-          find source/
           cp -r source/**/*.*g public
-          ls public -l
+          find public
 
       - name: Deploy
         run: |
