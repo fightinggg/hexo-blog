@@ -3,7 +3,7 @@ function parseYaml(blog) {
         i = 3
         while (i < blog.length && (blog.substring(i, i + 5) !== "\n---\n")) i++;
         head = {}
-        console.log(blog.substring(4, i))
+        //console.log(blog.substring(4, i))
         blog.substring(4, i).split("\n").map(o => {
             index = o.indexOf(":")
             return {
