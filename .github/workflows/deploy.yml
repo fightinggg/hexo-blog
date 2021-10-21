@@ -70,7 +70,7 @@ jobs:
 
       - name: Copy Source
         run: |
-          cp -r * .deploy/hexo-next/source/_posts
+          cp -r blog/* .deploy/hexo-next/source/_posts
           cd .deploy/hexo-next
           rm source/_posts/SUMMARY.md source/_posts/README.md
           find source

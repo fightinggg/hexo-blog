@@ -145,11 +145,112 @@ func main() {
 
 # 7. 函数
 
+## 7.1. 可命名结果形参
+
+在Go中，可以在函数上声明返回值变量，在返回的时候只需要一个return即可 
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func f() (value int, info string) {
+	value=1
+	info="hello"
+	return
+}
+
+func main() {
+	fmt.Println(f())
+}
+
+```
+
+
+
+## 7.2. Defer
+
+defer是一种推迟执行的语法，被该关键词修饰的语句会在函数返回的时候执行
+
+```go
+package main
+
+import "fmt"
+
+func f1(str string) {
+	fmt.Println(str)
+}
+
+func main() {
+	f1("hi1")
+	defer f1("hi5")
+	defer f1("hi4")
+	defer f1("hi3")
+	f1("hi2")
+}
+// 输出：
+//hi1
+//hi2
+//hi3
+//hi4
+//hi5
+//
+
+```
 
 
 
 
 
+# 8 
+
+
+
+# 9. 初始化
+
+主要是init函数，一个文件可以有多个init函数，他们都会被调用，init函数在包的全局变量初始化以后执行
+
+注意到下面这个代码，先输出abc， 与init的位置无关，init在全局变量之后执行
+
+```go
+package main
+
+import "fmt"
+
+func p(str string) (int)  {
+	fmt.Println(str)
+	return 1;
+}
+
+var a = p("a")
+
+func init() {
+	p("init1")
+}
+
+var b = p("b")
+
+func init() {
+	p("init2")
+}
+
+var c = p("c")
+
+func main() {
+	p("main")
+}
+/*
+输出：
+a
+b
+c
+init1
+init2
+ */
+
+```
 
 
 

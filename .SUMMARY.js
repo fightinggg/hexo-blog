@@ -29,21 +29,19 @@ filesList = []
 readFileList('.',filesList)
 filesList = Array.from(new Set(filesList))
 
+console.log('* [Polin & Fightinggg](README.md)')
 filesList.forEach(name=>{
     const url = name.split('/')
     var str = ''
-    for(i=2;i<url.length;i++){
+    for(i=3;i<url.length;i++){
         str += '    '
     }
-    if(url.length==1){
+
+    if(url.length<=2){
         return
     }
-    if(name=="./index.md"){
-        console.log('* [Polin & Fightinggg](README.md)')
-    }else{
-        console.log('%s* [%s](%s)',str,url[url.length-2],name)
-    }
-   
+    console.log('%s* [%s](%s)',str,url[url.length-2],name)
+
 })
 
 //  node .SUMMARY.js > SUMMARY.md 

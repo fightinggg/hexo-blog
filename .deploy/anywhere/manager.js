@@ -7,6 +7,9 @@
 document.getElementById("fileInput").onchange = async function (e) {
     var files = [...e.target.files];
     console.log("load files: ", files)
+
+    files = files.filter(o=>!o.webkitRelativePath.contain("/."))
+    console.log("filter files: ", files)
     let index = await createOrLoadIndex(files);
     index = index.filter(o => o.path.endsWith(".md"))
     index = index.sort((l, r) => r.file.lastModified - l.file.lastModified)
