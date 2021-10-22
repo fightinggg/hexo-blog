@@ -106,7 +106,7 @@ Building packages and commands for darwin/amd64.
 
 Go1.5使用Go编写工具链，使用Go1.4进行编译
 
-注意下面这行指令,这行指令做了一个编译
+注意下面这行指令,这行指令做了一个编译， `GO111MODULE=off`是关闭module支持，详见[这里](https://fightinggg.github.io/R1D0ZO.html)
 
 ```shell
 GOROOT="$GOROOT_BOOTSTRAP" GOOS="" GOARCH="" GO111MODULE=off "$GOROOT_BOOTSTRAP/bin/go" build -o cmd/dist/dist ./cmd/dist

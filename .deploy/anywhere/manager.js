@@ -7,13 +7,12 @@
  document.getElementById("fileInput").onchange = async function (e) {
     var files = [...e.target.files];
     console.log("load files: ", files)
-    let index = await createOrLoadIndex(files);
-    index = index.sort((l, r) => {
+    config.files = await createOrLoadIndex(files);
+    config.files = config.files.sort((l, r) => {
         return (l.abbrlink < r.abbrlink) ? 1 : -1
     })
-    console.log("index: ", index)
-    showIndex(index);
-    config.files=index
+    console.log("index: ", config.files)
+    showIndex();
 }
 
 function createOrLoadIndex(files) {
@@ -70,7 +69,8 @@ async function createIndex(files) {
 }
 
 
-function showIndex(index) {
+function showIndex() {
+    index = config.files;
     var header = `
         <thead>
             <tr>
@@ -144,9 +144,10 @@ async function setButtonCreateHtml(platform, o) {
                     url: res.data.url,
                     md5: SparkMD5.hashBinary(context)
                 }
-                document.getElementById(htmlId).innerHTML = getLoadButton(platform, o);
+                showIndex();
                 antd.Notification.success({message: "发布成功"})
             } else {
+                showIndex();
                 antd.Notification.error({message: "发布失败", description: res.msg})
             }
         }
@@ -173,11 +174,10 @@ async function setButtonUpdateHtml(platform, o) {
                     url: res.data.url,
                     md5: SparkMD5.hashBinary(context)
                 }
-                document.getElementById(htmlId).innerHTML = `<button id="${o.path} ${platform} sync">
-                    ${config.sync}
-                </button>`;
+                showIndex();
                 antd.Notification.success({message: "更新成功"})
             } else {
+                showIndex();
                 antd.Notification.error({message: "更新失败", description: res.msg})
             }
         }
@@ -187,24 +187,13 @@ async function setButtonUpdateHtml(platform, o) {
 
 document.getElementById("indexOutput").onclick = async function (e) {
     if (config.files === undefined) {
-        alert("没有数据下载")
+        antd.Notification.success({message: "复制失败"})
         return;
     }
     const data = config.files.filter(o=>Object.keys(o).length!=3);
     console.log(data)
     copy(JSON.stringify(data))
-    // const eleLink = document.createElement('a');
-    // eleLink.download = 'index.json';
-    // eleLink.style.display = 'none';
-    // // 字符内容转变成blob地址
-    // console.log("export ", config.files)
-    // const blob = new Blob([JSON.stringify(config.files)]);
-    // eleLink.href = URL.createObjectURL(blob);
-    // // 触发点击
-    // document.body.appendChild(eleLink);
-    // eleLink.click();
-    // // 然后移除
-    // document.body.removeChild(eleLink);
+    antd.Notification.success({message: "复制成功"})
 }
 
 
