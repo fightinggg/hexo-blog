@@ -89,8 +89,9 @@ avatar:
 social:
   GitHub: https://github.com/fightinggg || fab fa-custom-github
   CSDN: https://blog.csdn.net/qq_41157212  || fab fa-custom-csdn
-  简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-custom-jianshu
-  知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-custom-zhihu
+  GitBook: https://fightinggg.gitbook.io || fas fa-custom-gitbook
+  简书: https://jianshu.com/u/50c6008eb350  || fas fa-custom-jianshu
+  知乎: https://zhihu.com/people/fightinggg-94  || fab fa-custom-zhihu
   ACM-BLOG: /ACM || fas fa-custom-icpc
   主站: http://fightinggg.top || fas fa-custom-myblog
   Github镜像: https://fightinggg.github.io || fas fa-custom-myblog
