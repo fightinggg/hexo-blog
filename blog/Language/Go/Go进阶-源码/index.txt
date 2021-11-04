@@ -112,7 +112,36 @@ Go1.5使用Go编写工具链，使用Go1.4进行编译
 GOROOT="$GOROOT_BOOTSTRAP" GOOS="" GOARCH="" GO111MODULE=off "$GOROOT_BOOTSTRAP/bin/go" build -o cmd/dist/dist ./cmd/dist
 ```
 
+然后能发现目录`cmd/dist`下多了一个文件`dist`.
 
+直接运行
+
+```shell
+s@HELLOWANG-MB1 go % src/cmd/dist/dist                     
+go tool dist: $GOROOT must be set
+```
+
+设置GOROOT，然后运行
+
+```shell
+s@HELLOWANG-MB1 go % export GOROOT=/usr/local/Cellar/go/1.17.2/libexec
+s@HELLOWANG-MB1 go % src/cmd/dist/dist                                
+usage: go tool dist [command]
+Commands are:
+
+banner         print installation banner
+bootstrap      rebuild everything
+clean          deletes all built files
+env [-p]       print environment (-p: include $PATH)
+install [dir]  install individual directory
+list [-json]   list all supported platforms
+test [-h]      run Go test(s)
+version        print Go version
+
+All commands take -v flags to emit extra information.
+```
+
+其实这个工具已经编译好了
 
 
 

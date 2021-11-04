@@ -190,6 +190,7 @@
     * [Go](blog/Language/Go/index.md)
         * [Go入门-Effective-Go](blog/Language/Go/Go入门-Effective-Go/index.md)
         * [Go入门-Go语言从入门到进阶实战](blog/Language/Go/Go入门-Go语言从入门到进阶实战/index.md)
+        * [Go入门-常见陷阱](blog/Language/Go/Go入门-常见陷阱/index.md)
         * [Go进阶-Module](blog/Language/Go/Go进阶-Module/index.md)
         * [Go进阶-Web框架](blog/Language/Go/Go进阶-Web框架/index.md)
         * [Go进阶-协程的本质与CPU的争夺](blog/Language/Go/Go进阶-协程的本质与CPU的争夺/index.md)
