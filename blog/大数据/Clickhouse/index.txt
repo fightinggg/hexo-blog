@@ -1,0 +1,135 @@
+---
+date: 2021-11-24 13:17:00
+updated: 2021-11-24 13:17:00
+tags: Clickhouse
+clickbait:
+  - Clickhouse简介
+---
+
+
+
+![](clickhouse原理解析与应用实践封面.png )
+
+# 1. Clickhouse
+
+Clickhouse是一个列式数据库，不支持事物。是一款OLAP分析型数据库。
+
+# 2. 快速安装Clickhouse
+
+## 2.1. 安装服务端
+
+```sh
+docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server
+```
+
+## 2.2. 使用客户端连接
+
+```sh
+docker run -it --rm --link some-clickhouse-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server
+```
+
+# 3. MergeTree
+
+## 3.1 创建一个MergeTree表
+
+使用下面的语句可以创建一个mergetree表
+
+```sql
+create table if not exists students     \
+(                                       \
+    `id`      Int64   comment 'id'  ,   \
+    `name`    String  comment '名字' ,   \
+    `score`   String  comment '分数'	   \
+) ENGINE =  MergeTree()                 \
+order by id
+```
+
+然后插入4条数据
+
+```sql
+insert into students (*) values (1,'polin','100')
+insert into students (*) values (2,'fightinggg','99')
+insert into students (*) values (2,'fightinggg','99')  (2,'fightinggg','99')
+```
+
+
+
+## 3.2. 物理储存
+
+进入docker客户端，并进入目录,结果发现了三个文件夹，他们分别是all_1_1_0, all_2_2_0, all_3_3_0
+
+```sh
+$ docker exec -it some-clickhouse-server bash
+$ cd /var/lib/clickhouse/data/default/students/
+$ ls
+all_1_1_0  all_2_2_0  all_3_3_0  detached  format_version.txt
+```
+
+进入all_1_1_0
+
+```sh
+$ cd all_1_1_0
+$ ls
+checksums.txt  columns.txt  count.txt  data.bin  data.mrk3  default_compression_codec.txt  primary.idx
+```
+
+
+
+MergeTree是clickhouse中最重要的数据结构，MergeTree要求数据按照某个字段分区和排序，分区以后每个区中的数据都会放入多一个文件夹，这个文件夹又可以被称为分区目录，当然注意一个分区一般由多个分区目录组成。
+
+正如上文中的`all_1_1_0`，这是一个分区目录，这个文件夹的名字分为4部分，并使用下划线`_`分割。
+
+- 第一个元素指的是分区的名字，如果没有指定分区键，则为`all`，否则就是分区的名字或者分区的hash值
+- 第二个元素是数据块编号(blocknum)的最小值（后续会介绍什么叫数据块）
+- 第三个元素是数据块编号(blocknum)的最大值
+- 第四个元素是分区合并的次数
+
+在MergeTree的物理储存中，`checksums.txt`储存校验和，`columns.txt`储存列名，`count.txt`储存有多少行数据，`data.bin`储存具体的列的数据，`data.mrk3`储存标记数据，`primary.idx`储存索引数据。
+
+![img](clickhouse分区目录的名字.png)
+
+
+
+## 3.3. 分区目录合并
+
+clickhouse会在适当的时候对分区进行合并，合并时只会合并分区键相同的分区目录，笔者第二天发现`/var/lib/clickhouse/data/default/students/`目录下已经被合并了,合并的规则很简单，数据块编号的最小/大值按照最值的概念合并，分区次数+1即可。
+
+```sh
+root@07a76f6d389a:/var/lib/clickhouse/data/default/students# ls
+all_1_3_1  detached  format_version.txt
+```
+
+![img](/Users/s/src/hexo-blog/blog/大数据/Clickhouse/clickhouse分区合并过程.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
