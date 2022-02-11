@@ -21,7 +21,7 @@
     "hexo-fightinggg-linkable-blog": "file:plugin/hexo-fightinggg-linkable-blog"
   },
   "dependencies": {
-    "@next-theme/plugins": "^8.7.1",
+    "@next-theme/plugins": "^8.10.0",
     "gitbook-cli": "^2.3.2",
     "hexo": "^6.0.0",
     "hexo-blog-encrypt": "^3.1.6",
