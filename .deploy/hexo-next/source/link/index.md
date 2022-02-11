@@ -32,5 +32,7 @@ xhf大神 | https://blog.xhofe.top/ | 没有描述 |  https://q1.qlogo.cn/g?b=qq
 
 Chunibyo大神 | https://chunibyo-wly.github.io/ | 没有描述 |  https://chunibyo-wly.github.io/images/avatar.png
 
+CUGGZ大神 | https://cuggz.com | 没有描述 |  https://q1.qlogo.cn/g?b=qq&nk=83232382&s=640
+
 {% endlinkgrid %}
 
