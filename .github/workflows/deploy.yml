@@ -58,9 +58,7 @@ jobs:
           path: .deploy/hexo-next/node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
 
       - name: Install dependencies
         run: |
