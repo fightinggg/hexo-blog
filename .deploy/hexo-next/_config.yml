@@ -220,3 +220,6 @@ linkable:
   - key: zigzag
     url: /QQRP8M.html#zigzag
     
+
+symbols_count_time:
+  total_time: false
