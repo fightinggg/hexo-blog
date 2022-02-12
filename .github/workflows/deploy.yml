@@ -50,17 +50,17 @@ jobs:
           tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz
           echo "$PWD/pandoc-2.14.0.3/bin" >> $GITHUB_PATH
 
-      # - name: Cache node modules
-      #   uses: actions/cache@v2
-      #   env:
-      #     cache-name: cache-node-modules
-      #   with:
-      #     path: .deploy/hexo-next/node_modules
-      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-build-${{ env.cache-name }}-
-      #       ${{ runner.os }}-build-
-      #       ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: .deploy/hexo-next/node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}-${{ hashFiles('plugin/**') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Install dependencies
         run: |
