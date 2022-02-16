@@ -1,55 +1,56 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server",
-    "gitalkInit": "node gitalk/gitalk-auto-init.js",
-    "s": "npm run server",
-    "g": "npm run build",
-    "d": "npm run deploy",
-    "update": "ncu -u"
-  },
-  "hexo": {
-    "version": "5.4.1"
-  },
-  "comment": {
-    "hexo-deployer-tcb": "^1.0.3",
-    "hexo-fightinggg-linkable-blog": "file:plugin/hexo-fightinggg-linkable-blog"
-  },
-  "dependencies": {
-    "@next-theme/plugins": "^8.10.0",
-    "gitbook-cli": "^2.3.2",
-    "hexo": "^6.0.0",
-    "hexo-blog-encrypt": "^3.1.6",
-    "hexo-deployer-git": "^3.0.0",
-    "hexo-fightinggg-enhancer": "file:plugin/hexo-fightinggg-enhancer",
-    "hexo-filter-mermaid-diagrams": "^1.0.5",
-    "hexo-generator-archive": "^1.0.0",
-    "hexo-generator-baidu-sitemap": "^0.1.9",
-    "hexo-generator-category": "^1.0.0",
-    "hexo-generator-index": "^2.0.0",
-    "hexo-generator-searchdb": "^1.4.0",
-    "hexo-generator-sitemap": "^2.2.0",
-    "hexo-generator-tag": "^1.0.0",
-    "hexo-inject": "^1.0.0",
-    "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-mathjax": "^0.6.0",
-    "hexo-renderer-pandoc": "^0.3.0",
-    "hexo-renderer-stylus": "^2.0.1",
-    "hexo-server": "^3.0.0",
-    "hexo-tag-cloud": "^2.1.2",
-    "hexo-theme-next": "^8.10.0",
-    "hexo-word-counter": "^0.0.3",
-    "npm-check-updates": "^12.3.0"
-  },
-  "devDependencies": {
-    "md5": "^2.3.0",
-    "moment": "^2.29.1",
-    "request": "^2.88.2",
-    "xml-parser": "^1.2.1"
-  }
+    "name": "hexo-site",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "hexo generate",
+        "clean": "hexo clean",
+        "deploy": "hexo deploy",
+        "server": "hexo server",
+        "gitalkInit": "node gitalk/gitalk-auto-init.js",
+        "s": "npm run server",
+        "g": "npm run build",
+        "d": "npm run deploy",
+        "update": "ncu -u"
+    },
+    "hexo": {
+        "version": "6.0.0"
+    },
+    "comment": {
+        "hexo-deployer-tcb": "^1.0.3",
+        "hexo-fightinggg-linkable-blog": "file:plugin/hexo-fightinggg-linkable-blog",
+        "hexo-word-counter": "^0.0.3"
+    },
+    "dependencies": {
+        "@next-theme/plugins": "^8.10.0",
+        "gitbook-cli": "^2.3.2",
+        "hexo": "^6.0.0",
+        "hexo-blog-encrypt": "^3.1.6",
+        "hexo-deployer-git": "^3.0.0",
+        "hexo-fightinggg-enhancer": "file:plugin/hexo-fightinggg-enhancer",
+        "hexo-filter-mermaid-diagrams": "^1.0.5",
+        "hexo-generator-archive": "^1.0.0",
+        "hexo-generator-baidu-sitemap": "^0.1.9",
+        "hexo-generator-category": "^1.0.0",
+        "hexo-generator-index": "^2.0.0",
+        "hexo-generator-searchdb": "^1.4.0",
+        "hexo-generator-sitemap": "^2.2.0",
+        "hexo-generator-tag": "^1.0.0",
+        "hexo-inject": "^1.0.0",
+        "hexo-renderer-ejs": "^2.0.0",
+        "hexo-renderer-mathjax": "^0.6.0",
+        "hexo-renderer-pandoc": "^0.3.0",
+        "hexo-renderer-stylus": "^2.0.1",
+        "hexo-server": "^3.0.0",
+        "hexo-tag-cloud": "^2.1.2",
+        "hexo-theme-next": "^8.10.0",
+        "hexo-word-counter": "file:plugin/hexo-word-counter",
+        "npm-check-updates": "^12.3.0"
+    },
+    "devDependencies": {
+        "md5": "^2.3.0",
+        "moment": "^2.29.1",
+        "request": "^2.88.2",
+        "xml-parser": "^1.2.1"
+    }
 }

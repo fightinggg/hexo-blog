@@ -56,11 +56,9 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: .deploy/hexo-next/node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
 
       - name: Install dependencies
         run: |
@@ -70,6 +68,7 @@ jobs:
 
       - name: Copy Source
         run: |
+          rm -rf .deploy/hexo-next/source/_posts/*
           cp -r blog/* .deploy/hexo-next/source/_posts
           cd .deploy/hexo-next
           find source
