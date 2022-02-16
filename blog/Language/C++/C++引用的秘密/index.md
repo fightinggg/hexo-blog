@@ -29,6 +29,8 @@ int main() {
 
 <!-- more -->
 
+
+
  # 1. 从STD的tie类型说起
 
 笔者在阅读ClickHouse源码的时候发现了有趣的现象，该源码中有如下代码，我们注意第7-9行，可以发现这使用了STD的tie，该类型让C++实现了一次性返回两个值的效果。下面的executeQueryImpl函数返回了两个值，分别写入到了ast和streams中。
