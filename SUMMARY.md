@@ -186,6 +186,7 @@
         * [Boost](blog/Language/C++/Boost/index.md)
         * [Boost源码](blog/Language/C++/Boost源码/index.md)
         * [C++入门](blog/Language/C++/C++入门/index.md)
+        * [C++引用的秘密](blog/Language/C++/C++引用的秘密/index.md)
         * [STL源码分析](blog/Language/C++/STL源码分析/index.md)
     * [Go](blog/Language/Go/index.md)
         * [Go入门-Effective-Go](blog/Language/Go/Go入门-Effective-Go/index.md)
