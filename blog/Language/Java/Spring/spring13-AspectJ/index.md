@@ -34,6 +34,16 @@ pointcut move():
 
 cflow是什么？
 
+
+
+### 1.1.2. advice
+
+pointcuts 指出了一些事件发生的时机，当这些事件真正发生的时候，我们需要advice表示该做些什么。
+
+
+
+
+
 ## 1.2. 在IntelliJ IDEA上安装AspectJ
 
 安装AspectJ插件[^2]即可
