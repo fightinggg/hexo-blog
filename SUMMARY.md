@@ -234,6 +234,7 @@
             * [spring10-配置AOP](blog/Language/Java/Spring/spring10-配置AOP/index.md)
             * [spring11-Jdbctemplate](blog/Language/Java/Spring/spring11-Jdbctemplate/index.md)
             * [spring12-事务](blog/Language/Java/Spring/spring12-事务/index.md)
+            * [spring13-AspectJ](blog/Language/Java/Spring/spring13-AspectJ/index.md)
             * [spring3-耦合](blog/Language/Java/Spring/spring3-耦合/index.md)
             * [spring4-创建IOC容器](blog/Language/Java/Spring/spring4-创建IOC容器/index.md)
             * [spring5-XML配置IOC](blog/Language/Java/Spring/spring5-XML配置IOC/index.md)

@@ -147,6 +147,19 @@ graph LR
 
 
 
+
+
+```mermaid
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-->>John: See you later!
+```
+
+
+
+
+
 ## 参考
 
 [mermaid 给你的文档加层滤镜](https://zhuanlan.zhihu.com/p/166668789)

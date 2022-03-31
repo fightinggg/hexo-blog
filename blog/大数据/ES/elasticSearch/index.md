@@ -29,7 +29,7 @@ docker run -d \
 -e "xpack.security.enabled=true" \
 -e "xpack.security.authc.api_key.enabled=true" \
 -e "ELASTIC_PASSWORD=changeme" \
-docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+docker.elastic.co/elasticsearch/elasticsearch:8.1.0
 
 # username enterprise_search
 # password changeme
