@@ -15,6 +15,10 @@ flowchart LR
     C -->|Two| E[Result two]
 ```
 
+```mermaid
+-version
+```
+
 测试公式
 $$
 f(x) = \frac{1}{\sqrt{x}}
