@@ -22,7 +22,6 @@
         "hexo-word-counter": "^0.0.3"
     },
     "dependencies": {
-        "@next-theme/plugins": "^8.10.0",
         "gitbook-cli": "^2.3.2",
         "hexo": "^6.0.0",
         "hexo-blog-encrypt": "^3.1.6",
@@ -43,7 +42,8 @@
         "hexo-renderer-stylus": "^2.0.1",
         "hexo-server": "^3.0.0",
         "hexo-tag-cloud": "^2.1.2",
-        "hexo-theme-next": "^8.10.0",
+        "hexo-theme-next": "^8.11.0",
+        "@next-theme/plugins": "^8.11.0",
         "hexo-word-counter": "file:plugin/hexo-word-counter",
         "npm-check-updates": "^12.3.0"
     },
