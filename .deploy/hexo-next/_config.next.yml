@@ -89,14 +89,15 @@ avatar:
 social:
   GitHub: https://github.com/fightinggg || fab fa-custom-github
   CSDN: https://blog.csdn.net/qq_41157212  || fab fa-custom-csdn
-  简书: https://www.jianshu.com/u/50c6008eb350  || fas fa-custom-jianshu
-  知乎: https://www.zhihu.com/people/fightinggg-94  || fab fa-custom-zhihu
+  GitBook: https://fightinggg.gitbook.io || fas fa-custom-gitbook
+  简书: https://jianshu.com/u/50c6008eb350  || fas fa-custom-jianshu
+  知乎: https://zhihu.com/people/fightinggg-94  || fab fa-custom-zhihu
   ACM-BLOG: /ACM || fas fa-custom-icpc
   主站: http://fightinggg.top || fas fa-custom-myblog
   Github镜像: https://fightinggg.github.io || fas fa-custom-myblog
-  Coding镜像 : https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  || fas fa-custom-myblog
-  Tencent镜像 : https://hexoblog-0gbcfywu9055bf90-1258727650.tcloudbaseapp.com || fas fa-custom-tencent-cloud
-  Coding镜像2: https://eaw3p1.coding-pages.com || fas fa-custom-myblog
+  # Coding镜像 : https://coding-pages-bucket-95057-7784511-14310-531605-1258727650.cos-website.ap-hongkong.myqcloud.com  || fas fa-custom-myblog
+  # Tencent镜像 : https://hexoblog-0gbcfywu9055bf90-1258727650.tcloudbaseapp.com || fas fa-custom-tencent-cloud
+  # Coding镜像2: https://eaw3p1.coding-pages.com || fas fa-custom-myblog
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -172,6 +173,7 @@ symbols_count_time:
   separated_meta: true
   item_text_post: true
   item_text_total: false
+  total_time: false
   
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
@@ -180,7 +182,7 @@ tag_icon: true
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: true
-  url: https://github.com/fightinggg/hexo-blog/tree/master/source/ # Link for view source
+  url: https://github.com/fightinggg/hexo-blog/tree/master/blog/ # Link for view source
   #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name # Link for fork & edit
 
 # ---------------------------------------------------------------
