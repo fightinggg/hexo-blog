@@ -403,6 +403,7 @@
     * [从TCP看HTTP](blog/计算机网络/从TCP看HTTP/index.md)
     * [内网穿透](blog/计算机网络/内网穿透/index.md)
     * [深入浅出HTTPS从原理到实战](blog/计算机网络/深入浅出HTTPS从原理到实战/index.md)
+    * [白帽子讲Web安全](blog/计算机网络/白帽子讲Web安全/index.md)
     * [破坏之王：DDOS攻击与防范深度剖析](blog/计算机网络/破坏之王：DDOS攻击与防范深度剖析/index.md)
     * [计算机病毒揭秘与对抗](blog/计算机网络/计算机病毒揭秘与对抗/index.md)
     * [计算机网络](blog/计算机网络/计算机网络/index.md)

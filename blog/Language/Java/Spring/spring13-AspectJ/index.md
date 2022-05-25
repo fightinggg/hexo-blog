@@ -418,8 +418,8 @@ advice分别用@Before、@After、@Around来表示
 # 3. 引用
 
 [^1]: [AspectJ文档](https://www.eclipse.org/aspectj/doc/released/progguide/index.html)
-[^2]: [AspectJ插件](https://plugins.jetbrains.com/plugin/4679-aspectj )
-[^3]:[Spring对AspectJ的支持](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-ataspectj)
+[^2]: [AspectJ插件](https://plugins.jetbrains.com/plugin/4679-aspectj)
+[^3]: [Spring对AspectJ的支持](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-ataspectj)
 [^4]: [AspectJ官网](https://www.eclipse.org/aspectj/downloads.php)
 [^5]: [Aspect pointcut 文档](https://www.eclipse.org/aspectj/doc/released/progguide/quick.html#quick-pointcuts)
 [^6]: [Spring中使用AspectJ编译器](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#aop-using-aspectj)
