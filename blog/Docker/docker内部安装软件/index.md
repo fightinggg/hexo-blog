@@ -58,6 +58,30 @@ yum install clang -y
 
 
 
+# 安装SSH
+
+## yum安装
+
+```shell
+yum install openssh-server openssh-clients passwd  -y \
+&& sed -i "s/^UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config \
+&& echo 123456 | passwd root --stdin \
+&& ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa \
+&& cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys \
+&& chmod 0600 ~/.ssh/authorized_keys \
+&& ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key \
+&& ssh-keygen -q -N "" -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key \
+&& ssh-keygen -q -N "" -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
+```
+
+## 启动
+
+```shell
+/usr/sbin/sshd
+```
+
+
+
 
 
 
