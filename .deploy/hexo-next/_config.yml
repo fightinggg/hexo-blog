@@ -126,18 +126,12 @@ theme: next
 # Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  ignore_hidden: false # gitee 部署
+  ignore_hidden: false 
   repo:
     github: git@github.com:fightinggg/fightinggg.github.io.git
     # coding: git@e.coding.net:fightinggg/hexoblog.git
     # gitee: git@gitee.com:fightinggg/fightinggg.git
   branch: master
-- type: baidu_url_submitter
-- type: tcb
-  # 自从ddos以后，key已经作废
-  secretId: AKIDa1D9pFOGtFKEuKVR6VfcJlwqSoujHXXG
-  secretKey: TfbGgrmRq0vb1B5lCNIyOaWDfrnTt3ye
-  envId: hexoblog-0gbcfywu9055bf90
 
 # Security
 #
