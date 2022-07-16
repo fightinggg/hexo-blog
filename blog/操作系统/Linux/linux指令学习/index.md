@@ -12,6 +12,15 @@ tags: linux指令
 yum -y install man-pages
 ```
 
+# 下载
+下载东西可以使用curl指令，如
+```
+curl baidu.com -O -L
+```
+也可以使用wget指令,如
+```
+wget baidu.com
+```
 
 
 # Linux运行级别
