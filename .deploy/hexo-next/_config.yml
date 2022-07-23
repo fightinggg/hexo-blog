@@ -31,6 +31,7 @@ category_dir: categories
 code_dir: ./
 i18n_dir: :lang
 skip_render:
+  - "read.md"
   - "_posts2/**"
   - "_posts3/**"
   - ".github/**/*"
