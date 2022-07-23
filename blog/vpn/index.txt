@@ -1,0 +1,23 @@
+---
+date: 2022-07-23 16:46:00
+updated: 2022-07-23 16:46:00
+tags: VPN
+---
+
+
+
+# Centos8 VPN客户端安装
+
+先安装epel仓库
+
+```
+yum install epel-release -y
+```
+
+后安装pptp
+
+```
+yum install ppp pptpd -y
+```
+
+<!-- more -->
