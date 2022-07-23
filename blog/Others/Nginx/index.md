@@ -1,10 +1,18 @@
 ---
 date: 2021-01-11 00:00:00
-updated: 2021-01-11 00:00:00
+updated: 2022-07-23 21:53:00
+tag: nginx
 ---
 
 # Nginx
 
+# 通过Docker快速部署一个Nginx实例
+下面的指令可以把当前目录快速部署成一个web服务,注意要有index.html，否则会403
+```
+docker run -d --rm --name nginx -p 8081:80 -v $PWD:/usr/share/nginx/html nginx
+```
+
+# 配置stream
 ```sh
 # 支持stream 的nginx
 cd 
