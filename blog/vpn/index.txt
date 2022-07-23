@@ -14,10 +14,10 @@ tags: VPN
 yum install epel-release -y
 ```
 
-后安装pptp
+后安装openvpn和easyrsa
 
 ```
-yum install ppp pptpd -y
+yum install -y openvpn easy-rsa
 ```
 
 <!-- more -->
