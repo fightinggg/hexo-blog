@@ -18,7 +18,7 @@ VPN全名虚拟专用网络，Proxy全名代理。
 
 # VPN原理图
 
-![](C:\Users\wsx\src\hexo-blog\blog\计算机网络\VPN与代理那些事\vpn-原理.svg)
+![](vpn-原理.svg)
 
 
 
@@ -28,7 +28,7 @@ VPN全名虚拟专用网络，Proxy全名代理。
 
 # Proxy原理图
 
-![](C:\Users\wsx\src\hexo-blog\blog\计算机网络\VPN与代理那些事\Proxy原理.svg)
+![](Proxy原理.svg)
 
 
 
