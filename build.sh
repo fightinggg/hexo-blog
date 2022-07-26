@@ -1,11 +1,11 @@
 # https://github.com/litten/hexo-theme-yilia.git
 
 themes=(matery foundation next landscape)
-themesAddr=(https://github.com/blinkfox/hexo-theme-matery.git
-https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
-https://github.com/next-theme/hexo-theme-next.git
-https://github.com/next-theme/hexo-theme-next.git
-)
+themesAddr=()
+themesAddr[0] = https://github.com/blinkfox/hexo-theme-matery.git
+themesAddr[1] = https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
+themesAddr[2] = https://github.com/next-theme/hexo-theme-next.git
+themesAddr[3] = https://github.com/next-theme/hexo-theme-next.git
 
 # build
 
