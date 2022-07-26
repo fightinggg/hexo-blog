@@ -9,6 +9,8 @@ themes=(
     jelly
     tomotoes
     shoka
+    yilia
+    yearn
 )
 themesAddr=(
     https://github.com/blinkfox/hexo-theme-matery.git
@@ -18,6 +20,8 @@ themesAddr=(
     https://github.com/preccrep/hexo-theme-jelly.git
     https://github.com/Tomotoes/hexo-theme-tomotoes.git
     https://github.com/amehime/hexo-theme-shoka.git
+    https://github.com/JoeyBling/hexo-theme-yilia-plus.git
+    https://github.com/imfycc/hexo-themes-yearn.git
 )
 
 # build
