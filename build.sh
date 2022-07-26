@@ -1,37 +1,33 @@
 # https://github.com/litten/hexo-theme-yilia.git
 
-themes[0]=matery
-themesAddr[0]=https://github.com/blinkfox/hexo-theme-matery.git
-
-themes[1]=foundation
-themesAddr[1]=https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
-
-themes[2]=next
-themesAddr[2]=https://github.com/next-theme/hexo-theme-next.git
-
-themes[3]=landscape
-themesAddr[3]=null
-
+themes=(matery foundation next landscape)
+themesAddr=(https://github.com/blinkfox/hexo-theme-matery.git
+https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
+https://github.com/next-theme/hexo-theme-next.git
+https://github.com/next-theme/hexo-theme-next.git
+)
 
 # build
 
-# setup main 
-rm -rf .deploy/multiblog/hexo-next
-mkdir -p .deploy/multiblog/hexo-next
-cp -r .deploy/hexo-next/ .deploy/multiblog/hexo-next
+# # setup main 
+# rm -rf .deploy/multiblog/hexo-next
+# mkdir -p .deploy/multiblog/hexo-next
+# cp -r .deploy/hexo-next/ .deploy/multiblog/hexo-next
 
-# setup tmplate 
-rm -rf .deploy/multiblog/template
-mkdir -p .deploy/multiblog/template
-cd .deploy/multiblog/template && hexo init && cd ../../..
+# # setup tmplate 
+# rm -rf .deploy/multiblog/template
+# mkdir -p .deploy/multiblog/template
+# cd .deploy/multiblog/template && hexo init && cd ../../..
 
 
 for(( i=0;i<${#themes[@]};i++));
     do
-        echo 'process: '${themes[i]}
-
         name=${themes[i]}
         giturl=${themesAddr[i]}
+
+        echo 'process: '${name}' '$giturl
+        
+
 
         # init hexo 
         rm -rf .deploy/multiblog/$name
