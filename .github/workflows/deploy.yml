@@ -76,7 +76,7 @@ jobs:
       - name: Support For Multi Themes
         run: |
           npm install -g hexo
-          sh build.sh
+          bash build.sh
           cp -r .deploy/multiblog/hexo-next/source/ .deploy/hexo-next/source/
 
       - name: Gen
