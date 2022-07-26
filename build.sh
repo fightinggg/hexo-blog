@@ -6,7 +6,7 @@ themesAddr=(
     https://github.com/blinkfox/hexo-theme-matery.git
     https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
     https://github.com/next-theme/hexo-theme-next.git
-    https://github.com/next-theme/hexo-theme-next.git
+    https://github.com/hexojs/hexo-theme-landscape.git
 )
 
 # build
@@ -20,6 +20,7 @@ cp -r .deploy/hexo-next/* .deploy/multiblog/hexo-next
 rm -rf .deploy/multiblog/template
 mkdir -p .deploy/multiblog/template
 cd .deploy/multiblog/template && hexo init && cd ../../..
+# cp -r .deploy/hexo-next/* .deploy/multiblog/template
 
 echo 'template init done .'
 
@@ -30,7 +31,6 @@ for(( i=0;i<${#themes[@]};i++));
 
         echo 'process: '${name}' '$giturl
         
-
 
         # init hexo 
         rm -rf .deploy/multiblog/$name
@@ -55,6 +55,9 @@ for(( i=0;i<${#themes[@]};i++));
         cp -r blog/* .deploy/multiblog/$name/source/_posts
         rm -rf .deploy/multiblog/$name/source/_posts/ACM
         rm .deploy/multiblog/$name/source/_posts/index.json .deploy/multiblog/$name/source/_posts/hello-world.md 
+        cp -r .deploy/hexo-next/source/tags .deploy/multiblog/$name/source/tags
+        cp -r .deploy/hexo-next/source/fightinggg .deploy/multiblog/$name/source/about
+        cp -r .deploy/hexo-next/source/categories .deploy/multiblog/$name/source/categories
 
         # config plugins
         cd .deploy/multiblog/$name && npm i hexo-fightinggg-enhancer && cd ../../..
