@@ -4,13 +4,10 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
 && curl https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo -L -o /etc/yum.repos.d/CentOS-Base.repo \
 && yum clean all \
 && yum makecache
+
 RUN yum install -y nodejs git
-RUN npm i hexo -g
-RUN npm install -g n && n stable
-RUN yum install wget -y
-RUN wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz \
- && tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz \
- && PATH="$PWD/pandoc-2.14.0.3/bin":$PATH
+RUN npm i hexo n -g && n stable
+RUN curl https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz -L -o pandoc.tar.gz \
+ && tar -zxf pandoc.tar.gz && rm -f pandoc.tar.gz
 ENV PATH="/pandoc-2.14.0.3/bin:${PATH}"
-RUN yum install nginx -y
 COPY build.sh /build.sh
