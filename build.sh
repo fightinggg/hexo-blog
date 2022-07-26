@@ -22,8 +22,6 @@ mkdir -p .deploy/multiblog/template
 cd .deploy/multiblog/template && hexo init && cd ../../..
 
 echo 'template init done .'
-ls .deploy/multiblog/template
-ls .deploy/multiblog/template/source
 
 for(( i=0;i<${#themes[@]};i++));
     do
@@ -38,6 +36,9 @@ for(( i=0;i<${#themes[@]};i++));
         rm -rf .deploy/multiblog/$name
         mkdir -p .deploy/multiblog/$name
         cp -r .deploy/multiblog/template/ .deploy/multiblog/$name
+
+        echo $name' init done.'
+        ls .deploy/multiblog/$name
 
         # download themes
         git clone -b master --depth=1 $giturl .deploy/multiblog/$name/themes/$name > /dev/null
