@@ -31,7 +31,7 @@ jobs:
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
         run: |
-          echo "$HEXO_DEPLOY_PRI"
+          echo "$HEXO_DEPLOY_PRI"'a'
           docker login -u fightinggg -p ${{secrets.DOCKERPASSWORD}}
           docker run -t --rm -v $PWD:/data:ro fightinggg/hexoblogdeploy:master bash /data/themes-configs/build.sh $HEXO_DEPLOY_PRI
 
