@@ -60,7 +60,8 @@ for(( i=0;i<${#themes[@]};i++));
         cd .deploy/multiblog/$name && npm i hexo-fightinggg-enhancer && cd ../../..
 
         # build 
-        hexo --cwd .deploy/multiblog/$name --config  _config.yml,_config2.yml g
+        hexo --cwd .deploy/multiblog/$name --config  _config.yml,_config2.yml g --silent 
+        mkdir -p .deploy/multiblog/hexo-next/source/$name
         cp -r .deploy/multiblog/$name/public/* .deploy/multiblog/hexo-next/source/$name
 
     done
