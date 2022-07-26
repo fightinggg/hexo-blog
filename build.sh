@@ -2,7 +2,7 @@
 # https://github.com/litten/hexo-theme-yilia.git
 
 themes=(matery foundation next landscape)
-themesAddr(
+themesAddr=(
     https://github.com/blinkfox/hexo-theme-matery.git
     https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
     https://github.com/next-theme/hexo-theme-next.git
