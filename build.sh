@@ -11,6 +11,7 @@ themes=(
     shoka
     yilia
     yearn
+    volantis
 )
 themesAddr=(
     https://github.com/blinkfox/hexo-theme-matery.git
@@ -22,6 +23,7 @@ themesAddr=(
     https://github.com/amehime/hexo-theme-shoka.git
     https://github.com/JoeyBling/hexo-theme-yilia-plus.git
     https://github.com/imfycc/hexo-themes-yearn.git
+    https://github.com/volantis-x/hexo-theme-volantis.git
 )
 
 # build
@@ -40,7 +42,7 @@ cd .deploy/multiblog/template && hexo init && cd ../../..
 echo 'template init done .'
 
 for(( i=0;i<${#themes[@]};i++));
-    do {
+    do 
         name=${themes[i]}
         giturl=${themesAddr[i]}
 
@@ -81,7 +83,6 @@ for(( i=0;i<${#themes[@]};i++));
         hexo --cwd .deploy/multiblog/$name --config  _config.yml,_config2.yml g --silent 
         mkdir -p .deploy/multiblog/hexo-next/source/$name
         cp -r .deploy/multiblog/$name/public/* .deploy/multiblog/hexo-next/source/$name
-     } && { echo 'process '${themes[i]}' error' }
     done
 
 
