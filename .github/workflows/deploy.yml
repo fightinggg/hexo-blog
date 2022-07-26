@@ -73,6 +73,11 @@ jobs:
           cd .deploy/hexo-next
           find source
 
+      - name: Support For Multi Themes
+        run: |
+          sh build.sh
+          cp -r .deploy/multiblog/hexo-next/source/ .deploy/hexo-next/source/
+
       - name: Gen
         run: |
           cd .deploy/hexo-next

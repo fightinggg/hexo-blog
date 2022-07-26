@@ -10,4 +10,4 @@ updated: 2020-06-20 18:30:51
 
 [点我直接查看pdf文件](pdf/data_mining.pdf)
 
-{% pdf pdf/data_mining.pdf %}
+

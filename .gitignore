@@ -10,3 +10,4 @@ public/
 .deploy_git
 package-lock.json
 gitalk/*.json
+.deploy/multiblog

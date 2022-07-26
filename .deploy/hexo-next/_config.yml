@@ -35,9 +35,11 @@ skip_render:
   - "_posts2/**"
   - "_posts3/**"
   - ".github/**/*"
-  - "*.html"
+  - "**/*.html"
   - "ACM/**"
   - "**/*.json"
+  - "**/*.js"
+  - "**/*.css"
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post

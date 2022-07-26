@@ -17,7 +17,7 @@ hexoAbbrlinkSet = new Set();
 function filterPost(log, data) {
     let metadata = util.parseSource(data.source);
 
-    data.title = metadata.title;
+    data.title = metadata.title || parseInt(Math.random().toString().substring(2), 10).toString().substring(0, 5);
 
 
     if (data.source.substring(data.source.length - 5) == '.html') {
@@ -25,7 +25,7 @@ function filterPost(log, data) {
         data.updated = moment(1565018588000)
         data.abbrlink = data.title
     } else {
-        data.abbrlink = (data.abbrlink?data.abbrlink:'') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
+        data.abbrlink = (data.abbrlink ? data.abbrlink : '') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
     }
     // if(hexoAbbrlinkSet.has(data.abbrlink)){
     //     log.error('重复的abbrlink: '+data.source)
@@ -61,10 +61,10 @@ function filterPost(log, data) {
 hexo.extend.filter.register('before_post_render', function (data) {
     if (data.layout === 'post') {
         filterPost(this.log, data);
-        if(data.source.startsWith("_posts")){
+        if (data.source.startsWith("_posts")) {
             data.source = data.source.substring(7)
-        }else{
-            log.error("error source file, this file not in _post dir ",data.source)
+        } else {
+            log.error("error source file, this file not in _post dir ", data.source)
         }
     }
     return data;
