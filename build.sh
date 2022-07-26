@@ -14,7 +14,7 @@ themesAddr=(
 # setup main 
 rm -rf .deploy/multiblog/hexo-next
 mkdir -p .deploy/multiblog/hexo-next
-cp -r .deploy/hexo-next/ .deploy/multiblog/hexo-next
+cp -r .deploy/hexo-next/* .deploy/multiblog/hexo-next
 
 # setup tmplate 
 rm -rf .deploy/multiblog/template
@@ -61,7 +61,7 @@ for(( i=0;i<${#themes[@]};i++));
 
         # build 
         hexo --cwd .deploy/multiblog/$name --config  _config.yml,_config2.yml g --silent 
-        cp -r .deploy/multiblog/$name/public/ .deploy/multiblog/hexo-next/source/$name
+        cp -r .deploy/multiblog/$name/public/* .deploy/multiblog/hexo-next/source/$name
 
     done
 
