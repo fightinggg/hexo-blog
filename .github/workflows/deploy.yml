@@ -31,71 +31,73 @@ jobs:
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
         run: |
-          sudo timedatectl set-timezone "Asia/Shanghai"
-          mkdir -p ~/.ssh/
-          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-keyscan fightinggg.top >> ~/.ssh/known_hosts
-          ssh-keyscan e.coding.net >> ~/.ssh/known_hosts
-          git config --global user.name $GIT_USER
-          git config --global user.email $GIT_EMAIL
+          docker run -it --rm -v /Users/s/src/hexo-blog/:/data:ro hexoblog bash build.sh $HEXO_DEPLOY_PRI
 
-      - name: submodule
-        run: git submodule update --init --recursive
+      # sudo timedatectl set-timezone "Asia/Shanghai"
+      # mkdir -p ~/.ssh/
+      # echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
+      # chmod 600 ~/.ssh/id_rsa
+      # ssh-keyscan github.com >> ~/.ssh/known_hosts
+      # ssh-keyscan fightinggg.top >> ~/.ssh/known_hosts
+      # ssh-keyscan e.coding.net >> ~/.ssh/known_hosts
+      # git config --global user.name $GIT_USER
+      # git config --global user.email $GIT_EMAIL
 
-      - name: Install pandoc
-        run : |
-          wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
-          tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz
-          echo "$PWD/pandoc-2.14.0.3/bin" >> $GITHUB_PATH
+      # - name: submodule
+      #   run: git submodule update --init --recursive
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: .deploy/hexo-next/node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
+      # - name: Install pandoc
+      #   run : |
+      #     wget https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
+      #     tar -zxf pandoc-2.14.0.3-linux-amd64.tar.gz
+      #     echo "$PWD/pandoc-2.14.0.3/bin" >> $GITHUB_PATH
+
+      # - name: Cache node modules
+      #   uses: actions/cache@v2
+      #   env:
+      #     cache-name: cache-node-modules
+      #   with:
+      #     path: .deploy/hexo-next/node_modules
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
 
 
-      - name: Support For Multi Themes
-        run: |
-          npm install -g hexo
-          bash build.sh
-          cp -r .deploy/multiblog/hexo-next/source/* .deploy/hexo-next/source/
+      # - name: Support For Multi Themes
+      #   run: |
+      #     npm install -g hexo
+      #     bash build.sh
+      #     cp -r .deploy/multiblog/hexo-next/source/* .deploy/hexo-next/source/
 
-      - name: Install dependencies
-        run: |
-          cd .deploy/hexo-next
-          npm install
-          ls -l
+      # - name: Install dependencies
+      #   run: |
+      #     cd .deploy/hexo-next
+      #     npm install
+      #     ls -l
 
-      - name: Copy Source
-        run: |
-          rm -rf .deploy/hexo-next/source/_posts/*
-          cp -r blog/* .deploy/hexo-next/source/_posts
-          cd .deploy/hexo-next
-          find source
+      # - name: Copy Source
+      #   run: |
+      #     rm -rf .deploy/hexo-next/source/_posts/*
+      #     cp -r blog/* .deploy/hexo-next/source/_posts
+      #     cd .deploy/hexo-next
+      #     find source
 
-      - name: Gen
-        run: |
-          cd .deploy/hexo-next
-          npm run g
+      # - name: Gen
+      #   run: |
+      #     cd .deploy/hexo-next
+      #     npm run g
 
-      - name: Copy Images
-        run: |
-          cd .deploy/hexo-next
-          mkdir -p public
-          find source/_posts -name "*.*g" -exec cp {} public \;
-          find public
+      # - name: Copy Images
+      #   run: |
+      #     cd .deploy/hexo-next
+      #     mkdir -p public
+      #     find source/_posts -name "*.*g" -exec cp {} public \;
+      #     find public
 
-      - name: Deploy
-        run: |
-          cd .deploy/hexo-next
-          npm run d
-          ls -l
-      # - name: Looks for Gitalk
-      #   run: cat gitalk/gitalk-init-error.json
+      # - name: Deploy
+      #   run: |
+      #     cd .deploy/hexo-next
+      #     npm run d
+      #     ls -l
+      # # - name: Looks for Gitalk
+      # #   run: cat gitalk/gitalk-init-error.json
