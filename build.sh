@@ -52,7 +52,7 @@ for(( i=0;i<${#themes[@]};i++));
         # echo 'exclude: ["source/_posts/ACM/**"]' >> .deploy/multiblog/$name/_config2.yml 
 
         # add blogs
-        cp -r blog/ .deploy/multiblog/$name/source/_posts
+        cp -r blog/* .deploy/multiblog/$name/source/_posts
         rm -rf .deploy/multiblog/$name/source/_posts/ACM
         rm .deploy/multiblog/$name/source/_posts/index.json .deploy/multiblog/$name/source/_posts/hello-world.md 
 
