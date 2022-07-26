@@ -1,12 +1,23 @@
 #!/bin/bash
 # https://github.com/litten/hexo-theme-yilia.git
 
-themes=(matery foundation next landscape)
+themes=(
+    matery 
+    foundation
+    next 
+    landscape
+    jelly
+    tomotoes
+    shoka
+)
 themesAddr=(
     https://github.com/blinkfox/hexo-theme-matery.git
     https://github.com/chrisjlee/hexo-theme-zurb-foundation.git
     https://github.com/next-theme/hexo-theme-next.git
     https://github.com/hexojs/hexo-theme-landscape.git
+    https://github.com/preccrep/hexo-theme-jelly.git
+    https://github.com/Tomotoes/hexo-theme-tomotoes.git
+    https://github.com/amehime/hexo-theme-shoka.git
 )
 
 # build
