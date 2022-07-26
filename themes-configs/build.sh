@@ -4,6 +4,8 @@ GIT_PRI_KEY=$1
 
 echo -e $GIT_PRI_KEY
 
+exit 0
+
 mkdir /blog
 cp -r /data/* /blog
 cd /blog
