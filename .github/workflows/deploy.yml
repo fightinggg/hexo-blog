@@ -22,17 +22,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
+      # - name: Use Node.js ${{ matrix.node_version }}
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: ${{ matrix.node_version }}
 
       - name: Configuration environment
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
         run: |
           docker login -u fightinggg -p ${{secrets.DOCKERPASSWORD}}
-          docker run -t --rm -v /Users/s/src/hexo-blog/:/data:ro hexoblog bash build.sh $HEXO_DEPLOY_PRI
+          docker run -t --rm -v /Users/s/src/hexo-blog/:/data:ro fightinggg/hexoblogdeploy:v1.0.0 bash build.sh $HEXO_DEPLOY_PRI
 
       # sudo timedatectl set-timezone "Asia/Shanghai"
       # mkdir -p ~/.ssh/
