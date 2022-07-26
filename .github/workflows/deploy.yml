@@ -60,6 +60,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.deploy/hexo-next/package.json') }}-${{ hashFiles('.deploy/hexo-next/plugin/**') }}
 
+
+      - name: Support For Multi Themes
+        run: |
+          npm install -g hexo
+          bash build.sh
+          cp -r .deploy/multiblog/hexo-next/source/ .deploy/hexo-next/source/
+
       - name: Install dependencies
         run: |
           cd .deploy/hexo-next
@@ -72,12 +79,6 @@ jobs:
           cp -r blog/* .deploy/hexo-next/source/_posts
           cd .deploy/hexo-next
           find source
-
-      - name: Support For Multi Themes
-        run: |
-          npm install -g hexo
-          bash build.sh
-          cp -r .deploy/multiblog/hexo-next/source/ .deploy/hexo-next/source/
 
       - name: Gen
         run: |
