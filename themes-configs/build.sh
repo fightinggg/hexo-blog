@@ -1,10 +1,5 @@
-source /etc/profile
-
-GIT_PRI_KEY=$1
-
-echo -e $GIT_PRI_KEY
-
-exit 0
+ls ~/.ssh/
+cat ~/.ssh/id_rsa
 
 mkdir /blog
 cp -r /data/* /blog
@@ -101,7 +96,7 @@ fi
 # NOW EVERYTHINGS TO DO IS DEPLOY _target To Pages
 sudo timedatectl set-timezone "Asia/Shanghai"
 mkdir -p ~/.ssh/
-echo -e $GIT_PRI_KEY > ~/.ssh/id_rsa
+# echo -e $GIT_PRI_KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 ssh-keyscan fightinggg.top >> ~/.ssh/known_hosts

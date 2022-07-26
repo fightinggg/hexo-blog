@@ -31,9 +31,9 @@ jobs:
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
         run: |
-          echo $HEXO_DEPLOY_PRI'a'
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
           docker login -u fightinggg -p ${{secrets.DOCKERPASSWORD}}
-          docker run -t --rm -v $PWD:/data:ro fightinggg/hexoblogdeploy:master bash /data/themes-configs/build.sh $HEXO_DEPLOY_PRI
+          docker run -t --rm -v $(ls ~/.ssh):/root/.ssh -v $PWD:/data:ro fightinggg/hexoblogdeploy:master bash /data/themes-configs/build.sh
 
       # sudo timedatectl set-timezone "Asia/Shanghai"
       # mkdir -p ~/.ssh/
