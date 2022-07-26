@@ -21,6 +21,9 @@ rm -rf .deploy/multiblog/template
 mkdir -p .deploy/multiblog/template
 cd .deploy/multiblog/template && hexo init && cd ../../..
 
+echo 'template init done .'
+ls .deploy/multiblog/template
+ls .deploy/multiblog/template/source
 
 for(( i=0;i<${#themes[@]};i++));
     do
