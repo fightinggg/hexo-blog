@@ -109,7 +109,7 @@ git init  > /dev/null 2>&1
 git config remote.origin.url $GIT_REPO
 git add .  > /dev/null 2>&1
 git commit -m "-"  > /dev/null 2>&1
-git push --set-upstream origin master 
+git push --set-upstream origin master -f
 
 
 # docker run -it --rm --name nginx -p 8081:80 -v $PWD/themes-configs/.hexo-multi-themes/_target:/usr/share/nginx/html nginx
