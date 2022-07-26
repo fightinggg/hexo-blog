@@ -11,3 +11,4 @@ public/
 package-lock.json
 gitalk/*.json
 .deploy/multiblog
+themes-configs/.hexo-multi-themes
