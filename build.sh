@@ -35,8 +35,7 @@ for(( i=0;i<${#themes[@]};i++));
         # init hexo 
         rm -rf .deploy/multiblog/$name
         mkdir -p .deploy/multiblog/$name
-        cp -r .deploy/multiblog/template/ .deploy/multiblog/$name
-
+        cp -r .deploy/multiblog/template/* .deploy/multiblog/$name
         echo $name' init done.'
         ls .deploy/multiblog/$name
 
