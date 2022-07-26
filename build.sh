@@ -9,15 +9,15 @@ https://github.com/next-theme/hexo-theme-next.git
 
 # build
 
-# # setup main 
-# rm -rf .deploy/multiblog/hexo-next
-# mkdir -p .deploy/multiblog/hexo-next
-# cp -r .deploy/hexo-next/ .deploy/multiblog/hexo-next
+# setup main 
+rm -rf .deploy/multiblog/hexo-next
+mkdir -p .deploy/multiblog/hexo-next
+cp -r .deploy/hexo-next/ .deploy/multiblog/hexo-next
 
-# # setup tmplate 
-# rm -rf .deploy/multiblog/template
-# mkdir -p .deploy/multiblog/template
-# cd .deploy/multiblog/template && hexo init && cd ../../..
+# setup tmplate 
+rm -rf .deploy/multiblog/template
+mkdir -p .deploy/multiblog/template
+cd .deploy/multiblog/template && hexo init && cd ../../..
 
 
 for(( i=0;i<${#themes[@]};i++));
