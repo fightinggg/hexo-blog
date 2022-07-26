@@ -75,7 +75,7 @@ for(( i=0;;i++));
         echo npm i hexo-fightinggg-enhancer ${dep//,/ }
         npm i hexo-fightinggg-enhancer ${dep//,/ } > /dev/null 2>&1
         echo 'theme '$name' add depend success...'
-        hexo --config  defaultConfig.yml.yml,_config2.yml,_config.yml g
+        hexo --config  defaultConfig.yml.yml,_config2.yml,_config.yml g --silent 
         echo 'theme '$name' build success...'
         cd ..
 
