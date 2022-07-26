@@ -31,6 +31,7 @@ jobs:
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
         run: |
+          docker login -u fightinggg -p ${{secrets.DOCKERPASSWORD}}
           docker run -t --rm -v /Users/s/src/hexo-blog/:/data:ro hexoblog bash build.sh $HEXO_DEPLOY_PRI
 
       # sudo timedatectl set-timezone "Asia/Shanghai"
