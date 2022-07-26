@@ -40,10 +40,11 @@ cd .deploy/multiblog/template && hexo init && cd ../../..
 echo 'template init done .'
 
 for(( i=0;i<${#themes[@]};i++));
-    do
+    do 
         name=${themes[i]}
         giturl=${themesAddr[i]}
-
+        
+        {
         echo 'process: '${name}' '$giturl
         
 
@@ -81,7 +82,7 @@ for(( i=0;i<${#themes[@]};i++));
         hexo --cwd .deploy/multiblog/$name --config  _config.yml,_config2.yml g --silent 
         mkdir -p .deploy/multiblog/hexo-next/source/$name
         cp -r .deploy/multiblog/$name/public/* .deploy/multiblog/hexo-next/source/$name
-
+        } && { echo 'process '$name' error' }
     done
 
 
