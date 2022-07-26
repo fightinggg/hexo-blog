@@ -65,7 +65,7 @@ jobs:
         run: |
           npm install -g hexo
           bash build.sh
-          cp -r .deploy/multiblog/hexo-next/source/ .deploy/hexo-next/source/
+          cp -r .deploy/multiblog/hexo-next/source/* .deploy/hexo-next/source/
 
       - name: Install dependencies
         run: |
