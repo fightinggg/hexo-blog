@@ -12,6 +12,7 @@ themes=(
     yilia
     yearn
     volantis
+    butterfly
 )
 themesAddr=(
     https://github.com/blinkfox/hexo-theme-matery.git
@@ -24,6 +25,7 @@ themesAddr=(
     https://github.com/JoeyBling/hexo-theme-yilia-plus.git
     https://github.com/imfycc/hexo-themes-yearn.git
     https://github.com/volantis-x/hexo-theme-volantis.git
+    https://github.com/jerryc127/hexo-theme-butterfly.git
 )
 
 # build
