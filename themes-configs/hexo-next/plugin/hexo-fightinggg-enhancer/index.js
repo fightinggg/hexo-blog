@@ -15,6 +15,7 @@ function imagesUrlProcess(data) {
         imageRow = contents[i].match(re)
         if (imageRow) {
             contents[i] = `${imageRow[1]}![${imageRow[2]}](/${imageRow[3]})${imageRow[4]}`
+            contents[i] = `${imageRow[1]}<img src='/${imageRow[3]}'>${imageRow[2]}</img>${imageRow[4]}`
         }
     }
     data.content = contents.join('\n')

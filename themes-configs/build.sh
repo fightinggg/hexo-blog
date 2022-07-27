@@ -15,7 +15,14 @@ cd $workspace
 mkdir _template
 cd _template 
 hexo init  > /dev/null 2>&1
+hexo new about -p about/index.md
+hexo new tags -p tags/index.md
+hexo new categories -p categories/index.md
+hexo new links -p links/index.md
+hexo new friends -p friends/index.md
+npm i hexo-fightinggg-enhancer
 mv _config.yml defaultConfig.yml 
+cp ../hexo_config.yml hexo_config.yml 
 cd ..
 
 # config
@@ -72,10 +79,10 @@ for(( i=0;;i++));
 
         # build
         cd $name 
-        echo npm i hexo-fightinggg-enhancer ${dep//,/ }
-        npm i hexo-fightinggg-enhancer ${dep//,/ } > /dev/null 2>&1
+        echo npm i ${dep//,/ }
+        npm i ${dep//,/ } > /dev/null 2>&1
         echo 'theme '$name' add depend success...'
-        hexo --config  defaultConfig.yml.yml,_config2.yml,_config.yml g --silent 
+        hexo --config  defaultConfig.yml,hexo_config.yml,_config2.yml,_config.yml g --silent 
         echo 'theme '$name' build success...'
         cd ..
 
