@@ -6,23 +6,19 @@ const tags = [];
 util.parseTags(hexo.config.tags, tags);
 util.parseTags(hexo.config.keywords, tags);
 
-flag=true
-function imagesUrlProcess(data){
-    if(flag){
-        // 目前使用正则解析，有人力以后使用markd
-        re = /(.*)!\[(.*)\]\(([^\/].*)\)(.*)/
+function imagesUrlProcess(data) {
+    // 目前使用正则解析，有人力以后使用markd
+    re = /(.*)!\[(.*)\]\(([^\/].*)\)(.*)/
 
-        contents = data.content.split('\n')
-        for (i=0;i<contents.length;i++){
-            imageRow = contents[i].match(re)
-            if(imageRow){
-                contents[i]=`${imageRow[1]}![${imageRow[2]}](/${imageRow[3]})${imageRow[4]}`
-            }
+    contents = data.content.split('\n')
+    for (i = 0; i < contents.length; i++) {
+        imageRow = contents[i].match(re)
+        if (imageRow) {
+            contents[i] = `${imageRow[1]}![${imageRow[2]}](/${imageRow[3]})${imageRow[4]}`
         }
-        data.content = contents.join('\n')
-        console.log(data)
-        flag=false
     }
+    data.content = contents.join('\n')
+    console.log(data)
 }
 
 
