@@ -18,7 +18,7 @@ function imagesUrlProcess(data) {
         }
     }
     data.content = contents.join('\n')
-    console.log(data)
+    // console.log(data)
 }
 
 
