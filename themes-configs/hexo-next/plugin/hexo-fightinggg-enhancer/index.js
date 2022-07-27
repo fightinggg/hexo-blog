@@ -6,18 +6,38 @@ const tags = [];
 util.parseTags(hexo.config.tags, tags);
 util.parseTags(hexo.config.keywords, tags);
 
+flag=true
+function imagesUrlProcess(data){
+    if(flag){
+        // 目前使用正则解析，有人力以后使用markd
+        re = /(.*)!\[(.*)\]\(([^\/].*)\)(.*)/
+
+        contents = data.content.split('\n')
+        for (i=0;i<contents.length;i++){
+            imageRow = contents[i].match(re)
+            if(imageRow){
+                contents[i]=`${imageRow[1]}![${imageRow[2]}](/${imageRow[3]})${imageRow[4]}`
+            }
+        }
+        data.content = contents.join('\n')
+        console.log(data)
+        flag=false
+    }
+}
+
+
 /**
  * fitler hexo's post, auto generate `title`, `date`, `abbrlink`
  *
  * @param log
  * @param data
  */
-
-hexoAbbrlinkSet = new Set();
 function filterPost(log, data) {
     let metadata = util.parseSource(data.source);
 
     data.title = metadata.title || parseInt(Math.random().toString().substring(2), 10).toString().substring(0, 5);
+
+    imagesUrlProcess(data)
 
 
     if (data.source.substring(data.source.length - 5) == '.html') {
@@ -27,10 +47,7 @@ function filterPost(log, data) {
     } else {
         data.abbrlink = (data.abbrlink ? data.abbrlink : '') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
     }
-    // if(hexoAbbrlinkSet.has(data.abbrlink)){
-    //     log.error('重复的abbrlink: '+data.source)
-    // }
-    hexoAbbrlinkSet.add(data.abbrlink);
+
 
     if (metadata.categories.length) {
         let categories = metadata.categories;

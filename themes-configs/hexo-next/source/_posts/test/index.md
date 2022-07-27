@@ -24,3 +24,6 @@ $$
 f(x) = \frac{1}{\sqrt{x}}
 $$
 测试行内公式$f(x) = \frac{1}{\sqrt{x}}$
+
+测试图片
+![](love.svg)
