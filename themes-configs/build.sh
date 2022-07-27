@@ -15,11 +15,11 @@ cd $workspace
 mkdir _template
 cd _template 
 hexo init  > /dev/null 2>&1
-hexo new about -p about/index.md
-hexo new tags -p tags/index.md
-hexo new categories -p categories/index.md
-hexo new links -p links/index.md
-hexo new friends -p friends/index.md
+# hexo new about -p about/index.md
+# hexo new tags -p tags/index.md
+# hexo new categories -p categories/index.md
+# hexo new links -p links/index.md
+# hexo new friends -p friends/index.md
 npm i hexo-fightinggg-enhancer
 mv _config.yml defaultConfig.yml 
 cp ../hexo_config.yml hexo_config.yml 
