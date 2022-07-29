@@ -22,7 +22,7 @@ hexo init  > /dev/null 2>&1
 # hexo new friends -p friends/index.md
 npm i hexo-fightinggg-enhancer
 mv _config.yml defaultConfig.yml 
-cp ../hexo_config.yml hexo_config.yml 
+cp ../../hexo_config.yml hexo_config.yml 
 cd ..
 
 # config
