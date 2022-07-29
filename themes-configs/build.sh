@@ -27,20 +27,20 @@ cd ..
 
 # config
 getConfig(){
-    CONFIG=$(cat ../config.properties | grep '$1')
-    return ${CONFIG#*=}
+    CONFIG=$(cat ../config.properties | grep $1)
+    echo ${CONFIG#*=}
 }
 
-GIT_USER=getConfig 'git.user'
-GIT_EMAIL=getConfig 'git.email'
-GIT_REPO=getConfig 'git.repo'
+GIT_USER=$(getConfig 'git.user')
+GIT_EMAIL=$(getConfig 'git.email')
+GIT_REPO=$(getConfig 'git.repo')
 
 
 for(( i=0;;i++));
     do 
-        name=getConfig 'themes\['$i'\].name'
-        giturl=getConfig 'themes\['$i'\].git'
-        dep=getConfig 'themes\['$i'\].dep'
+        name=$(getConfig 'themes\['$i'\].name')
+        giturl=$(getConfig 'themes\['$i'\].git')
+        dep=$(getConfig 'themes\['$i'\].repo')
         if [ ! $name ]; then
            break;
         fi
