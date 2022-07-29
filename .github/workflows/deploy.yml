@@ -31,15 +31,15 @@ jobs:
         env:
           HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
         run: |
-          if [ $(echo "$HEXO_DEPLOY_PRI" | wc -nc) == 0 ]:
-              echo 'Did You Forget To Setup HEXO_DEPLOY_PRI'
-          fi
-           if [ $(echo "$DOCKERUSERNAME" | wc -nc) == 0 ]:
-              echo 'Did You Forget To Setup DOCKERUSERNAME'
-          fi
-           if [ $(echo "$DOCKERPASSWORD" | wc -nc) == 0 ]:
-              echo 'Did You Forget To Setup DOCKERPASSWORD'
-          fi
+          # if [ $(echo "$HEXO_DEPLOY_PRI" | wc -nc) == 0 ]:
+          #     echo 'Did You Forget To Setup HEXO_DEPLOY_PRI'
+          # fi
+          #  if [ $(echo "$DOCKERUSERNAME" | wc -nc) == 0 ]:
+          #     echo 'Did You Forget To Setup DOCKERUSERNAME'
+          # fi
+          #  if [ $(echo "$DOCKERPASSWORD" | wc -nc) == 0 ]:
+          #     echo 'Did You Forget To Setup DOCKERPASSWORD'
+          # fi
           mkdir -p ~/.ssh/
           echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
           docker login -u ${{secrets.DOCKERUSERNAME}} -p ${{secrets.DOCKERPASSWORD}}
