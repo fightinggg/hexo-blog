@@ -34,6 +34,7 @@ getConfig(){
 GIT_USER=$(getConfig 'git.user')
 GIT_EMAIL=$(getConfig 'git.email')
 GIT_REPO=$(getConfig 'git.repo')
+PAGE_ROOT=$(getConfig 'pages.root')
 
 
 for(( i=0;;i++));
@@ -57,7 +58,7 @@ for(( i=0;;i++));
 
         # config themes
         echo 'url: http://fightinggg.github.io/'$name >> $name/_config2.yml
-        echo 'root: /'$name >> $name/_config2.yml
+        echo 'root: '$PAGE_ROOT$name >> $name/_config2.yml
         echo 'theme: '$name >> $name/_config2.yml
         echo "permalink: ':abbrlink.html'" >> $name/_config2.yml
         echo 'index_generator:' >> $name/_config2.yml
