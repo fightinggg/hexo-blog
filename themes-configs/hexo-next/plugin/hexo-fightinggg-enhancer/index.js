@@ -20,7 +20,6 @@ function supportForMultiThemes(data) {
             padding: 2px 6px 2px 6px;
             margin: 2px 6px 2px 6px;
             text-decoration: none;
-            white-space: nowrap;
             ">${o}</a>`
         }).join('')
         head = `<div>${head}</div>`
