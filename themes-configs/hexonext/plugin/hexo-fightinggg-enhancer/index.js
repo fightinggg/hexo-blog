@@ -8,7 +8,7 @@ util.parseTags(hexo.config.keywords, tags);
 
 function supportForMultiThemes(data) {
     multiTheme = hexo.config.multiTheme
-    //multiTheme = `hexo,next,asdfsdf,asfsfasf,asfsafsdafsaf,safsadfsd,asdfsadf,asfsdaf,asfsfsafas,asfasfsfsd`
+        //multiTheme = `hexo,next,asdfsdf,asfsfasf,asfsafsdafsaf,safsadfsd,asdfsadf,asfsdaf,asfsfsafas,asfasfsfsd`
     if (multiTheme) {
         themes = multiTheme.split(',')
         head = themes.map(o => {
@@ -20,9 +20,10 @@ function supportForMultiThemes(data) {
             padding: 2px 6px 2px 6px;
             margin: 2px 6px 2px 6px;
             text-decoration: none;
+            float: left;
             ">${o}</a>`
         }).join('')
-        head = `<div>${head}</div>`
+        head = `<div>${head}<div style="clear: both;"></div></div>`
         data.content = head + '\n' + data.content
             // console.log(data.content)
 
