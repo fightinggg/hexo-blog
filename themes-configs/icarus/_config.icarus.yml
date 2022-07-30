@@ -1,0 +1,6 @@
+widgets:
+  - type: profile
+    position: left
+  - type: recent_posts
+    position: right
+logo: https://q1.qlogo.cn/g?b=qq&nk=246553278&s=640
