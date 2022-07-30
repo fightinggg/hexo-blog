@@ -6,6 +6,31 @@ const tags = [];
 util.parseTags(hexo.config.tags, tags);
 util.parseTags(hexo.config.keywords, tags);
 
+function supportForMultiThemes(data) {
+    multiTheme = hexo.config.multiTheme
+    multiTheme = `hexo,next,asdfsdf,asfsfasf,asfsafsdafsaf,safsadfsd,asdfsadf,asfsdaf,asfsfsafas,asfasfsfsd`
+    if (multiTheme) {
+        themes = multiTheme.split(',')
+        head = themes.map(o => {
+            url = `${hexo.config.multiThemeRoot}${o}/${data.abbrlink}.html`
+            return `<a href="${url}" style="border-bottom: 0px;border-bottom: 0px;
+            background: #4FC921;
+            color: white;
+            border-radius: 5px;
+            padding: 2px 6px 2px 6px;
+            margin: 2px 6px 2px 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            ">${o}</a>`
+        }).join('')
+        head = `<div>${head}</div>`
+        data.content = head + '\n' + data.content
+            // console.log(data.content)
+
+    }
+}
+
+
 function imagesUrlProcess(data) {
     // 目前使用正则解析，有人力以后使用markd
     re = /(.*)!\[(.*)\]\(([^\/].*)\)(.*)/
@@ -15,11 +40,11 @@ function imagesUrlProcess(data) {
         imageRow = contents[i].match(re)
         if (imageRow) {
             contents[i] = `${imageRow[1]}![${imageRow[2]}](/${imageRow[3]})${imageRow[4]}`
-            contents[i] = `${imageRow[1]}<img src='/${imageRow[3]}'>${imageRow[2]}</img>${imageRow[4]}`
+            contents[i] = `${imageRow[1]}<img src='${hexo.config.multiThemeRoot}${imageRow[3]}'>${imageRow[2]}</img>${imageRow[4]}`
         }
     }
     data.content = contents.join('\n')
-    // console.log(data)
+        // console.log(data)
 }
 
 
@@ -33,8 +58,11 @@ function filterPost(log, data) {
     let metadata = util.parseSource(data.source);
 
     data.title = metadata.title || parseInt(Math.random().toString().substring(2), 10).toString().substring(0, 5);
+    data.updated = data.updated || data.date
 
     imagesUrlProcess(data)
+
+
 
 
     if (data.source.substring(data.source.length - 5) == '.html') {
@@ -45,6 +73,7 @@ function filterPost(log, data) {
         data.abbrlink = (data.abbrlink ? data.abbrlink : '') + (data.date.valueOf() / 1000).toString(36).toUpperCase();
     }
 
+    supportForMultiThemes(data)
 
     if (metadata.categories.length) {
         let categories = metadata.categories;
@@ -72,7 +101,7 @@ function filterPost(log, data) {
     }
 }
 
-hexo.extend.filter.register('before_post_render', function (data) {
+hexo.extend.filter.register('before_post_render', function(data) {
     if (data.layout === 'post') {
         filterPost(this.log, data);
         if (data.source.startsWith("_posts")) {
