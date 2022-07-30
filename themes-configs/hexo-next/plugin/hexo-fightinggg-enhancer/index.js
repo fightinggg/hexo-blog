@@ -8,7 +8,7 @@ util.parseTags(hexo.config.keywords, tags);
 
 function supportForMultiThemes(data) {
     multiTheme = hexo.config.multiTheme
-    multiTheme = `hexo,next,asdfsdf,asfsfasf,asfsafsdafsaf,safsadfsd,asdfsadf,asfsdaf,asfsfsafas,asfasfsfsd`
+    //multiTheme = `hexo,next,asdfsdf,asfsfasf,asfsafsdafsaf,safsadfsd,asdfsadf,asfsdaf,asfsfsafas,asfasfsfsd`
     if (multiTheme) {
         themes = multiTheme.split(',')
         head = themes.map(o => {
