@@ -15,7 +15,7 @@ Clickhouse源码不是比较好运行，强烈建议大家专门为Clickhouse搭
 ```
 git clone --recursive https://github.com/ClickHouse/ClickHouse.git
 ```
-![](JBGateway下载Clickhouse源码.png)
+![](JB-Gateway下载Clickhouse源码.png)
 
 此后使用[JetBrains Gateway](https://www.jetbrains.com/remote-development/gateway/)执行shell指令，不再直接通过virtualbox的窗口执行指令。
 
