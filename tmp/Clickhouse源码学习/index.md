@@ -35,9 +35,9 @@ sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 ![](Clang14配置.png)
 
 
+等待Cmake加载完成后，编译Clickhouse-Server，如果成功，则环境配置至此完成
 
-
-
+![](编译clickhouse-server.png)
 
 
 
