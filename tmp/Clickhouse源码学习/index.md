@@ -31,7 +31,8 @@ sudo apt-get install git cmake ccache python3 ninja-build -y
 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 ```
 
-
+配置Clang14编译器
+![](Clang14配置.png)
 
 
 
