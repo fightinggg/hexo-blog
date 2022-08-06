@@ -12,7 +12,14 @@ tags: linux指令
 yum -y install man-pages
 ```
 
-# 下载
+# SCP
+## 上传本地文件到服务器
+```
+scp -P [ssh端口] /path/filename username@serverhost:/path   
+```
+
+
+# 下载HTTP文件
 下载东西可以使用curl指令，如
 ```
 curl baidu.com -O -L
