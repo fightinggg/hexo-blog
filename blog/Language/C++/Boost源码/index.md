@@ -244,7 +244,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 
 # any
 
- 如{% post_link 'Boost-学习笔记2-Boost-Any' Any接口学习 %}所示，any能够支持我们的c++向python一样，给一个变量瞎赋值，这也太爽了。
+ 如{ post_link 'Boost-学习笔记2-Boost-Any' Any接口学习 }所示，any能够支持我们的c++向python一样，给一个变量瞎赋值，这也太爽了。
 
 ## 构造函数如下
 
