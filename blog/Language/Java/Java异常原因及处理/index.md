@@ -1,6 +1,6 @@
 ---
 date: 2021-07-21 12:57:00
-updated: 2021-07-21 12:57:00
+updated: 2022-05-05 17:06:00
 ---
 
 
@@ -30,6 +30,8 @@ classDiagram
 ## 类初始化失败
 
 如果一个类初始化失败，在第一次失败的时候会报错`java.lang.ExceptionInInitializerError`，第二次就会`java.lang.NoClassDefFoundError`
+
+今天碰到这个问题了，查了一下午（2023-05-05），fuck
 
 ```java
 package com.example.demo;
@@ -119,7 +121,6 @@ Caused by: java.lang.ClassNotFoundException: com.example.demo.ClassNotDefErrorFr
 
 Process finished with exit code 1
 ```
-
 
 
 
