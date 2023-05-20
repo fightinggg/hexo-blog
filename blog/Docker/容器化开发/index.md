@@ -23,6 +23,8 @@ https://segmentfault.com/a/1190000023095631
 ## Nodejs开发
 
 ```sh
+docker run -it -v $HOME:$HOME node bash
+
 docker run -itd \
 --restart=always \
 --name node-dev \
